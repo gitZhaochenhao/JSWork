@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            height: 100%;
+            background-color: pink;
+        }
+
+        ul {
+            list-style: none;
+            margin: 200px auto;
+            width: 908px;
+            height: 38px;
+            border: 1px solid red;
+            overflow: hidden;
+        }
+
+        ul > li {
+            width: 100px;
+            height: 100%;
+            float: left;
+            text-align: center;
+            line-height: 38px;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+            color: black;
+        }
+
+        ul > li:not(:last-child) {
+            border-right: 1px solid red;
+        }
+
+        ul > li > .down {
+            height: 100%;
+            background-color: orange;
+            transition: .5s;
+        }
+
+        ul > li:hover .down {
+            transform: translateY(-38px);
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="wrap">
+    <audio autoplay="autoplay"></audio>
+    <ul class="nav">
+        <li data-flag="a">
+            <a href="javascript:;">我的主页</a>
+            <div class="down"></div>
+        </li>
+        <li>
+            <a href="javascript:;">我的商城</a>
+            <div class="down"></div>
+        </li>
+        <li data-flag="b">
+            <a href="javascript:;">我的笔记</a>
+            <div class="down"></div>
+        </li>
+        <li>
+            <a href="javascript:;">我的代码</a>
+            <div class="down"></div>
+        </li>
+        <li data-flag="c">
+            <a href="javascript:;">我的人生</a>
+            <div class="down"></div>
+        </li>
+        <li>
+            <a href="javascript:;">我的联系</a>
+            <div class="down"></div>
+        </li>
+        <li data-flag="d">
+            <a href="javascript:;">我的住址</a>
+            <div class="down"></div>
+        </li>
+        <li>
+            <a href="javascript:;">我的记录</a>
+            <div class="down"></div>
+        </li>
+        <li data-flag="e">
+            <a href="javascript:;">我的主页</a>
+            <div class="down"></div>
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+    //http://s8.qhimg.com/share/audio/piano1/g4.mp3
+    //页面加载
+
+    window.onload = function () {
+       var li=document.getElementsByTagName('li');
+	   var alogo=document.querySelector('audio');
+	   
+	   for (var i = 0; i < li.length; i++) {
+	   	li[i].onmouseenter=function(){
+			var src=this.dataset.flag;
+			alogo.src='http://s8.qhimg.com/share/audio/piano1/'+src+'4.mp3';
+			// 播放
+			alogo.play();
+		}
+	   }
+    };
+
+</script>
+</body>
+</html>

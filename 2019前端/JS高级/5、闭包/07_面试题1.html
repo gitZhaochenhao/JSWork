@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>07_面试题1</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /*
+   说说它们的输出情况
+   */
+
+  //代码片段一
+  // var name = "The Window";
+  // var object = {
+  //   name: "My Object",
+  //   getNameFunc: function () {
+  //     return function () {
+  //       return this.name;
+  //     };
+  //   }
+  // };
+  //
+  // var result = object.getNameFunc()();
+  // console.log(result);
+  // console.log(object.getNameFunc()());  //? My Object
+  //
+  //
+  //
+  // function fun() {
+  //   console.log(this, 'fun()');
+  //   var is = '外部作用域';
+  //   function fun2() {
+  //     console.log(is);
+  //     console.log(this, 'fun2()');
+  //   }
+  //   //自调用函数中的this永远指向window,
+  //   fun2(); // window
+  // }
+  // fun();
+
+
+  //代码片段二
+  var name2 = "The Window";
+  var object2 = {
+    name2: "My Object",
+    getNameFunc: function () {
+      console.log(this)//object
+      var that = this; // 缓存this
+      return function () {
+        console.log(that)
+        return that.name2;
+      };
+    }
+  };
+  //构成了闭包，并将内部函数返回出来
+  //自调用函数中的this永远指向window,但作用域依旧依据其位置而定
+  console.log(object2.getNameFunc()()); //?\
+</script>
+</body>
+</html>

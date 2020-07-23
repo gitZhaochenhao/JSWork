@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background: pink;
+            background-image: radial-gradient(deeppink,yellowgreen);
+            /*如果给一个正方形  或者说给一个宽高比1:1的矩形设置径向渐变时 第一个参数设置circle不会有变化*/
+            background-image: radial-gradient(circle,deeppink,yellowgreen);
+            /*只要元素是正方形  设置ellipse 最终也会渲染成圆形*/
+            background-image: radial-gradient(ellipse,deeppink,blue,yellowgreen);
+        }
+        #box2 {
+            margin-top: 50px;
+            width: 300px;
+            height: 200px;
+            background: pink;
+            background-image: radial-gradient(deeppink,yellowgreen);
+            /*circle  给长方形设置时   渐变的形状也为圆形*/
+            background-image: radial-gradient(circle,deeppink,yellowgreen);
+            background-image: radial-gradient(ellipse,deeppink,yellowgreen);
+        }
+
+    </style>
+</head>
+<body>
+<div id="box1"></div>
+<div id="box2"></div>
+</body>
+
+</html>

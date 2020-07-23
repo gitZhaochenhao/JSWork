@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" name="" id="text">
+<!--
+Web Storage API内建了一套事件通知机制，当存储区域的内容发生改变（包括增加、修改、删除数据）时，就会自动触发 storage 事件，并把它发送给所有感兴趣的监听者。因此，如果需要跟踪存储区域的改变，就需要在关心存储区域内容的页面监听 storage 事件。
+-->
+<script type="text/javascript">
+    let text = document.getElementById('text');
+    window.addEventListener('storage',function (event) {
+        //参数对象中拥有一系列信息，包括当前数据的键名与该键名当前对应的值（newValue）与上一个老的值（oldValue）
+        console.log(event);
+        text.value = event.newValue;
+    });
+
+</script>
+</body>
+</html>

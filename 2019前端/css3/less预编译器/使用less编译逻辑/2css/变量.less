@@ -1,0 +1,16 @@
+@bgcolor:red;
+@W:width;
+
+// 当less代表一个属性时，需要@{变量名}
+.warp{
+	// 当less代表一个属性时，需要@{变量名}
+	@{W}: 500px;
+	height: 500px;
+	background-color: #00FFFF;
+	.box{
+		@{W}: 200px;
+		height: 200px;
+		// 当less变量是一个属性值时，可以直接写变量名
+		background-color: @bgcolor;
+	}
+}

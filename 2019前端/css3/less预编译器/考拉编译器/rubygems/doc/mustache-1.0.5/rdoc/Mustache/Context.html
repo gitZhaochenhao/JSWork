@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Mustache::Context - mustache-1.0.5 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-current">#current</a>
+    
+    <li ><a href="#method-i-escapeHTML">#escapeHTML</a>
+    
+    <li ><a href="#method-i-fetch">#fetch</a>
+    
+    <li ><a href="#method-i-find">#find</a>
+    
+    <li ><a href="#method-i-find_in_hash">#find_in_hash</a>
+    
+    <li ><a href="#method-i-has_key-3F">#has_key?</a>
+    
+    <li ><a href="#method-i-mustache_in_stack">#mustache_in_stack</a>
+    
+    <li ><a href="#method-i-partial">#partial</a>
+    
+    <li ><a href="#method-i-pop">#pop</a>
+    
+    <li ><a href="#method-i-push">#push</a>
+    
+    <li ><a href="#method-i-template_for_partial">#template_for_partial</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Mustache::Context">
+  <h1 id="class-Mustache::Context" class="class">
+    class Mustache::Context
+  </h1>
+
+  <section class="description">
+    
+<p>A <a href="Context.html">Context</a> represents the context which a <a
+href="../Mustache.html">Mustache</a> template is executed within. All <a
+href="../Mustache.html">Mustache</a> tags reference keys in the <a
+href="Context.html">Context</a>.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(mustache)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializes a <a href="Context.html">Mustache::Context</a>.</p>
+
+<p>@param [Mustache] mustache A <a href="../Mustache.html">Mustache</a>
+instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">mustache</span>)
+  <span class="ruby-ivar">@stack</span> = [<span class="ruby-identifier">mustache</span>]
+  <span class="ruby-ivar">@partial_template_cache</span> = {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Alias for `fetch`.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">name</span>, <span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(name, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Can be used to add a value to the context in a hash-like way.</p>
+
+<p><a href=":name">context</a> = “Chris”</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">push</span>(<span class="ruby-identifier">name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-current" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">current</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="current-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current</span>
+  <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-escapeHTML" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">escapeHTML</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Allows customization of how <a href="../Mustache.html">Mustache</a> escapes
+things.</p>
+
+<p>@param [String] str String to escape.</p>
+
+<p>@return [String] Escaped HTML string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="escapeHTML-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">escapeHTML</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">mustache_in_stack</span>.<span class="ruby-identifier">escapeHTML</span>(<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch</span><span
+            class="method-args">(name, default = :__raise)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Similar to Hash#fetch, finds a value by `name` in the context&#39;s stack.
+You may specify the default return value by passing a second parameter.</p>
+
+<p>If no second parameter is passed (or raise_on_context_miss is set to true),
+will raise a <a href="ContextMiss.html">ContextMiss</a> exception on miss.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">default</span> = <span class="ruby-value">:__raise</span>)
+  <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">frame</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># Prevent infinite recursion.</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">frame</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>
+
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">find</span>(<span class="ruby-identifier">frame</span>, <span class="ruby-identifier">name</span>, <span class="ruby-value">:__missing</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword">if</span> <span class="ruby-value">:__missing</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">default</span> <span class="ruby-operator">==</span> <span class="ruby-value">:__raise</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">mustache_in_stack</span>.<span class="ruby-identifier">raise_on_context_miss?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ContextMiss</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Can&#39;t find #{name} in #{@stack.inspect}&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">default</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(obj, key, default = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Finds a key in an object, using whatever method is most appropriate. If the
+object is a hash, does a simple hash lookup. If it&#39;s an object that
+responds to the key as a method call, invokes that method. You get the
+idea.</p>
+
+<p>@param [Object] obj The object to perform the lookup on. @param
+[String,Symbol] key The key whose value you want @param [Object] default An
+optional default value, to return if the key is not found.</p>
+
+<p>@return [Object] The value of key in object if it is found, and default
+otherwise.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">default</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">find_in_hash</span>(<span class="ruby-identifier">obj</span>.<span class="ruby-identifier">to_hash</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">default</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_hash</span>)
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-comment"># no match for the key, but it may include a hyphen, so try again replacing hyphens with underscores.</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&#39;-&#39;</span>, <span class="ruby-string">&#39;_&#39;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">default</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">meth</span> = <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">method</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-identifier">proc</span> { <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">key</span>) }
+  <span class="ruby-identifier">meth</span>.<span class="ruby-identifier">arity</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">meth</span>.<span class="ruby-identifier">to_proc</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">meth</span>.<span class="ruby-identifier">call</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_key-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_key?</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Do we know about a particular key? In other words, will calling `<a
+href="key">context</a>` give us a result that was set. Basically.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_key-3F-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ContextMiss</span>
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mustache_in_stack" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mustache_in_stack</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Find the first <a href="../Mustache.html">Mustache</a> in the stack.</p>
+
+<p>If we&#39;re being rendered inside a <a
+href="../Mustache.html">Mustache</a> object as a context, we&#39;ll use
+that one.</p>
+
+<p>@return [Mustache] First <a href="../Mustache.html">Mustache</a> in the
+stack.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mustache_in_stack-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mustache_in_stack</span>
+  <span class="ruby-ivar">@mustache_in_stack</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">frame</span><span class="ruby-operator">|</span> <span class="ruby-identifier">frame</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Mustache</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-partial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">partial</span><span
+            class="method-args">(name, indentation = '')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A {{&gt;partial}} tag translates into a call to the context&#39;s `partial`
+method, which would be this sucker right here.</p>
+
+<p>If the <a href="../Mustache.html">Mustache</a> view handling the rendering
+(e.g. the view representing your profile page or some other template)
+responds to `partial`, we call it and render the result.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="partial-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">partial</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">indentation</span> = <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-comment"># Look for the first Mustache in the stack.</span>
+  <span class="ruby-identifier">mustache</span> = <span class="ruby-identifier">mustache_in_stack</span>
+
+  <span class="ruby-comment"># Indent the partial template by the given indentation.</span>
+  <span class="ruby-identifier">part</span> = <span class="ruby-identifier">mustache</span>.<span class="ruby-identifier">partial</span>(<span class="ruby-identifier">name</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^/</span>, <span class="ruby-identifier">indentation</span>)
+
+  <span class="ruby-comment"># Get a template object for the partial and render the result.</span>
+  <span class="ruby-identifier">template_for_partial</span>(<span class="ruby-identifier">part</span>).<span class="ruby-identifier">render</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pop" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pop</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes the most recently added object from the context&#39;s internal
+stack.</p>
+
+<p>@return [Context] Returns the <a href="Context.html">Context</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="pop-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pop</span>
+  <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-ivar">@mustache_in_stack</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-push" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">push</span><span
+            class="method-args">(new_obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adds a new object to the context&#39;s internal stack.</p>
+
+<p>@param [Object] new_obj Object to be added to the internal stack.</p>
+
+<p>@return [Context] Returns the <a href="Context.html">Context</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="push-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">push</span>(<span class="ruby-identifier">new_obj</span>)
+  <span class="ruby-ivar">@stack</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">new_obj</span>)
+  <span class="ruby-ivar">@mustache_in_stack</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_for_partial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_for_partial</span><span
+            class="method-args">(partial)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_for_partial-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_for_partial</span>(<span class="ruby-identifier">partial</span>)
+  <span class="ruby-ivar">@partial_template_cache</span>[<span class="ruby-identifier">partial</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">partial</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-find_in_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_in_hash</span><span
+            class="method-args">(obj, key, default)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Fetches a hash key if it exists, or returns the given default.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_in_hash-source">
+            <pre><span class="ruby-comment"># File lib/mustache/context.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_in_hash</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">default</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">key</span>]      <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">has_key?</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">key</span>]      <span class="ruby-keyword">if</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:default_proc</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">default_proc</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">obj</span>[<span class="ruby-identifier">key</span>]
+
+  <span class="ruby-comment"># If default is :__missing then we are from #fetch which is hunting through the stack</span>
+  <span class="ruby-comment"># If default is nil then we are reducing dot notation</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-value">:__missing</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">default</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">mustache_in_stack</span>.<span class="ruby-identifier">raise_on_context_miss?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ContextMiss</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Can&#39;t find #{key} in #{obj}&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">default</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

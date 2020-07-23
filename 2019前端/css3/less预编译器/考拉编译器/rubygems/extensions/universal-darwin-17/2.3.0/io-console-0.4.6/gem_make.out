@@ -1,0 +1,30 @@
+current directory: /Users/zay/Documents/Developer/node-webkit/Projects/koala/src/rubygems/gems/io-console-0.4.6
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20171115-26448-1xvgb0j.rb extconf.rb
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/universal-darwin17/rbconfig.rb:214: warning: Insecure world writable dir /Users/zay/Documents/Developer/node-webkit/Projects/koala/src in PATH, mode 040777
+checking for termios.h... yes
+checking for cfmakeraw() in termios.h... yes
+checking for sys/ioctl.h... yes
+checking for rb_funcallv()... yes
+checking for rb_sym2str()... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/zay/Documents/Developer/node-webkit/Projects/koala/src/rubygems/extensions/universal-darwin-17/2.3.0/io-console-0.4.6/mkmf.log
+
+current directory: /Users/zay/Documents/Developer/node-webkit/Projects/koala/src/rubygems/gems/io-console-0.4.6
+make "DESTDIR=" clean
+
+current directory: /Users/zay/Documents/Developer/node-webkit/Projects/koala/src/rubygems/gems/io-console-0.4.6
+make "DESTDIR="
+compiling console.c
+linking shared-object io/console.bundle
+ld: warning: directory not found for option '-L/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/libressl/lib'
+ld: warning: directory not found for option '-L/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/lib'
+ld: warning: directory not found for option '-L/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/libressl/lib'
+ld: warning: directory not found for option '-L/BuildRoot/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.Internal.sdk/usr/local/lib'
+
+current directory: /Users/zay/Documents/Developer/node-webkit/Projects/koala/src/rubygems/gems/io-console-0.4.6
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 console.bundle ./.gem.20171115-26448-1xo0s83/io
+installing default console libraries

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+      let userName = 'kobe';
+      let age = 43;
+      // let obj = {
+      //     userName:userName,
+      //     age:age,
+      //     set:function () {
+      //       console.log('这里是内部方法')
+      //     }
+      // };
+
+      //es6中 当对象的键与变量名一致时我们可以简写，方法可以直接简写
+      let obj = {
+          userName,
+          age,
+          set() {
+              console.log('这里是内部方法')
+          }
+      };
+      console.log(obj);
+      obj.set();
+
+    </script>
+</body>
+</html>

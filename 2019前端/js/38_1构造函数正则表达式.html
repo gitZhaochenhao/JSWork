@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 构造函数方法创建正则表达式 -->
+		
+		<script type="text/javascript">
+			
+			var reg=new RegExp('a');
+			// 查看字符串中是否含有某个字符  test()  返回布尔值
+			console.log(reg.test('abc'))
+			
+			// 包含a或者b  '|'
+			var reg=new RegExp('a|b');
+			console.log(reg.test('ajc'))
+			
+			// 连续的ab
+			var reg=new RegExp('ab');
+			console.log(reg.test('ajc'))
+			console.log(reg.test('Abjc'))//对大小写敏感
+			
+			// 第二个参数表示对大小写不敏感  i
+			var reg=new RegExp('ab','i');
+			console.log(reg.test('Abjc'))//此时对大小写不敏感
+		</script>
+	</body>
+</html>

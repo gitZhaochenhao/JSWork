@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<script type="text/javascript">
+			
+			// btn.onclick=function(){
+			// 	alert("第一")
+			// 	// 事件解绑
+			// 	btn.onclick=null;
+			// }
+			
+			
+			// 高版本绑定
+			// btn.addEventListener('click',fn1,false);
+			// btn.addEventListener('click',fn2,false);
+			
+			//高级浏览器解绑     （解绑事件名 事件函数名 布尔值）
+			// btn.removeEventListener('click',fn1,false);
+			
+			// 低版本绑定
+			btn.attachEvent('onclick',fn1)
+			btn.attachEvent('onclick',fn2)
+			// 低版本解绑
+			btn.detachEvent('onclick',fn2);
+			
+			
+			
+			
+			function fn1(){
+				alert("第一");
+				// btn.detachEvent('onclick',fn2);
+			}
+			function fn2(){
+				alert("第二")
+			}
+			
+		</script>
+	</body>
+</html>

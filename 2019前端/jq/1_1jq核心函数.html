@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入jq文件 -->
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript">
+			// js的一切方法都是对dom对象的方法，不能对jq对象使用
+			// $就是jq，是一个函数
+			$(function(){
+				// 用jq方式找到对应元素，是一个jq对象，不能使用dom对象的方法
+				$('#btn').click(function(){
+					// this是dom方法不可用,但是，我们可以将dom方法封装成jq方法
+					alert($(this).html());
+					// 用jq方式创建一个节点,内容为字符串形式
+					$('<input type="text" /><br />').appendTo('.box');
+				})
+				
+				
+				
+				// 遍历一个数组
+				var arr=[7,5,3,1];
+				
+				// each循环是jq对象中的一个方法，第一个参数表明要遍历谁，第二个参数是一个回调函数表示要对每一个遍历的元素干什么操作
+				// 回调函数也有两个参数，第一个参数表示他的索引值，第二个参数表示元素值
+				$.each(arr,function(index,item){
+					console.log(index,item)
+				});
+				
+				// 去掉字符串两端空格
+				var str='  name zhao ';
+				console.log($.trim(str))
+			})
+		</script>
+	</head>
+	<body>
+		<div class="box">
+			<button id="btn">按钮</button><br />
+			<input type="text" /><br />
+			<input type="text" /><br />
+		</div>
+	</body>
+</html>

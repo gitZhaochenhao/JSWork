@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			垃圾回收:当一个对象长时间没有任何变量进行指向时,那么这个变量自动销毁
+			
+			var a=new Object();
+			a.name="梨花"
+			
+			var b=new Object();
+			b.name="桂花"
+			
+			// b指向一个新的对象内存地址，因此上方的原来b指向的对象无人指向，销毁
+			b=new Object();
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

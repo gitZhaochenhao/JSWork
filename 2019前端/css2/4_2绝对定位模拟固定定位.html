@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			/* 
+			 原理：
+			 document滚动条滚动使初始包含块移动绝对定位的元素跟随滚动
+			 因此我们将document的滚动条禁用，自己定义body的滚动条，此时包含块不会移动
+			 
+			 */			
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			html{
+				/* 将docunment滚动条禁用 */
+				overflow: hidden;
+				height: 100%;
+			}
+			body{
+				height: 100%;
+				overflow:auto;
+			}
+			.wrap{
+				
+				height: 2000px;
+				background-color: palegoldenrod;
+			}
+			.box{
+				width: 100px;
+				height: 200px;
+				background-color: #00CCFF;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			ffffffffffffffff<br />
+			ffffffffffffffff<br />
+			ffffffffffffffff<br />
+			ffffffffffffffff<br />
+			<div class="box"></div>
+		</div>
+		
+	</body>
+</html>

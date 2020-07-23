@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--&lt;!&ndash; <input type="text" placeholder="请输入"><br/> &ndash;&gt;-->
+<!--&lt;!&ndash; <input type="text" autofocus><br/>&lt;!&ndash;获取光标&ndash;&gt; -->
+<!--&lt;!&ndash; <input type="text" required><br/>&lt;!&ndash;必填的&ndash;&gt; -->
+<!--&lt;!&ndash; <input type="text" pattern="\d{3}" required><br/>&lt;!&ndash;正则表达式&ndash;&gt; -->
+<!--&lt;!&ndash; <input type="submit" id="sm" value="提交"> &ndash;&gt;-->
+<form action="http://www.baidu.com">
+		
+		<input type="text" placeholder="请输入" /><br />
+		<!-- 自动获取焦点 -->
+		<input type="text" autofocus="autofocus" /><br />
+		<!-- off  不进行提示  -->
+		<input type="text" autocomplete="off" /><br />
+		<!-- 必须填写 为空会进行提示，停止提交 -->
+		<input type="text" required="required" /><br />
+		<!-- 可以直接进行表单的正则表达式验证 配合required使用-->
+		<input type="text" pattern="^[a-z A-Z]+\d{2}$" required="required"/><br />
+		
+		<input type="submit" value="提交" />
+    </form>
+</body>
+</html>

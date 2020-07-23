@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// 方法二 工厂模式
+			// 应用函数进行面向对象的创建
+			
+			function myfun(name,age,gender,sing){
+				var jay=new Object();
+				// 写入属性
+				jay.name=name;
+				jay.age=age;
+				jay.gender=gender;
+				// 写入方法
+				jay.sing=function(){
+					alert(sing)
+				};
+				return jay
+			};
+			
+			// 接收创建的面向对象,通过传参数来建立属性不同的对象
+			var clas=myfun("周杰伦",15,false,"摇起来");
+			// 每个实例对象的内存地址都不一样
+			var clas=myfun("蔡徐坤",18,true,"太美");
+			console.log(clas)
+			// {name: "周杰伦", age: 15, gender: false, sing: ƒ}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

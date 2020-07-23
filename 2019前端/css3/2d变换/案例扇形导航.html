@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.wrap{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				right: 50px;
+				bottom: 20px;
+				width: 50px;
+			}
+			.home{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				background-image: url(img/home.png);
+				border-radius: 50%;
+				z-index: 2;
+				cursor: pointer;
+				transition: 2s;
+			}
+			.list li{
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				cursor: pointer;
+			}
+			.list li img{
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="home" id="home"></div>
+			<ul class="list">
+				<li><img src="img/clos.png" alt=""></li>
+				<li><img src="img/full.png" alt=""></li>
+				<li><img src="img/open.png" alt=""></li>
+				<li><img src="img/prev.png" alt=""></li>
+				<li><img src="img/refresh.png" alt=""></li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			// 获取home
+			var home=document.getElementById('home')
+			// 获取所有小图标
+			// querySelectorAll用于查找dom的方法   可以写选择器  返回值也是数组
+			var img=document.querySelectorAll('.list li')
+			// 动画状态
+			var ketongType=true;
+			// 半径
+			var r=200;
+			
+			// 点击home的事件
+			home.onclick=function(){
+				if(ketongType){
+					this.style.transform='rotate(-360deg)';
+					for (var i = 0; i < img.length; i++) {
+						img[i].style.top=-geiPoint(r,90/(img.length-1)*i).top+'px';
+						img[i].style.left=-geiPoint(r,90/(img.length-1)*i).left+'px';
+						img[i].style.transform='rotate(-720deg)';
+						img[i].style.transition='2s '+0.1*i+'s';
+					};
+				}else{
+					this.style.transform='rotate(0deg)';
+					for (var i = 0; i < img.length; i++) {
+					img[i].style.top=0+'px';
+					img[i].style.left=0+'px';       
+					img[i].style.transform='rotate(0deg)';
+					img[i].style.transition='2s'+0.1*img.lengthi+'s'
+					};
+				};
+				ketongType=!ketongType;
+				
+			};
+			
+			for (var i = 0; i < img.length; i++) {
+				img[i].onclick=function(){
+					
+					this.style.transform='rotate(-720deg) scale(1.5)';
+					this.style.opacity =0.5;
+					// 原有过渡时长被覆盖
+					this.style.transition=2+'s';
+					
+					// 检测变换是否完成的事件,规定通过addEventListener绑定事件来绑定
+					this.addEventListener('transitionend',fun);
+					function fun(){
+						console.log(this)
+						this.style.transform='rotate(-720deg) scale(1)';
+						this.style.opacity =1;
+						this.removeEventListener('transitionend',fun);
+						// this.style.transition='7s' 
+						// this.style.transition='0s'
+					};
+				};
+			};
+			
+			function geiPoint(r,deg) {
+			//         Math.sin和Math.cos方法传递的参数为弧度值
+			//        弧度 = 角度*pi/180
+			            var left = r*Math.sin(deg*Math.PI/180);
+			            var top = r*Math.cos(deg*Math.PI/180);
+			//       return [left,top];
+			            return {left:left,top:top}
+			        };
+			
+		</script>
+	</body>
+</html>

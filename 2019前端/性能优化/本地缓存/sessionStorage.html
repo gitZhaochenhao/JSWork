@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="add">添加信息</button>
+<button id="sele">查询信息</button>
+<button id="del">删除单个信息</button>
+<button id="delAll">删除全部信息</button>
+<script type="text/javascript">
+    let add = document.getElementById('add');
+    let sele = document.getElementById('sele');
+    let del = document.getElementById('del');
+    let delAll = document.getElementById('delAll');
+
+    add.addEventListener('click',()=>{
+        //创建一个本地缓存，并导入一个键值对信息
+        sessionStorage.setItem('obj','{name:"小明"}');
+    });
+
+    sele.addEventListener('click',()=>{
+        //获取一个本地缓存的信息，通过键名的方式获取
+        console.log(sessionStorage.getItem('obj'));
+    });
+
+    del.addEventListener('click',()=>{
+        //删除单条信息
+        sessionStorage.removeItem('obj');
+    });
+
+    delAll.addEventListener('click',()=>{
+        //删除单条信息
+        sessionStorage.clear();
+    });
+
+
+</script>
+</body>
+</html>

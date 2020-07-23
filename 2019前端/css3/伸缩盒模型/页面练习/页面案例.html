@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				list-style: none;
+				padding: 0;
+				text-decoration: none;
+			}
+			html,body{
+				height: 100%;
+			}
+			#heard{
+				width: 100%;
+				background-color: rgba(0,0,0,0.6);
+				display: flex;
+				justify-content: space-between;
+				padding: 5px 15px;
+				box-sizing: border-box;
+				position: fixed;
+			}
+			#heard #list{
+				display: flex;
+				align-items: center;
+				
+			}
+			#heard #list li{
+				margin-right: 10px;
+				border: 1px solid #FFFFFF;
+				border-radius: 5px;
+				padding: 5px 8px;
+			}
+			#heard #list li:last-child{
+				margin-right: 0px;
+			}
+			#heard #list li a{
+				color: #FFFFFF;
+			}
+			#main{
+				width: 100%;
+				height: 100%;
+				background-image: url(img/bg2.jpg);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+			#main #lowList{
+				display: flex;
+				width: 80%;
+				height: 200px;
+				justify-content: space-between;
+			}
+			#main #lowList li{
+				width: 150px;
+				height: 210px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: space-around;
+			}
+			#main #lowList li:nth-child(1){
+			    background-color: #595CA8;
+			}
+			#main #lowList li:nth-child(2){
+			    background-color: #FF9D2E;
+			}
+			#main #lowList li:nth-child(3){
+			    background-color: #01A6DE;
+			}
+			#main #lowList li:nth-child(4){
+			    background-color: #015E91;
+			}
+			#main #lowList li:nth-child(5){
+			    background-color: #1DC128;
+			}
+			#main #lowList li:nth-child(6){
+			    background-color: #01A6DE;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="heard">
+			<h1>
+				<a href="##">
+					<img src="img/atguigu-logo.png">
+				</a>
+			</h1>
+			<ul id="list">
+				<li><a href="#">新学科</a></li>
+				<li><a href="#">学科简介</a></li>
+				<li><a href="#">北京校区</a></li>
+			</ul>
+		</div>
+		<div id="main">
+			<ul id="lowList">
+				<li><img src="img/ywfw_1.png" alt=""><p>HTML5学科</p></li>
+				<li><img src="img/ywfw_2.png" alt=""><p>HTML5学科</p></li>
+				<li><img src="img/ywfw_3.png" alt=""><p>HTML5学科</p></li>
+				<li><img src="img/ywfw_4.png" alt=""><p>HTML5学科</p></li>
+				<li><img src="img/ywfw_5.png" alt=""><p>HTML5学科</p></li>
+				<li><img src="img/ywfw_6.png" alt=""><p>HTML5学科</p></li>
+			</ul>
+		</div>
+	</body>
+</html>

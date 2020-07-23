@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Hash - backports-3.10.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-5B-5D">::[]</a>
+    
+    <li ><a href="#method-c-constructor_without_key_value_pair_form">::constructor_without_key_value_pair_form</a>
+    
+    <li ><a href="#method-c-try_convert">::try_convert</a>
+    
+    <li ><a href="#method-i-3C">#&lt;</a>
+    
+    <li ><a href="#method-i-3C-3D">#&lt;=</a>
+    
+    <li ><a href="#method-i-3E">#&gt;</a>
+    
+    <li ><a href="#method-i-3E-3D">#&gt;=</a>
+    
+    <li ><a href="#method-i-assoc">#assoc</a>
+    
+    <li ><a href="#method-i-compact">#compact</a>
+    
+    <li ><a href="#method-i-compact-21">#compact!</a>
+    
+    <li ><a href="#method-i-default_proc-3D">#default_proc=</a>
+    
+    <li ><a href="#method-i-default_proc_with_nil-3D">#default_proc_with_nil=</a>
+    
+    <li ><a href="#method-i-dig">#dig</a>
+    
+    <li ><a href="#method-i-eql-3F">#eql?</a>
+    
+    <li ><a href="#method-i-fetch_values">#fetch_values</a>
+    
+    <li ><a href="#method-i-hash">#hash</a>
+    
+    <li ><a href="#method-i-keep_if">#keep_if</a>
+    
+    <li ><a href="#method-i-rassoc">#rassoc</a>
+    
+    <li ><a href="#method-i-reverse_merge">#reverse_merge</a>
+    
+    <li ><a href="#method-i-reverse_merge-21">#reverse_merge!</a>
+    
+    <li ><a href="#method-i-select-21">#select!</a>
+    
+    <li ><a href="#method-i-select_with_hash_return">#select_with_hash_return</a>
+    
+    <li ><a href="#method-i-stringify_keys">#stringify_keys</a>
+    
+    <li ><a href="#method-i-stringify_keys-21">#stringify_keys!</a>
+    
+    <li ><a href="#method-i-symbolize_keys">#symbolize_keys</a>
+    
+    <li ><a href="#method-i-symbolize_keys-21">#symbolize_keys!</a>
+    
+    <li ><a href="#method-i-to_h">#to_h</a>
+    
+    <li ><a href="#method-i-to_proc">#to_proc</a>
+    
+    <li ><a href="#method-i-transform_values">#transform_values</a>
+    
+    <li ><a href="#method-i-transform_values-21">#transform_values!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Hash">
+  <h1 id="class-Hash" class="class">
+    class Hash
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/hash/constructor.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">arg</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">h</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-constant">Hash</span>, <span class="ruby-value">:to_hash</span>))
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">allocate</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">h</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">kvps</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">is_array?</span>(<span class="ruby-identifier">arg</span>))
+      <span class="ruby-identifier">h</span> = {}
+      <span class="ruby-identifier">kvps</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">elem</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">arr</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">is_array?</span>(<span class="ruby-identifier">elem</span>)
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">2</span>).<span class="ruby-identifier">include?</span> <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">size</span>
+        <span class="ruby-identifier">h</span>[<span class="ruby-identifier">arr</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)] = <span class="ruby-identifier">arr</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-identifier">h</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">constructor_without_key_value_pair_form</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Hash.html#method-c-constructor_without_key_value_pair_form">constructor_without_key_value_pair_form</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-constructor_without_key_value_pair_form" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">constructor_without_key_value_pair_form</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Hash.html#method-c-5B-5D">[]</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-try_convert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_convert</span><span
+            class="method-args">(x)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try_convert-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/hash/try_convert.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-identifier">x</span>)
+  <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-identifier">x</span>, <span class="ruby-constant">Hash</span>, <span class="ruby-value">:to_hash</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3C-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.3.0/hash/lt.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_hash</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">v2</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">k</span>){ <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> }
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">v2</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">v</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3C-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;=</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3D-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.3.0/hash/lte.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&lt;=</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_hash</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">v2</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">k</span>){ <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> }
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">v2</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">v</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3E" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&gt;</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3E-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.3.0/hash/gt.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&gt;</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_hash</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span> <span class="ruby-operator">&lt;</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3E-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&gt;=</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3E-3D-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.3.0/hash/gte.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">&gt;=</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_hash</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assoc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assoc</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="assoc-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/hash/assoc.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assoc</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">val</span> = <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+      [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-identifier">key</span>, <span class="ruby-identifier">val</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compact" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compact</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compact-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.4.0/hash/compact.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compact</span>
+  <span class="ruby-identifier">h</span> = {}
+  <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">h</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compact-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compact!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="compact-21-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.4.0/hash/compact.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compact!</span>
+  <span class="ruby-identifier">reject!</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">_key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_proc-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_proc=</span><span
+            class="method-args">(proc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_proc-3D-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/hash/default_proc.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_proc=</span>(<span class="ruby-identifier">proc</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">proc</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span> <span class="ruby-comment"># nil accepted in Ruby 2.0</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">replace</span>(<span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">&amp;</span><span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to</span>(<span class="ruby-identifier">proc</span>, <span class="ruby-constant">Proc</span>, <span class="ruby-value">:to_proc</span>)).<span class="ruby-identifier">merge!</span>(<span class="ruby-keyword">self</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_proc_with_nil-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_proc_with_nil=</span><span
+            class="method-args">(proc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_proc_with_nil-3D-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.0.0/hash/default_proc.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_proc_with_nil=</span>(<span class="ruby-identifier">proc</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">proc</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_proc_without_nil</span>=(<span class="ruby-identifier">proc</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dig" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dig</span><span
+            class="method-args">(key, *rest)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dig-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.3.0/hash/dig.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dig</span>(<span class="ruby-identifier">key</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">rest</span>)
+  <span class="ruby-identifier">val</span> = <span class="ruby-keyword">self</span>[<span class="ruby-identifier">key</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">val</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">rest</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">val</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;#{val.class} does not have #dig method&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">val</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:dig</span>
+  <span class="ruby-identifier">val</span>.<span class="ruby-identifier">dig</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">rest</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-eql-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="eql-3F-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/hash/hash.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">all?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">value</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">key</span>){<span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>})
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_values</span><span
+            class="method-args">(*keys, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_values-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.3.0/hash/fetch_values.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch_values</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">k</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hash-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/hash/hash.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hash</span>
+  <span class="ruby-identifier">h</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">h</span> <span class="ruby-operator">^=</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">hash</span> <span class="ruby-operator">^</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">hash</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-keep_if" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keep_if</span><span
+            class="method-args">() { |key, value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="keep_if-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.2/hash/keep_if.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">keep_if</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:keep_if</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">delete_if</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rassoc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rassoc</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rassoc-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/hash/rassoc.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rassoc</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">k</span> = <span class="ruby-identifier">key</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">v</span> = <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">k</span>){<span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>}
+  [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">k</span>)] <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">v</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reverse_merge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reverse_merge</span><span
+            class="method-args">(other_hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Hash/Keys.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="reverse_merge-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/hash.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reverse_merge</span>(<span class="ruby-identifier">other_hash</span>)
+  <span class="ruby-identifier">other_hash</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reverse_merge-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reverse_merge!</span><span
+            class="method-args">(other_hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Hash/Keys.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="reverse_merge-21-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/hash.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reverse_merge!</span>(<span class="ruby-identifier">other_hash</span>)
+  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">reverse_merge</span>(<span class="ruby-identifier">other_hash</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-select-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select!</span><span
+            class="method-args">() { |key, value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="select-21-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.2/hash/select.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:select!</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;can&#39;t modify frozen hash&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">frozen?</span> <span class="ruby-comment"># reject! won&#39;t do it for empty hashes...</span>
+  <span class="ruby-identifier">reject!</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-select_with_hash_return" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_with_hash_return</span><span
+            class="method-args">() { |k, v| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="select_with_hash_return-source">
+            <pre><span class="ruby-comment"># File lib/backports/force/hash_select.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select_with_hash_return</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:select</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">select_without_hash_return</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> [<span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span>]}]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stringify_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stringify_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Hash/Keys.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="stringify_keys-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/hash.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stringify_keys</span>
+  <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span> [<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">value</span>] }]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stringify_keys-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stringify_keys!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Hash/Keys.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="stringify_keys-21-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/hash.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stringify_keys!</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">stringify_keys</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-symbolize_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">symbolize_keys</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Hash/Keys.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="symbolize_keys-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/hash.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">symbolize_keys</span>
+  <span class="ruby-constant">Hash</span>[<span class="ruby-identifier">map</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">key</span>,<span class="ruby-identifier">value</span><span class="ruby-operator">|</span> [(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-keyword">rescue</span> <span class="ruby-identifier">key</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>] }]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-symbolize_keys-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">symbolize_keys!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/Hash/Keys.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="symbolize_keys-21-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/hash.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">symbolize_keys!</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">symbolize_keys</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_h" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_h</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_h-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.0.0/hash/to_h.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_h</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">:</span> {}.<span class="ruby-identifier">replace</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_proc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_proc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_proc-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.3.0/hash/to_proc.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_proc</span>
+  <span class="ruby-identifier">h</span> = <span class="ruby-keyword">self</span>
+  <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span>{<span class="ruby-operator">|</span><span class="ruby-operator">*</span><span class="ruby-identifier">args</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>]}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transform_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transform_values</span><span
+            class="method-args">() { |value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transform_values-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.4.0/hash/transform_values.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transform_values</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:transform_values</span>){ <span class="ruby-identifier">size</span> } <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">h</span> = {}
+  <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">h</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-keyword">yield</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transform_values-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transform_values!</span><span
+            class="method-args">() { |value| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transform_values-21-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.4.0/hash/transform_values.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">transform_values!</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:transform_values!</span>){ <span class="ruby-identifier">size</span> } <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">reject!</span>{} <span class="ruby-keyword">if</span> <span class="ruby-identifier">frozen?</span> <span class="ruby-comment"># Force error triggerring if frozen, in case of empty array</span>
+  <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-keyword">yield</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

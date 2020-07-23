@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  class Obj {
+      static foo(){
+          console.log('这里是类的静态方法,并不给实例对象');
+      }
+      constructor(name,age) {
+          this.name = name;
+          this.setName = function () {
+              this.name = name;
+              console.log(`这里是类的构造方法`)
+          }
+      }
+      eachs(){
+          console.log('这里是类的公共方法，在类的原型中')
+      }
+  };
+  let obj1 = new Obj('王老五');
+  console.log(obj1.name);
+  obj1.setName('店小二')
+  console.log(obj1.name);
+  console.log(obj1);
+
+  class Objs extends Obj {
+      static bar(){
+          console.log('子类的静态方法，静态方法不会进行继承');
+      }
+      constructor(name,age) {
+          //继承父类的构造函数
+          super(name);
+          //自定义函数
+          this.age = age
+      }
+  }
+  //同样是将，子类的原型变为父类的实例对象，原理与es5中的继承相同
+  let obj2 = new Objs('孙子',11);
+  console.log(obj2.name);
+  console.log(obj2)
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  let bar1 = ()=>{
+      let Promise1 = new Promise((resolve, reject) =>{
+          setTimeout(()=>{
+              resolve('异步任务执行成功')
+          },2000)
+      });
+      return Promise1
+  }
+  async function foo() {
+    //  接收传参
+    let result1 = await bar1();
+    console.log(result1);
+  }
+  foo()
+</script>
+</body>
+</html>

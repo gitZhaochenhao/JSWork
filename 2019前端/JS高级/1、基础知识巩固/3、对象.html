@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script>
+        //对象的两种键值对添加方法
+        var obj = {};
+        obj.name = '小明';
+        console.log(obj);
+
+        obj['age'] = 34;
+        console.log(obj);
+
+        var test = {};
+        var obj1 = {'name':'西平'};
+        var obj2 = {'age':12};
+        //js中的键必须是字符串，因此js会自动用toString()对我们的obj1与obj2进行转化
+        //toString()方法会将所有的对象{}转化为 [object Object]
+        console.log(obj1.toString())
+        test[obj1] = 4;
+        test[obj2] = 6;
+        //[object Object]: 6
+        console.log(test);
+
+    </script>
+</body>
+</html>

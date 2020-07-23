@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>06_阿里2</title>
+</head>
+<body>
+<!--
+1. 难度系数: ★★★
+2. 技术点
+  1). 定时器
+  2). 意外全局变量
+  3). 作用域与作用域链
+  4). 变量查找
+-->
+
+<script type="text/javascript">
+
+  var a = 6;
+  //不管异步任务是否立刻执行，他都会等住线程任务执行完之后执行;
+  setTimeout(function () {
+    console.log(0);
+    alert(a);//66
+    a = 666
+  }, 0);
+  console.log(1);
+  a = 66
+
+  /*
+  1 , 0 ?
+   */
+
+</script>
+</body>
+</html>

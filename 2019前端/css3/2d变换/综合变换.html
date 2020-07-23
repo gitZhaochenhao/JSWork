@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+            /*transform在设置多个变换类型时  使用空格分隔  不能使用逗号
+                变换类型先后的顺序不会影响变换的执行  但是会影响结果
+            */
+            /*如果scale写在了translate之前，元素大小发生缩放，translate数值也会发生缩放*/
+            transform: scale(0.5) translateX(200px);
+
+            transform: scale(0.5) rotate(45deg);
+            transform: scale(0.5) skew(45deg);
+			/* rotate会使坐标轴水平方向也进行旋转，如果 rotate写在translate(skew)之前，translate(skew)的运动方向也会发生改变
+				rotate会影响所有以横纵坐标为参照变换的操作 
+			*/
+			transform: rotate(45deg) translateX(200px);
+        }
+        #box2{
+            margin-top: 50px;
+            width: 200px;
+            height: 200px;
+            background: yellowgreen;
+            transform:translateX(200px) scale(0.5) ;
+            transform:rotate(45deg) scale(0.5) ;
+            transform:skew(45deg) scale(0.5) ;
+			transform:translateX(200px)  rotate(45deg) ;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<div id="box2"></div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById('box');
+
+
+    }
+</script>
+</html>

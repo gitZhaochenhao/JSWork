@@ -1,0 +1,59 @@
+/*                       设置默认值，这样若调用处不传参也不会报错，而是使用默认值 */
+/* .out{
+	margin: 0px auto;
+	width: 1300px;
+	height: 900px;
+	border: 1px solid black;
+	overflow: hidden;
+	.hideBox{
+		width: 1350px;
+		height: 100%;
+		.list{
+			padding: 0;
+			margin: 0;
+			list-style: none;
+			li{
+				display: block;
+				width: 400px;
+				height: 300px;
+				margin-right: 50px;
+				margin-top: 30px;
+				background-color: greenyellow;
+				float: left;
+			}
+		}
+	}
+} */
+.warp {
+  width: 600px;
+  height: 600px;
+  background-color: #0000ff;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.warp .inner {
+  width: 400px;
+  height: 400px;
+  background-color: #ff0000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.warp .inner .in {
+  width: 200px;
+  height: 200px;
+  background-color: #008000;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}

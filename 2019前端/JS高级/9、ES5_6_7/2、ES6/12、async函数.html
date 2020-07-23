@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        console.log(promiseUtil())
+        function promiseUtil(){
+             return new Promise((resolve,reject) => {
+                setTimeout(()=>{
+                    console.log('异步任务执行完成');
+                    let data = '传输数据';
+                    resolve(data);
+                    // reject()
+                },2000);
+            })
+        }
+
+        //表示一个异步函数,与promise配合使用,这个函数与普通函数的不同点为：async前缀，await后面跟随一个Promise异步任务，成功则向后执行并可以接受异步任务的返回值，失败则不再向后执行，贯彻了将异步任务以同步方式展现运行
+        async function asyncUtil() {
+            //await 后面跟随异步任务，它会检测异步任务是否成功完成[查看PromiseStatus]，当失败不在向后运行，成功则接收返回值[查看PromiseValue];
+            let result = await promiseUtil();
+            console.log(result);
+            //可进行一系列操作
+            await promiseUtil()
+        };
+        asyncUtil()
+    </script>
+</body>
+</html>

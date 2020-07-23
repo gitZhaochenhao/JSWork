@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*[属性名称]  匹配所有有这个属性的元素*/
+        /*div[class]{*/
+            /*background: pink;*/
+        /*}*/
+        /*匹配某一个值  必须完全相同*/
+        /*div[class='box boxa']{*/
+            /*background: pink;*/
+        /*}*/
+        /*多个词中包含这个value就行*/
+        div[class~='box']{
+            background: pink;
+        }
+        /*匹配以value开头的元素*/
+        /*div[class^='bo']{*/
+            /*background: pink;*/
+        /*}*/
+        /*匹配以value结尾的元素*/
+        /*div[class$='x']{*/
+            /*background: pink;*/
+        /*}*/
+      /*包含value的元素*/
+        /* div[class*='oab']{
+            background: pink;
+        } */
+    </style>
+</head>
+<body>
+
+<div class="box">一株是枣树，还有一株也是枣树</div>
+<div class="boabxb">一株是枣树，还有一株也是枣树</div>
+<div class="oabox">一株是枣树，还有一株也是枣树</div>
+<div class="box boxa">一株是枣树，还有一株也是枣树</div>
+<div class="boab box">一株是枣树，还有一株也是枣树</div>
+<div id="box">一株是枣树，还有一株也是枣树</div>
+
+</body>
+</html>

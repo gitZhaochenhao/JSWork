@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+1. Set容器 : 无序不可重复的多个value的集合体，数组
+  * Set()
+  * Set(array)
+  * add(value)
+  * delete(value)
+  * has(value)
+  * clear()
+  * size
+-->
+    <script type="text/javascript">
+        let arr = [1,2,3,5,3,1,6,7,2];
+        //set容器有着去重功能,set容器也有迭代器接口
+        let set = new Set();
+        console.log(set);
+        //数据判断
+        console.log(new Set([NaN,NaN]));//在Object.is()与new Set()中 NaN时等于自己的
+        //数组去重
+        let onlyArr = target => [...new Set(target)];
+        console.log(onlyArr(arr));
+
+    </script>
+</body>
+</html>

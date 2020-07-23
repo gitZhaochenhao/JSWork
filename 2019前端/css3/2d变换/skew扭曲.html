@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            margin: 150px auto;
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+            /*
+                2d变换  扭曲 skew
+                skewX： 水平方向扭曲 y轴扭曲
+                skewY： 垂直方向扭曲 x轴扭曲
+                当你扭曲的角度等于90度是   元素垂直于屏幕 所以看不见元素
+                skew:第一个参数设置水平方向  第二个参数设置垂直方向
+                skew：只给一个参数时等同于 transform: skewX()
+            */
+            /* transform: skewX(90deg); */
+            /*transform: skewY(0deg);*/
+            /*transform: skew(0deg,0deg);*/
+            transform: skew(0deg,0deg);
+        }
+    </style>
+</head>
+<body>
+<div id="box">box</div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById('box');
+
+
+    }
+</script>
+</html>

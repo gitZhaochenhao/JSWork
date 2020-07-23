@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 10000px;
+        }
+    </style>
+</head>
+<body>
+<!--设定一个时间，让函数在特定时间内执行一次，不重复执行-->
+<script type="text/javascript">
+  let bodys = document.getElementsByTagName('body')[0];
+  let flag = true;
+  bodys.onscroll = function () {
+    if(flag){
+        console.log(1);
+        flag = false;
+        setTimeout(function () {
+            flag = true
+        },2000);
+    };
+  };
+</script>
+</body>
+</html>

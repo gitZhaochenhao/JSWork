@@ -1,0 +1,30 @@
+.warp {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #0000FF;
+  margin: 100px auto;
+  overflow: hidden;
+}
+.warp ul {
+  padding: 0px;
+  list-style: none;
+  margin: 0px;
+}
+.warp ul li {
+  height: 100px;
+}
+.warp ul li a {
+  text-decoration: none;
+}
+.warp ul li:hover {
+  background-color: #3B9CEF;
+}
+.warp ul li:hover a::after {
+  content: '我是新进来的';
+}
+.warp ul li:nth-child(3) {
+  background-color: #00FF00;
+}
+.warp ul li:nth-child(3) a {
+  color: #FFFFFF;
+}

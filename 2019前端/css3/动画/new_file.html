@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background-color: rgba(225,0,225,0.5);
+			}
+			.inner{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				text-align: center;
+				transform-style: preserve-3d;
+				perspective: 900px;
+			}
+			.inner img{
+				animation: logoRotate 1s linear infinite;
+			}
+			@keyframes logoRotate{
+				from{transform: rotateY(0deg)}
+				to{transform: rotateY(360deg)}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="inner">
+				<img src="img/logo.png"  />
+				<p>已加载<span>1</span>%</p>
+			</div>
+			
+		</div>
+		<script type="text/javascript" src="js/data.js"></script>
+		<script type="text/javascript">
+			var span=document.querySelector('.inner span');
+			var arr=[];
+			for (var i in imgData){
+				// 将所有的图片列表加入
+				arr=arr.concat(imgData[i]);
+			}
+			var num=0;
+			for (var i = 0; i < arr.length; i++) {
+				var img=document.createElement('img');
+				img.src=arr[i];
+				img.onload=function(){
+					num++;
+					span.innerHTML=Math.round(num/arr.length*100) ;
+				}
+			}
+		</script>
+	</body>
+</html>

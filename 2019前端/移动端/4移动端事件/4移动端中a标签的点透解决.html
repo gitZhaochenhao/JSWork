@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 375px;
+				height: 200px;
+				background-color: rgba(0,0,0,0.6);
+			}
+		</style>
+	</head>
+	<body>
+		<a href="http://www.atguigu.com" id="a">点击我去硅谷</a>
+		<div id="box"></div>
+	</body>
+	
+	<script type="text/javascript">
+		var box = document.getElementById('box');
+		var a=document.getElementById('a');
+		
+		box.addEventListener('touchstart',function(){
+			box.style.display = 'none';
+		});
+		
+		
+//		想要处理点透事件,必须有两大步
+//		第一步;先把所有的a标签默认行为禁止掉  (阻止浏览器默认行为,已经处理好了);
+//		第二步:当真正的点击a标签,因为浏览器默认行为被禁止,它没法跳转.我们需要手动给a添加点击事件和跳转链接手动跳转;
+		
+		 document.addEventListener('touchstart',function(event){
+		 	event.preventDefault();
+		 });
+		
+		//我们将windw的地址改成a的超链接地址，进行手动跳转
+		 var aNodes = document.querySelectorAll('a')[0];
+		 aNodes.addEventListener('touchstart',function(e){
+		 	for (var i = 0; i < aNodes.length; i++) {
+		 		aNodes[i].addEventListener('touchstart',function(e){
+		 			window.href=this.href;
+		 		});
+		 	};
+		 });
+		
+		
+		
+	</script>
+</html>

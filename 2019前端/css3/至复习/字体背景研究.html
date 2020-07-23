@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 500px;
+				text-align: center;
+				margin: 200px auto;
+				background-image: url(../动画/img/bg/13.png);
+				font-size: 150px;
+				color: transparent;
+				-webkit-text-stroke: 5px #003399;
+				-webkit-background-clip: text;
+				
+				animation: move 2s linear infinite alternate;
+				animation-fill-mode: both;
+			}
+			@keyframes move{
+				from{background-position: 0px 0px;}
+				to{background-position: 0px 100px;}
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			2020
+		</div>
+	</body>
+</html>

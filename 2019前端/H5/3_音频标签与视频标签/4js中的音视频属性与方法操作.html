@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<video src="0fb1d3ab17e448cba44f0bb3faf8b95f.mp4" controls autoplay loop muted poster="layml.png" preload="none"></video>
+
+<!--音频的相关属性-->
+<!--src,controls,autoplay,loop,muted,preload-->
+<audio ></audio>
+<script type="text/javascript">
+
+
+    // //页面加载
+    // window.onload=function () {
+    //     //获取元素
+    //     var video=document.querySelector("video");
+    //     var audio=document.querySelector("audio");
+    //     //视频显示总时间
+    //     //显示视频的总时间
+    //     // video.addEventListener("loadeddata",function () {
+    //     //     console.log(video.duration);
+    //     //     console.log(audio.duration);
+    //     // });
+    //     //
+    //     // setInterval(function () {
+    //     //     //播放
+    //     //     video.play();
+    //     //     audio.play();
+    //     //
+    //     // },2000);
+    //
+    //     //获取当前的播放的时间
+    //     // setInterval(function () {
+    //     //     console.log(video.currentTime);
+    //     //     console.log(audio.currentTime);
+    //     // },1000);
+    //
+    //     //音量的操作
+    //     // console.log(video.volume);//0-1 0静音了  1最大的音量
+    //     // console.log(audio.volume);
+    //     // //查看是否暂停   属性
+    //     console.log(video.paused);//true暂停了
+    //     console.log(audio.paused);
+    //
+    //     //poster ---视频有,音频没有
+	
+			// 让音视频暂停播放
+			// video.pause();
+			// audio.pause();
+    //
+    //
+    //     console.log("视频宽和高:"+video.width+"=="+video.height);
+    //     console.log("音频宽和高:"+audio.width+"=="+audio.height);//不行
+    //     //视频分辨率
+    //     video.addEventListener("loadeddata",function () {
+    //         console.log("分辨率:"+video.videoWidth+"分辨率高:"+video.videoHeight);
+    //     });
+    //
+    //
+    // };
+    //
+
+
+    //页面加载
+    window.onload=function () {
+        //获取元素
+        var video=document.querySelector("video");
+        var audio=document.querySelector("audio");
+        //视频显示总时间
+        video.addEventListener("loadeddata",function () {
+            console.log("视频:"+video.duration);//总时间
+        });
+        //音频显示总时间
+        audio.addEventListener("loadeddata",function () {
+            console.log("音频:"+audio.duration);//总时间
+        });
+        //获取音视频的当前播放时间
+        setInterval(function () {
+            console.log("=======================");
+            console.log("音频:"+video.currentTime);
+            console.log("视频:"+audio.currentTime);
+        },10000);
+        //是否静音
+        console.log("是否静音:"+video.muted);
+        console.log("是否静音:"+audio.muted);
+        //音量
+        console.log("音量:"+video.volume);
+        console.log("音量:"+audio.volume);
+        //是否暂停
+        console.log("是否暂停:"+video.paused);
+        console.log("是否暂停:"+audio.paused);
+        //是否播放完毕
+        console.log("是否播放完毕比:"+video.ended);
+        console.log("是否播放完毕比:"+audio.ended);
+        //是否报错
+        console.log("是否报错"+video.error);
+        console.log("是否报错"+audio.error);
+        //返回地址
+        console.log("视频地址:"+video.currentSrc);
+        console.log("音频地址:"+audio.currentSrc);
+        //预览图片
+        console.log("预览图片:"+video.poster);
+        //宽和高
+        console.log("视频宽和高:"+video.width+"=="+video.height);
+        console.log("音频宽和高:"+audio.width+"=="+audio.height);//不行
+        //视频分辨率
+        video.addEventListener("loadeddata",function () {
+            console.log("分辨率:"+video.videoWidth+"分辨率高:"+video.videoHeight);
+        });
+    };
+</script>
+</body>
+</html>

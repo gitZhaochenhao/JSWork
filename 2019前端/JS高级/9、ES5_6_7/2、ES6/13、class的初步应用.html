@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        class Person {
+            //静态方法
+            static selfPlay(){
+                console.log('属于类自己的方法或属性')
+            }
+            //构造方法，给实例对象定义属性或方法
+            constructor(name,age) {
+                this.name = name;
+                this.age = age;
+            }
+
+            //一般方法，公共方法，相当于构造函数中原型中定义一个方法或属性,是所有实力对象都可以使用的
+            prototypes(){
+                console.log('这里是普通方法，公共方法')
+            }
+        };
+
+        let person1 = new Person('kode',43);
+        person1.prototypes();
+        Person.selfPlay();
+        console.log(person1);
+    </script>
+</body>
+</html>

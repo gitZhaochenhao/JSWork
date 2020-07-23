@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Object.create()方法创建一个新对象，使用现有的对象来提供新创建的对象的__proto__。
+        var person = {
+            name:'kobe',
+            age:43,
+            sex:function () {
+                console.log('男')
+            }
+        };
+        var obj = {};
+        //将一个现有的对象变成一个对象的原型，并可以自己设定添加属性
+        obj = Object.create(person,{
+            play:{//自定义属性
+                //属性值
+                value:'basckball',
+                //是否可对我们自己添加的属性进行改删操作
+                configurable:true,
+                //是否可以被for in循环遍历
+                enumerable:true
+            }
+        });
+        //删除对象上某个属性或方法
+        delete obj.play;
+        console.log(obj);
+
+        for (var objKey in obj) {
+            //for in 循环会把一个对象的所有属性都进行遍历，但有些时候我们不需要原型中的属性，我们可以使用对象自带的hasOwnProperty属性，判断一个属性是否是自己的，而不是原型上的
+            if(obj.hasOwnProperty(objKey)){
+                console.log(objKey);
+            }
+        };
+
+
+
+    /*-------------------------------------------------------------------------------------------------------------------------*/
+
+
+
+        // Object.defineProperties() 方法直接在一个对象上定义新的属性或修改现有属性，并返回该对象。
+        var obj1 = {
+            name:'翠花',
+            age:'21'
+        };
+
+        //作为中转站
+        var sex = '女';
+        obj1 = Object.defineProperties(obj1,{
+            sex:{
+                get:function () {//设置值 当获取拓展属性时，get函数自动调用
+                    console.log('get函数调用',this);
+                    return sex;
+                },
+                set:function (value) {//修改值 当修改拓展属性时自动调用 监视
+                    console.log('set函数调用',this);
+                    sex = value;
+                }
+            }
+        });
+        obj1.sex = '男';
+        console.log(obj1);
+
+/*-------------------------------------------------------------------------------------------------------------------------*/
+        // Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。
+        var obj4 = {
+            name:'李二狗',
+            age:12
+        };
+        var sexs = '男';
+        Object.defineProperty(obj4,'sex',{
+            //不可改删
+            configurable:false,
+            //不可被枚举
+            enumerable:false,
+            // value:'男',
+            get:function () {
+                console.log('设置值');
+                return sexs
+            },
+            set:function (val) {
+                console.log('监视');
+                sexs = val;
+            }
+        });
+        // obj4.sex = '女';
+        console.log(obj4.sex)
+        for (const i in obj4) {
+            console.log(i);
+        }
+    </script>
+</body>
+</html>

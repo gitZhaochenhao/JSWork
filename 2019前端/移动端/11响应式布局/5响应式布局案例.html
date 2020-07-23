@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				display: block;
+			}
+			input{
+				outline: none;
+			}
+			a{
+				text-decoration: none;
+			}
+			#header{
+				overflow: hidden;
+				width: 100%;
+				height:60px ;
+				background-color: #00A4E4;
+				border-bottom: 5px solid #009EE0;
+			}
+			#header .logo{
+				position: relative;
+				float: left;
+				width: 25%;
+				height: 100%;
+			}
+			#header .logo img{
+				position: absolute;
+				left: 50%;
+				top: 50%; 
+				transform: translate(-50%,-50%);
+				height: 70%;
+			}
+			@media screen and (max-width:768px) {
+				#header .logo img:first-child{
+					display: none;
+				}
+				#header .logo img:last-child{
+					display: block;
+				}
+				#header .logo img:nth-child(2){
+					display: none;
+				}
+			}
+			@media screen and (min-width:768px) and (max-width:1024px) {
+				#header .logo img:first-child{
+					display: none;
+				}
+				#header .logo img:last-child{
+					display: none;
+				}
+				#header .logo img:nth-child(2){
+					display: block;
+				}
+			}
+			@media screen and (min-width:1024px) {
+				#header .logo img:first-child{
+					display: block;
+				}
+				#header .logo img:last-child{
+					display: none;
+				}
+				#header .logo img:nth-child(2){
+					display: none;
+				}
+			}
+			#header .search{
+				float: left;
+				padding: 10px 0;
+				box-sizing: border-box;
+				width: 50%;
+				height: 100%;
+			}
+			#header .search input{
+				float: left;
+			}
+			#header .search input:first-child{
+				box-sizing: border-box;
+				width: 80%;
+				height: 40px;
+				border-radius: 10px 0 0 10px;
+				border: 0;
+				padding-left: 10px;
+			}
+			#header .search input:last-child{
+				width: 20%;
+				height: 40px;
+				background-color: #eee;
+				border: 0;
+				border-radius:0  10px 10px 0;
+			}
+			#header .nav{
+				position: relative;
+				float: left;
+				width: 25%;
+				height: 100%;
+			}
+			#header .nav div{
+				overflow: hidden;
+			}
+			#header .nav div:first-child a{
+				display: block;
+				float: left;
+				width: 25%;
+				height: 60px;
+				color: #FFFFFF;
+				line-height: 60px;
+				text-align: center;
+			}
+			#header .nav div:last-child{
+				display: none;
+				position: absolute;
+				width: 50px;
+				height: 36px;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				border: 2px solid white;
+			}
+			#header .nav div:last-child span{
+				display: block;
+				width: 24px;
+				height: 4px;
+				background-color: grey;
+				margin: 6px auto ;
+			}
+			@media screen and (max-width:768px) {
+				#header .nav div:last-child{
+					display: block;
+				}
+				#header .nav div:first-child{
+					display: none;
+				}
+			}
+		</style>
+	</head>
+	<body>
+			<header id="header">
+				<h1 class="logo">
+					<a href="javascript:;">
+						<img src="img/Brand.png" alt="">
+						<img src="img/Brand-M.png" alt="">
+						<img src="img/Brand-S.png" alt="">
+					</a>
+				</h1>
+				<form class="search">
+					<input type="text" placeholder="请输入要查询的内容">
+					<input type="submit" value="搜索">
+				</form>
+				<nav class="nav">
+					<div>
+						<a href="javascript:;">首页</a>
+						<a href="javascript:;">登录</a>
+						<a href="javascript:;">咨询</a>
+						<a href="javascript:;">商城</a>
+					</div>
+					<div>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+				</nav>
+			</header>
+			
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			//提升至顶部 sum1=function(){....}
+			
+			sum1()//sum1
+			// 以函数名方式创建的函数会整体提升至顶端,并以sum1=function(){....}的方式进行执行
+			function sum1(){
+				console.log("sum1")
+			}
+			
+			
+			// 发生提升 var sum2;    undefined数据
+			sum2()//报错
+			// sum2=function(){.....}
+			var sum2=function(){
+				console.log("sum2")
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

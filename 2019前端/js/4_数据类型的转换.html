@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<!-- 在js中依旧遵循先乘除后加减与()优先的原则 -->
+		
+		<meta charset="utf-8">4の4
+		<title></title>
+		<script type="text/javascript">
+			var num01='4.8';
+			var num02='5';
+			var num03=8;
+			var num04=2.6;
+			
+			// parseInt()可以将字符串类型的阿拉伯数字转化为数字类型并且向下取整
+			console.log(parseInt(num01))//4
+			console.log(parseInt("10abc"))//10
+			console.log(parseInt("abc10"))//NaN
+			console.log(parseInt(true))//NaN
+			console.log(parseInt(null))//NaN
+			console.log(parseInt(false))//NaN
+			console.log(parseInt(undefined))//NaN
+			console.log("==========================")
+			
+			// parseInt()可以将字符串类型的阿拉伯数字转化为数字类型并且保留小数
+			console.log(parseFloat("10.99"))//10.99
+			console.log(parseFloat("10.99abc"))//10.99
+			console.log(parseFloat(true))//NaN
+			console.log(parseFloat(null))//NaN
+			console.log(parseFloat(false))//NaN
+			console.log(parseFloat(undefined))//NaN
+			console.log("==========================")
+			
+			//Number()可以将其他类型转化为数字类型,其内不可有非数字
+			console.log(Number("99d"))//NaN
+			console.log(Number("99.5"))//99.5
+			console.log(Number(true))//1
+			console.log(Number(false))//0
+			console.log(Number(null))//0
+			console.log(Number(undefined))//NaN
+			console.log("==========================")
+			
+			//String()将数据转化为字符串类型
+			console.log(String(99))//99
+			console.log(String(true))//true
+			console.log(String(false))//false
+			console.log(String(null))//null
+			console.log(String(undefined))//undefined
+			
+			//boolean()其他数据类型转化为布尔值类型  只要存在一个真实的值就会显示true
+			console.log(Boolean(99))//true
+			console.log(Boolean("哈哈"))//true
+			// 除
+			console.log(Boolean(""))//false
+			console.log(Boolean(null))//false
+			console.log(Boolean(undefined))//false
+			console.log(Boolean(0))//false
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

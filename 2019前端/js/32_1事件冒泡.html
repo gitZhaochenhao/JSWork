@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#div01{
+				width:300px;
+				height: 300px;
+				background: red;
+			}
+			#div02{
+				width:200px;
+				height: 200px;
+				background: green;
+			}
+			#div03{
+				width:100px;
+				height: 100px;
+				background: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div01">div01
+			<div id="div02">div02
+				<div id="div03">div03
+					
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * 事件冒泡:
+			 * 嵌套的元素,分别绑定相同的事件类型,当触发某个元素的该事件时,会由自身向外(祖先元素)依次顺序进行触发相同的事件类型,这个过程就是事件冒泡.
+			 * 
+			 * e参数:是事件处理函中的参数对象,该对象包含了一些关于鼠标的信息.
+			 * 在ie低版本中是没有e参数对象,可以用window.event获取鼠标信息
+			 * 
+			 * 
+			 * 阻止事件冒泡: e.stopPropagation() 只有高级浏览器能用
+			 * 阻止事件冒泡: window.event.cancelBubble = true;默认是false不阻止
+			 * 所有浏览器都能用
+			 */
+			var div01 = document.getElementById('div01');
+			var div02 = document.getElementById('div02');
+			var div03 = document.getElementById('div03');
+			
+			div01.onclick = function(){
+				console.log('div01');
+			}
+			div02.onclick = function(){
+				console.log('div02');
+			}
+			div03.onclick = function(e){
+				//console.log(e);
+				//阻止事件冒泡
+//				e.stopPropagation();
+//			    console.log('div03');
+//				console.log(window.event);
+				//ie低版本阻止事件冒泡
+				window.event.cancelBubble = true;
+				 console.log('div03');
+			}
+			document.body.onclick = function(){
+				console.log('body');
+			}
+			document.documentElement.onclick = function(){
+				console.log('html');
+			}
+			window.onclick = function(){
+				console.log('window');
+			}
+			
+//			function sum(a){
+//				console.log(arguments[0]);
+//				console.log(a);
+//			}
+//			sum('哈哈');
+		</script>
+	</body>
+</html>

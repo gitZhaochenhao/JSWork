@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        console.log(i);
+      var i = 1;
+      fun(1);
+      function fun(i) {
+        if(i === 4){
+            return
+        };
+        console.log('start',i);
+        fun(i+1);
+        console.log('end',i);
+      };
+      console.log(i);
+    //  函数不管是否进入函数便退出，只要进行调用就会创建上下文栈，并且上下文栈按顺序先进后出，
+    //    函数只要不return就永远不会退出，上下文贱便不会出栈
+    //    i = 1 进入函数创建上下文栈 输出1 并再次调用函数 i = 2
+    //    i = 2 进入函数创建上下文栈 输出2 并再次调用函数 i = 3
+    //    i = 3 进入函数创建上下文栈 输出3 并再次调用函数 i = 4
+    //    i = 4 函数return结束  i = 4的上下文贱出站,当下执行的为处于贱内存最顶端的i = 3 的函数上下文贱
+    //    i = 3 的函数并未return 因此继续执行 输出3 函数执行完毕函数默认return undefind函数结束 i = 3 的上下文栈出栈
+    //    i = 2 的函数并未return 因此继续执行 输出2 函数执行完毕函数默认return undefind函数结束  i = 2 的上下文栈出栈
+    //    i = 1 的函数并未return 因此继续执行 输出1 函数执行完毕函数默认return undefind函数结束  i = 1 的上下文栈出栈
+    //  undefind 1 2 3 3 2 1 1
+    </script>
+</body>
+</html>

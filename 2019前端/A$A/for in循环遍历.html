@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  let obj1 = {name:'小明',age:12};
+  obj1.__proto__.play = '篮球';
+  console.log(obj1);
+  // Object的hasOwnProperty()方法返回一个布尔值，判断对象是否包含特定的自身（非继承）属性。
+  //for..in 循环会将包括原型当中的所有属性或方法遍历出来
+  for (const number in obj1) {
+      if (obj1.hasOwnProperty(number)){
+          console.log(number);
+      }
+
+  }
+</script>
+</body>
+</html>

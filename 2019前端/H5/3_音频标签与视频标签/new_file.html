@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			height: 100%;
+			overflow: hidden;
+		}
+	</style>
+</head>
+<body>
+	<video id="video" src="resource/video/test.mp4" controls="controls"></video>
+	<div id="nav">
+		<ul id="left">
+			<li id=''></li>
+			<li id=''></li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript" charset="utf-8">
+		// 获取视频
+		var video=document.getElementById('video');
+		
+		
+		// 设置视频尺寸
+		!(function(){
+			video.style.width=(document.documentElement.clientWidth)+'px';
+			video.style.height=(document.documentElement.clientHeight)+'px';
+		})();
+	</script>
+</body>
+</html>

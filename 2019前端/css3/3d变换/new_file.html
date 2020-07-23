@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			#warp{
+				width: 200px;
+				height: 200px;
+				margin: 200px auto;
+				list-style: none;
+				position: relative;
+				transform-style: preserve-3d;
+				transform: rotateX(0deg) rotateY(0deg) ;
+			}
+			#warp li img{
+				width: 200px;
+				height: 200px;
+			}
+			#warp li{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul id="warp">
+			<li id='box1'><img src="img/10.jpg"></li>
+			<li id='box2'><img src="img/11.jpg"></li>
+			<li id='box3'><img src="img/12.jpg"></li>
+			<li id='box4'><img src="img/1.jpg"></li>
+			<li id='box5'><img src="img/4.jpg"></li>
+			<li id='box6'><img src="img/5.jpg"></li>
+		</ul>
+		<script type="text/javascript">
+		
+		var li=document.querySelectorAll('#warp li');
+		var num=2;
+		setInterval(function(){
+			num++;
+			for (var i = 0; i < li.length; i++) {
+				li[i].style.transform='rotateY('+i*(360/li.length)+num+'deg) '+'translateZ(260px)';
+			}
+		},10)
+		
+		
+		
+		</script>
+	</body>
+</html>

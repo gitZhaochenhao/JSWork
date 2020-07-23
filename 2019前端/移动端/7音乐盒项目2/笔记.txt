@@ -1,0 +1,179 @@
+1.橡皮筋效果的阻尼系数
+	阻尼系数=1-多余空间/总空间
+2.防抖
+	先获取鼠标起始点位置与每一个移动点的位置的横纵坐标，当移动的水平距离大于移动的垂直距离时就表示要拖动轮播图进行移动，反之；
+	进而，为了防止用户的非常规操作，我们便仅仅判断触摸起始点与下一个移动点之间的横纵偏移值来确定是否进行拖动，我们要借助开关
+3.案例中的index求法，利用round
+4.这里我们的代码是没有问题的，是浏览器底层优化导致的，因为当index为9时，我们立马更换了他的位置并设置清除了过渡
+	但是下面我们设置了过渡，浏览器依据两次对同一对象过渡时长的设置时间间隔过短，
+	便优化让上面的时长设置干脆直接等于下面的时长设置，为让浏览器区分两次时长设置，
+	我们使用一个单次定时器使两次设置之间产生间隔，以便浏览器区分设置
+5.导航滑动误点
+	运用滑屏事件与手指抬起事件和开关技术结合，当我们滑动时关闭开关抬起时便不会执行点击程序，
+6.	
+	过渡监听事件的兼容
+	对象.addEventListener('transitionend',func);
+	对象.addEventListener('webkitTransitionEnd',func);
+	过渡监听事件有绑定就有解绑,就像pc端里面的鼠标移动与抬起事件一样需要解除
+	对象.romveEventListener('transitionend',func);
+	对象.romveEventListener('webkitTransitionEnd',func);
+7.滚动事件节流
+	运用定时器，详情见pc项目
+8.即点即停
+	transfoem变换并不是像定时器一样一帧一帧的逐步改变位置进行渐变，而是元素直接认定结束位置再用看似像一帧一帧的变换进行过渡效果，因此，在变换的
+	过程(惯性加速效果)中并不能实现即点即停与其他操作，因此我们应当运用Tween算法结合定时器进行过渡与位置的变换；利用它可以做很多动画效果，例如缓动
+	，弹簧等等。
+	https://www.cnblogs.com/cloudgamer/archive/2009/01/06/Tween.html
+	参数:
+	t: current time（当前是移动的第几步,要注意的是t是从0开始的，设置步长(每次增加的值)时必须确定t确实能到达d，如果上面的步长是3，,
+	那么t就永远都到不了d了。更好的处理是当t等于或超过d之后，就停止定时器并设置当前值为目标值。);
+	b: beginning value（初始值,初始位置）；
+	c: change in value（变化量,要移动多远）；
+	d: duration（一共多少步,动多少次,与总时长配合使用求出每一步的单位距离）
+	var Tween = {
+	    Linear: function(t,b,c,d){ return c*t/d + b; },
+	    Quad: {
+	        easeIn: function(t,b,c,d){
+	            return c*(t/=d)*t + b;
+	        },
+	        easeOut: function(t,b,c,d){
+	            return -c *(t/=d)*(t-2) + b;
+	        },
+	        easeInOut: function(t,b,c,d){
+	            if ((t/=d/2) < 1) return c/2*t*t + b;
+	            return -c/2 * ((--t)*(t-2) - 1) + b;
+	        }
+	    },
+	    Cubic: {
+	        easeIn: function(t,b,c,d){
+	            return c*(t/=d)*t*t + b;
+	        },
+	        easeOut: function(t,b,c,d){
+	            return c*((t=t/d-1)*t*t + 1) + b;
+	        },
+	        easeInOut: function(t,b,c,d){
+	            if ((t/=d/2) < 1) return c/2*t*t*t + b;
+	            return c/2*((t-=2)*t*t + 2) + b;
+	        }
+	    },
+	    Quart: {
+	        easeIn: function(t,b,c,d){
+	            return c*(t/=d)*t*t*t + b;
+	        },
+	        easeOut: function(t,b,c,d){
+	            return -c * ((t=t/d-1)*t*t*t - 1) + b;
+	        },
+	        easeInOut: function(t,b,c,d){
+	            if ((t/=d/2) < 1) return c/2*t*t*t*t + b;
+	            return -c/2 * ((t-=2)*t*t*t - 2) + b;
+	        }
+	    },
+	    Quint: {
+	        easeIn: function(t,b,c,d){
+	            return c*(t/=d)*t*t*t*t + b;
+	        },
+	        easeOut: function(t,b,c,d){
+	            return c*((t=t/d-1)*t*t*t*t + 1) + b;
+	        },
+	        easeInOut: function(t,b,c,d){
+	            if ((t/=d/2) < 1) return c/2*t*t*t*t*t + b;
+	            return c/2*((t-=2)*t*t*t*t + 2) + b;
+	        }
+	    },
+	    Sine: {
+	        easeIn: function(t,b,c,d){
+	            return -c * Math.cos(t/d * (Math.PI/2)) + c + b;
+	        },
+	        easeOut: function(t,b,c,d){
+	            return c * Math.sin(t/d * (Math.PI/2)) + b;
+	        },
+	        easeInOut: function(t,b,c,d){
+	            return -c/2 * (Math.cos(Math.PI*t/d) - 1) + b;
+	        }
+	    },
+	    Expo: {
+	        easeIn: function(t,b,c,d){
+	            return (t==0) ? b : c * Math.pow(2, 10 * (t/d - 1)) + b;
+	        },
+	        easeOut: function(t,b,c,d){
+	            return (t==d) ? b+c : c * (-Math.pow(2, -10 * t/d) + 1) + b;
+	        },
+	        easeInOut: function(t,b,c,d){
+	            if (t==0) return b;
+	            if (t==d) return b+c;
+	            if ((t/=d/2) < 1) return c/2 * Math.pow(2, 10 * (t - 1)) + b;
+	            return c/2 * (-Math.pow(2, -10 * --t) + 2) + b;
+	        }
+	    },
+	    Circ: {
+	        easeIn: function(t,b,c,d){
+	            return -c * (Math.sqrt(1 - (t/=d)*t) - 1) + b;
+	        },
+	        easeOut: function(t,b,c,d){
+	            return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+	        },
+	        easeInOut: function(t,b,c,d){
+	            if ((t/=d/2) < 1) return -c/2 * (Math.sqrt(1 - t*t) - 1) + b;
+	            return c/2 * (Math.sqrt(1 - (t-=2)*t) + 1) + b;
+	        }
+	    },
+	    Elastic: {
+	        easeIn: function(t,b,c,d,a,p){
+	            if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+	            if (!a || a < Math.abs(c)) { a=c; var s=p/4; }
+	            else var s = p/(2*Math.PI) * Math.asin (c/a);
+	            return -(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+	        },
+	        easeOut: function(t,b,c,d,a,p){
+	            if (t==0) return b;  if ((t/=d)==1) return b+c;  if (!p) p=d*.3;
+	            if (!a || a < Math.abs(c)) { a=c; var s=p/4; }
+	            else var s = p/(2*Math.PI) * Math.asin (c/a);
+	            return (a*Math.pow(2,-10*t) * Math.sin( (t*d-s)*(2*Math.PI)/p ) + c + b);
+	        },
+	        easeInOut: function(t,b,c,d,a,p){
+	            if (t==0) return b;  if ((t/=d/2)==2) return b+c;  if (!p) p=d*(.3*1.5);
+	            if (!a || a < Math.abs(c)) { a=c; var s=p/4; }
+	            else var s = p/(2*Math.PI) * Math.asin (c/a);
+	            if (t < 1) return -.5*(a*Math.pow(2,10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )) + b;
+	            return a*Math.pow(2,-10*(t-=1)) * Math.sin( (t*d-s)*(2*Math.PI)/p )*.5 + c + b;
+	        }
+	    },
+	    Back: {
+	        easeIn: function(t,b,c,d,s){
+	            if (s == undefined) s = 1.70158;
+	            return c*(t/=d)*t*((s+1)*t - s) + b;
+	        },
+	        easeOut: function(t,b,c,d,s){
+	            if (s == undefined) s = 1.70158;
+	            return c*((t=t/d-1)*t*((s+1)*t + s) + 1) + b;
+	        },
+	        easeInOut: function(t,b,c,d,s){
+	            if (s == undefined) s = 1.70158; 
+	            if ((t/=d/2) < 1) return c/2*(t*t*(((s*=(1.525))+1)*t - s)) + b;
+	            return c/2*((t-=2)*t*(((s*=(1.525))+1)*t + s) + 2) + b;
+	        }
+	    },
+	    Bounce: {
+	        easeIn: function(t,b,c,d){
+	            return c - Tween.Bounce.easeOut(d-t, 0, c, d) + b;
+	        },
+	        easeOut: function(t,b,c,d){
+	            if ((t/=d) < (1/2.75)) {
+	                return c*(7.5625*t*t) + b;
+	            } else if (t < (2/2.75)) {
+	                return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+	            } else if (t < (2.5/2.75)) {
+	                return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+	            } else {
+	                return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+	            }
+	        },
+	        easeInOut: function(t,b,c,d){
+	            if (t < d/2) return Tween.Bounce.easeIn(t*2, 0, c, d) * .5 + b;
+	            else return Tween.Bounce.easeOut(t*2-d, 0, c, d) * .5 + c*.5 + b;
+	        }
+	    }
+	}；
+	
+	
+	

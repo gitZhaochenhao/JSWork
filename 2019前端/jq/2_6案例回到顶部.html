@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>03_回到顶部</title>
+  <style>
+    #to_top {
+      width: 30px;
+      height: 40px;
+      font: 14px/20px arial;
+      text-align: center;
+      background: #06c;
+      position: fixed;
+      cursor: pointer;
+      color: #fff;
+      left: 1250px;
+      top: 500px;
+    }
+  </style>
+</head>
+<body style="height: 2000px;">
+
+<div id="to_top">返回顶部</div>
+
+<script type="text/javascript" src="jquery-1.11.3main.js"></script>
+<script type="text/javascript">
+	var Toph;
+	// 想要多长时间完成
+	var time=300;
+	// 一帧多长时间
+	var times=30;
+	var lang;
+	
+	
+	$('#to_top').click(function(){
+		var timer=setInterval(function(){
+			// 每一次定时器都获取距顶部高度
+			Toph=$(document).scrollTop();
+			// 每一帧移动多少距离
+			lang=Toph/(time/times);
+			if(Toph<=0){
+				clearInterval(timer)
+			};
+			Toph-=lang;
+			$(document).scrollTop(Toph)
+		},times)
+	})
+	
+	
+	
+</script>
+</body>
+
+</html>

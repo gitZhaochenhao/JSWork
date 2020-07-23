@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<!-- 在js中依旧遵循先乘除后加减与()优先的原则 -->
+		
+		<meta charset="utf-8">4の4
+		<title></title>
+		<script type="text/javascript">
+			var num01='4';
+			var num02='5';
+			var num03=8;
+			var num04=2;
+			// 在做-*/运算时会先进行 隐式转化为数值类型
+			console.log(num01*num04)
+			console.log(num01/num02)
+			//   true代表1   false代表0
+			console.log(num03+true)
+			
+			// +  代表 字符串拼接，此时不再运行计算
+			console.log(num01+num02)
+			// 我今年20
+			console.log("我今年"+num01*num02)
+			// 搭建好10
+			console.log("搭建好"+(num03+num04))
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

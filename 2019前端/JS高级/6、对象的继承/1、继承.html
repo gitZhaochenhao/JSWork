@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        //人类
+      function Person(name,age) {
+        this.name = name;
+        this.age = age;
+      };
+      Person.prototype.eat = function () {
+        console.log('吃饭');
+      };
+      var person1 = new Person('小明',34);
+      var person2 = new Person('小红',12);
+
+      //汤姆类
+      function Tom(name) {
+        this.name = name;
+      }
+
+      //Preson类为创建人的大类，Tom为一个小类，现在我们想让这个小类可以用大类的方法实现继承
+
+        //实力对象寻找方法或属性的原型链----->自身构造函数，自己的原型，再逐级原型进行寻找，但当下tom的原型链中也并没有，因此，我们想是否可以将Preson的原型添加到TOm的原型链中实现查找
+        //Tom自身构造函数--->Tom.__proto__.__proto__.__proto__;
+        //只有Preson的实例对象才能够拥有eat方法，因此，我们吧Tom的原型变成Preson的实力对象
+        Tom.prototype = new Person();
+      //每个构造函数的显示原型中都有一个constructor属性，他是构造器，指向构造函数自身，代表当下原型是谁的，但当面我们将子类的显示原型变成父类的实例对象时，constructor属性会失去指向，因此我们应当将他手动矫正回来；
+        Tom.prototype.constructor = Tom;
+        var tom = new Tom('汤姆');
+        //自身没有>原型中没有>原型的原型链中存在
+        tom.eat();
+        console.log(tom);
+
+    //    关键点：
+    //     1.将子类的显示原型变为父类的实力对象
+    //     2.将子类显示原型中的的构造器重新矫正指向
+    </script>
+</body>
+</html>

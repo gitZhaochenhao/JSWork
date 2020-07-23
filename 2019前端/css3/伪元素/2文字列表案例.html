@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.list{
+				list-style: none;
+				margin: 200px;
+			}
+			.list li a{
+				text-decoration: none;
+				color: #0066CC;
+			}
+			.list li{
+				margin-top: 10px;
+			}
+			.list li a::before{
+				content: '';
+				display: inline-block;
+				width: 24px;
+				height: 24px;
+				vertical-align: middle;
+				margin-right: 20px;
+			}
+			.list li a[href$='doc']::before{
+				
+				background-image: url(img/icon_doc.png);
+				
+			}
+			.list li a[href$='xls']::before{
+				
+				background-image: url(img/icon_xls.png);
+				
+			}
+			.list li a[href$='pdf']::before{
+				
+				background-image: url(img/icon_pdf.png);
+				
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list">
+			<li><a href="##世界真奇妙.doc">世界真奇妙.doc</a></li>
+			<li><a href="##财务报表.xls">财务报表.xls</a></li>
+			<li><a href="##js权威指南.pdf">js权威指南.pdf</a></li>
+			<li><a href="##搞事情.doc">搞事情.doc</a></li>
+			<li><a href="##你好世界.pdf">你好世界.pdf</a></li>
+		</ul>
+	</body>
+</html>

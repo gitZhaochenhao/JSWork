@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- less也属于 css样式，他是css样式的拓展与变化 -->
+		<style type="text/less">
+			/* less定义变量
+			 @变量名:变量值;
+			 */
+			@bgcolor:red;
+			.warp{
+				width: 500px;
+				height: 500px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				background-color: #0066CC;
+				
+				/* less语法允许嵌套结构
+				 可以在父元素样式中直接设置子元素样式，这时子元素样式名自动变为 父元素名 子元素名
+				 如： .warp .boab
+				 */
+				.boab{
+					width: 200px;
+					height: 200px;
+					position: absolute;
+					left: 0;
+					top: 0;
+					right: 0;
+					bottom: 0;
+					margin: auto;
+					background-color: @bgcolor;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="warp">
+			<div class="boab"></div>
+		</div>
+		
+		
+	</body>
+	<!-- 调用less配置文件 要写在样式css之后，一般写在最后边 -->
+	<script src="less.js"></script>
+</html>

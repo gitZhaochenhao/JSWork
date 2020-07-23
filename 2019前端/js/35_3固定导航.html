@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.heard{
+				height: 400px;
+				background-color: #CCCCCC;
+			}
+			.nav{
+				width: 1300px;
+				height: 100px;
+				background-color: #008000;
+			}
+			.main{
+				width: 1000px;
+				height:200px ;
+				background-color: #FFC0CB;
+				margin: 10px auto 0px;
+			}
+			.post{
+				position: fixed;
+				top: 0px;
+				left: 0px;
+			}
+		</style>
+	</head>
+	<body id="body">
+		<div class="heard" id="heard"></div>
+		<div class="nav" id="nav"></div>
+		<div class="main"></div>
+		<div class="main"></div>
+		<div class="main"></div>
+		<div class="main"></div>
+		<div class="main"></div>
+		<div class="main"></div>
+		<div class="main"></div>
+		<div class="main"></div>
+		<div class="main"></div>
+		
+		<script type="text/javascript">
+			
+			var heard=document.getElementById("heard");
+			// 头部的高
+			var heardoffH=heard.offsetHeight;
+			
+			window.onscroll=function(){
+				var topscroll=getscroll().top
+				
+				if(topscroll>=heardoffH){
+					nav.className='nav post';
+				}
+				else{
+					nav.className='nav ';
+				}
+			}
+			
+			// 对滚动事件进行封装
+			function getscroll(){
+				// // 兼容性处理  用||或者来判断到底哪个可以使用，那个能用那个就赋值到top;
+				// //        window移动          documentElement代表html标签            body移动 
+				// var top=window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop;
+				
+				// var left=window.scrollLeft || document.documentElement.scrollLeft || document.body.scrollLeft;
+				
+				// var obj={
+				// 	top:top,
+				// 	left:left
+				// }
+				// return obj
+				
+				return {
+					top:window.scrollTop || document.documentElement.scrollTop || document.body.scrollTop,
+					
+					left:window.scrollLeft || document.documentElement.scrollLeft || document.body.scrollLeft
+				}
+				
+			}
+			
+		</script>
+	</body>
+</html>

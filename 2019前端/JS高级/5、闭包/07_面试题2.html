@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>07_面试题2</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  /*
+   说说它们的输出情况
+   */
+
+  function fun(n, o) {//n = 0,0 = undefined
+    console.log(o);
+    return {
+      fun: function (m) {
+        return fun(m, n)
+      }
+    };
+  };
+  // a里面有一个闭包{n = 0},闭包一直没变,只有内部函数被调用或接收时闭包才会改变
+  var a = fun(0);//a接收了内部函数，内部函数拥有一个闭包，
+  a.fun(1);// n = 0 依旧使用之前已经形成的闭包因此n的数值不会发生改变
+  a.fun(2);//n = 0
+  a.fun(3);//n = 0 //undefined,?,?,?
+
+  // 0运行完后便等同于内部函数，
+  // 1对内部函数进行操作，给外部函数的n 赋值为1，此时闭包更新。
+  var b = fun(0).fun(1).fun(2).fun(3).fun(29).fun(50); //undefined,?,?,?   闭包一直在改变
+
+  // var b = fun(0);  //console.log()==undifined  闭包{n = 0}
+  // b = b.fun(1);   //console.log(o)==0    闭包{n = 1}
+  // b = b.fun(2);   //console.log(o)==1   闭包{n = 2}
+  // b = b.fun(3);   //console.log(o)==2   闭包{n = 3}
+  // b = b.fun(29);  //console.log(o)==3   闭包{n = 29}
+  // b = b.fun(50);  //console.log(o)==29   闭包{n = 50}
+
+
+  // var c = fun(0).fun(1);//console.log(o)==0  闭包{n = 1}
+  // c.fun(2);//console.log(o)==1  闭包{n = 1}
+  // c.fun(3) // console.log(o)==1 闭包{n = 1}                        undefined,?,?,?
+</script>
+</body>
+</html>

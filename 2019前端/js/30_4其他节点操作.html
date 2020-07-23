@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box">
+			R&B曲风
+			<h2 class="one" title="标题">周杰伦</h2>
+			<ul id="list">
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<li>双节棍</li>
+				<li>青花瓷</li>
+				<li>稻香</li>
+				<li>菊花台</li>
+				<li>龙卷风</li>
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+				<!--哈哈-->
+			</ul>
+				
+			<!--作词-->
+			<h3>方文山</h3>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * 第一个子节点:
+			 * 高级浏览器: 元素   文本(文本内容 空格  换行) 注释
+			 * 低版本浏览器: 元素  文本(不包含空格和换行) 注释
+			 * 
+			 * 第一个子元素:
+			 * 高级浏览器能获取到第一个子元素,低版本浏览器不能使用
+			 * 
+			 */
+			
+			
+			var list = document.getElementById('list');
+//			console.log(list.firstChild);//第一个子节点
+			console.log(list.firstElementChild);//第一个子元素
+			
+			
+			
+			/*
+			 * 其它获取元素的属性,以下每组属性的规则和上面的规则是一样的
+			 * 
+			 */
+			console.log(list.firstChild);//第一个子节点
+			console.log(list.firstElementChild);//第一个子元素
+			
+			console.log(list.lastChild);//最后一个子节点
+			console.log(list.lastElementChild);//最后一个子元素
+			
+			console.log(list.nextSibling);//下一个兄弟节点
+			console.log(list.nextElementSibling);//下一个兄弟元素
+			
+			console.log(list.previousSibling);//上一个兄弟节点
+			console.log(list.previousElementSibling);//上一个兄弟元素
+			
+		</script>
+	</body>
+
+</html>

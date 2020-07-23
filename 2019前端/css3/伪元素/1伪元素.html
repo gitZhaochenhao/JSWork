@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* 对块元素第一行进行设置 */
+			p::first-line{
+				background-color: #0066CC;
+			}
+			
+			/* 对首字符进行样式操作 */
+			p::first-letter{
+				color: #0000FF;
+				font-size: 30px;
+			}
+			
+			/* 相当于在该元素内部最前面添加了一个行元素
+				content进行该行元素的内容设置，必须设置，为''也可，不然该伪元素不会渲染
+				伪元素无法通过js进行获取与操作
+			 */
+			
+			p::before{
+				content: '666';
+			}
+			p::after{
+				content: '999';
+			}
+			
+			/* 用于设定用户选中文本的的前景色与背景色 */
+			p::selection{
+				background-color: #00CCFF;
+				color: #521E18;
+			}
+			
+		</style>
+	</head>
+	<!-- 
+	1)使用伪元素before,after必须设置content
+	2)使用伪元素before,after显示背景图，一定要使用display设置为块元素
+	3)使用伪元素before,after设置为display:inline_block,需要再次设置vertcal-align:middle
+ -->
+	<body>
+		<p>
+			发力解决后按规定拉可能带来了好阿里发挥啊我如何和老KNKDLANDA思考过不好
+			，这么说吧冲击波啊智能时代来了后卫，市场从无人机大盘，晕哦偶发阿琼人员发力解决后按规定拉可能带来了好阿里发挥啊我如何和老KNKDLANDA思考过不好
+			，这么说吧冲击波啊智能时代来了后卫，市场从无人机大盘，晕哦偶发阿琼人员
+			发力解决后按规定拉可能带来了好阿里发挥啊我如何和老KNKDLANDA思考过不好
+			，这么说吧冲击波啊智能时代来了后卫，市场从无人机大盘，晕哦偶发阿琼人员发力解决后按规定拉可能带来了好阿里发挥啊我如何和老KNKDLANDA思考过不好
+			，这么说吧冲击波啊智能时代来了后卫，市场从无人机大盘，晕哦偶发阿琼人员
+			
+		</p>
+		<span>格式</span>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid brown;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- canvas有自己的默宽高  他的宽高不要用css去设置，容易变形，宽高直接在标签中设置-->
+		<canvas id="art" width="600px" height="600px"></canvas>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				// 低级浏览器不支持canvas 
+				
+				var art=document.querySelector('#art');
+				
+				// 简写
+				if(!art.getContext)return;
+				// 创建绘制对象
+				var pen=art.getContext('2d');
+				// 清除前面的路径样式
+				pen.beginPath();
+				// 初始样式容器中的颜色是黑色
+				// 将黑色保存到样式栈中
+				pen.save();
+				// 此时样式容器中的黑色被棕色覆盖
+				pen.strokeStyle='darkgoldenrod';
+				// 将棕色保存到样式栈中
+				pen.save();
+				// 此时样式容器中的棕色被绿色覆盖
+				pen.strokeStyle='green';
+				// 此时样式容器中的绿色被蓝色覆盖
+				pen.strokeStyle='blue';
+				// 将蓝色保存到样式栈中
+				pen.save();
+				// 此时样式容器中的蓝色被粉色覆盖
+				pen.strokeStyle='deeppink';
+				
+				
+				// 弹出样式栈中最顶端的样式覆盖到样式容器中，此时样式容器显示为蓝
+				pen.restore();
+				// 弹出样式栈中最顶端的样式覆盖到样式容器中，此时样式容器显示为棕
+				pen.restore();
+				// 弹出样式栈中最顶端的样式覆盖到样式容器中，此时样式容器显示为黑
+				pen.restore();
+				
+				// 绘制矩形
+				pen.strokeRect(50,50,100,50);
+				// pen.fillRect()
+				// pen.clearRect()
+				// pen.rect()
+				// pen.stroke()
+				
+				
+				// 模板
+				pen.save()//把当前全部样式(颜色，描边宽窄，旋转，原点位置)保存到样式jian内存中
+				pen.beginPath()
+				// 这样的意义是不影响外部路径的容器内容
+				// 内容
+				// 
+				pen.restore();//从jian内存中去除原始样式并覆盖到样式容器中，实现恢复
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            background: rgba(255,0,0,0.3);
+            /*开启3d空间 对自身以及子元素起作用*/
+            transform-style: preserve-3d;
+            /*景深   元素近大远小*/
+			/* 单独设置景深时只对该元素的子元素有作用 */
+            perspective:300px;
+        }
+        #box{
+            width: 300px;
+            height: 300px;
+            background: blue;
+            /*transform: rotateX(0deg);*/
+            /*transform: rotateY(0deg);*/
+            /*transform:rotateY(0deg) rotateZ(0deg);*/
+            /*在transform中定义perspective是给自己设置景深,当我们单独设置perspective时是给子元素设置景深*/
+            transform:perspective(0px) translateZ(0px);
+        }
+        /*
+        rotateX  当角度为90deg（270deg）时元素垂直于屏幕 因为元素没有厚度 所以会看不见
+        rotateX(0deg)正值，元素左上角像屏幕里面跑
+        rotateY  当角度为90deg（270deg）时元素垂直于屏幕 因为元素没有厚度 所以会看不见
+        rotateY（0deg）正值  元素的左上角想屏幕外面跑
+        rotateZ  当我的坐标轴没有发生改变时  和rotate是没有区别的
+        z轴垂直于屏幕向外(默认)
+
+        */
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div id="box">box</div>
+</div>
+
+
+</body>
+<script type="text/javascript">
+</script>
+</html>

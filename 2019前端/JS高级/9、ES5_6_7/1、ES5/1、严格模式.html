@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        'use strict';//使用严格模式
+        // * 必须用var声明变量
+        // * 禁止自定义的函数中的this指向window
+        // * 创建eval作用域
+        // * 对象不能有重名的属性
+
+        // a = '222';
+        var a = '333';
+        console.log(a)//报错
+
+        function fun() {
+            console.log(this);
+        };
+        fun();
+
+        var q = 9;
+        //在非严格模式状态下eval没有自己的作用域，会污全局变量，在严格模式下会产生自己的作用域
+        eval('var q = 10 ; console.log(q)');
+        console.log(q);
+
+        // var obj = {
+        //     name:'kobe',
+        //     name:'go'
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>20_事件委托_引入.html</title>
+</head>
+
+<body>
+
+<ul>
+  <li>11111</li>
+  <li>1111111</li>
+  <li>111111111</li>
+  <li>11111111111</li>
+</ul>
+
+<li>22222</li>
+<br>
+<button id="btn">添加新的li</button>
+<button id="not">解除事件委托</button>
+<br>
+
+<!--
+绑定事件监听的问题: 新加的元素没有监听
+-->
+<script type="text/javascript" src="jquery-1.11.3main.js"></script>
+<script>
+  /*
+   需求：
+   1. 点击 li 背景就会变为红色
+   2. 点击 btn1 就添加一个 li
+  */
+  $(function () {
+    // 事件委托
+	$('ul').delegate('li','click',function(){
+		// this.style.background='red'
+		$(this).css({'background':'red'})
+	});
+	
+	// $('ul').on('click','li',function(){
+	// 	$(this).css("background",'red')
+	// })
+	
+	// 添加li
+	$('#btn').click(function(){
+		$('ul').append('<li>新添加</li>')
+	});
+	
+	// 解除事件委托
+	$('#not').click(function(){
+		$('ul').undelegate()
+	});
+	
+	
+  })
+</script>
+</body>
+</html>

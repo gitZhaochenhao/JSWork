@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 300px;
+				height: 300px;
+				background-color: lightpink;
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+			}
+			#shi,#fen,#miao,#center{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-100%);
+			}
+			#shi,#fen,#miao{
+				transform-origin:  bottom;  
+			}
+			#shi{
+				width: 8px;
+				height: 80px;
+				background-color: #000000;
+			}
+			#fen{
+				width: 6px;
+				height: 100px;
+				background-color: #000000;
+			}
+			#miao{
+				width: 4px;
+				height: 110px;
+				background-color: firebrick;
+			}
+			#center{
+				width: 15px;
+				height: 15px;
+				background-color: #000000;
+				border-radius: 50%;
+			}
+			
+			li:nth-child(5n){
+				width: 8px;
+				height: 13px;
+				background-color: #00FF00;
+				transform-origin:  bottom;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="shi"></div>
+			<div id="fen"></div>
+			<div id="miao"></div>
+			<div id="center"></div>
+		</div>
+		
+		<!-- <script type="text/javascript"></script> -->
+		<script type="text/javascript">
+			var box=document.getElementById('box');
+			var shi=document.getElementById('shi');
+			var fen=document.getElementById('fen');
+			var miao=document.getElementById('miao');
+			
+			var ul=document.createElement('ul');
+			for (var i = 0; i < 60; i++) {
+				var li=document.createElement('li');
+				li.style.width=5+'px';
+				li.style.height=8+'px';
+				li.style.backgroundColor='black';
+				li.style.position='absolute';
+				box.appendChild(li);
+			}
+			
+			var zhen=document.querySelectorAll('#box li');
+			for (var i = 0; i < zhen.length; i++) {
+				zhen[i].style.left='50%';
+				zhen[i].style.transformOrigin='0px 150px '
+				zhen[i].style.transform='rotate('+6*i+'deg)'
+			};
+			
+			setInterval(function(){
+				var date=new Date();
+				var S=date.getSeconds();
+				var M=date.getMinutes()+S/60;
+				var H=date.getHours()+M/60;
+				
+				// 我们要遵循变幻的同一性原则，只有Canvas可以累加属性
+				miao.style.transform='translate(-50%,-100%)'+' rotate('+S*6+'deg)';
+				fen.style.transform='translate(-50%,-100%)'+' rotate('+M*6+'deg)';
+				shi.style.transform='translate(-50%,-100%)'+' rotate('+H*15+'deg)';
+			},1000)
+			
+		</script>
+	</body>
+</html>

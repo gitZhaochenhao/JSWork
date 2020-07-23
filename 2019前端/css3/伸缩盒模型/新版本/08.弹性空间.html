@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            /*flex容器*/
+            display: flex;
+            /*display: -webkit-flex;*/
+
+            height: 200px;
+            border-bottom: 5px solid green;
+
+        }
+		
+		
+
+        .box1{
+            background: deeppink;
+			/* 
+				flex-grow弹性空间  写给子元素
+				将富裕空间分成若干份(每个伸缩项目的flex-grow相加)
+				然后按照份数进行分配
+			 */
+            flex-grow: 1;
+        }
+        .box2{
+            background: yellowgreen;
+            flex-grow: 1;
+        }
+        .box3{
+            background: greenyellow;
+
+            flex-grow: 3;
+        }
+		
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div class="box box1">1</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+</div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById('box');
+
+
+    }
+</script>
+</html>

@@ -1,0 +1,560 @@
+/*###cssreset*/
+html,body{height: 100%;overflow: hidden;}
+html,body,h1,h2,h3,h4,h5,h6,p,ul,li{margin: 0px;padding: 0px;font: 14px "微软雅黑";}
+a{text-decoration: none;display: block;}
+li{list-style: none;}
+img{display: block;}
+
+/*###清除浮动*/
+.clearfix{*zoom: 1;}
+.clearfix:after{content: "";display: block;clear: both;}
+/* ###title公共样式 */
+	.commonTitle{ color:#009ee0; font-size:80px; line-height:0.8; 
+		font-weight:bold; letter-spacing:-5px;
+	}
+/* ###text公共样式 */
+	.commonText{ color:white; line-height:1.5; font-size:15px;}
+
+
+/* 头部 */
+#wrap{
+	width: 100%;
+}
+#wrap #header{
+	position: relative;
+	width: 100%;
+	height: 80px;
+	
+}
+#wrap #header .headerMain{
+	width: 1100px;
+	height: 80px;
+	
+	margin: 0 auto;
+}
+#wrap #header .headerMain .logo{
+	float: left;
+	margin-top: 15px;
+}
+#wrap #header .headerMain #nav{
+	float: right;
+}
+#wrap #header .headerMain #nav .navList{
+	float: right;
+	margin-top: 50px;
+}
+#wrap #header .headerMain #nav .navList .navItem{
+	float: left;
+	margin-left: 40px;
+	position: relative;
+	left: 0;
+	top: 0;
+}
+#wrap #header .headerMain #nav .navList .navItem a .up{
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: #000000;
+	width: 0px;
+	overflow: hidden;
+	transition: width 1s;
+}
+#wrap #header .headerMain #nav .navList .navItem:hover a .up{
+	width: 100%;
+}
+#wrap #header .headerMain #nav .navList .navItem a .down{
+	color: #00A4E4;
+}
+#wrap #header #arrow{
+	position: absolute;
+	width: 21px;
+	height: 11px;
+	left: 50%;
+	top: 100%;
+	/* transform: translateX(-50%); */
+	/* 为了在js中好计算，他的距离可以直接用他到视口的距离 */
+	background-image: url(../img/arrow.png);
+	transition: 1s;
+	z-index: 3;
+}
+
+/* 主要部分 */
+#wrap #content{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	/* 高度：视口高度-头部高度 */
+	background-color: #0000FF;
+}
+#wrap #content .contentList{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	/* 内容撑开 */
+	background-color: hotpink;
+	transition: 1s;
+}
+#wrap #content .contentList .contentItem{
+	position: relative;
+	width: 100%;
+	/* 高度：视口高度-头部高度 */
+	background-color: palevioletred;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+#wrap #content .contentList .contentItem .contentInner{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	width: 1100px;
+	height: 520px;
+	
+}
+#wrap #content .contentList .contentItem:nth-child(1){
+	background-image: url(../img/bg1.jpg);
+}
+#wrap #content .contentList .contentItem:nth-child(2){
+	background-image: url(../img/bg2.jpg);
+}
+#wrap #content .contentList .contentItem:nth-child(3){
+	background-image: url(../img/bg3.jpg);
+}
+#wrap #content .contentList .contentItem:nth-child(4){
+	background-image: url(../img/bg4.jpg);
+}
+#wrap #content .contentList .contentItem:nth-child(5){
+	background-image: url(../img/bg5.jpg);
+}
+
+/* 测导航 */
+#wrap #bar{
+	position: fixed;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+#wrap #bar .barList .barItem{
+	width:15px ;
+	height: 15px;
+	border-radius: 50%;
+	border: 1px solid #C2CCD1;
+	margin-top: 10px;
+	cursor: pointer;
+}
+#wrap #bar .barList .barItem.active{
+	background-color: #FFFFFF;
+}
+
+/* 第三屏 */
+#wrap #content .contentList .contentItem.works .contentInner .work1 {
+	margin: 50px 0 100px 50px;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List {
+	margin-left: 50px;
+	overflow: hidden;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List .works2Item{
+	position: relative;
+	margin-right: 1px;
+	float: left;
+	width: 220px;
+	height: 133px;
+	overflow: hidden;
+	z-index: 10;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List .works2Item:last-child{
+	width: 332px;
+	height: 133px;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List .works2Item img{
+	transition: 1s;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List .works2Item .mask{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(25,25,25,0.8);
+	color: white;
+	opacity: 0;
+	transition: opacity 1s;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List .works2Item .mask .maskText{
+	margin: 10px;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List .works2Item .mask .maskIcon{
+	width: 32px;
+	height: 34px;
+	margin: 0 auto;
+	background-image: url(../img/zoomico.png);
+	background-repeat: no-repeat;	
+	transition: background-position 1s;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List .works2Item:hover .mask{
+	opacity: 1;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List .works2Item:hover .mask .maskIcon{
+	background-position: 0 -35px;
+}
+#wrap #content .contentList .contentItem.works .contentInner .work2 .works2List .works2Item:hover img{
+	transform: rotate(30deg) scale(1.8);
+}
+#wrap #content .contentList .contentItem.works .contentInner .works3{
+	position: absolute;
+	left: 900px;
+	top: 170px;
+	width: 167px;
+	height: 191px;
+	background-image: url(../img/robot.png);
+	animation: robotMove 3s linear infinite;
+}
+@keyframes robotMove{
+	0%{left: 82%;transform: rotateY(0deg)}
+	49%{transform: rotateY(0deg)}
+	50%{left: 40%;transform: rotateY(180deg)}
+	99%{transform: rotateY(180deg)}
+	100%{left: 82%;}
+}
+
+/* 第四屏 */
+#wrap #content .contentList .contentItem .contentInner.about  .about1 {
+	margin: 50px 0px 100px 50px;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about2{
+	width: 400px;
+	margin-left: 50px;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div{
+	position: absolute;
+	border: 5px rgba(255,255,255,0.5) solid;
+	width: 260px;
+	height: 200px;
+	border-radius: 8px;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div:nth-child(1){
+	left: 750px;
+	top: 50px;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div:nth-child(2){
+	left: 600px;
+	top: 290px;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div .maskList{
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div .maskList .maskItem{
+	position: relative;
+	float: left;
+	width: 50%;
+	height: 50%;
+	overflow: hidden;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div .maskList .maskItem img{
+	position: absolute;
+	transition: 1s;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div .maskList .maskItem:nth-child(1) img{
+	left: 0;
+	top: 0;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div .maskList .maskItem:nth-child(2) img{
+	right: 0;
+	top: 0;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div .maskList .maskItem:nth-child(3) img{
+	left: 0;
+	bottom: 0;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 div .maskList .maskItem:nth-child(4) img{
+	right: 0;
+	bottom: 0;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmUp:hover .maskItem:nth-child(1) img{
+	left: 100%;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmUp:hover .maskItem:nth-child(2) img{
+	top: 100%;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmUp:hover .maskItem:nth-child(3) img{
+	bottom: 100%;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmUp:hover .maskItem:nth-child(4) img{
+	right: 100%;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmDown:hover .maskItem:nth-child(1) img{
+	left: 100%;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmDown:hover .maskItem:nth-child(2) img{
+	top: 100%;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmDown:hover .maskItem:nth-child(3) img{
+	bottom: 100%;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmDown:hover .maskItem:nth-child(4) img{
+	right: 100%;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmUp{
+	transition: 1s;
+}
+#wrap #content .contentList .contentItem .contentInner.about  .about3 .about3ItrmDown{
+	transition: 1s;
+}
+/* 第二屏 */
+#wrap #content .contentList .contentItem.course{
+	overflow: hidden;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course1{
+	position: relative;
+	margin: 50px;
+	z-index: 10;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course2{
+	position: relative;
+	width: 400px;
+	margin-left: 50px;
+	color: white;
+	z-index: 10;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList{
+	position: absolute;
+	width: 480px;
+	top: 50px;
+	right: 70px;
+	height: 200px;
+	transform-style: preserve-3d;
+	z-index: 10;
+}
+
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .courseItem{
+	position: relative;
+	float: left;
+	width: 120px;
+	height: 132px;
+	transform-style: preserve-3d;
+	transition: 1s;
+	z-index: 10;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .courseItem .front{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/pcwelt.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 10;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .courseItem .back{
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 15px;
+	box-sizing: border-box;
+	background-color: #006B95;
+	transform: rotateY(180deg);
+	/* 背面不显示 */
+	backface-visibility: hidden;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .courseItem:hover{
+	transform: rotateY(180deg);
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .plues{
+	position: absolute;
+	width: 9px;
+	height: 410px;
+	top: -5px;
+	background-image: url(../img/plus_row.png);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .plues:nth-child(1){
+	left: -6px;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .plues:nth-child(2){
+	left: 114px;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .plues:nth-child(3){
+	left: 234px;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .plues:nth-child(4){
+	left: 354px;
+}
+#wrap #content .contentList .contentItem.course .contentInner .course3 .courseList .plues:nth-child(5){
+	left: 474px;
+}
+
+/* 第一屏 */
+#wrap #content .contentList .contentItem.home .contentInner .homeList{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	/* 开启3d空间 */
+	transform-style: preserve-3d;
+	/* 设置景深，对自己的子元素有效果 */
+	perspective: 1000px;
+	transition: 1s; 
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	line-height: 520px;
+	color: white;
+	/* 站位隐藏 */
+	visibility: hidden;
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem.active{
+	/* 加了active的类不隐藏 */
+	visibility: visible;
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem:nth-child(1){
+	background:#dc6c5f;
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem:nth-child(2){
+	background:#95dc84;
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem:nth-child(3){
+	background:#64b9d2;
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem:nth-child(4){
+	background:#000000;
+}
+
+#wrap #content .contentList .contentItem.home .contentInner .homeNavList{
+	position: absolute;
+	left: 50%;
+	top: 95%;
+	transform: translateX(-50%);
+	overflow: hidden;
+	transition: 1s; 
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeNavList .homeNavItem{
+	float: left;
+	margin: 2px;
+	width: 20px;
+	height: 20px;
+	box-shadow: 0 0 4px rgba(25,25,25,0.8);
+	border-radius: 50%;
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeNavList .homeNavItem.active{
+	background-color: white;
+}
+/* 第一屏动画 */
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem.leftHide{
+	/* 让这一屏消失，当下所有屏都是站位不显示的，因此我们先将其显示才能显示出消失的效果 */
+	/* visibility: hidden; */
+	/* 当存在属性 */
+	animation: leftH linear 3s;
+}
+@keyframes leftH{
+	0%{visibility: visible;}
+	50%{transform: translateX(-40%) rotateY(30deg) scale(0.8);}
+	100%{transform: translateZ(-200px);}
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem.rightShow{
+	visibility: visible;
+	animation: rightS linear 3s;
+}
+@keyframes rightS{
+	0%{transform: translateZ(-200px);}
+	50%{transform: translateX(40%) rotateY(-30deg) scale(0.8);}
+	100%{transform: translateZ(0px);}
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem.leftShow{
+	/* 让这一屏消失，当下所有屏都是站位不显示的，因此我们先将其显示才能显示出消失的效果 */
+	visibility: visible;
+	/* 当存在属性 */
+	animation: leftS linear 3s; 
+}
+@keyframes leftS{
+	0%{transform: translateZ(-200px);}
+	50%{transform: translateX(-40%) rotateY(30deg) scale(0.8);}
+	100%{transform: translateZ(0px);}
+}
+#wrap #content .contentList .contentItem.home .contentInner .homeList .homeItem.rightHide{
+	/* visibility: hidden; */
+	animation: rightH linear 3s;
+}
+@keyframes rightH{
+	0%{visibility: visible;}
+	50%{transform: translateX(40%) rotateY(-30deg) scale(0.8);}
+	100%{transform: translateZ(-200px);}
+}
+
+/* 第五屏 */
+#wrap #content .contentList .contentItem.team{
+	position: relative;
+	overflow: hidden;
+}
+#wrap #content .contentList .contentItem.team .team1{
+	float: left;
+	width: 400px;
+	margin: 50px;
+	transition: 1s; 
+}
+#wrap #content .contentList .contentItem.team .team2{
+	float: right;
+	width: 400px;
+	margin: 50px;
+	transition: 1s; 
+}
+#wrap #content .contentList .contentItem.team .team3{
+	position: absolute;
+	top: 230px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 944px;
+	height: 448px;
+}
+#wrap #content .contentList .contentItem.team .team3 .team3List{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#wrap #content .contentList .contentItem.team .team3 .team3List .team3Item{
+	width: 236px;
+	height: 100%;
+	float: left;
+	background-image: url(../img/team.png);
+}
+#wrap #content .contentList .contentItem.team .team3 .team3List .team3Item:nth-child(1){
+	biackground-positon: 3px 0px;
+
+}
+#wrap #content .contentList .contentItem.team .team3 .team3List .team3Item:nth-child(2){
+	background-position: -230px 0px;
+}
+#wrap #content .contentList .contentItem.team .team3 .team3List .team3Item:nth-child(3){
+	background-position: -483px 0px;
+}
+
+#wrap #content .contentList .contentItem.team .team3 .team3List .team3Item:nth-child(4){
+	background-position: -710px 0px;
+}
+
+/* 音频 */
+#wrap #header .headerMain .music{
+	float: left;
+	width:14px;
+	height:14px;
+	margin:50px 0 0 5px;
+	cursor: pointer;
+	background-image: url(../img/musicoff.gif);
+}
+
+/* 进出场动画 */
+#wrap #content .contentList .contentItem.works .contentInner .pencel1{transition: 1s; width:180px; height:97px; background:url(../img/pencel1.png); position:absolute; transition:1s; left:500px; top:0;}
+#wrap #content .contentList .contentItem.works .contentInner .pencel2{transition: 1s;  width:268px; height:38px; background:url(../img/pencel2.png) no-repeat; position:absolute; transition:1s; left:300px; top:250px;}
+#wrap #content .contentList .contentItem.works .contentInner .pencel3{transition: 1s;  width:441px; height:231px; background:url(../img/pencel3.png) no-repeat; position:absolute; transition:1s; left:650px; top:300px;}
+
+#wrap #content .contentList .contentItem.course .contentInner .plane1{transition: 1s;  width:359px; height:283px; background:url(../img/plane1.png) no-repeat; position:absolute; left:300px; top:-100px; transition:1s;}
+#wrap #content .contentList .contentItem.course .contentInner .plane2{transition: 1s;  width:309px; height:249px; background:url(../img/plane2.png) no-repeat; position:absolute; left:-100px; top:200px; transition:1s;}
+#wrap #content .contentList .contentItem.course .contentInner .plane3{transition: 1s;  width:230px; height:182px; background:url(../img/plane3.png) no-repeat; position:absolute; left:300px; top:400px; transition:1s;}
+

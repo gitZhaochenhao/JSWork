@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  var arr1 = [1,{name:'李明'},'AA制'];
+  function targetType(target) {
+    return Object.prototype.toString.call(target).slice(8,-1);
+  };
+  function targetPlay(target) {
+    let result;
+    let type = targetType(target);
+    console.log(type);
+    if(type === 'Object'){
+        result = {};
+    }else if(type === 'Array'){
+        result = [];
+    };
+      for (const i in target) {
+          let item = target[i];
+          if(targetType(item) === 'Object' || targetType(item) ===  'Array'){
+              result[i] = targetPlay(item);
+          }else {
+              result[i] = item;
+          };
+      };
+      return result;
+  };
+  let obj1 = targetPlay(arr1);
+  obj1[1].name = '朱晓明';
+  console.log(arr1)
+</script>
+</body>
+</html>

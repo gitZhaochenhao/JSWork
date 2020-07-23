@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #0000ED;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	
+	<script type="text/javascript">
+		var canvas=document.getElementById('canvas');
+		// if(!canvas.getContext) return;
+		
+		var ctx=canvas.getContext('2d');
+		
+		ctx.save();
+		ctx.beginPath();
+		ctx.fillStyle='greenyellow';
+		ctx.fillRect(100,100,100,100);
+		ctx.restore();
+		
+		// 获取某区域的所有像素点信息
+		var imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+		// 这个坐标的颜色小点
+		var color=getColor(imageData,150,150);
+		
+		// 给一个坐标返回该坐标像素的色彩小点
+		function getColor(obj,x,y){
+			// 用一个数组储存颜色
+			var colorArr=[];
+			//该目标像素上方有多少像素再加上其左侧有几个像素(这边是前面一共有多少个像素)再*4，表示目标像素的第一个色彩小点
+			colorArr[0]=obj.data[(y*canvas.width+x)*4];
+			colorArr[1]=obj.data[(y*canvas.width+x)*4+1];
+			colorArr[2]=obj.data[(y*canvas.width+x)*4+2];
+			colorArr[3]=obj.data[(y*canvas.width+x)*4+3];
+			
+			return colorArr
+		}
+		
+		console.log(color);
+		
+	</script>
+</html>

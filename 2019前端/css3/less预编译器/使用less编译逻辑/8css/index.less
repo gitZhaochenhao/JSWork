@@ -1,0 +1,20 @@
+.type(left,@width:20px,@height:40px,@bgColor:red){
+	width: @width;
+	height: @height;
+	background-color: blue;
+}
+.type(right,@width:20px,@height:40px,@bgColor:red){
+	width: @width;
+	height: @height;
+	background-color: green;
+}
+.type(top,@width:20px,@height:40px,@bgColor:red){
+	width: @width;
+	height: @height;
+	background-color: pink;
+}
+
+.box{
+	// 通过匹配参数1来确定用哪个方法
+	.type(right,60px,60px)
+}

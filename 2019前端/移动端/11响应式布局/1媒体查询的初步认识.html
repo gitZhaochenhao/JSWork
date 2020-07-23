@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				background-color: #0066CC;
+			}
+			/* 移动端 < 768 < ipad等平板 < 1024 <pc端
+			媒体查询响应式布局的编写位置要在正常样式的后面
+			 @media 媒体查询的标志
+			 only 当老旧浏览器遇见媒体查询时，直接跳过不用解析
+			 screen 参照物，参照视口的改变而改变
+			 and 媒体查询中的连接关键词
+			 */
+			@media only screen and (max-width:768px) {
+				.box{
+					background-color: firebrick;
+				}
+			}
+			@media only screen and (min-width:768px) and (max-width:1024px) {
+				.box{
+					background-color: #1D7DB1;
+				}
+			}
+			@media only screen and (min-width:1024px) {
+				.box{
+					background-color: deeppink;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

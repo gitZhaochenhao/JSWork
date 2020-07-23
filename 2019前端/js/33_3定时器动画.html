@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			#box{
+				width: 50px;
+				height: 50px;
+				background-color: #008000;
+				position: absolute;
+				top: 40px;
+				left: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<button > 走你</button>
+		<button> 停</button>
+		<div id="box"></div>
+		
+		<script type="text/javascript">
+			var timer=0;
+			var btn=document.getElementsByTagName("button");
+			var box=document.getElementById("box")
+			// 累加器
+			var num=0;
+			
+			// 当我们多次进行单击按钮时会造成一个定时器的累加
+			btn[0].onclick=function(){
+				//，为此，我们在每一次开启定时器之前都要删除之前的定时器，以确保当下的定时器只存在一个 
+				clearInterval(timer)
+				timer=setInterval(function(){
+					num+=10;
+					box.style.left=num+'px';
+				},50)
+			}
+			
+			btn[1].onclick=function(){
+				clearInterval(timer)
+			}
+			
+		</script>
+	</body>
+</html>

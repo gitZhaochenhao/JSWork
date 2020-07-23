@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 值类型: number string boolean
+			 * 引用类型: object
+			 * 
+			 * 基本包装类型: 以上三种基本数据类型,都保存在栈内存中,当调用方法时,会在内存中临时创建
+			 * 一个基本包装类型,对象,然后调用对象中的方法,当调用结束后,这个临时对象就被自动销毁,
+			 * 所以三种基本包装类型我们通常不会去人为的创建,因为值类型通常用来计算,字符串拼接,条件的
+			 * 判断,在栈内存中,进出的速度要快于堆内存
+			 */
+			
+			var num = 5;
+			console.log(num.toString());
+			console.log(num);
+			
+			var num02 = new Number(5);
+			var str = new String('哈哈');
+			var  bool01 = new Boolean(true);
+			var  bool02 = new Boolean(true);
+			console.log(num02);
+			console.log(str);
+			console.log(bool01);
+			if(bool01 == bool02){
+				console.log('呵呵');
+			}
+		</script>
+	</body>
+</html>

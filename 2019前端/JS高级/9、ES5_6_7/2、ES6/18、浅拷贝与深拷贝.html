@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script type="text/javascript">
+  let arr1 = [1,{name:4},3,4,5];
+  //将1提出来克隆给arr2，将地址给arr2
+  let arr2 = arr1.concat([]);//浅拷贝,当数据类型为一般数据类型时，不会对源数据产生影响.但是，当克隆一个引用数据类型时拷贝的是一个内存地址，因此，会改变该地址内容，拷贝前后的数据都会改变，因为他们指向这个地址
+  arr2[1].name = 8;
+  console.log(arr1,arr2);
+
+  let obj1 = {
+      name:'小明',
+      age:12,
+      fun:{
+           sex : '男'
+      }
+  };
+  let obj2 = {};
+  Object.assign(obj2,obj1);//浅拷贝
+  obj1.fun.sex = '女';
+  console.log(obj1,obj2);
+
+
+  console.log('------------------------------------------------------------深度拷贝--------------------------------------------------------------------');
+
+
+  var obja = {name:'小明',age:23,obj:{sex:'男'}};
+  function fun1(target) {
+    return Object.prototype.toString.call(target).slice(8,-1);
+  };
+
+  function fun2(target) {
+        let result;
+        let type = fun1(target);
+        if(type === 'Object'){
+            result = {};
+        }else if(type === 'Array'){
+            result = [];
+        }else {
+            return target;
+        }
+      for (let i in target) {
+          let item = target[i];
+          if(fun1(item) === 'Object' || fun1(item) === 'Array'){
+              result[i] = fun2(item);
+              console.log(11)
+          }else {
+              result[i] = item
+          };
+      };
+      return result
+  };
+  let obj3 = fun2(obja);
+  obj3.obj.sex = '不男不女';
+  console.log(obja,obj3);
+</script>
+</body>
+</html>

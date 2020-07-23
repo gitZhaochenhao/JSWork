@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">请点击</button>
+		<p id="p1">大家好</p>
+		<p>大家好</p>
+		<p id="p3">大家好</p>
+		<p>大家好</p>
+		<p>大家好</p>
+		<p>大家好</p>
+		<p>大家好</p>
+		
+		<input type="text" />
+		<input type="text" />
+		<input type="text" />
+		<input type="button" id="btn2" />
+		<input type="text" />
+		<input type="text" />
+		<input type="text" />
+		<script type="text/javascript">
+			// [p#p1, p, p#p3, p, p, p, p, p1: p#p1, p3: p#p3]  是一个数组,因此我们不可以对数组使用方法
+			var p=document.getElementsByTagName("p")
+			// console.log(p)
+			
+			
+				var btn=document.getElementById("btn");
+				
+				
+				btn.onclick=function(){
+					for(var i=0;i<p.length;i++){
+						p[i].innerText="我是小莫"
+					}
+				}
+				
+			var btn2=document.getElementById("btn2");
+			var text=document.getElementsByTagName("input")
+			
+			btn2.onclick=function(){
+				for(var i=0;i<text.length;i++){
+					if(text[i].type!="button"){
+						text[i].type="checkbox"
+					}
+					
+				}
+			}
+			
+		</script>
+		
+	</body>
+</html>

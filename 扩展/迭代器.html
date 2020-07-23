@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  //设想:自己创建一个迭代器接口
+
+  var arr = [2,4,[1,2,3,2,1],6];
+    let targetType = target => {
+        return Object.prototype.toString.call(target).slice(8,-1);
+    };
+    let iterUtil = target => {
+        //当前调用接口的数据类型
+        let type = targetType(target);
+        let result;
+        if(type === 'Object'){
+            result = {};
+        }else if(type === 'Array'){
+            result = [];
+        }else {
+            return target;
+        }
+        for (let i in target) {
+            //当前遍历的键值对值或数组值
+            let item = target[i];
+            if(targetType(item) === 'Object' || targetType(item) === 'Array'){
+                result[i] = iterUtil(item);
+            }else {
+                result[i] = item;
+            }
+        }
+        return result;
+    };
+    let a = iterUtil(arr);
+    a[2][1] =222
+    console.log(a)
+    console.log(arr,a);
+</script>
+</body>
+</html>

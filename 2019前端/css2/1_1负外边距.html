@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+			}
+			#box1{
+				background-color: #00CCFF;
+				/* 方法二  将实际下边框调到最顶  在不设置定位或浮动的情况之下，文字流高于不设置层级的文档流 */
+				/* margin-bottom: -200px; */
+			}
+			#box2{
+				background-color: #0000FF;
+				/* 方法一 */
+				/* position: absolute;
+				left: 0px;
+				top: 0px; */
+				
+				/* 方法三  浮动也会使该元素提升半个层级 */
+				/* float: left; */
+			}
+		</style>
+	</head>
+	<body>
+		
+		<!-- margin 的重点是实际边框的位置 -->
+		<div id="box2"></div>
+		<div id="box1">box文字</div>
+	</body>
+</html>

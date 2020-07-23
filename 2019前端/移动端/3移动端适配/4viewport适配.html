@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+	</head>
+	<body>
+		<!--当图稿小于我们的视口时使用，本质就是利用initial-scale进行视口的缩小-->
+		<script type="text/javascript">
+			!(function(){
+				//图稿尺寸
+			var targetWidth=300;
+			//视口尺寸
+			var width=document.documentElement.clientWidth;
+			//比例
+			var x=width/targetWidth;
+			//meta标签
+			var meta=document.querySelector('meta[name="viewport"]');
+			//设置缩放  因为在meta的content中的width与initial-scale是谁大要谁，所以我们不设置width
+			meta.content='initial-scale='+x+',user-scalable=no';
+			//setAttribute可以捕获标签中的任何属性，包括data-的自定义属性与不符合自定义属性格式的自定义属性
+			meta.setAttribute('content','initial-scale='+x+',user-scalable=no')
+			})()
+		</script>
+	</body>
+</html>

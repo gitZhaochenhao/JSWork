@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			var sum=11;
+			sum=function (){
+				sum=17
+				alert("函数体")
+			}
+			// 在运行的同时将全局变量sum的值改变
+			sum()//函数体
+			// sum()//17() 报错  
+			
+			
+			
+			function fun(fun){
+				console.log(fun)
+				// 虽然改变了参数的数值，但是本次函数已经结束，程序并不会把这个值继承到下一次调用函数的程序中
+				fun=11
+			}
+			fun()//undefined
+			fun()//undefined
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

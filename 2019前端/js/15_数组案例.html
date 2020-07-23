@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			var val=parseInt(prompt("请输入学生数量："))
+			var chengji=[];
+			for(var i=0;i<val;i++){
+				var scr=parseInt(prompt("请输入学生"+(i+1)+"的成绩"));
+				chengji[chengji.length]=scr;
+			}
+			// console.log(chengji)
+			var max=chengji[0];
+			var sun=0;
+			var min=chengji[0];
+			
+			for(var i=0;i<chengji.length;i++){
+				sun+=chengji[i];
+			}
+			console.log("总成绩为："+sun);
+			
+			for(var i=0;i<chengji.length;i++){
+				if(max<chengji[i]){
+					max=chengji[i]
+				}
+			}
+			console.log("最高分为："+max);
+			
+			for(var i=0;i<chengji.length;i++){
+				if(min>chengji[i]){
+					min=chengji[i]
+				}
+			}
+			console.log("最低分为："+min);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

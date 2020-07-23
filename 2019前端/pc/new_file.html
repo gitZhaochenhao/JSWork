@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css2/index.css" />
+		<style>
+			.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(1) {
+				background-color: #00A4E4;
+			}
+			.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(2) {
+				background-color: #00AA88;
+			}
+			.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(3) {
+				background-color: #e4b9c0;
+			}
+			.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(4) {
+				background-color: rebeccapurple;
+			}
+			.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(5) {
+				background-color: cornflowerblue;
+			}
+			.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				visibility: hidden;
+				animation-fill-mode: backwards;
+			}
+			.contentinner{
+				overflow: visible !important;
+			}
+			.contentItem{
+				overflow: visible !important;
+			}
+			.bannerList{
+				transform-style: preserve-3d;
+				perspective: 1000px;
+			}
+			@keyframes leftH{
+				0%{visibility: visible!important;}
+				50%{transform: translateX(-40%) rotateY(30deg) scale(0.8);}
+				100%{transform: translateZ(-200px);visibility: hidden;}
+			}
+
+			@keyframes leftS{
+				0%{transform: translateZ(-200px);}
+				50%{transform: translateX(-40%) rotateY(30deg) scale(0.8);}
+				100%{transform: translateZ(0px);}
+			}
+			@keyframes rightS{
+				0%{transform: translateZ(-200px);}
+				50%{transform: translateX(40%) rotateY(-30deg) scale(0.8);}
+				100%{transform: translateZ(0px);}
+			}
+			@keyframes rightH{
+				0%{visibility: visible;}
+				50%{transform: translateX(40%) rotateY(-30deg) scale(0.8);}
+				100%{transform: translateZ(-200px);visibility: hidden;}
+			}
+			.bannerItem.leftH{
+				animation: leftH 3s linear;
+			}
+			.bannerItem.rightS{
+				visibility: visible;
+				animation: rightS 3s linear;
+			}
+			.bannerItem.rightH{
+				animation: rightH 3s linear;
+			}
+			.bannerItem.leftS{
+				visibility: visible ;
+				animation: leftS 3s linear;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="header">
+				<div class="headerMain">
+					<div class="logo">
+						<a href="javascript:;">
+							<img src="img/logo.png" >
+						</a>
+					</div>
+					<nav class="headerNav">
+						<ul class="headerNavList">
+							<li class='headerNavItem'>
+								<div class="up">
+									<img src="img/home_gruen.png" />
+								</div>
+								<div class="down">
+									<img src="img/home.png" />
+								</div>
+							</li>
+							<li class='headerNavItem'>
+								<div class="up">
+									<a href="javascript:;">Course</a>
+								</div>
+								<div class="down">
+									<a href="javascript:;">Course</a>
+								</div>
+							</li>
+							<li class='headerNavItem'>
+								<div class="up">
+									<a href="javascript:;">Works</a>
+								</div>
+								<div class="down">
+									<a href="javascript:;">Works</a>
+								</div>
+							</li>
+							<li class='headerNavItem'>
+								<div class="up">
+									<a href="javascript:;">About</a>
+								</div>
+								<div class="down">
+									<a href="javascript:;">About</a>
+								</div>
+							</li>
+							<li class='headerNavItem'>
+								<div class="up">
+									<a href="javascript:;">Teams</a>
+								</div>
+								<div class="down">
+									<a href="javascript:;">Teams</a>
+								</div>
+							</li>
+							<li id="arrow"></li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+			<div class="contentWrap">
+					<ul class="contentList">
+						<li class="contentItem">
+							<div class='contentinner home'>
+								<ul class="bannerList">
+									<li class="bannerItem active">one</li>
+									<li class="bannerItem">two</li>
+									<li class="bannerItem">three</li>
+									<li class="bannerItem">five</li>
+									<li class="bannerItem">six</li>
+								</ul>
+							</div>
+						</li>
+						<li class="contentItem">
+							<div class='contentinner course'>
+								<div class='course1'>
+									<p class='commonTitle'>EINIGE</p>
+									<p class='commonTitle'>UNSERER</p>
+									<p class='commonTitle'>KUNDEN</p>
+								</div>
+								<div class='course2'>
+									<p class="commonText">
+										Das Kundenvertrauen in unsere Kompetenz ist die notwendige Basis einer erfolgreichen Zusammenarbeit,
+										gleichzeitig aber auch das größte Lob, das man uns entgegenbringen kann.
+										Diese und viele weitere große und kleine Kunden vertrauen uns seit Jahren, was uns stolz macht, und dafür
+										sagen wir an dieser Stelle einfach mal.
+									</p>
+								</div>
+								<div class="course3">
+									<ul class="courseList">
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+										<li class="courseItem">
+											<div class='up'></div>
+											<div class='down'></div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</li>
+						<li class="contentItem">
+							<div class='contentinner works'>
+								<div class="works1">
+									<p class='commonTitle'>EINBLICK</p>
+									<p class='commonTitle'>ERKENNTNIS</p>
+									<p class='commonTitle'>ERGEBNIS</p>
+								</div>
+								<div class="works2">
+									<ul class="img">
+										<li>
+											<img src="img/worksimg1.jpg" >
+											<div class="mask">
+												<p class="maskText">这里是一段文字</p>
+												<div class="maskIco"></div>
+											</div>
+										</li>
+										<li>
+											<img src="img/worksimg2.jpg" >
+											<div class="mask">
+												<p class="maskText">这里是一段文字</p>
+												<div class="maskIco"></div>
+											</div>
+										</li>
+										<li>
+											<img src="img/worksimg3.jpg" >
+											<div class="mask">
+												<p class="maskText">这里是一段文字</p>
+												<div class="maskIco"></div>
+											</div>
+										</li>
+										<li>
+											<img src="img/worksimg4.jpg" >
+											<div class="mask">
+												<p class="maskText">这里是一段文字</p>
+												<div class="maskIco"></div>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="works3"></div>
+							</div>
+						</li>
+						<li class="contentItem">
+							<div class='contentinner about'>
+								<div class='course1'>
+									<p class='commonTitle'>EINIGE</p>
+									<p class='commonTitle'>UNSERER</p>
+									<p class='commonTitle'>KUNDEN</p>
+								</div>
+								<div class='course2'>
+									<p class="commonText">
+										Das Kundenvertrauen in unsere Kompetenz ist die notwendige Basis einer erfolgreichen Zusammenarbeit,
+										gleichzeitig aber auch das größte Lob, das man uns entgegenbringen kann.
+										Diese und viele weitere große und kleine Kunden vertrauen uns seit Jahren, was uns stolz macht, und dafür
+										sagen wir an dieser Stelle einfach mal.
+									</p>
+								</div>
+							</div>
+						</li>
+						<li class="contentItem">
+							<div class='contentinner'>5</div>
+						</li>
+					</ul>
+					<div class="ceNav">
+						<span class="active"></span>
+						<span></span>
+						<span></span>
+						<span></span>
+						<span></span>
+					</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			// 头部
+			var header=document.querySelector('.header');
+			// 小箭头
+			var arrow=document.getElementById('arrow');
+			//每一个选项按钮
+			var headerNavItem=document.querySelectorAll('.wrap .header .headerMain .headerNav .headerNavList .headerNavItem');
+			var headerNavItemUp=document.querySelectorAll('.wrap .header .headerMain .headerNav .headerNavList .headerNavItem .up');
+			// 总内容区域
+			var contentWrap=document.querySelector('.contentWrap');
+			// 内容区域容器
+			var contentMain=document.querySelector('.contentMain');
+			// 内容列表
+			var contentList=document.querySelector('.contentList');
+			// 内容li
+			var contentItem=document.querySelectorAll('.wrap .contentWrap .contentList .contentItem');
+			// 侧边导航
+			var ceNav=document.querySelectorAll('.wrap .contentWrap .ceNav span');
+			// 轮播图
+			var  bannerList=document.querySelector('.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList');
+			var bannerItem=document.querySelectorAll('.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem');
+			// 定时器
+			var timer;
+			// 当前位置
+			var index=0;
+			//幻灯片
+			var bannerItems = document.querySelectorAll('.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem');
+			var numBanner = 0;
+			setInterval(() => {
+				bannerItems[numBanner].className = 'bannerItem rightH';
+				numBanner++;
+				if(numBanner>4){
+					numBanner = 0
+				};
+				bannerItems[numBanner+1].className = 'bannerItem leftS';
+			},5000);
+
+			// 头部交互
+			headerPlay();
+			function headerPlay(){
+				headerNavItemUp[0].style.width='100%';
+				for (var i = 0; i < headerNavItem.length; i++) {
+					headerNavItem[i].index=i;
+					headerNavItem[i].onclick=function(){
+						for (var j = 0; j < headerNavItemUp.length; j++) {
+							headerNavItemUp[j].style.width='';
+						};
+						index=this.index;
+						// arrow.style.transition='1s';
+						// arrow.style.left=(headerNavItem[index].getBoundingClientRect().left+(headerNavItem[index].offsetWidth-arrow.offsetWidth)/2)+'px';
+						// contentList.style.top=-index*contentItem[0].offsetHeight+'px';
+						make(index);
+					}
+				}
+			}
+			
+			// 布局尺寸设置
+			contentPlay();
+			function contentPlay(){
+				// 主体尺寸设置
+				contentWrap.style.width='100%';
+				contentWrap.style.height=(document.documentElement.clientHeight-header.offsetHeight)+'px';
+				console.log(header.offsetHeight);
+				
+			}
+			
+			// 滚动事件绑定
+			scrollPlay()
+			function scrollPlay(){
+				// 滚动事件
+				document.onmousewheel=function(e){
+					e=e||window.event;
+					// 单次定时器
+					clearInterval(timer);
+					timer=setTimeout(function(){
+						scrollMove(e);
+					},200);
+				}
+				function scrollMove(e){
+					e=e||window.event;
+					var flag=0;
+					if(e.wheelDelta){
+						if(e.wheelDelta>0){
+							flag='up';
+						}else if(e.wheelDelta<0){
+							flag='down';
+						};
+					}else if(e.detail){
+						if(e.detail>0){
+							flag='up';
+						}else if(e.detail<0){
+							flag='down';
+						};
+					};
+					switch(flag){
+						case 'up':
+							index--;
+							console.log(index)
+							if(index<0){
+								index=0;
+							};
+							make(index);
+							break;
+						case 'down':
+							index++;
+							console.log(index)
+							if(index>4){
+								index=4;
+							};
+							make(index);
+							break;
+					}
+				};
+				
+			}
+			// 操作函数
+			function make(index){
+				for (var j = 0; j < headerNavItemUp.length; j++) {
+					headerNavItemUp[j].style.width='';
+				};
+				headerNavItemUp[index].style.width='100%';
+				for (var i = 0; i < ceNav.length; i++) {
+					ceNav[i].className='';
+				};
+				ceNav[index].className='active';
+				arrow.style.transition='1s';
+				arrow.style.left=(headerNavItem[index].getBoundingClientRect().left+(headerNavItem[index].offsetWidth-arrow.offsetWidth)/2)+'px';
+				contentList.style.top=-index*contentItem[0].offsetHeight+'px';
+			};
+			
+			// 侧边导航
+			for (var i = 0; i < ceNav.length; i++) {
+				ceNav[i].index=i;
+				ceNav[i].onclick=function(){
+					index=this.index;
+					make(index);
+				};
+			};
+			
+			var num=0;
+			setInterval(function(){
+				bannerItem[num]
+			},2000);
+			
+			// 窗口尺寸调整页面
+			window.onresize=function(){
+				make(index);
+			};
+		</script>
+	</body>
+</html>

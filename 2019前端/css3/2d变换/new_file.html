@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			.wrap{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				right: 50px;
+				bottom: 20px;
+				width: 50px;
+			}
+			.home{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				background-image: url(img/home.png);
+				border-radius: 50%;
+				z-index: 2;
+				cursor: pointer;
+				transition: 2s;
+			}
+			.list li{
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				cursor: pointer;
+			}
+			.list li img{
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="home" id="home"></div>
+			<ul class="list">
+				<li><img src="img/clos.png" alt=""></li>
+				<li><img src="img/full.png" alt=""></li>
+				<li><img src="img/open.png" alt=""></li>
+				<li><img src="img/prev.png" alt=""></li>
+				<li><img src="img/refresh.png" alt=""></li>
+			</ul>
+		</div>
+		
+		<script type="text/javascript">
+			// 获取home
+			var home=document.getElementById('home')
+			// 获取所有小图标
+			// querySelectorAll用于查找dom的方法   可以写选择器  返回值也是数组
+			var img=document.querySelectorAll('.list li')
+			// 动画状态
+			var ketongType=true;
+			// 半径
+			var r=200;
+			
+			
+			
+		</script>
+	</body>
+</html>

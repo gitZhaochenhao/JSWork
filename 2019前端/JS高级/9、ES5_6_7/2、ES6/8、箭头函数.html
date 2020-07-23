@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        let fun1 = () => {console.log('fun1()')};
+        fun1();
+
+        let fun2 = a => {console.log('func2()')};
+        fun2();
+
+        let fun3 = (a,b) => {console.log(a,b)};
+        fun3('参数1','参数2');
+
+        //无{}时返回的是，内容操作的返回值
+        let fun4 = () => console.log('fun4()');
+        console.log(fun4())
+        //有{}时和一般函数一样默认返回undefind
+        let fun5 = () => {3};
+        console.log(fun5());
+
+        //箭头函数中的this指向：他的this并不是像一般函数一样在调用的时候确定的
+        //先看箭头函数外部是否是一个函数，若是一个函数则，箭头函数中的this指向该函数的this,若不是一个函数则箭头函数中this指向window
+        let fun6 = () =>{console.log(this)};
+        fun6();
+
+        let obj = {
+            name:'翠花',
+            fun(){
+                let fun7 = () =>{console.log(this)};
+               return  fun7
+            }
+        };
+        //指向fun函数的this
+        obj.fun()();
+    </script>
+</body>
+</html>

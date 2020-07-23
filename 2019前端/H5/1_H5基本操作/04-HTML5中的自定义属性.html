@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<!-- 当我们想给一个元素设置自定义属性时，要以data为前缀 -->
+		<div data-name='小王' data-age='45' data-my-face='帅'></div>
+		
+		<script type="text/javascript">
+			var divObj=document.getElementsByTagName('div')[0];
+			// 我们的自定义属性不能直接获取
+			console.log(divObj.data-name);
+			// 获取自定义属性  获取到的是一个对象{}包含所有自定义属性
+			console.log(divObj.dataset)
+			console.log(divObj.dataset.name)
+			for(var key in divObj.dataset){
+				console.log(key+'====='+divObj.dataset[key])
+			};
+			
+			// 添加自定义属性   在元素中自己转化为：data-color
+			divObj.dataset.color='red';
+			console.log(divObj.dataset);
+			
+			// 获取多中划线分割的自定义属性  利用驼峰式表达my-face=====myFace
+			console.log(divObj.dataset.myFace);
+			// 设置多中划线分割的自定义属性
+			divObj.dataset.myHous='Good';
+			console.log(divObj.dataset);
+		</script>
+		
+	</body>
+</html>

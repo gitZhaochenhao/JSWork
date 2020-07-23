@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			// 1.求数组元素的和
+			var list=[1,2,3,4,5];
+			// 计数器
+			var sum=0;
+			for(var i=0;i<list.length;i++){
+				//sum=sum+list[i]
+				sum+=list[i]
+			}
+			console.log(sum)
+			
+			
+			// 2.求数组元素的平均值
+			console.log(sum/list.length)
+			
+			//3.找出数组中的最大值
+			var list02=[1,5,7,3,9,2]
+			// 当前最大值
+			var num=list02[0];
+			for(var i =0;i<list02.length;i++){
+				if(num<list02[i]){
+					num=list02[i]
+				}
+			}
+			console.log(num)
+			
+			
+			// 4.倒序遍历数组
+			var list03=[1,2,3,4,5]
+			var li=[]
+			for(var i=list03.length-1;i>=0;i--){
+				//任何赋值操作都是先读=右边在读左边，此时li数组中没有任何数值所以长度也是0，当该行代码执行完后li长度才会为1
+				li[li.length]=list03[i]
+			}
+			console.log(li) 
+			
+			//5.将数组中的值合并为一个字符串并每个元素之间以|分割
+			var list04=[1,2,3,4,5];
+			var str='';
+			for(var i =0;i<list04.length;i++){
+				str+=list04[i]+"|"
+			}
+			console.log(str)
+			
+			
+			//6.数组反转
+			var list05=[1,2,3,4,5,6];
+			
+			for(var i =0;i<list05.length/2;i++){
+				var tem=list05[i]
+				list05[i]=list05[list05.length-1-i];
+				list05[list05.length-1-i]=tem
+			}
+			console.log(list05)
+			
+			// 冒泡排序
+			var list06=[12,34,5,78,59,90,13]
+			// 轮数 行
+			for(var i=0;i<list06.length-1;i++){
+				// 比较次数交换 列
+				for(var j=0;j<list06.length-i;j++){
+					var tans=list06[j];
+					if(list06[j]>list06[j+1]){
+						list06[j]=list06[j+1]
+						list06[j+1]=tans
+					}
+				}
+			}
+			console.log(list06)
+			
+			for(var i=0;i<list06.length;i++){
+				// 交换 列
+				for(var j=0;j<list06.length-i;j++){
+					document.write("@")
+					
+					}
+					document.write("<br />")
+				}
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

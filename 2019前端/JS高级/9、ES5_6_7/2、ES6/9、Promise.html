@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>11_Promise对象</title>
+</head>
+<body>
+<!--
+1. 理解:
+  * Promise对象: 代表了未来某个将要发生的事件(通常是一个异步操作)
+  * 有了promise对象, 可以将异步操作以同步的流程表达出来, 避免了层层嵌套的回调函数(俗称'回调地狱')
+  * ES6的Promise是一个构造函数, 用来生成promise实例
+2. 使用promise基本步骤(2步):
+  * 创建promise对象
+    let promise = new Promise((resolve, reject) => {
+        //初始化promise状态为 pending
+      //执行异步操作
+      if(异步操作成功) {
+        resolve(value);//修改promise的状态为fullfilled
+      } else {
+        reject(errMsg);//修改promise的状态为rejected
+      }
+    })
+  * 调用promise的then()
+    promise.then(function(
+      result => console.log(result),
+      errorMsg => alert(errorMsg)
+    ))
+3. promise对象的3个状态
+  * pending: 初始化状态
+  * fullfilled: 成功状态
+  * rejected: 失败状态
+4. 应用:
+  * 使用promise实现超时处理
+
+  * 使用promise封装处理ajax请求
+    let request = new XMLHttpRequest();
+    request.onreadystatechange = function () {
+    }
+    request.responseType = 'json';
+    request.open("GET", url);
+    request.send();
+-->
+
+<script type="text/javascript">
+    //1. 创建promise实例对象 ---> 初始化promise对象的状态为pending
+    // let promise = new Promise((resolve, reject) => {
+    //2. 执行异步任务： 开启定时器，发送ajax请求
+    // setTimeout(() => {
+    //3. 根据异步任务执行的结果去动态的修改promise对象的状态： resolve()成功, reject()失败
+    //异步任务成功，修改promise对象的状态为fullfilled
+    // let msg = '哈哈';
+    // resolve(msg);
+    // console.log(promise);
+
+
+    //异步任务成功，修改promise对象的状态为fullfilled
+    // reject();
+    // console.log(promise);
+    // },2000);
+    // });
+    // console.log(promise);
+
+    //4. promise实例对象默认有个then方法，该方法需要两个参数，这两个参数是两个回调函数
+    // promise
+    //     .then((msg)=>{//当promise对象的状态变为成功 的时候,会自动调用then方法中的第一个回调函数
+    //       console.log('成功了');
+    //     },()=>{///当promise对象的状态变为成功 的时候,会自动调用then方法中的第一个回调函数
+    //       console.log('失败了');
+    //     });
+
+    //封装promise函数
+    var num = 0;
+    function util(){
+        num++;
+        let promise = new Promise((resolve, reject)=>{
+            //执行异步任务
+            setTimeout(()=>{
+
+                resolve(`第${num}次执行异步任务成功`);
+            },2000)
+        });
+        return promise;
+    }
+    util()
+        .then((result)=>{
+            console.log(result);
+            //result的值有两种情况，
+            // 当resolve()方法中有数据时，result的值就为传入的数据，
+            //当resolve()方法中没有数据，result的值就undefined
+            //   if(result){
+            //     //执行第二次异步任务
+            //     return util();
+            //   }
+        },()=>{
+            console.log('失败了');
+        })
+        //then()的默认返回值是promise,且promise是成功状态
+        .then((result)=>{
+            // console.log(result);
+            console.log('成功了');
+        },()=>{
+            console.log('失败了');
+        })
+
+
+
+</script>
+
+</body>
+
+</html>

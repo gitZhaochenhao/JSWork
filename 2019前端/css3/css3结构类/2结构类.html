@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			/* 倒序查找    先查看结构类的指向标签再匹配我们的目标标签，如果标签对应则进行样式的设定*/
+			/* ul li:nth-last-child(2n){
+				background-color: #0000FF;
+			} */
+			
+			/* 倒序查询   凡是带of-type的结构类都是先找出所有的p在对第三个p进行样式设定 */
+			/* ul p:nth-last-of-type(3){
+				background-color: #008000;
+			} */
+			
+			ul p:nth-of-type(3){
+				background-color: #008000;
+			}
+			
+			/* 第一个p标签 */
+			/* ul p:first-of-type{
+				background-color: #0066CC;
+			}
+			 */
+			4
+			/* 最后一个p标签 */
+			/* ul p:last-of-type{
+				background-color: #0066CC;
+			} */
+			
+			/* 匹配唯一元素   先看父元素中有几个目标标签，若目标标签仅有一个则对其进行样式设定 */
+			/* ul a:only-of-type{
+				background-color: #0066CC;
+			} */
+			
+			/* 给父元素中的目标标签进行样式设定 父元素必须仅有目标标签一个内容 */
+			/* div p:only-child{
+				background-color: #008000;
+			} */
+			
+			/* 直接给目标标签进行样式设定，目标标签中不能有内容或文字 */
+			/* div:empty{
+				background-color: #0066CC;
+			} */
+			
+			div{
+				width: 100px;
+				height: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div><p>哈哈哈</p><a>简洁</a></div>
+		<ul>
+			<li>发了劳务奇葩案例法琳娜</li>
+			<li>发了劳务奇葩案例法琳娜</li>
+			<p>快快快上传</p>
+			<p>快快快上传</p>
+			<a>ff</a>
+			<div ></div>
+			<li>发了劳务奇葩案例法琳娜</li>
+			<li>发了劳务奇葩案例法琳娜</li>
+			<li>发了劳务奇葩案例法琳娜</li>
+			<p>快快快上传</p>
+			<p>快快快上传</p>
+			<li>发了劳务奇葩案例法琳娜</li>
+			<li>发了劳务奇葩案例法琳娜</li>
+			<p>快快快上传</p>
+			<li>发了劳务奇葩案例法琳娜</li>
+			<h1>t</h1>
+		</ul>
+	</body>
+</html>

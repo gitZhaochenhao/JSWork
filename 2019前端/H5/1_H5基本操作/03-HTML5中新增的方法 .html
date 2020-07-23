@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#box01{
+				width: 200px;
+				height: 200px;
+				background-color: pink;
+			}
+			.one{
+				color: #00FF00;
+			}
+			.tow{
+				font-size: 30px;
+			}
+			.three{
+				font-weight: bold;
+			}
+			.four{
+				-webkit-text-stroke: #0066CC 2px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box01" class="one tow three">
+			<p>大家好</p>
+		</div>
+		<p  class="one">小啊giao</p>
+		<p>火花</p>
+		<button id="btn">切换</button>
+	</body>
+	
+	<script type="text/javascript">
+		// 通过id获取DOM元素 获取到的是一个单独对象 ，若出现多个元素id名相同的情况，则获取以一个出现的
+		var divObj=document.getElementById('box01')
+		console.log(divObj)
+		// 通过class样式类名进行获取，获取的是一个数组
+		console.log(document.getElementsByClassName('one')[0])
+		// 通过标签名名进行获取，获取的是一个数组
+		console.log(document.getElementsByTagName('div')[0])
+		// 通过选择器进行元素的获取，得到的是一个数组
+		console.log(document.querySelectorAll('#box01 p')[0])
+		// 通过选择器进行元素的获取，得到的是一个单独对象 
+		console.log(document.querySelector('.one p'))
+		
+		// 得到该对象的全部样式类名，以数组方式显示
+		console.log(divObj.classList)
+		// 添加一个类样式    原理：在样式列表中添加
+		divObj.classList.add('four')
+		// 移除一个类样式    原理：在样式列表中移除
+		divObj.classList.remove('four')
+		// 判断对象的样式类列表中是否有某个类样式，返回布尔值
+		console.log(divObj.classList.contains('four'))
+		
+		document.getElementById('btn').onclick=function(){
+			// 切换一个类样式 与JQ中的toggle相同功能(fadeTogglr,toggle,slidetoggle)
+			divObj.classList.toggle('four')
+		}
+	</script>
+</html>

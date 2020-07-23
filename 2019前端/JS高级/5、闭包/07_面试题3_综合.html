@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>面试题_综合</title>
+</head>
+<body>
+<script type="text/javascript">
+  function Foo() {
+    getName = function () { alert (1); };
+    return this;
+  }
+  Foo.getName = function () { alert (2);};
+  Foo.prototype.getName = function () { alert (3);};
+  var getName = function () { alert (4);};
+  function getName() { alert (5);}
+
+  //请写出以下输出结果：
+  Foo.getName();// 2 函数也是一个对象，特是一个能够调用的函数对象，因此，也是可以添加属性与方法的。
+  getName();//当声明的变量名与函数的名称相同时，js预解析自动将这个名称给予层级高的function，此时function的整个函数体实际上已经提顶，函数向下执行的过程中，15行将getName再次赋值，因此输出4
+  Foo().getName();//函数中的getName变量并没有用var声明，因此自动提升至全局，覆盖同名变量，成为window的方法，Foo为自调用函数返回值为window，window.getName(),因此输出1
+  getName();//当前函数中为var的变量getName提升至全局，因此输出1
+  new Foo.getName(); //new:1.产生一个空对象 2.执行构造函数 3.给实例对象赋予属性或方法 4.返回这个实力对象，而new与最近的（）看成是一组，new与()之间是函数名函数地址，这时会产生一个实力对象，此题中，new直接找寻（）并执行该构造函数，因此输出2
+  new Foo().getName();//new找到最近的（）生成一个实例对象，调用实例对象中的getName方法，该实例对象自身并没有该方法，实力对象的隐式原型随原型链进行寻找，发现原型中有，因此输出3
+  new new Foo().getName();//第一个new在向后寻找()时发现第二个new，第二个new向后寻找()进行实例化并调用这个实例化对象的getName方法，此时等同于 new function () { alert (3);}();  因此输出3
+  //var 实例对象 = new Foo();
+  //var fun = 实例对象.getName;
+  //new function();
+
+  console.log(new Foo());
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box{
+				width: 200px;
+				height: 500px;
+				background-color: #009EE0;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		
+		<script>
+			//适配........
+			
+			//dom0写法
+//			var box=document.getElementById('box');
+//			//手指按下事件
+//			box.ontouchstart=function(e){
+//				e=e||window.event;
+//				console.log('start');
+//			}
+//			//手指滑动
+//			box.ontouchmove=function(e){
+//				e=e||window.event;
+//				console.log('move');
+//				
+//			}
+//			//手指抬起
+//			box.ontouchend=function(e){
+//				e=e||window.event;
+//				console.log('end');
+//				
+			}
+			
+			//移动端的时间不用消除，但是pc端中的事件需要消除  down-move-up中要取消绑定upp与move事件
+			//推荐用dom2事件写法
+			//dom2写法
+			box.addEventListener('touchstart',function(){
+				console.log('start');
+			});
+			box.addEventListener('touchmove',function(){
+				console.log('move');
+			});
+			box.addEventListener('touchend',function(){
+				console.log('end');
+			});
+		</script>
+	</body>
+</html>

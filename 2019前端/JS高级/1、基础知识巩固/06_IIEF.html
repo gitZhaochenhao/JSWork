@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>06_IIEF</title>
+</head>
+<body>
+<!--
+1. 理解
+  * 全称: Immediately-Invoked Function Expression 立即调用函数表达式
+  * 别名: 匿名函数自调用
+2. 作用
+  * 隐藏内部实现
+  * 不污染外部命名空间
+-->
+
+<script type="text/javascript">
+  // 函数自调用    立即执行函数  IIFE
+  /*
+  * 特点：
+  *   1. 只执行一次
+  *   2. 什么时候执行： 代码执行到函数位置
+  *   3. 内部的数据是私有的
+  *
+  *
+  *
+  * */
+
+  function fun() {
+    var num = 123;
+  }
+
+
+
+
+  fun();
+
+
+
+
+  (function (w) {
+    var num = 123;
+    console.log('xxx');
+    var jQuery = {
+
+    }
+    console.log('window.$');
+    w.$ = w.jQuery = jQuery;
+  })(window)
+  // console.log(num);
+
+</script>
+
+</body>
+</html>

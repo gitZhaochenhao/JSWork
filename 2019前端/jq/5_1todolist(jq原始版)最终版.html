@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>jQuery 练习</title>
+
+		<link rel="stylesheet" href="css/index.css">
+		<style>
+			.todo-main li button {
+				display: none;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.11.3main.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				var dataJson = [{
+					"content": "吃饭",
+					"isComplete": false
+				}, {
+					"content": "睡觉",
+					"isComplete": false
+				}, {
+					"content": "剃头",
+					"isComplete": false
+				}];
+				
+				// 获取ul
+				var $ul=$('.todo-main');
+				
+				// 通过遍历动态添加表格
+				function ulappend(data){
+					for (var i = 0; i < data.length; i++) {
+						$ul.append('<li class="todoItem" style="background: rgb(255, 255, 255);">' +'<label><input type="checkbox"><span>'+data[i].content+'</span></label>' +'<button class="btn btn-danger" style="display: none;">删除</button></li>')	
+					};
+				};
+				
+				// 获取选项数量
+				function length(){
+					$('#allTodos').text($ul.children('li').length);
+					return $ul.children('li').length
+				};
+				
+				// 获取选中选项数量
+				function oklength(){
+					$('#allCompletedTodos').text($ul.find(':checkbox:checked').length);
+					return $ul.find(':checkbox:checked').length
+				}
+				
+				
+				
+				
+				
+				// 划入划出效果
+				$ul.on('mouseenter','li',function(){
+					$(this).css('background','#ccc').children('button').css('display','block')
+				});
+				$ul.on('mouseleave','li',function(){
+					$(this).css('background','#fff').children('button').css('display','none')
+				});
+				
+				// 事件委托删除按钮
+				$ul.on('click','button',function(){
+					$(this).parent().remove();
+					//动态添加总数量
+					length();
+					// 查看已完成数量
+					oklength();
+				});
+				
+				// 添加选项卡    键盘按下事件
+				$('#newTodo').keydown(function(e){
+					// 回车键的下标为13
+					if(e.keyCode==13){
+						if($(this).val().trim()){
+							ulappend([{"content": $(this).val().trim(),"isComplete": false}]);
+							length();
+						}else{
+							alert('信息不能为空')
+						};
+					};
+					$(this).val('');
+				});
+				
+				// 复选框单击选中
+				$ul.on('click','input',function(){
+					oklength();
+					// console.log(oklength())
+					// console.log(length())
+					$('#checkAll').prop('checked',oklength()==length())
+				});
+				
+				// 全选按钮
+				$('#checkAll').click(function(){
+					console.log($('#checkAll').prop('checked'))
+					$ul.find(':checkbox').prop('checked',$(this).prop('checked'));
+					oklength()
+				});
+				
+				// 清除已完成选项
+				$('#removeAllCompleted').click(function(){
+					$ul.find(':checkbox:checked').parent().parent().remove()
+					length()
+					oklength()
+				});
+				
+				ulappend(dataJson)
+				length()
+				oklength()
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div id="root">
+			<div class="todo-container">
+				<div class="todo-wrap">
+					<div class="todo-header">
+						<input id="newTodo" type="text" placeholder="请输入你的任务名称，按回车键确认" />
+					</div>
+					<ul class="todo-main">
+
+					</ul>
+					<div class="todo-footer">
+						<label>
+          <input id="checkAll" type="checkbox"/>
+        </label>
+						<span>
+          已完成<span id="allCompletedTodos">0</span> / 全部<span id="allTodos">2</span>
+						</span>
+						<button id="removeAllCompleted" class="btn btn-danger">清除已完成任务</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid brown;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- canvas有自己的默宽高  他的宽高不要用css去设置，容易变形，宽高直接在标签中设置-->
+		<canvas id="art" width="600px" height="600px"></canvas>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				// 低级浏览器不支持canvas 
+				
+				var art=document.querySelector('#art');
+				
+				// 简写
+				if(!art.getContext)return;
+				// 创建绘制对象
+				var pen=art.getContext('2d');
+				
+				// 创建图片对象
+				var img=new Image();
+				// 给图片加入图片路径
+				img.src='../../../jq/插件/images/photos/img02.jpg';
+				// 与画板发生关联
+				// 需要使用图片加载事件
+				img.onload=function(){
+					// 运用绘制对象将图片绘制画板上
+					// 1图片对象 23图片起始点横纵坐标(图片左上角位置) 45可规定图片尺寸
+					pen.drawImage(img,0,0,100,100)
+				}
+				
+			}
+		</script>
+	</body>
+</html>

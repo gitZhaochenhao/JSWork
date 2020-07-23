@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            margin: 150px auto;
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+            /*
+                2d变换 缩放 scale
+                scaleX：仅控制水平方向缩放
+                scaleY:仅控制垂直方向缩放
+                scale:第一个参数控制水平方向缩放  第二个参数控制垂直方向缩放
+                transform: scale(2)效果与transform: scale(2,2);的效果是一致的
+            */
+            /*transform: scaleX(1);*/
+            /*transform: scaleY(1);*/
+            /*transform: scale(1,1);*/
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+<div id="box">box</div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById('box');
+
+
+    }
+</script>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="text">
+    <button class="main">主线程计算</button>
+    <button class="fen">分线程计算</button>
+
+    <script type="text/javascript">
+
+
+        var btn1 = document.querySelector('.main');
+        var btn2 = document.querySelector('.fen');
+
+
+
+        function Fb(num) {
+            return num>2?Fb(num-1)+Fb(num-2) :1
+        };
+        //主线程计算
+        // btn1.onclick = function () {
+        //     //当计算量过大时，造成主程序堵塞，影响用户体验
+        //     var value = document.getElementById('text').value;
+        //     alert(Fb(value));
+        // };
+        //分线程计算
+        btn2.onclick = function () {
+            //当计算量过大时，造成主程序堵塞，影响用户体验,因此，我们使用分线程来计算，使程序不堵塞
+            var value = document.getElementById('text').value;
+            //创建一个分线程   并设置分线程运行的js文件路径
+            var work = new Worker('./work.js');
+            console.log(work);
+            //给分线程传递一个数据，让分线程去运行，已达到不会堵塞主线程的目的
+            work.postMessage(value);
+            //接收分线程处理完的执行结果
+            work.onmessage = function (evet) {
+                var data = evet.data;
+                alert(data);
+            };
+        }
+    </script>
+</body>
+</html>

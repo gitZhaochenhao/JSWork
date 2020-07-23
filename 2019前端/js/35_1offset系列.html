@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#box01{
+				width: 400px;
+				height: 400px;
+				background: pink;
+				/*margin-left: 10px;
+				padding-left: 10px;
+				border-left:10px solid green;*/
+				position: relative;
+				left:500px;
+			}
+			#box02{
+				width: 200px;
+				height: 200px;
+				background: blue;
+				/*border-left:10px solid red;
+				padding-left: 10px;
+				border:10px solid red;*/
+				/*left:100px;*/
+				margin-left: 10px;
+				position: absolute;
+				left:10px;
+				top:0;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box01">
+			<div id="box02"></div>
+		</div>
+		<script type="text/javascript">
+			/*
+			 * offset系列: 是几个只读属性,只读属性只能读取,不能设置
+			 * offsetWidth:元素在网页中的宽度尺寸,自身的宽度+水平内边距+左右边框
+			 * offsetHeight:元素在网页中的高度尺寸,自身的高度+垂直内边距+上下边框
+			 * offsetLeft:
+			 * 当元素是标准流的时候,offsetLeft = 自身的margin-left+父元素的margin-left+
+			 * 父元素的内边距+父元素的边框  相对于body来说的距离
+			 * 当元素是定位的时候,offsetLeft = 自身的margin-left+自身的left  相对于父元素来说的距离
+			 * offsetTop:
+			 * 当元素是标准流的时候,offsetTop = 自身的margin-top+父元素的margin-top+
+			 * 父元素的内边距+父元素的边框  相对于body来说的距离
+			 * 当元素是定位的时候,offsetTop = 自身的margin-top+自身的top  相对于父元素来说的距离
+			 * 
+			 */
+			var btn = document.getElementById('btn');
+			var box01 = document.getElementById('box01');
+			var box02 = document.getElementById('box02');
+			
+			btn.onclick = function(){
+				//只能获取行内样式
+//				console.log(box02.style.width);
+//				console.log(getComputedStyle(box02).width);
+//				console.log(box02.offsetWidth); 
+//				console.log(box02.offsetHeight);
+				console.log(box02.offsetLeft);
+			}
+		</script>
+	</body>
+</html>

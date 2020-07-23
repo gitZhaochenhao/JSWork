@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			//       person又称数据类型名
+			function person(name,age){
+				this.name=name;
+				this.age=age;
+				// this.play=function(){
+				// 	alert("走路")
+				// }
+			}
+			
+			var LiMing=new person("李明",16);
+			var XinaoWang=new person("小王",33)
+			
+			// 每个实例对象的内存地址都不一样,即使我们都有同样的属性但是在创建对象时也会分开储存不能共用，浪费资源
+			// 对于相同的属性我们可以利用每个对象在创建时都会拥有原型中的属性的原理，将共有属性放在原型中
+			console.log(LiMing)
+			console.log(XinaoWang)
+			console.dir(person)
+			// 将共有方法写入原型中
+			person.prototype.play=function(){
+				alert("走路")
+			}
+			
+			LiMing.play()//走路
+			console.log(LiMing.play==XinaoWang.play)//此时内存地址相同
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

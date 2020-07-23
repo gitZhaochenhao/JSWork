@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				border: 1px solid #000000;
+			
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="600" height="600" id="canvas"></canvas>
+		
+		<script>
+			window.onload=function(){
+				var canvas=document.querySelector('#canvas');
+				var ctx=canvas.getContext('2d');
+				// 定义一个数组来储存我们每一个随机创建的圆
+				var arr=[];
+				
+				
+				setInterval(function(){
+					var obj={};
+					obj.r=Math.random()*15+5;
+					obj.x=Math.floor(Math.random()*canvas.width);
+					obj.y=canvas.height+obj.r;
+					// 初始位置
+					obj.startX=obj.x;
+					obj.startY=obj.y;
+					obj.deg=0;
+					obj.scaleValue = Math.random() * 70 + 70;
+					
+					obj.red = Math.floor(Math.random()*255);
+					obj.green = Math.floor(Math.random()*255);
+					obj.blue = Math.floor(Math.random()*255);
+					obj.a = 1;
+					
+					arr.push(obj);
+				},16);
+				
+				
+				// 在画布上创建圆
+				setInterval(function(){
+					ctx.clearRect(0,0,canvas.width,canvas.height);
+					for (var i = 0; i < arr.length; i++) {
+						var obj=arr[i];
+						obj.deg++;
+						// 利用sin的波动性值来进行x方向的水平波动
+						obj.x=obj.startX+Math.sin(obj.deg*Math.PI/180)*obj.scaleValue;
+						obj.y=obj.startY-obj.deg*Math.PI/180*obj.scaleValue;
+						if(obj.y+obj.r<=0){
+							arr.splice(i,1);
+						}
+					};
+				
+					
+					for (var i = 0; i < arr.length; i++) {
+						var obj=arr[i];
+						ctx.beginPath();
+						ctx.arc(obj.x,obj.y,obj.r,0,360*Math.PI/180);
+						ctx.fillStyle='rgba('+obj.red+','+obj.green+','+obj.blue+','+obj.a+')';
+						
+						ctx.fill();
+					};
+				},16);
+			}
+				
+		</script>
+	</body>
+</html>

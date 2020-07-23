@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			html,body{
+				height: 100%;
+				background-color: #CCCCCC;
+			}
+			ul{
+				list-style: none;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+			}
+			ul li{
+				float: left;
+				margin-right: 5px;
+				font-size: 20px;
+				font-weight: bold;
+				/* 给每一个li设置动画 */
+				animation-timing-function: linear;
+				animation-duration: 0.5s;
+				animation-name: font_move;
+				animation-iteration-count: infinite;
+				/* 此时的动画中字符只有上升时才有动画，下降时没有动画 */
+				animation-direction: alternate;
+			}
+			ul li:last-child{
+				margin: 0px;
+			}
+			
+			/* 设置字符跳动的动画 */
+			@keyframes font_move{
+				from{transform: translateY(0px);}
+				to{transform: translateY(20px);}
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>l</li>
+			<li>o</li>
+			<li>a</li>
+			<li>d</li>
+			<li>i</li>
+			<li>n</li>
+			<li>g</li>
+		</ul>
+		<script type="text/javascript">
+			// 获取li        document.getElementsByTagName('只能写标签，不能写选择器')  document.querySelectorAll('可以写选择器')
+			var li=document.getElementsByTagName('li');
+			// 定义一个颜色数组
+			var color=['red','pink','blue','green','yellow'];
+			
+			for (var i = 0; i < li.length; i++) {
+				// 算法：当我们进行有规律的循环设置时，利用取余进行循环设置
+				li[i].style.color=color[i%color.length];
+				// 给每个字的动画进行不同的延迟设置
+				li[i].style.animationDelay=i*0.1+'s';
+			}
+			
+		</script>
+	</body>
+</html>

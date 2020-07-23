@@ -1,0 +1,307 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<link href="css/mui.picker.min.css" rel="stylesheet" />
+		<script src="js/mui.picker.min.js"></script>
+		<style type="text/css">
+			.mui-card-content img{
+				width: 100%;
+			}
+			.mui-search::before{
+				top: 10px;
+			}
+				
+			.mui-search .mui-placeholder{
+				top:5px;
+			}
+			#cityBtn {
+				float: right;
+				width: 12%;
+			}
+			#shareBtn{
+				padding: 3px 5px;
+				top: 30% !important;
+				right: 8px !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+		  <!-- 主页面容器 -->
+		  <div class="mui-inner-wrap">
+		     <!-- 菜单容器 -->
+		    <aside class="mui-off-canvas-left">
+		      <div class="mui-scroll-wrapper">
+		        <div class="mui-scroll">
+		           <ul class="mui-table-view"> 
+				        <li class="mui-table-view-cell mui-collapse mui-active">
+				            <a class="mui-navigate-right" href="#">面板1</a>
+				            <div class="mui-collapse-content">
+				                <p>面板1子内容</p>
+				            </div>
+				        </li>
+				        <li class="mui-table-view-cell mui-collapse">
+				            <a class="mui-navigate-right" href="#">面板2</a>
+				            <div class="mui-collapse-content">
+				                <p>面板1子内容</p>
+				            </div>
+				        </li>
+				        <li class="mui-table-view-cell mui-collapse">
+				            <a class="mui-navigate-right" href="#">面板3</a>
+				            <div class="mui-collapse-content">
+				                <p>面板1子内容</p>
+				            </div>
+				        </li>
+				    </ul>
+		        </div>
+		      </div>
+		    </aside>
+		    <!-- 主页面标题 -->
+		    <header class="mui-bar mui-bar-nav">
+		      <a class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" id="menuBtn"></a>
+		      <div class="mui-input-row mui-search mui-title">
+	    		<input type="search" class="mui-input-clear" placeholder="">
+			</div>
+				<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="cityBtn">城市</button>
+		    </header>
+		    <nav class="mui-bar mui-bar-tab">
+		    <a class="mui-tab-item mui-active">
+		        <span class="mui-icon mui-icon-home"></span>
+		        <span class="mui-tab-label">首页</span>
+		    </a>
+		    <a class="mui-tab-item">
+		        <span class="mui-icon mui-icon-phone"></span>
+		        <span class="mui-tab-label">电话</span>
+		    </a>
+		    <a class="mui-tab-item">
+		        <span class="mui-icon mui-icon-email"></span>
+		        <span class="mui-tab-label">邮件</span>
+		    </a>
+		    <a class="mui-tab-item">
+		        <span class="mui-icon mui-icon-gear"></span>
+		        <span class="mui-tab-label">设置</span>
+		    </a>
+		</nav> 
+		    <!-- 主页面内容容器 -->
+		    <div class="mui-content mui-scroll-wrapper">
+		      <div class="mui-scroll">
+		      	<!--轮播图-->
+		        <div class="mui-slider">
+				  <div class="mui-slider-group mui-slider-loop">
+				    <!--支持循环，需要重复图片节点-->
+				    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/4.jpg" /></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="img/1.jpg" /></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="img/2.jpg" /></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="img/3.jpg" /></a></div>
+				    <div class="mui-slider-item"><a href="#"><img src="img/4.jpg" /></a></div>
+				    <!--支持循环，需要重复图片节点-->
+				    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="img/1.jpg" /></a></div>
+				  </div>
+				  <!--轮播图的小圆点-->
+				  	<div class="mui-slider-indicator">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					</div>
+				</div>
+		      	<!--卡片视图-->
+		      	<div class="mui-card">
+					<!--页眉，放置标题-->
+					<div class="mui-card-header mui-card-media">
+						<img src='img/logo.png' />
+						<div class="mui-media-body">
+							小M
+							<p>发表于 2016-06-30 15:30</p>
+						</div>
+					</div>
+					<!--内容区-->
+					<div class="mui-card-content">
+						<img src="img/b1.jpg" />
+					</div>
+					<!--页脚，放置补充信息或支持的操作-->
+					<div class="mui-card-footer">每个人都想成功，但不是每一个人都可以成功</div>
+				</div>
+				<div class="mui-card">
+					<!--页眉，放置标题-->
+					<div class="mui-card-header mui-card-media">
+						<img src='img/logo.png' />
+						<div class="mui-media-body">
+							小M
+							<p>发表于 2016-06-30 15:30</p>
+						</div>
+					</div>
+					<!--内容区-->
+					<div class="mui-card-content">
+						<img src="img/b2.jpg" />
+					</div>
+					<!--页脚，放置补充信息或支持的操作-->
+					<div class="mui-card-footer">每个人都想成功，但不是每一个人都可以成功</div>
+				</div>
+				<div class="mui-card">
+					<!--页眉，放置标题-->
+					<div class="mui-card-header mui-card-media">
+						<img src='img/logo.png' />
+						<div class="mui-media-body">
+							小M
+							<p>发表于 2016-06-30 15:30</p>
+						</div>
+					</div>
+					<!--内容区-->
+					<div class="mui-card-content">
+						<img src="img/b3.png" />
+					</div>
+					<!--页脚，放置补充信息或支持的操作-->
+					<div class="mui-card-footer">每个人都想成功，但不是每一个人都可以成功</div>
+				</div>
+		      	<!--图片列表-->
+		      	<ul class="mui-table-view">
+				    <li class="mui-table-view-cell mui-media">
+				        <a href="javascript:;">
+				            <img class="mui-media-object mui-pull-left" src="img/muwu.jpg">
+				            <div class="mui-media-body">
+				                幸福
+				                <p class='mui-ellipsis'>能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
+				            </div>
+				            <button type="button" class="mui-btn mui-btn-blue" id="shareBtn">按钮</button>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell mui-media">
+				        <a href="javascript:;">
+				            <img class="mui-media-object mui-pull-left" src="img/cbd.jpg">
+				            <div class="mui-media-body">
+				                木屋
+				                <p class='mui-ellipsis'>想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
+				            </div>
+				            <button type="button" class="mui-btn mui-btn-blue" id="shareBtn">按钮</button>
+				        </a>
+				    </li>
+				    <li class="mui-table-view-cell mui-media">
+				        <a href="javascript:;">
+				            <img class="mui-media-object mui-pull-left" src="img/muwu.jpg">
+				            <div class="mui-media-body">
+				                CBD
+				                <p class='mui-ellipsis'>烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
+				            </div>
+				            <button type="button" class="mui-btn mui-btn-blue" id="shareBtn">按钮</button>
+				        </a>
+				    </li>
+				</ul>
+		      </div>
+		    </div> 
+		    
+		  </div>
+		</div>
+		<!--分享菜单-->
+		<div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action" style="z-index: ;">
+			    <!-- 可选择菜单 -->
+			    <ul class="mui-table-view">
+			      <li class="mui-table-view-cell">
+			        <a href="#">分享</a>
+			      </li>
+			    </ul>
+			    <!-- 取消菜单 -->
+			    <ul class="mui-table-view">
+			      <li class="mui-table-view-cell">
+			        <a href="#sheet1"><b>取消</b></a>
+			      </li>
+			    </ul>
+			</div>
+	</body>
+	<script>
+		var menuBtn = document.getElementById('menuBtn');
+		//侧面菜单按钮
+		menuBtn.addEventListener('tap',function(){
+			mui('.mui-off-canvas-wrap').offCanvas('show');
+		});
+		//自动轮播
+		//获得slider插件对象
+		var gallery = mui('.mui-slider');
+		gallery.slider({
+		  interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+		});
+		//焦点手动获取
+		var seacher = document.querySelector('input[type=search');
+		seacher.addEventListener('tap',function(){
+			this.focus();
+		});
+		document.addEventListener('tap',function(){
+			seacher.blur();
+		});
+		//滚动设置
+		mui('.mui-scroll-wrapper').scroll({
+			deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+		});
+		//选择器
+		var cityBtn = document.getElementById('cityBtn');
+		var picker = new mui.PopPicker({
+			//设置列数，不设置默认为一列单列
+		    layer: 2
+		});
+		    picker.setData([{
+		        value: '110000',
+		        text: '北京',
+		        //第一列第一项北京中的第二列选项
+		        children: [{
+		                value: "110101",
+		                text: "东城区"
+		        },{
+		        	value:'110102',
+		        	text:'海淀区'
+		        }
+		        ]
+		    }, {
+		        value: '120000',
+		        text: '天津',
+		        //第一列第一项天津中的第二列选项
+		        children: [{
+			        value: "120101",
+		            text: "和平区"
+		        }, {
+		            value: "120102",
+		            text: "河东区"
+		        }, {
+		            value: "120104",
+		            text: "南开区"
+		        }
+		        ]
+		    }]);
+		    //设置第一列每一项的第二列默认值
+		    //第一列的第一项北京-北京中第二列的第二项海淀
+		picker.pickers[0].setSelectedIndex(2);
+		picker.pickers[1].setSelectedIndex(1);
+		//展示选择器，并设置操作
+		cityBtn.addEventListener('tap',function(){
+			picker.show(function(SelectedItem) {
+			cityBtn.innerText=SelectedItem[0]['text'];
+		});
+		});
+		
+		//分享按钮
+		var shareBtn = document.querySelectorAll('#shareBtn');
+		mui('body').on('tap','#shareBtn',function(){
+			mui('#sheet1').popover('toggle');
+		});
+		
+		//打开新页面
+		var newBtn = document.querySelectorAll('.mui-tab-item');
+		newBtn[1].addEventListener('tap',function(e){
+			var webview = mui.openWindow({
+				url:'表单.html',
+			});
+			e.stopPropagation();
+		});
+		
+	</script>
+</html>

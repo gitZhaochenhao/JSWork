@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Clamp::Option::Parsing - clamp-1.1.2 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-default_options_from_environment">#default_options_from_environment</a>
+    
+    <li ><a href="#method-i-find_option">#find_option</a>
+    
+    <li ><a href="#method-i-parse_options">#parse_options</a>
+    
+    <li ><a href="#method-i-set_options_from_command_line">#set_options_from_command_line</a>
+    
+    <li ><a href="#method-i-verify_required_options_are_set">#verify_required_options_are_set</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Clamp::Option::Parsing">
+  <h1 id="module-Clamp::Option::Parsing" class="module">
+    module Clamp::Option::Parsing
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-parse_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_options-source">
+            <pre><span class="ruby-comment"># File lib/clamp/option/parsing.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_options</span>
+  <span class="ruby-identifier">set_options_from_command_line</span>
+  <span class="ruby-identifier">default_options_from_environment</span>
+  <span class="ruby-identifier">verify_required_options_are_set</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-default_options_from_environment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_options_from_environment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_options_from_environment-source">
+            <pre><span class="ruby-comment"># File lib/clamp/option/parsing.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_options_from_environment</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">recognised_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">option</span>.<span class="ruby-identifier">of</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">default_from_environment</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_option</span><span
+            class="method-args">(switch)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_option-source">
+            <pre><span class="ruby-comment"># File lib/clamp/option/parsing.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_option</span>(<span class="ruby-identifier">switch</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">find_option</span>(<span class="ruby-identifier">switch</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-identifier">signal_usage_error</span>(<span class="ruby-constant">Clamp</span>.<span class="ruby-identifier">message</span>(<span class="ruby-value">:unrecognised_option</span>, <span class="ruby-value">:switch</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">switch</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_options_from_command_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_options_from_command_line</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_options_from_command_line-source">
+            <pre><span class="ruby-comment"># File lib/clamp/option/parsing.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_options_from_command_line</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">remaining_arguments</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">remaining_arguments</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;-&quot;</span>)
+
+    <span class="ruby-identifier">switch</span> = <span class="ruby-identifier">remaining_arguments</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">switch</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;--&quot;</span>
+
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">switch</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/\A(-\w)(.+)\z/m</span> <span class="ruby-comment"># combined short options</span>
+      <span class="ruby-identifier">switch</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">find_option</span>(<span class="ruby-identifier">switch</span>).<span class="ruby-identifier">flag?</span>
+        <span class="ruby-identifier">remaining_arguments</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-string">&quot;-&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>(<span class="ruby-value">2</span>))
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">remaining_arguments</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>(<span class="ruby-value">2</span>))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-regexp">/\A(--[^=]+)=(.*)\z/m</span>
+      <span class="ruby-identifier">switch</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-identifier">remaining_arguments</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>(<span class="ruby-value">2</span>))
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">option</span> = <span class="ruby-identifier">find_option</span>(<span class="ruby-identifier">switch</span>)
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">option</span>.<span class="ruby-identifier">extract_value</span>(<span class="ruby-identifier">switch</span>, <span class="ruby-identifier">remaining_arguments</span>)
+
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">option</span>.<span class="ruby-identifier">of</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">take</span>(<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">signal_usage_error</span> <span class="ruby-constant">Clamp</span>.<span class="ruby-identifier">message</span>(<span class="ruby-value">:option_argument_error</span>, <span class="ruby-value">:switch</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">switch</span>, <span class="ruby-value">:message</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span>)
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_required_options_are_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_required_options_are_set</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_required_options_are_set-source">
+            <pre><span class="ruby-comment"># File lib/clamp/option/parsing.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_required_options_are_set</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">recognised_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># If this option is required and the value is nil, there&#39;s an error.</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">required?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">send</span>(<span class="ruby-identifier">option</span>.<span class="ruby-identifier">attribute_name</span>).<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">environment_variable</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-constant">Clamp</span>.<span class="ruby-identifier">message</span>(<span class="ruby-value">:option_or_env_required</span>,
+                              <span class="ruby-value">:option</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">switches</span>.<span class="ruby-identifier">first</span>,
+                              <span class="ruby-value">:env</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">environment_variable</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-constant">Clamp</span>.<span class="ruby-identifier">message</span>(<span class="ruby-value">:option_required</span>,
+                              <span class="ruby-value">:option</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">option</span>.<span class="ruby-identifier">switches</span>.<span class="ruby-identifier">first</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">signal_usage_error</span> <span class="ruby-identifier">message</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

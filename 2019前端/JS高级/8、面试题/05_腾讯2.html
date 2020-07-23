@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05_腾讯2</title>
+</head>
+<body>
+<!--
+1. 难度系数: ★★★
+2. 技术点:
+  1). 变量提升
+  2). IIFE
+  3). 作用域与作用域链
+  4). 变量查找
+-->
+<script type="text/javascript">
+  var name = 'World!';
+  (function () {
+    /*
+     var name
+     .....
+     */
+    //在预解析中，也会解析if,else中的代码
+    if (typeof name === 'undefined') {
+      var name = 'Jack';//局部作用域变量提升
+      console.log(name)//Jack
+    } else {
+      console.log(name)
+    }
+  })()
+</script>
+</body>
+</html>

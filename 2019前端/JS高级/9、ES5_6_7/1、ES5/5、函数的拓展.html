@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+      var obj = {name:'小花',age:14};
+      function fun(mag) {
+        console.log(this);
+        console.log(mag);
+      };
+    //  call改变函数内部this指向并调用函数
+        fun.call(obj,'call的参数');
+    //  apply改变函数内部this指向并调用函数
+        fun.apply(obj,['apply的参数']);
+    //  bind改变函数参数，并返回该函数,不会立即调用，多用于对回调函数中this指向的变更
+        fun.bind(obj,'bind的参数');
+
+        setTimeout(function () {
+            console.log(this);
+        }.bind(obj,'bind的参数'),1000);
+    </script>
+</body>
+</html>

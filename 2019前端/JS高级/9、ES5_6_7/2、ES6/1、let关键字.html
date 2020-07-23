@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+let关键字不存在变量提升
+let关键字js引擎不会进行预处理，不会将其添加到上下文对象中
+let关键字在块级作用域中有效
+不能重复声明
+-->
+    <button>按钮</button>
+    <button>按钮</button>
+    <button>按钮</button>
+    <script type="text/javascript">
+        // console.log(Youname);
+        // let Youname = '小明';
+        let Youname = '小花';
+        let btn = document.getElementsByTagName('button');
+        for (let i = 0; i < btn.length; i++) {
+            btn[i].onclick = function () {
+                console.log(i);
+            };
+        };
+    </script>
+</body>
+</html>

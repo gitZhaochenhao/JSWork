@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+            
+			/* 同时设置多个属性过渡，用逗号分割   设置多个属性过渡时每个过渡都是同级的不存在先后顺序，若想定义先后顺序需要利用延迟时长来自定义 */
+			transition: width ease 3s 1s,background-color 1s 4s; 
+			
+        }
+        #box:hover{
+            width: 500px;
+			background-color: #00CCFF;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById('box');
+
+
+    }
+</script>
+</html>

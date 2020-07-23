@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			
+			/* 
+			 在伸缩盒中的行元素全部会转化为块元素
+			 所以我们可以给行元素直接设置宽高
+			 
+			 */
+			
+			img{
+				width: 200px;
+				height: 200px;
+			}
+			.warp{
+				flex-wrap: wrap;
+			}
+			.warp,.row{
+				display: flex;
+				width: 100%;
+				justify-content: space-around;
+			}
+			.warp .row div{
+				flex-basis: 0;
+				flex-grow: 1;
+			}
+			.warp .row div a{
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+			p{
+				/* width: 50px; */
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="warp">
+			<div class="row">
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字</p>
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字阿卡参加高考</p>
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字</p>
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字</p>
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字</p>
+					</a>
+				</div>
+			</div>
+			<div class="row">
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字</p>
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字</p>
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字2</p>
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字2</p>
+					</a>
+				</div>
+				<div>
+					<a href="#">
+						<img src="../../3d变换/img/11.jpg" alt="">
+						<p>文字</p>
+					</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

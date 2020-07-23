@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			img{
+				display: block;
+			}
+			.warp{
+				width: 194px;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			.zhi,.shen{
+				position: absolute;
+			}
+			.zhi img{
+				float: left;
+			}
+			.zhi{
+				/* width: 800px; */
+			}
+			
+			
+		</style>
+	</head>
+	<body>
+		<div class="warp" id="warp">
+			<div  class="zhi" id="cokeBg">
+				<img src="img/coke_bg.jpg" id="a">
+				<img src="img/coke_bg.jpg" id="b">
+			</div>
+			<div  class="shen" id="cokeCan">
+				<img src="img/coke_can.png"  id="c"/>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			// 包装纸
+			var cokeFace=document.getElementById('cokeBg');
+			// 单张纸
+			var img=document.getElementById('a')
+			// warp
+			var warp=document.getElementById('warp');
+			// 瓶身
+			var cokeBody=document.getElementById('cokeCan');
+			// 整张纸
+			var allimg=document.getElementById('cokeBg');
+			cokeFace.style.width=(a.style.width)*2+'px';
+			
+			warp.style.width=194+'px';
+			warp.style.height=336+'px';
+			var num=0;
+			setInterval(function(){
+				num--;
+				allimg.style.left=num+'px';
+			},20);
+			
+		</script>
+		
+		
+	</body>
+</html>

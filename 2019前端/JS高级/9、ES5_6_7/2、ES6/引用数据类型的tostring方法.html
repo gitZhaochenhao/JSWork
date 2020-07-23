@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+      var obj1 = {name:'小明'};
+      var obj2 ={};
+      //obj1对象自动调用Object原型中的toString方法，转化成字符串[object Object],由此可知Object中的toSrting方法可以辨别一个数据的类型
+      obj2[obj1] = '哈哈';
+      console.log(obj2);
+
+      //Array数组原型中也有toString方法，转化成字符串[object Array];
+      var arr1 = [1,2,3];
+      console.log(arr1);
+
+      //让其直接调用Object的toString方法,检测一个数据的数据类型
+        console.log(Object.prototype.toString.call(arr1));
+        console.log(Array.prototype.toString.call(arr1));
+    </script>
+</body>
+</html>

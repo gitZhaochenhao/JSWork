@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>$永远24K纯帅的$</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      background-color: #C7EDCC;
+    }
+  </style>
+</head>
+<body>
+<canvas id="test" width="600" height="600"></canvas>
+
+<script type="text/javascript">
+//页面加载后获取画板
+  window.onload=function () {
+    var canvas = document.querySelector("#test");
+    if(!canvas.getContext)return;
+    var ctx= canvas.getContext("2d");
+
+    //设置样式
+    ctx.lineWidth=10;
+    ctx.strokeStyle="red";
+    //设置末端显示效果
+    //butt以方块效果结束
+    //square以方块结束啊,但是增加一个宽度和线段相同,高度是线段厚度的一半的矩形区域
+    //round以圆形结束
+    ctx.lineCap="square";
+
+    //绘制一条直线
+    ctx.moveTo(100,100);
+    ctx.lineTo(200,200);
+	ctx.lineTo(300,100);
+	ctx.lineTo(200,0);
+	ctx.closePath();
+    ctx.stroke();
+
+  };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //基础数据类型:string number null undefind boolean
+        //引用数据类型:object Array Function
+        //所有的变量与基本数据类型都储存在栈内存中，而引用数据类型储存在堆内存中
+        //基本数据类型的传递叫做值传递，引用数据类型的传递叫引用传递
+        //切记不管是值传递还是引用传递都是对内存地址的操作
+
+        //值传递
+        var str = '小敏';
+        var str1 = str;
+        console.log(str1);
+
+        //引用传递
+        var obj = {'name':'kobe'};
+        var obj1 = obj;
+        console.log(obj1);
+
+        //引用传递
+        var arr = [12,3,4,6];
+        function fun(data) {
+            console.log(data);
+            data[1]=45;
+            console.log(data)
+        }
+        fun(arr);
+
+
+    </script>
+</body>
+</html>

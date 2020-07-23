@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			// 在构造函数中this指向对象名（jay）
+			function My(name){
+				this.anme=name;
+				this.age=59;
+				this.fun=function(){
+					console.log(this)
+				}
+			}
+			
+			// 在普通函数中this指向的是window
+			var jay=new My("王芳")
+			jay.fun()
+			
+			function hh(){
+				console.log(this)
+			}
+			hh()
+			console.log(this)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

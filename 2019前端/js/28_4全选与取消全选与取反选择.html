@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="all">全选</button>
+		<button id="not">取消全选</button>
+		<button id="fan">取反</button>
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		<input type="checkbox" />
+		
+		<script type="text/javascript">
+			var all=document.getElementById("all");
+			var not=document.getElementById("not");
+			var fan=document.getElementById("fan");
+			var inp=document.getElementsByTagName("input")
+			
+			
+			// checked=true 表示复选框选中
+			all.onclick=function(){
+				for(var i=0;i<inp.length;i++){
+					inp[i].checked=true
+				}
+			}
+			
+			not.onclick=function(){
+				for(var i=0;i<inp.length;i++){
+					inp[i].checked=false
+				}
+			}
+			
+			fan.onclick=function(){
+				for(var i=0;i<inp.length;i++){
+					// 笨方法
+					// if(inp[i].checked){
+					// 	inp[i].checked=false
+					// }
+					// else{
+					// 	inp[i].checked=true
+					// }
+					
+					// 精巧方法
+					inp[i].checked = !(inp[i].checked);
+					
+				}
+			}
+			
+		</script>
+	</body>
+</html>

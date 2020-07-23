@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				min-width: 800px;
+			}
+			#header{
+				height: 100px;
+				background-color: #0000CC;
+			}
+			#footer{
+				clear: both;
+				height: 100px;
+				background-color: #008000;
+			}
+			/* 留出两侧边栏的位置 */
+			#container{
+				padding-right: 200px;
+				padding-left: 200px;
+				overflow: hidden;
+			}
+			#center,#left,#right{
+				padding-bottom: 5000px;
+				margin-bottom: -5000px;
+			}
+			#container #center{
+				background-color: #00008B;
+				/* width: 100%，这是中间栏能够做到自适应的关键。 因为浮动之后转化为了行内块，默认宽度是自身内容，不在是块元素宽度默认100% */
+				width: 100%;
+			}
+			.column{
+				float: left;
+			}
+			#left{
+				width: 200px;
+				
+				margin-left: -100%;
+				position: relative;
+				right: 200px;
+				background-color: #0066CC;
+			}
+			#right{
+				width: 200px;
+				position: relative;
+				left: 200px;
+				margin-left: -200px;
+				background-color: #0066CC;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="header"></div>
+		<div id="container">
+		  <div id="center" class="column">
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  left<br />
+			  
+			  left<br />
+		  </div>
+		  <div id="left" class="column"></div>
+		  <div id="right" class="column"></div>
+		</div>
+		<div id="footer"></div>
+	</body>
+</html>

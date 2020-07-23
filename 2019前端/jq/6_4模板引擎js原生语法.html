@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- /*
+		 * artTemplate:是腾讯公司,模板引擎还有其他,相对这个引擎用的较多
+		 * 优点:
+		 * 执行效率高
+		 * 兼容所有浏览器
+		 * 语法简洁
+		 * 语法分为两个版本:
+		 * 1.原生js版本语法   推荐
+		 * 2.简洁语法
+		 */ -->
+		
+		
+	</head>
+	<body>
+		<div id="box"></div>
+		<!-- 创建模板 -->
+		<script type="text/html" id="art01">
+			<%if(type){%>
+			<h1><%=name%></h1>
+			<ul>
+				<%for(var i=0;i<song.length;i++){%>
+				<li><%=song[i]%></li>
+				<%}%>
+			</ul>
+			<%}%>
+		</script>
+		<!-- 引入原生js模板引擎 先引进来 -->
+		<script type="text/javascript" src="template-native.js"></script>
+		<script type="text/javascript" src="jquery-1.11.3main.js"></script>
+		<script type="text/javascript">
+			// 定义一个数据对象
+			var person={
+				name:'周杰伦',
+				age:42,
+				song:['千七香','告白气球','以父之名'],
+				type:true
+			};
+			
+			// 关联模板与数据
+			var dataStr=template('art01',person);
+			// console.log(dataStr) 是一个以字符串形式展现的模板结构
+			
+			// 将模板插入到div中
+			$('#box').html(dataStr)
+			
+		</script>
+	</body>
+</html>

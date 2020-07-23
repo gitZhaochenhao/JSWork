@@ -1,0 +1,10 @@
+.warp {
+  width: 500px;
+  height: 500px;
+  background-color: #00FFFF;
+}
+.warp .box {
+  width: 200px;
+  height: 200px;
+  background-color: #ff0000;
+}

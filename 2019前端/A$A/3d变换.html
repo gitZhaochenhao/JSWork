@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        ul{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            list-style: none;
+            padding: 0;
+            transform-style: preserve-3d;
+            /*perspective: 1000px;*/
+            transform: rotateX(0deg) rotateY(0deg);
+        }
+        li{
+            position: absolute;
+            width: 200px;
+            height: 200px;
+        }
+        li:nth-child(1){
+            background-color: #8a6de9;
+        }
+        li:nth-child(2){
+            background-color: #00AA88;
+            top: -100%;
+            transform-origin: bottom;
+            transform: rotateX(90deg);
+        }
+        li:nth-child(3){
+            background-color: #1f93c9;
+            right: -100%;
+            transform-origin: left;
+            transform: rotateY(90deg);
+        }
+        li:nth-child(4){
+            background-color: #ffcc00;
+            bottom: -100%;
+            transform-origin: top;
+            transform: rotateX(-90deg);
+        }
+        li:nth-child(5){
+            background-color: #ff0000;
+            left: -100%;
+            transform-origin: right;
+            transform: rotateY(-90deg);
+        }
+        li:nth-child(6){
+            background-color: #FFCACA;
+            transform: translateZ(-200px) rotateY(180deg) ;
+        }
+    </style>
+</head>
+<body>
+<ul id="ul">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+<script type="text/javascript">
+  var ul = document.getElementById('ul');
+  var num = 0;
+  setInterval(function () {
+      num++;
+        ul.style.transform = 'rotateY('+num+'deg) '+'rotateX('+num+'deg)';
+  },20);
+  console.log(ul)
+</script>
+</body>
+</html>

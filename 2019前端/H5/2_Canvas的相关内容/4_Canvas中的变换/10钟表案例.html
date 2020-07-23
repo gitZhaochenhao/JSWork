@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid brown;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				left: 0;
+				margin: auto;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- canvas有自己的默宽高  他的宽高不要用css去设置，容易变形，宽高直接在标签中设置-->
+		<canvas id="art" width="600" height="600"></canvas>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				
+				var canvas=document.querySelector('#art');
+				
+				if(!canvas.getContext) return;
+				var cxt=canvas.getContext('2d');
+				
+				// 在定时器外部先行调用表，因为定时器在页面打开1秒钟之后才会运行，证明第一秒内页面中表盘并不会出现
+				draw();
+				setInterval(function(){
+					cxt.clearRect(0,0,canvas.width,canvas.height);
+					draw();
+				},1000)
+				
+				function draw(){
+					// 表盘
+					cxt.save();
+					cxt.lineWidth=5;
+					cxt.strokeStyle='#0066CC';
+					cxt.translate(300,300);
+					// 为的是让画圆时从十二点的方位开始
+					cxt.rotate(-90*Math.PI/180);
+					cxt.beginPath();
+					cxt.arc(0,0,140,0,360*Math.PI/180);
+					cxt.stroke();
+					
+					// 在表盘样式的基础上进行时针刻度绘制
+					cxt.save();
+					cxt.lineWidth='10';
+					cxt.strokeStyle='blue';
+					cxt.lineCap='round';
+					cxt.beginPath();
+					for (var i = 0; i < 12; i++) {
+						cxt.rotate(30*Math.PI/180);
+						cxt.moveTo(120,0);
+						cxt.lineTo(135,0);
+						cxt.stroke();
+					}
+					cxt.restore();
+					
+					// 绘制分针刻度
+					cxt.save();
+					cxt.lineWidth='7';
+					cxt.strokeStyle='dimgray';
+					cxt.lineCap='round';
+					cxt.beginPath();
+					for (var i = 0; i < 60; i++) {
+						if(i%5!=0){
+							cxt.moveTo(125,0);
+							cxt.lineTo(135,0);
+							cxt.stroke();
+						};
+						cxt.rotate(6*Math.PI/180);
+					}
+					cxt.restore();
+					
+					var time=new Date();
+					var s=time.getSeconds();
+					var m=time.getMinutes()+s/60;
+					var h=time.getHours()+m/60;
+					h=h>12?h-12:h;
+					
+					
+					// 时针
+					cxt.save();
+					cxt.lineWidth=10;
+					cxt.strokeStyle='brown';
+					cxt.lineCap='round';
+					cxt.beginPath();
+					
+					cxt.rotate(h*30*Math.PI/180);
+					cxt.moveTo(0,0);
+					cxt.lineTo(80,0);
+					cxt.stroke();
+					cxt.restore();
+					
+					// 分针
+					cxt.save();
+					cxt.lineWidth=8;
+					cxt.strokeStyle='blueviolet';
+					cxt.lineCap='round';
+					cxt.rotate(m*6*Math.PI/180);
+					cxt.beginPath();
+					cxt.moveTo(0,0);
+					cxt.lineTo(100,0);
+					cxt.stroke();
+					cxt.restore();
+					
+					// 秒针
+					cxt.save();
+					cxt.lineWidth=5;
+					cxt.strokeStyle='palevioletred';
+					cxt.lineCap='round';
+					
+					cxt.rotate(s*6*Math.PI/180);
+					cxt.beginPath();
+					cxt.moveTo(0,0);
+					cxt.lineTo(90,0);
+					cxt.stroke();
+					cxt.restore();
+					
+					// 中间轴
+					cxt.save();
+					cxt.fillStyle='grey';
+					cxt.beginPath();
+					cxt.arc(0,0,10,0,360*Math.PI/180);
+					cxt.fill();
+					
+					cxt.restore();
+					
+					
+					cxt.restore();
+					
+				}
+				
+				
+			}
+		</script>
+	</body>
+</html>

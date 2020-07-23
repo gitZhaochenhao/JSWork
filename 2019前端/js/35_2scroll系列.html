@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			 #box{
+			 	width: 300px;
+			 	height: 300px;
+			 	background: pink;
+			 	/*强制字母换行*/
+			 	/*word-break: break-all;*/
+			 	/*强制不換行*/
+		/*white-space: nowrap;*/
+			 	overflow: auto;
+			 }
+		</style>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<div id="box">
+			哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
+		</div>
+		<script type="text/javascript">
+			/*
+			 * scroll系列:
+			 * scrollWidth:当元素的内容小于等于元素的宽度时,该属性就是元素的宽度
+			 *             当元素的内容大于元素的宽度时,该属性就是内容的宽度
+			 * scrollHeight:当元素的内容小于等于元素的高度时,该属性就是元素的高度
+			 *             当元素的内容大于元素的高度时,该属性就是内容的高度
+			 * scrollLeft: 滚动条水平滚动的距离
+			 * scrollTop:  滚动条垂直滚动的距离
+			 */
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){
+//				console.log(box.scrollWidth);
+				console.log(box.scrollHeight);
+			}
+			
+			//滚动事件
+			box.onscroll = function(){
+//				console.log(box.scrollLeft);
+				console.log(box.scrollTop);
+			}
+		</script>
+	</body>
+</html>
+ 

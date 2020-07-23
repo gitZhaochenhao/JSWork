@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" >
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+	<style type="text/css">
+		.row{
+			background-color: red;
+			/* width: 200px; */
+			height: 20px;
+		}
+		.color1{
+			background-color: #0000ED;
+		}
+		.color2{
+			background-color: #007788;
+		}
+		.color3{
+			background-color: #00A4E4;
+		}
+	</style>
+  </head>
+  <body>
+	  <!-- container是自己设定尺寸的响应式盒子 
+			container-fixed流体响应式盒子，width:100%
+	  -->
+	  <div class="container">
+		  <div class="row">
+				<div class="col-lg-4 col-md-2 col-sm-3 col-xs-1 color1">fff</div>
+				<div class="col-lg-4 col-md-4 col-sm-2 col-xs-2 color2">fff</div>
+				<div class="col-lg-4 col-md-6 col-sm-7 col-xs-9 color3">fff</div>
+		  </div>
+		  <br />
+		  <br />
+		  <br />
+		  <div class="row">
+			  <!-- 当我们设置了一个小尺寸的布局但不设置大尺寸的布局，那么当大尺寸时会依据小尺寸的设置值设定 -->
+				<div class="col-sm-4 color1">col-sm-4</div>
+				<div class="col-sm-8 color2">col-sm-8</div>
+		  </div>
+		  <br />
+		  <br />
+		  <br />
+		  <div class="row">
+				<div class="col-xs-2 col-md-4 color1">col-xs-2 col-md-4 color1</div>
+				<div class="col-xs-4 col-md-4 color2">col-xs-4 col-md-4 color2</div>
+				<!--
+				响应式列重置： 所有col的盒子是默认浮动的，而浮动有紧贴性，所以我们要借助工具类进行清除浮动 
+				注意：visible-xs-block 要按照不同的尺寸进行更改
+				-->
+				<div class="clearfix visible-xs-block"></div>
+				<div class="col-xs-8 col-md-4 color3">col-xs-6 col-md-4 color3</div>
+		  </div>
+	  </div>
+	  
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>

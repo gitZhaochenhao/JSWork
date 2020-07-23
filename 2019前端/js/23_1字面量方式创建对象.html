@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			var dict={
+				name:"梨花",
+				age:12,
+				fun:function(){
+					alert("函数")
+				}
+			}
+			// 改变变量
+			dict["name"]="桂树"
+			console.log(dict.name)
+			console.log(dict["age"])
+			// dict["fun"]()
+			
+			
+			
+			// 求一个数组中的最大值,最小值,和
+			var nume=[1,23,5,65,78]
+			var maxnum=nume[0]
+			var mins=nume[0]
+			var list=[];
+			var sums=0;
+			function maxs(nume){
+				// 最大值
+				for(var i=0;i<nume.length;i++){
+					if(maxnum<nume[i]){
+						maxnum=nume[i]
+					}
+				}
+				// list[list.length]=maxnum
+				
+				// 最小值
+				for(var i=0;i<nume.length;i++){
+					if(mins>nume[i]){
+						mins=nume[i]
+					}
+				}
+				// list[list.length]=mins
+				
+				// 求和
+				for(var i=0;i<nume.length;i++){
+					sums+=nume[i]
+				}
+				// list[list.length]=sums
+				var dict={
+					max:maxnum,
+					sum:sums,
+					min:mins
+				}
+				return dict
+			}
+			
+			var nei=maxs(nume)
+			console.log(nei)//{max: 78, sum: 172, min: 1}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

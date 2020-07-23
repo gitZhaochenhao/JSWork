@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			video{
+				width: 600px;
+				height: 600px;
+				/* background-color: #0066CC; */
+			}
+			audio{
+				width: 400px;
+				height: 200px;
+				background-color: #0066CC;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<video controls="controls" >
+			<!-- 为应对每个浏览器支持不同格式的视频，我们对视频进行多种格式的设置，那个兼容，浏览器会自己进行使用
+				当然，格式多种多样不止这几个
+			 -->
+			<source type="video/mp4"  src="0fb1d3ab17e448cba44f0bb3faf8b95f.mp4"></source>
+			<source type="video/ogv"  src="0fb1d3ab17e448cba44f0bb3faf8b95f.ogv"></source>
+			<source type="video/webm"  src="0fb1d3ab17e448cba44f0bb3faf8b95f.webm"></source>
+			对不起，您的浏览器不支持
+		</video>
+		
+		<audio controls="controls" >
+			<source type="audio/mp3"  src="Love%20Story-Taylor%20Swift.mp3"></source>
+			<source type="audio/aac"  src="Love%20Story-Taylor%20Swift.aac"></source>
+			<source type="audio/ogg"  src="Love%20Story-Taylor%20Swift.ogg"></source>
+			对不起，您的浏览器不支持
+		</audio>
+	</body>
+</html>

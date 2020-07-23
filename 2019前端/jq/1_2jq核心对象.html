@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<!-- 引入jq文件 -->
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript">
+			// js的一切方法都是对dom对象的方法，不能对jq对象使用
+			// $就是jq，是一切jq对象的基本
+			$(function(){
+				// 是一个伪数组，可以用length与索引值 xxx[7]方法 ，其他数组方法不可用
+				var $btn=$('button');
+				// 并不用像js中我们需要循环遍历绑定事件，jq会帮我们隐形循环绑定事件
+				// $btn.click(function(){
+				// 	alert(3)
+				// });
+				// $('button').css('background','red')
+				// 查看这个伪数组的元素个数
+				console.log($btn.length,$btn.size());
+				
+				// 去除第二个按钮的文本
+				// jq方法get(索引值),可以取出对应索引值元素,
+				// $btn是一个jq对象,但当我们get()取出某个元素对象时，则这个单独取出的对象则不再是jq对象而是dom对象
+				console.log($btn.get(1).innerHTML)
+				
+				// 输出所有按钮的内容
+				$btn.each(function(){
+					// each循环，同样是将每一个元素单独提取出，因此也是dom对象  因此用this
+					console.log(this.innerHTML)
+				});
+				
+				// index  该元素在同父类同级级标签中的索引值
+				console.log($('#btns').index())
+				
+			});
+		</script>
+	</head>
+	<body>
+	
+			<button id="btn">按钮</button><br />
+			<button id="btn">按钮</button><br />
+			<input type="text" />
+			<button id="btns">按钮</button><br />
+			<button id="btn">按钮</button><br />
+			
+			
+	
+	</body>
+</html>

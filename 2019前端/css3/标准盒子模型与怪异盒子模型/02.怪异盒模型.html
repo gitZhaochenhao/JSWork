@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            /*box-sizing: border-box;*/
+        }
+
+        #box {
+            /*width: 200px;*/
+            /*height: 200px;*/
+            /*padding: 50px;*/
+            /*background: pink;*/
+            /*修改盒子模型 为怪异盒模型*/
+
+            /*怪异盒模型    IE
+                padding和border  想内部挤压
+                width = 最终盒子显示的大小
+                width-padding-border=盒子内容区域的大小
+            */
+        }
+        .wrap{
+            width: 400px;
+            border:2px solid red;
+            overflow: hidden;
+        }
+        .wrap div{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            border:2px solid #000;
+            float: left;
+            box-sizing: border-box
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div id="box"></div>
+    <div></div>
+</div>
+
+</body>
+
+</html>

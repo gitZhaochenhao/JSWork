@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            margin: 150px auto;
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+            /*
+                2d变换   平移
+                 translateX: 水平方向平移 正值向右  负值向左
+                 translateY: 垂直方向平移 正值向下  负值向上
+                 translate:垂直与水平方向平移  第一个参数 水平方向 第二个参数 垂直
+                        translate只给一个参数时等同于transform: translateX()
+            */
+            /*transform: translateX(0px);*/
+            /*transform: translateY(0px);*/
+            /*transform: translate(0px,0px);*/
+            /*transform: translate(0px);*/
+            /*
+				当设置百分比值时
+               margin与padding的参照物是父元素尺寸
+			   translate()的参照物是自身尺寸
+            */
+            transform: translate(-50%,-50%);
+与与
+
+        }
+    </style>
+</head>
+<body>
+<div id="box">box</div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById('box');
+
+
+    }
+</script>
+</html>

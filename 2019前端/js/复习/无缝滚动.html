@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			#box {
+				width: 900px;
+				height: 350px;
+				margin: 100px auto;
+				overflow: hidden;
+				position: relative;
+			}
+			
+			.box ul {
+				position: absolute;
+				left: -900px;
+				top: 0;
+				width: 6300px;
+				
+			}
+			
+			.box ul li {
+				float: left;
+			}
+			
+			.box ol {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			
+			.box ol li {
+				float: left;
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+				border: 1px solid #fff;
+				background: #333;
+				color: #999;
+				text-align: center;
+				margin-left: 10px;
+				cursor: pointer;
+				border-radius: 50%;
+			}
+			/*指定标签选择器*/
+			
+			.box ol li.current {
+				border-color: #f60;
+				color: #f60;
+			}
+			
+			.box .leftBtn,
+			.box .rightBtn {
+				width: 40px;
+				height: 100px;
+				background: url(img/index.png) 0 0;
+				position: absolute;
+				top: 50%;
+				margin-top: -50px;
+			}
+			
+			.box .leftBtn {
+				left: 0;
+			}
+			
+			.box .rightBtn {
+				right: 0;
+				background-position: -50px 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<ul id="ulList">
+				<li><img src="img/05.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/01i.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/02i.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/03i.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/04i.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/05.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/01i.jpg" height="350" width="900" alt="" /></li>
+			</ul>
+			<ol id="olList">
+				<li class="current">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+			<a href="##" class="leftBtn" id="leftBtn"></a>
+			<a href="##" class="rightBtn" id="rightBtn"></a>
+		</div>
+		<script type="text/javascript">
+			window.onload=function(){
+			// 图片集
+			var list=document.getElementById('ulList');
+			// 左按钮
+			var leftBtn=document.getElementById('leftBtn');
+			// 右按钮
+			var rightBtn=document.getElementById('rightBtn');
+			// 图片
+			var img=document.getElementById('box');
+			// 小圆点
+			var pos=document.querySelectorAll('#olList');
+			// 小圆点合集
+			var pos_num=document.querySelectorAll('#olList li')
+			// 图片宽
+			var img_width=img.offsetWidth;
+			// 小圆点状态数
+			var index=0;
+			
+			for (var i = 0; i < pos_num.length; i++) {
+				pos_num[i].num=i;
+				pos_num[i].onclick=function(){
+					move(list,-this.num+index)
+					index=this.num;
+					alert(index)
+				};
+			};
+			
+			leftBtn.onclick=function(){
+				move(list,false)
+			};
+			
+			rightBtn.onclick=function(){
+				move(list,true)
+			};
+			
+			// 移动函数
+			function move(obj,type){
+				// 当前位置
+				var nowLeft=obj.offsetLeft;
+				if(typeof type =='boolean'){
+					// 单次偏移距离
+					var offset=img_width;
+				}else{
+					// 单次偏移距离
+					var offset=-type*img_width;
+				}
+				
+				// 判断偏移方向
+				offset=type?-offset:offset;
+				// 过渡总时长
+				var AllLang=2000;
+				// 每一帧的时长
+				var MinLang=20;
+				// 每一帧走多远
+				var EachLang=offset/(AllLang/MinLang);
+				// 计数器
+				var num=0;
+				// 目的地位置
+				var endLeft=nowLeft+offset;
+				var time=setInterval(function(){
+					num+=EachLang;
+					obj.style.left=nowLeft+num+'px';
+					if(parseInt(obj.style.left)==endLeft){
+						clearInterval(time);
+						if(parseInt(obj.style.left)==0){
+							obj.style.left=-4500+'px'
+						}else if(parseInt(obj.style.left)==-5400){
+							obj.style.left=-900+'px'
+						};
+					};
+				},MinLang)
+				posNext(type)
+			};
+			
+			
+			function posNext(type){
+				
+				if(typeof type=='boolean'){
+					var offsetIndex=type?index+1:index-1;
+				}else{
+					console.log(index)
+					var offsetIndex=index;
+				}
+				
+				// 排他
+				for (var i = 0; i < pos_num.length; i++) {
+					pos_num[i].className='';
+				}
+				if(offsetIndex<0){
+					offsetIndex=4;
+				}
+				if(offsetIndex==5){
+					offsetIndex=0
+				};
+				pos_num[offsetIndex].className='current';
+				// index的动态改变
+				index=offsetIndex;
+			}
+			
+		};	
+		</script>
+	</body>
+
+</html>

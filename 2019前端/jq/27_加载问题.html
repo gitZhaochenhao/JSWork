@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			img{
+				display: block;
+				width: 400px;
+				height: 400px;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<div>
+			<img src="插件/images/photos/img0.jpg" id="img" />
+		</div>
+		
+		<script type="text/javascript">
+			var img=document.getElementById('img');
+			// 直接进行输出
+			console.log('外部='+img.offsetWidth)
+			// 整个页面加载完之后在执行
+			window.onload=function(){
+				console.log('window='+img.offsetWidth)
+			};
+			
+			// 对象加载完成后就执行
+			img.onload=function(){
+				console.log('图片加载完成后='+img.offsetWidth)
+			}
+			
+			// 图片加载失败时执行
+			img.onerror=function(){
+				console.log('图片加载失败')
+			}
+			
+			
+		</script>
+	</body>
+	
+</html>

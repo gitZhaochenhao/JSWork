@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+		
+		
+		
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            background: green;
+            /*不是特别推荐  但是当特定的布局时 还是可以直接使用的*/
+            /* font-size: 0; */
+			overflow: hidden;
+        }
+        img{
+            /*浮动也可以   但是会造成父元素的高度塌陷    清除浮动*/
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="box">
+    <!--inline-block 水平会出现间隙 是因为换行符-->
+    <img src="../jq/插件/images/photos/img08.jpg" alt="">
+    <img src="../jq/插件/images/photos/img08.jpg" alt="">
+    <img src="../jq/插件/images/photos/img08.jpg" alt="">
+    <!-- <img src="../jq/插件/images/photos/img08.jpg" alt=""> -->
+</div>
+
+<!--
+ inline-block : img , input , textarea , button , audio , video ,canvas
+-->
+</body>
+
+</html>

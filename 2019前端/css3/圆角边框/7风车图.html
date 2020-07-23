@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.list{
+				width: 440px;
+				height: 440px;
+				/* background-color: #00CCFF; */
+				margin: 200px auto;
+				list-style: none;
+				padding: 0px;
+				animation: fengche 5s linear infinite;
+			}
+			@keyframes fengche{
+				from{
+					transform: rotate(0deg);
+				}
+				to{
+					transform: rotate(360deg);
+				}
+			}
+			.list li{
+				width: 200px;
+				height: 200px;
+				float: left;
+				background-color: palegoldenrod;
+				margin: 10px;
+			}
+			
+			.list li:nth-child(1),.list li:nth-child(4){
+				border-radius: 0px 150px;
+			}
+			.list li:nth-child(2),.list li:nth-child(3){
+				border-radius: 150px 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

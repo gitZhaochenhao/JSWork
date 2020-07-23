@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			var a=1;
+			var b=2;
+			var c=null;
+			// 借助了第三方变量实现内部值的互换
+			c=a
+			a=b
+			b=c
+			// alert(b)
+			
+			// 不借助第三方变量互换值
+			var numa=1;
+			var numb=2;
+			
+			numa=numa+numb;//numa=3
+			numb=numa-numb;//numb=1
+			numa=numa-numb;//numa=2
+			alert(numa)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

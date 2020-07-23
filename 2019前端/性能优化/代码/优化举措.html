@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: #4e6ef2;
+        }
+        .box1{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: darkgrey;
+            /*visibility: hidden;*/
+            transform: translateZ(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box1"></div>
+    <script type="text/javascript">
+      let box = document.querySelector('.box');
+      let box1 = document.querySelector('.box1');
+      setTimeout(function () {
+        //  重排并重绘
+        // box.style.left = '200px';
+        //  与通过定位进行移动，translate的移动在一定程度上减少了涂层重排
+        //  仅重绘
+        // box.style.transform = 'translate(200px)';
+
+        //  visibility触发重绘
+        // box1.style.visibility = 'hidden';
+          box1.style.opacity = 0;
+      },1000)
+    </script>
+</body>
+</html>

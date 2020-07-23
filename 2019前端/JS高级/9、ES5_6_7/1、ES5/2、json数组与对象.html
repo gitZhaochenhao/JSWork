@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+1. JSON.stringify(obj/arr)
+* js对象(数组)转换为json对象(数组)
+2. JSON.parse(json)
+* json对象(数组)转换为js对象(数组)
+
+-->
+    <script type="text/javascript">
+        // 1. JSON.stringify(obj/arr)
+        // * js对象(数组)转换为json对象(数组)
+        // 2. JSON.parse(json)
+        // * json对象(数组)转换为js对象(数组)
+        //json字符串：1.json对象  2.json数组
+        //json字符串特征:最外一层是单引号，里面的每一项是双引号
+
+        //普通字符串
+        var str = 'abc';
+        //json字符串
+        // var obj ='{"name":"kobe"}';
+        // var obj ='["1","name"]';
+
+        var obj = {name:'kobe'};
+        obj = JSON.stringify(obj);
+        console.log(obj);
+        console.log(JSON.parse(obj));
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">设置</button>
+		<div id="box01"></div>
+		<script type="text/javascript">
+			var btn = document.getElementById('btn');
+			var box01 = document.getElementById('box01');
+			
+			btn.onclick=function(){
+				// 创建一个元素                 标签名
+				var ul=document.createElement("ul");
+				// 可以为元素追加属性
+				ul.id="list"
+				// 即将新建的元素插入一个对象的最后，（成为其子元素）
+				box01.appendChild(ul)
+				
+				var li=document.createElement("li");
+				li.innerText="你好"
+				ul.appendChild(li)
+				
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #0000ED;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	
+	<script type="text/javascript">
+		var canvas=document.getElementById('canvas');
+		// if(!canvas.getContext) return;
+		
+		var ctx=canvas.getContext('2d');
+		
+		ctx.save();
+		ctx.beginPath();
+		ctx.fillStyle='greenyellow';
+		ctx.fillRect(100,100,100,100);
+		ctx.restore();
+		
+		// 获取某区域的所有像素点信息   起始点坐标与矩形宽高
+		var imgDate=ctx.getImageData(100,100,100,100);
+		
+		// 将获取区域的全部像素改变颜色
+		for (var i = 0; i < imgDate.data.length; i++) {
+			imgDate.data[4*i]=255;
+			imgDate.data[4*i+1]=0;
+			imgDate.data[4*i+2]=0;
+			imgDate.data[4*i+3]=255;
+		};
+		
+		// ctx.putImageData(imgDate,0,0)
+		
+		
+		// 将我们之前截取的像素区域绘制到画板上，并设置x与y轴的偏移量
+		ctx.putImageData(imgDate,0,0);
+		
+	</script>
+</html>

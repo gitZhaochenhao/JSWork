@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="test" width="600" height="600"></canvas>
+	</body>
+	<script type="text/javascript">
+		window.onload=function(){
+			// 获取画板
+			var art=document.querySelector('#test');
+			// 查看是否支持绘制对象
+			if (!art.getContext) return;
+			// 创建绘制对象
+			var cxt=art.getContext('2d');
+			
+			// 画板的鼠标按下事件
+			document.onmousedown=function(e){
+				// 适配
+				e=e || window.event;
+				// 捕获鼠标
+				if(art.setCapture){
+					art.setCapture
+				};
+				// 获得开始点坐标
+				cxt.moveTo(e.clientX-art.offsetLeft,e.clientY-art.offsetTop);
+				// 鼠标移动事件
+				document.onmousemove=function(e){
+					e=e || window.event;
+					// 模板格式
+					cxt.save();
+					// 设置路径样式
+					cxt.fillStyle='brown';
+					cxt.lineWidth=10;
+					cxt.lineJoin='round';
+					// 频繁捕获移动点坐标
+					cxt.lineTo(e.clientX-art.offsetLeft,e.clientY-art.offsetTop);
+					// 开启绘制
+					cxt.stroke();
+					cxt.restore();
+				};
+				document.onmouseup=function(){
+					// 当鼠标抬起时，清除关闭鼠标移动事件
+					document.onmousemove=null;
+					document.onmouseup=null;
+					// 清除鼠标捕获，鼠标捕获在任何元素上都可以进行设置，但必须在document上清除
+					if(document.releaseCapture){
+						document.releaseCapture()
+					}
+				}
+				// return false;
+			}
+		}
+	</script>
+</html>

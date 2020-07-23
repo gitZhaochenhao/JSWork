@@ -1,0 +1,175 @@
+@import 'reset.less';
+html,body{
+	overflow: hidden;
+	height: 100%;
+}
+*{
+	margin: 0;
+	padding: 0;
+}
+// 让这个容器盛满整个屏幕
+#wrap{
+	width: 100%;
+	// 大背景色
+	background-color: #2F3238;
+	font-size: 0;
+	position: relative;
+	.controls{
+		min-width: 100%;
+		height: 25px;
+		background-color: #232221;
+		position: relative;
+		.btns{
+			width:55px ;
+			height: 25px;
+			// background-color: red;
+			position: absolute;
+			left: 0;
+			top: 0;
+			// 按钮用span标签做的，让其居中
+			text-align: center;
+			& span{
+				display: inline-block;
+				width: 9px;
+				height: 11px;
+				background-image: url(../img/icon.png);
+				background-repeat: no-repeat;
+				&:nth-child(1){
+					margin-top: 10px;
+					background-position: 0px -23px;
+					margin-right: 10px;
+					// 自定义类样式
+					// 点击小箭头暂停视频，箭头图片变横杠图片
+					& .active{
+						background-position: 0px -11px;
+					}
+				}
+				&:nth-child(2){
+					background-position: 0px 0px;
+				}
+			}
+			
+		}
+		.progress{
+			height: 25px;
+			// background-color: blue;
+			// 给中间部分一个最小宽度
+			margin-left: 55px;
+			margin-right: 230px;
+			position: relative;
+			& .container{
+				position: absolute;
+				width: 100%;
+				height: 3px;
+				background-color: #CCCCCC;
+				margin-top:12px ;
+				& .inner{
+					position: absolute;
+					margin-top: -3px;
+					width: 8px;
+					height: 8px;
+					background-color: #FFFFFF;
+					border-radius: 3px;
+				}
+			}
+			& .deeppink{
+				// 
+				width: 0px;
+				height: 3px;
+				background-color: deeppink;
+				position: absolute;
+				margin-top: 12px;
+			}
+		}
+		.time-sound{
+			position: absolute;
+			width: 230px;
+			height: 25px;
+			right: 0;
+			bottom: 0;
+			// background-color: green;
+			text-align: center;
+			&>div{
+			  float: left;
+			  height: 25px;
+			}
+			.time{
+			  width:120px;
+			  text-align: center;
+			  line-height: 25px;
+			  font-size: 12px;
+			  color:white;
+			}
+			.sound{
+				width:80px;
+				position: relative;
+				.muted{
+					width: 12px;
+				}
+				.muted span{
+					display: block;
+					width: 12px;
+					height: 12px;
+					background: url(../img/icon.png) no-repeat 0px -34px;
+					margin-top: 5px;
+					// 静音式切换的静音图片
+					&.active{
+						background-position: 0px -46px;
+					}
+				}
+				.sound-progress{
+					width: 60px;
+					height: 25px;
+					position: absolute;
+					top:0;
+					left:12px ;
+					&>div{
+						float: left;
+						
+					}
+					.sound-container{
+						position: absolute;
+						width: 100%;
+						height: 3px;
+						background-color: #CCCCCC;
+						margin-top: 10px;
+						.sound-inner{
+							position: absolute;
+							margin-top: -2px;
+							top: 0px;
+							width: 9px;
+							height: 8px;
+							background-color: #FFFFFF;
+							border-radius: 1px;
+						}
+					}
+					.sound-pink{
+						width: 0px;
+						height: 3px;
+						position: absolute;
+						background-color: deeppink;
+						margin-top: 10px;
+					}
+				}
+				
+			}
+			& .full-screen{
+				width: 13px;
+				span{
+					margin-top: 5px;
+					display: block;;
+					width: 14px;
+					height: 10px;
+					background: url(../img/icon.png) 1px -58px;
+					&.active{
+						background-position: 1px -69px ;
+					}
+				}
+			}
+		}
+	}
+}
+
+ .active{
+						background-position: 0px -11px;
+					}

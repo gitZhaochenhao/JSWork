@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid brown;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- canvas有自己的默宽高  他的宽高不要用css去设置，容易变形，宽高直接在标签中设置-->
+		<canvas id="art" width="600px" height="900px"></canvas>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				// 低级浏览器不支持canvas 
+				
+				var art=document.querySelector('#art');
+				
+				// 简写
+				if(!art.getContext)return;
+				// 创建绘制对象
+				var pen=art.getContext('2d');
+				
+				pen.lineWidth='1';
+				pen.strokeStyle='firebrick';
+				// 字体大小与文本字体  两个缺一不可
+				pen.font='60px sans-serif';
+				// 以路径方式绘制文本
+				pen.strokeText('大家好',100,100);
+				
+				var gran=pen.createLinearGradient(0,0,art.width,art.height);
+				gran.addColorStop(0,'red');
+				gran.addColorStop(0.5,'blue');
+				gran.addColorStop(0.6,'green');
+				gran.addColorStop(1,'pink');
+				pen.fillStyle=gran;
+				pen.font='80px sans-serif';
+				// 以填充方式绘制文本
+				pen.fillText('我是你们的小阿Giao',0,200)
+				
+			}
+		</script>
+	</body>
+</html>

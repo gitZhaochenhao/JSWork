@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<img src="" id="img">
+		
+		<script type="text/javascript">
+			// 解决第一秒无图的问题，先不执行定时器，直接调用函数
+			fun();
+			
+			// 第一个图片播放是一秒钟之后执行的，第一秒没有图
+			setInterval(fun,1000)
+			
+			function fun(){
+				var time=new Date();
+				var timeH=time.getHours()<10?'0'+time.getHours():time.getHours();
+				var timeS=time.getSeconds()<10?'0'+timeS.getSeconds():time.getSeconds();
+				
+				var strtime=timeH+'_'+timeS+'.jpg';
+				var img=document.getElementById('img');
+				img.src=strtime;
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.list{
+				border: 1px dashed #0000FF;
+				font-size: 0px;
+			}
+			.list li{
+				border: #FF0000 1px solid;
+				font-size: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">添加</button>
+		<ul class="list" id="list">
+			<li><a href="#">删除1</a></li>
+			<li><a href="#">删除2</a></li>
+			<li><a href="#">删除3</a></li>
+			<li><a href="#">删除4</a></li>
+			<li><a href="#">删除5</a></li>
+			<li><a href="#">删除6</a></li>
+			<li><a href="#">删除7</a></li>
+			<li><a href="#">删除8</a></li>
+		</ul>
+		
+		<script type="text/javascript">
+			var list=document.getElementById("list");
+			var a=list.getElementsByTagName("a")
+			// 循环绑定事件
+			// for (var i = 0; i < a.length; i++) {
+			// 	a[i].onclick=function(){
+			// 		list.removeChild(this.parentElement)
+			// 	}
+			// }
+			
+			list.onclick=function(e){
+				// 判断我们点击的是否是a标签
+				if(e.target.nodeName=='A'){
+				// 通过事件的默认信息参数中的target目标属性我们可以确定，我们当前操作的元素  获取目标元素
+					list.removeChild(e.target.parentElement)
+					}
+					
+				// 低版本浏览器 
+				// if(window.event.srcElement.nodeName==1){
+				// 	list.removeChild(window.event.srcElement.parentElement)
+				// }
+				}
+				
+				
+				// 在我们编写了事件委托之后，即使是新添加的也能够起作用
+				btn.onclick=function(){
+					var lis=document.createElement("li");
+					var a=document.createElement('a');
+					
+					list.appendChild(lis)
+					lis.appendChild(a)
+					a.href='#';
+					a.innerText='删除'
+					
+					
+				}
+				
+				// console.log(getComputedStyle(list).fontSize)
+			
+		</script>
+	</body>
+</html>

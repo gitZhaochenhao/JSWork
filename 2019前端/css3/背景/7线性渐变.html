@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 400px;
+				height: 400px;
+				margin: 200px auto;
+				/*线性渐变
+				background   background-image
+				    渐变的本质就是 绘制背景图片
+				    background-size
+				    background-position
+				    background-repeat
+				    渐变都可以使用
+				*/
+				/*
+				    线性渐变 默认由上到下渐变（垂直的）
+				*/
+				/*background-image: linear-gradient(deeppink,yellowgreen);*/
+				/*第一个参数可以指定方向*/
+				background-image: linear-gradient(green,red);
+				background-image: linear-gradient(green,red,blue);
+				background-image: linear-gradient(to right,green,red);
+				background-image: linear-gradient(to right top,green,red);
+				/* deg是角度的意思 */
+				background-image: linear-gradient(145deg,green,red);
+				/*设置多个颜色*/
+				/*
+				    0%-10%:没有从0%开始设置颜色  就会用第一个颜色进行填充
+				    10%-20%：red到yellowgreen进行渐变
+				    20%-30%：yellowgreen到blue进行渐变
+				    30%-40%：blue到deeppink进行渐变
+				    40%-100% 之间没有设置其他的渐变   就由最后一个颜色进行填充
+				*/
+				background-image: linear-gradient(red 10%,yellowgreen 20%,blue 30%,deeppink 40%);
+				background-image: linear-gradient(red 100px,yellowgreen 150px,blue 300px,deeppink 400px);
+				background-image: linear-gradient(red 0%,yellowgreen 200px);
+				/* 设置纯色渐变 */
+				background-image: linear-gradient(red 50%,green 50%);
+				background-image: linear-gradient(to left top,red 50%,green 50%);
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

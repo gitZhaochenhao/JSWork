@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var obj01={
+				age:12,
+				sayhi:function(){
+					console.log('我今年'+this.age)
+				}
+			}
+			
+			var obj02={
+				age:45
+			};
+			
+			// call() 前面也学过，这是一个转变this指向的方法
+			obj01['sayhi'].call(obj02);
+			
+			function name01(x,y){
+				console.log(x+y)
+			}
+			function name02(x,y){
+				console.log(x-1)
+			}
+			// 使name02用name01的方法函数  改变指向
+			name01.call(name02,1,2);
+			
+			function fn1(){
+				this.age=12,
+				this.put=function(text){
+					console.log("大家"+text);
+				}
+			};
+			function fn2(){
+				// this指向实例化对象fn3
+				fn1.call(this);
+			}
+			// 用call来实现继承，用this可以继承fun1中的所有方法和属性。
+			var fn3=new fn2();
+			fn3.put('哈哈哈哈');
+			console.log(fn3.age);
+			
+			var pig={
+				name:'小明',
+				fn:function(){
+					console.log(this.name);
+				}
+			};
+			function deg(){
+				this.name='小红';
+			}
+			var zoop=new deg();
+			
+			// call()本身就有运行函数的意思
+			pig.fn.call(zoop);
+			
+		</script>
+	</body>
+</html>

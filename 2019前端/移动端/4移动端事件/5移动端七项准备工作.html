@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<!--
+		1、meta
+		2、css初始化
+		3、rem适配
+		4、阻止浏览器默认行为
+		5、解决a标签点透事件
+		6、禁止系统滚动条
+		7、模拟移动端屏幕区域
+	-->
+	<head>
+		<meta charset="utf-8">
+		<!--  -->
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				overflow:hidden;
+				height: 100%;
+			}
+			a{
+				text-decoration: none;
+				/*移动端a标签点击时候会有一个高亮的显示色，通过以下方式把高亮色去掉*/
+				-webkit-tap-highlight-color: rgba(0,0,0,0);
+			}
+			img{
+				display: block;
+			}
+			input{
+				outline: none;
+			}
+			#wrap{
+				height: 100%;
+				width: 100%;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap"></div>
+		
+		<script type="text/javascript">
+			// rem适配
+			!(function(){
+				var width=document.documentElement.clientWidth;
+				var styleNode=document.createElement('style');
+				styleNode.innerHTML='html{font-size:'+width/16+'px;}';
+				document.head.appendChild(styleNode);
+				// 取消所有浏览器默认行为
+				document.addEventListener('touchstart',function(event){
+					event=event||window.event;
+					event.preventDefault();
+				});
+				// 解决a标签点透事件
+				var aNode=document.getElementsByTagName('a');
+				for (var i = 0; i < aNode.length; i++) {
+					aNode[i].addEventListener('touchstart',function(event){
+						event=event||window.event;
+						window.href=this.href;
+					});
+				};
+			})();
+			
+			
+		</script>
+	</body>
+</html>

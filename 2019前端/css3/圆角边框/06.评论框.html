@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            width: 500px;
+            height: 200px;
+            border:1px solid #6fe2ff;
+            margin: 100px auto;
+            border-radius: 10px;
+            background: url("img/cy-logo.png") no-repeat;
+            background-position: center;
+            position: relative;
+        }
+        .bigCircle{
+            width: 60px;
+            height: 60px;
+            border: 1px solid #6fe2ff;
+            border-radius: 50%;
+            position: absolute;
+            top:-50px;
+            left: 40px;
+            background: #fff;
+        }
+        /*蒙版*/
+        .mask{
+            width: 62px;
+            height: 62px;
+            background: #fff;
+            position: absolute;
+            top:-63px;
+            left: 40px;
+        }
+        .sCircle{
+            width:50px;
+            height: 50px;
+            background: #fff;
+            position: absolute;
+            z-index: 3;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+            color: #6fe2ff;
+            border:1px solid #6fe2ff;
+            top:0px;
+            left:3px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div class="bigCircle">
+        <div class="sCircle">
+            登录
+        </div>
+    </div>
+    <div class="mask"></div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			// 地图类
+			(function(){
+				function MapClass(width,height,bgcolor){
+					this.width=width,
+					this.height=height,
+					this.bgcolor=bgcolor
+				};
+				MapClass.prototype.init=function(){
+					// 创建地图div
+					var Mapdiv=document.createElement('div');
+					// 添加属性样式
+					Mapdiv.style.width=this.width+'px';
+					Mapdiv.style.height=this.height+'px';
+					Mapdiv.style.backgroundColor=this.bgcolor;
+					Mapdiv.style.position='relative';
+					Mapdiv.id='Mapdiv'
+					// 插入页面
+					document.body.appendChild(Mapdiv)
+				};
+				// 公布
+				window.MapClass=MapClass
+			})();
+			
+			// 食物类
+			(function(){
+				function Eat(width,height,bgcolor){
+					this.width=width,
+					this.height=height,
+					this.bgcolor=bgcolor,
+					this.x = 0;
+					this.y = 0;
+				};
+				Eat.prototype.init=function(){
+					var Mapdiv=document.getElementById('Mapdiv')
+					// 创建食物
+					var Eatdiv=document.createElement('div');
+					// 添加属性样式
+					Eatdiv.style.width=this.width+'px';
+					Eatdiv.style.height=this.height+'px';
+					Eatdiv.style.backgroundColor=this.bgcolor;
+					Eatdiv.style.position='absolute';
+					this.x=parseInt(Math.random()*(Mapdiv.offsetWidth/this.width));
+					this.y=parseInt(Math.random()*(Mapdiv.offsetHeight/this.height));
+					Eatdiv.style.left=this.x*this.width+'px';
+					Eatdiv.style.top=this.y*this.height+'px';
+					// 插入页面
+					Mapdiv.appendChild(Eatdiv)
+				};
+				// 公布
+				window.Eat=Eat
+			})();
+			
+			// 蛇类
+			(function(){
+				function SnakeClass()
+			})();
+			
+			// 地图创建
+			var Map=new MapClass(600,600,'#ccc');
+			Map.init();
+			// 创建食物
+			var Eat=new Eat(20,20,'red');
+			Eat.init()
+			
+		</script>
+		
+		
+	</body>
+</html>

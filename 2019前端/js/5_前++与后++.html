@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// a++与++a都是a=a+1的意思
+			// 当出现a++或++a时a就已经改变
+			
+			var a=1;
+			// var b=++a;
+			// console.log(a)//2
+			// console.log(b)//2
+			
+			// 当我们后++时第一个后++并不能使该式子中a的值发生改变（但外部a变量依旧会改变）在式子中从第一个出现的a往后的a才改变
+			//     1 + 2 + 2  + 3 + 4
+			var b=a++ +a + a++ +a+ ++a;
+			console.log(a)//4 就看有几次++
+			console.log(b)//12
+			
+			
+			var a=1;
+			a++;
+			alert(a==2)//true
+					
+					
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

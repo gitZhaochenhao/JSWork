@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class IO - backports-3.10.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-binread">::binread</a>
+    
+    <li ><a href="#method-c-binwrite">::binwrite</a>
+    
+    <li ><a href="#method-c-open_with_options_hash">::open_with_options_hash</a>
+    
+    <li ><a href="#method-c-try_convert">::try_convert</a>
+    
+    <li ><a href="#method-c-write">::write</a>
+    
+    <li ><a href="#method-i-advise">#advise</a>
+    
+    <li ><a href="#method-i-chars">#chars</a>
+    
+    <li ><a href="#method-i-each_char">#each_char</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-IO">
+  <h1 id="class-IO" class="class">
+    class IO
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-binread" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">binread</span><span
+            class="method-args">(file, length = nil, offset = 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="binread-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/io/binread.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">IO</span>.<span class="ruby-identifier">binread</span>(<span class="ruby-identifier">file</span>, <span class="ruby-identifier">length</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">offset</span> = <span class="ruby-value">0</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-constant">Backports</span>.<span class="ruby-identifier">convert_path</span>(<span class="ruby-identifier">file</span>),<span class="ruby-string">&quot;rb&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-identifier">offset</span>)
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">length</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-binwrite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">binwrite</span><span
+            class="method-args">(name, string, offset = nil, options = Backports::Undefined)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="binwrite-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.3/io/binwrite.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">IO</span>.<span class="ruby-identifier">binwrite</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">string</span>, <span class="ruby-identifier">offset</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = <span class="ruby-constant">Backports</span><span class="ruby-operator">::</span><span class="ruby-constant">Undefined</span>)
+  <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">write</span>(<span class="ruby-keyword">true</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">string</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-open_with_options_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_with_options_hash</span><span
+            class="method-args">(*args) { |f| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open_with_options_hash-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/io/open.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_with_options_hash</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_hash</span>)
+    <span class="ruby-identifier">fd</span>, <span class="ruby-identifier">mode</span>, <span class="ruby-identifier">options</span> = (<span class="ruby-identifier">args</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Backports</span><span class="ruby-operator">::</span><span class="ruby-constant">Undefined</span>)
+    <span class="ruby-identifier">args</span> = [<span class="ruby-identifier">fd</span>, <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">combine_mode_and_option</span>(<span class="ruby-identifier">mode</span>, <span class="ruby-identifier">options</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">open_without_options_hash</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">f</span>}
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">open_without_options_hash</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-try_convert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_convert</span><span
+            class="method-args">(obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try_convert-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/io/try_convert.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">IO</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-constant">IO</span>, <span class="ruby-value">:to_io</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write</span><span
+            class="method-args">(name, string, offset = nil, options = Backports::Undefined)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.3/io/write.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">IO</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">string</span>, <span class="ruby-identifier">offset</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span> = <span class="ruby-constant">Backports</span><span class="ruby-operator">::</span><span class="ruby-constant">Undefined</span>)
+  <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">write</span>(<span class="ruby-keyword">false</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">string</span>, <span class="ruby-identifier">offset</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-advise" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">advise</span><span
+            class="method-args">(advice, offset=0, len=0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="advise-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.3/io/advise.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">advise</span>(<span class="ruby-identifier">advice</span>, <span class="ruby-identifier">offset</span>=<span class="ruby-value">0</span>, <span class="ruby-identifier">len</span>=<span class="ruby-value">0</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">RangeError</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_int</span>(<span class="ruby-identifier">offset</span>) <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">31</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">RangeError</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_int</span>(<span class="ruby-identifier">len</span>) <span class="ruby-operator">&gt;=</span> <span class="ruby-value">1</span><span class="ruby-operator">&lt;&lt;</span><span class="ruby-value">31</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">closed?</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">advice</span>
+  <span class="ruby-keyword">when</span>  <span class="ruby-value">:normal</span>,
+        <span class="ruby-value">:sequential</span>,
+        <span class="ruby-value">:random</span>,
+        <span class="ruby-value">:willneed</span>,
+        <span class="ruby-value">:dontneed</span>,
+        <span class="ruby-value">:noreuse</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>, <span class="ruby-node">&quot;Unsupported advice #{advice}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-string">&quot;advice must be a Symbol&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-chars" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">chars</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="IO.html#method-i-each_char">each_char</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-each_char" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_char</span><span
+            class="method-args">() { |c| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_char-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/io/each_char.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each_char</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_char</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">$KCODE</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;UTF-8&quot;</span>
+    <span class="ruby-identifier">lookup</span> = <span class="ruby-value">7</span>.<span class="ruby-identifier">downto</span>(<span class="ruby-value">4</span>)
+    <span class="ruby-keyword">while</span> <span class="ruby-identifier">c</span> = <span class="ruby-identifier">read</span>(<span class="ruby-value">1</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">n</span> = <span class="ruby-identifier">c</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-identifier">leftmost_zero_bit</span> = <span class="ruby-identifier">lookup</span>.<span class="ruby-identifier">find</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">i</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>[<span class="ruby-identifier">i</span>].<span class="ruby-identifier">zero?</span> }
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">leftmost_zero_bit</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">7</span> <span class="ruby-comment"># ASCII</span>
+        <span class="ruby-keyword">yield</span> <span class="ruby-identifier">c</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">6</span> <span class="ruby-comment"># UTF 8 complementary characters</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-comment"># Encoding error, ignore</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">more</span> = <span class="ruby-identifier">read</span>(<span class="ruby-value">6</span><span class="ruby-operator">-</span><span class="ruby-identifier">leftmost_zero_bit</span>)
+        <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">more</span>
+        <span class="ruby-keyword">yield</span> <span class="ruby-identifier">c</span><span class="ruby-operator">+</span><span class="ruby-identifier">more</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-identifier">s</span> = <span class="ruby-identifier">read</span>(<span class="ruby-value">1</span>)
+      <span class="ruby-keyword">yield</span> <span class="ruby-identifier">s</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="IO.html#method-i-chars">chars</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

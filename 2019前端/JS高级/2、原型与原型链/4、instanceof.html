@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+      var arr = [4,56,6,7];
+      console.log(arr instanceof Array);
+      console.log(Function instanceof Object);
+      console.log(Object instanceof Function);
+
+      // 1. 表达式: A instanceof B
+      // 2. 如果B函数的显式原型对象在A对象的原型链上, 返回true, 否则返回false
+
+      function Fun() {};
+      var fun = new Fun();
+      console.log(fun instanceof Function)
+    </script>
+</body>
+</html>

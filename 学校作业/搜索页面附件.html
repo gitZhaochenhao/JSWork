@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div class="big">
+        <input type="radio" value="https://www.baidu.com/s?wd=" name="q">百度浏览器
+        <input type="radio" value="https://www.so.com/s?q=" name="q">360浏览器
+
+        <form action="https://www.baidu.com/s?wd=" id="form">
+            <input type="text" id="text"  autocomplete="off">
+            <input type="submit" id="se" value="搜索">
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        var S = document.getElementById('se');
+        var T = document.getElementById('text');
+        var St = document.querySelectorAll('.big input[name=q]');
+        var src = document.getElementById('form');
+        T.onclick = function () {
+            this.focus();
+        };
+        document.onclick = function () {
+            S.blur();
+        };
+        S.onclick = function () {
+            location.href = src.action+T.value;
+            alert()
+        };
+        for (var i = 0; i < St.length; i++) {
+            St[i].onclick = function () {
+                src.action = this.value;
+            };
+        };
+    </script>
+</body>
+</html>

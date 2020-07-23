@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box{
+				width: 4rem;
+				height: 4rem;
+				border: 1px solid black;
+				background-color: #ECECEC;
+			}
+		</style>
+	</head>
+	<body>
+		<!--需求：我们需要将现在的边框尺寸修改成1物理像素，但是元素物理像素大小不改变-->
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		//将边框尺寸变成1物理像素
+		var meta=document.querySelector('meta[name="viewport"]');
+		//获得屏幕的dpr
+		var dpr=document.devicePixelRatio;
+		//将全图中的1css像素等价于1物理像素，用initial-scal缩放css像素面积，也使得布局视口变大    1/dpr便是1物理像素的尺寸 如dpr为2则一物理像素则要将css像素缩小1/2得到一物理像素
+		meta.content='initial-scale='+1/dpr+',user-scalable=no';
+		
+		
+		//因为上边我们使用initial-scal缩放进行了缩放css单位像素变小，所以现在我们的元素大小也发生了改变
+		
+		//此时，布局视口为750，因为上面对css像素进行了缩放所以布局视口的面积变大了
+		var width=document.documentElement.clientWidth;
+		var style=document.createElement('style');
+		style.innerHTML='html{font-size:'+width/16+'px;}';
+		document.head.appendChild(style);
+	</script>
+</html>

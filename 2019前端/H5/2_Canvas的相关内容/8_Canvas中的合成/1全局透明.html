@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid brown;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- canvas有自己的默宽高  他的宽高不要用css去设置，容易变形，宽高直接在标签中设置-->
+		<canvas id="art" width="600px" height="600px"></canvas>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				// 低级浏览器不支持canvas 
+				
+				var art=document.querySelector('#art');
+				
+				// 画图
+				// 查看浏览器是否支持绘制对象
+				// if(art.getContext){
+				// 	// 创建2d画笔
+				// 	var pen=art.getContext('2d')
+				// }
+				
+				// 简写
+				if(!art.getContext)return;
+				var ctx=art.getContext('2d');
+				
+				// 设置全局的透明度  0-1
+				ctx.globalAlpha=0.5;
+				ctx.fillStyle='firebrick';
+				ctx.fillRect(100,100,200,200);
+				
+				ctx.save();
+				ctx.fillStyle='blueviolet';
+				ctx.beginPath();
+				ctx.fillRect(0,0,100,100)
+				ctx.restore();
+			}
+		</script>
+	</body>
+</html>

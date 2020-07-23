@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /* 滚动条是在document上的*/
+        html{
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            border:5px solid red;
+            overflow: scroll;
+        }
+        body{
+            width: 600px;
+            height: 500px;
+            margin:0 auto;
+            border:5px solid #ccc;
+            overflow: scroll;
+        }
+        #box{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<!--
+考虑 document html body;
+
+    1.html body中只有一个有overflow属性时,这个属性会传给document
+    2.html body都存在overflow属性时.body的overflow属性才能生效,
+    3.当html body都存在overflow属性时.body的overflow属性一直都会作用于body身上,
+                                  html的overflow属性一直都会作用于document(页面)身上
+
+-->
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+
+</script>
+</html>

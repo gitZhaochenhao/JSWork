@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<!-- 引入ico页面标志图标 -->
+		<link rel="shortcut icon" href="bitbug_favicon.ico" />
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			
+			.box {
+				width: 900px;
+				height: 350px;
+				margin: 100px auto;
+					overflow: hidden;
+				position: relative;
+			}
+			
+			.box ul {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 5400px;
+			}
+			
+			.box ul li {
+				float: left;
+			}
+			
+			.box ol {
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+			}
+			
+			.box ol li {
+				float: left;
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+				border: 1px solid #fff;
+				background: #333;
+				color: #999;
+				text-align: center;
+				margin-left: 10px;
+				cursor: pointer;
+				border-radius: 50%;
+			}
+			/*指定标签选择器*/
+			
+			.box ol li.current {
+				border-color: #f60;
+				color: #f60;
+			}
+			
+			.box .leftBtn,
+			.box .rightBtn {
+				width: 40px;
+				height: 100px;
+				background: url(img/index.png) 0 0;
+				position: absolute;
+				top: 50%;
+				margin-top: -50px;
+			}
+			
+			.box .leftBtn {
+				left: 0;
+			}
+			
+			.box .rightBtn {
+				right: 0;
+				background-position: -50px 0px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" id="box">
+			<ul id="ulList">
+				<li><img src="img/01i.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/02i.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/03i.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/04i.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/05.jpg" height="350" width="900" alt="" /></li>
+				<li><img src="img/01i.jpg" height="350" width="900" alt="" /></li>
+			</ul>
+			<ol id="olList">
+				<li class="current">1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+				<li>5</li>
+			</ol>
+			<a href="##" class="leftBtn" id="leftBtn"></a>
+			<a href="##" class="rightBtn" id="rightBtn"></a>
+		</div>
+		<script type="text/javascript">
+			// ul
+			var list=document.getElementById('ulList')
+			// 右边箭头
+			var rightBtn=document.getElementById('rightBtn');
+			// 左边箭头
+			var leftBtn=document.getElementById('leftBtn');
+			// 当前图片位置
+			var now=0;
+			// 定时器
+			var time=0;
+			// 小圆点容器
+			var ol=document.getElementById('olList');
+			// 小圆点位置
+			var nowol=0;
+			
+			// 右侧箭头
+			rightBtn.onclick=function(){
+				// 图片位置
+				now++;
+				// 小圆点位置
+				nowol++;
+				if(now>5){
+					now=1;
+					list.style.left=0+'px';
+				};
+				if(nowol>4){
+					nowol=0;
+				};
+				for (var i = 0; i < ol.children.length; i++) {
+					ol.children[i].className='';
+					ol.children[nowol].className='current';
+				}
+				var target=now*-900;
+				move(list,target);
+				
+			};
+			
+			
+			// 左侧箭头
+			leftBtn.onclick=function(){
+				now--;
+				nowol--;
+				if(now<0){
+					now=4;
+					list.style.left=-4500+'px';
+				};
+				if(nowol<0){
+					nowol=4;
+				};
+				for (var i = 0; i < ol.children.length; i++) {
+					ol.children[i].className='';
+					ol.children[nowol].className='current';
+				}
+				var target=now*-900;
+				move(list,target)
+			};
+			
+			// 小圆点绑定事件
+			for (var i = 0; i < ol.children.length; i++) {
+				ol.children[i].num=i;
+				ol.children[i].onclick=function(e){
+					for (var i = 0; i < ol.children.length; i++) {
+						ol.children[i].className=''
+					};
+					this.className='current';
+					now=this.num;
+					
+					var tar=now*-900;
+					move(list,tar);
+					nowol=this.num;
+				};
+				
+			};
+			
+			// 移动函数
+			function move(obj,target){
+				clearInterval(time);
+				time=setInterval(function(){
+					// 每一次移动的距离
+					var step=30;
+					// 当前ul的left定位距离
+					var objleft=obj.offsetLeft;
+					step=target>objleft?step:-step;
+					// 如果当前位置与目标位置的距离大于单次移动距离
+					if(Math.abs(target-objleft)>=Math.abs(step)){
+						var add=objleft+=step;
+						obj.style.left=add+'px';
+					}
+					else{
+						obj.style.left=target+'px';
+						clearInterval(time);	
+					}
+				},10)
+				
+				
+				
+			}
+			
+		</script>
+	</body>
+
+</html>

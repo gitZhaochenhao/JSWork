@@ -1,0 +1,325 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+  font: 14px "微软雅黑";
+}
+a {
+  text-decoration: none;
+  display: block;
+  -webkit-highlight: none;
+}
+li {
+  list-style: none;
+}
+img {
+  display: block;
+}
+.clearfix {
+  *zoom: 1;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.commonTitle {
+  color: #009ee0;
+  font-size: 80px;
+  line-height: 0.8;
+  font-weight: bold;
+  letter-spacing: -5px;
+}
+.commonText {
+  color: white;
+  line-height: 1.5;
+  font-size: 15px;
+}
+.wrap {
+  width: 100%;
+  height: 100%;
+}
+.wrap .header {
+  position: relative;
+}
+.wrap .header .headerMain {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 1100px;
+  height: 80px;
+}
+.wrap .header .headerMain .logo {
+  float: left;
+  margin-top: 15px;
+}
+.wrap .header .headerMain .headerNav {
+  float: right;
+  margin-top: 50px;
+}
+.wrap .header .headerMain .headerNav .headerNavList {
+  overflow: hidden;
+}
+.wrap .header .headerMain .headerNav .headerNavList .headerNavItem {
+  position: relative;
+  float: left;
+  margin-left: 40px;
+}
+.wrap .header .headerMain .headerNav .headerNavList .headerNavItem .up {
+  position: absolute;
+  width: 0px;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 1s;
+}
+.wrap .header .headerMain .headerNav .headerNavList .headerNavItem .down a {
+  color: #00FFEE;
+}
+.wrap .header .headerMain .headerNav .headerNavList .headerNavItem:hover .up {
+  width: 100%;
+}
+.wrap .header .headerMain .headerNav .headerNavList li:last-child {
+  position: absolute;
+  top: 100%;
+  left: 965px;
+  width: 21px ;
+  height: 11px;
+  background-color: #0066CC;
+  z-index: 2;
+}
+.wrap .contentWrap {
+  position: relative;
+  overflow: hidden;
+}
+.wrap .contentWrap .contentList {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 500%;
+  transition: 1s;
+}
+.wrap .contentWrap .contentList .contentItem {
+  position: relative;
+  width: 100%;
+  height: 20%;
+}
+.wrap .contentWrap .contentList .contentItem:nth-child(1) {
+  background-image: url(../img/bg1.jpg);
+}
+.wrap .contentWrap .contentList .contentItem:nth-child(2) {
+  background-image: url(../img/bg2.jpg);
+}
+.wrap .contentWrap .contentList .contentItem:nth-child(3) {
+  background-image: url(../img/bg3.jpg);
+}
+.wrap .contentWrap .contentList .contentItem:nth-child(4) {
+  background-image: url(../img/bg4.jpg);
+}
+.wrap .contentWrap .contentList .contentItem:nth-child(5) {
+  background-image: url(../img/bg5.jpg);
+}
+.wrap .contentWrap .contentList .contentItem .contentinner {
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 1100px;
+  height: 520px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(1) {
+  background-color: #00A4E4;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(2) {
+  background-color: #00AA88;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(1) {
+  background-color: #e4b9c0;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(1) {
+  background-color: rebeccapurple;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem:nth-child(1) {
+  background-color: cornflowerblue;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem.active {
+  visibility: visible;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.home .bannerList .bannerItem.leftShow {
+  animation: LeftShow 3s linear;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works1 {
+  margin: 50px 0 100px 50px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 {
+  width: 100%;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img {
+  overflow: hidden;
+  margin-left: 50px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img li {
+  position: relative;
+  overflow: hidden;
+  float: left;
+  width: 220px;
+  height: 133px;
+  margin: 0 1px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img li:nth-child(4) {
+  width: 332px;
+  height: 133px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img li .mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(25, 25, 25, 0.8);
+  opacity: 0;
+  transition: 1s;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img li .mask .maskText {
+  color: white;
+  margin: 10px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img li .mask .maskIco {
+  position: absolute;
+  width: 32px;
+  height: 34px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  background-image: url(../img/zoomico.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: 0 0;
+  transition: 1s;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img li .mask:hover {
+  opacity: 1;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img li .mask:hover .maskIco {
+  background-position: 0 -35px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img li img {
+  transition: 1s;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works2 .img li:hover img {
+  transform: scale(2, 2) rotate(30deg);
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.works .works3 {
+  position: absolute;
+  width: 167px;
+  height: 191px;
+  left: 900px;
+  top: 170px;
+  background-image: url(../img/robot.png);
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.course {
+  overflow: hidden;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.course .course1 {
+  margin: 50px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.course .course2 {
+  width: 400px;
+  margin-left: 50px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.course .course3 {
+  position: absolute;
+  right: 50px;
+  top: 70px;
+  border: 1px solid #000000;
+  width: 480px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.course .course3 .courseList {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.course .course3 .courseList .courseItem {
+  position: relative;
+  float: left;
+  width: 120px;
+  height: 132px;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  transition: 0.5s;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.course .course3 .courseList .courseItem .up {
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/pcwelt.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  backface-visibility: hidden;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.course .course3 .courseList .courseItem .down {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00CCFF;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+}
+.wrap .contentWrap .contentList .contentItem .contentinner.course .course3 .courseList .courseItem:hover {
+  transform: rotateY(180deg);
+}
+.wrap .contentWrap .ceNav {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.wrap .contentWrap .ceNav span {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 10px;
+  border: 1px solid #FFFFFF;
+  border-radius: 50%;
+}
+.wrap .contentWrap .ceNav span.active {
+  background-color: #FFFFFF;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#box {
+				width: 200px;
+				height: 200px;
+				background-color: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script src="js/transformCss.js"></script>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+
+			// box.style.transform='translateX(100px)';
+			
+			// 设置值
+			transformCss(box, 'translateY', 100);
+			transformCss(box, 'translateX',100);
+			// 读取值
+			console.log(transformCss(box, 'translateY'));
+
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			/* :focus 表示当标签获得焦点时的操作 */
+			input[type='text']:focus{
+				background-color: #00CCFF;
+			}
+			
+			/* 当标签获得焦点时对于placeholder属性的操作 */
+			input[type='text']:focus::placeholder{
+				color: #a18dcc;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text"  placeholder="请输入......" autofocus="autofocus"/>
+	</body>
+</html>

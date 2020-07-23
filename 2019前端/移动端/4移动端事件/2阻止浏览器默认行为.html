@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			.a{
+				widows: 200px;
+				height: 200px;
+				background-color: #008000;
+			}
+			.b{
+				widows: 100px;
+				height: 100px;
+				background-color: rosybrown;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a">大家好我是你们的小啊giao
+			<div class="b"></div>
+		</div>
+		<a href="http://www.atguigu.com">点击我去硅谷</a>
+		
+		
+		<script type="text/javascript">
+			var div=document.querySelector('.a');
+			var divInner=document.querySelector('.b');
+			
+			div.addEventListener('touchstart',function(e){
+				e=e||window.event;
+//				e.preventDefault();
+				console.log(1);
+			});
+			
+			divInner.addEventListener('touchstart',function(e){
+				e.stopPropagation();
+			})
+
+			//使用事件委托进行全元素的默认事件清除
+			document.addEventListener('touchstart',function(e){
+				e=e||window.event;
+				e.preventDefault();
+			});
+		</script>
+	</body>
+</html>

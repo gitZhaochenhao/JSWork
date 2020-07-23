@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 200px;
+            height: 200px;
+            background: deeppink;
+            /*
+            transition-property：定义元素需要变化的属性
+            默认值为all
+            */
+            transition-property: width;
+            /*
+                定义过渡执行时间
+                单位既可以是秒也可以为毫秒
+            */
+            transition-duration: 8s;
+            /*
+                定义过渡的类型
+            */
+            transition-timing-function: ease;/*满快慢*/
+            transition-timing-function: linear;/*匀速*/
+            transition-timing-function: ease-in;/*慢快*/
+            transition-timing-function: ease-out;/*快慢*/
+            transition-timing-function: ease-in-out;/*快慢*/
+            /*贝塞尔曲线*/
+            transition-timing-function: cubic-bezier(.05,1.47,.66,1.75);
+            transition-timing-function: cubic-bezier(.01,1.95,.82,-0.61);
+            /*
+                过渡延迟时间  单位与过渡执行时间相同   既可以为s也可以为ms
+            */
+            transition-delay: 3s;
+		
+			
+			
+			/* 
+				默认状态：transition-property: all;
+						transition-timing-function: ease;
+						transition-delay: 0;
+						transition-duration: 0;
+				transition默认状态:transition:all ease 0 0 过渡时长与延迟时长需自己定义
+				transition的参数没有固定顺序，但是过渡时长必须定义于延迟时长前任意位置
+			 */
+			
+        }
+        #box:hover{
+            width: 500px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById('box');
+
+
+    }
+</script>
+</html>

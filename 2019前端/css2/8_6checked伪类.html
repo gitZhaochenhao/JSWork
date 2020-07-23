@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			input[type='checkbox']{
+				/* 在我们没有清除默认样式之前，我们只能设置复选框的宽高 */
+				width: 50px;
+				height: 50px;
+				/* 清除表单工具的外边框 */
+				outline: none;
+				/* 清楚默认样式 */
+				-moz-appearance: none;
+				-webkit-appearance: none;
+				appearance: none;
+				/* 在我们进行取消默认样式之后可以进行除宽高之外的设置 */
+				background-color: #00CCFF;
+			}
+			
+			input[type='checkbox']:checked{
+				background-color: #008000;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="checkbox" />
+	</body>
+</html>

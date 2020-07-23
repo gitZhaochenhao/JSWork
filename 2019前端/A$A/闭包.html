@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <script type="text/javascript">
+      // function funOut(n,names) {
+      //   var names = 10;
+      //   console.log(names);
+      //   return function funInner() {
+      //       //调用了外部函数的变量，内部函数中初出现闭包，注意，闭包中只会存储在内部函数中使用的外部函数变量
+      //       return funOut(n,names);
+      //   };
+      // };
+      // var func = funOut(1,2);
+
+      var a = 2;
+        function f() {
+            a = 10;
+        }
+        f();
+        console.log(a);
+
+        //闭包的应用
+        var btn = document.getElementsByTagName('button');
+          for (var i = 0; i < btn.length; i++) {
+              (function (i) {
+                //  回调函数，函数嵌套内部函数调用外部函数的变量，内部函数中生成闭包对象储存i
+                btn[i].onclick = function () {
+                   alert(i);
+                };
+              })(i);
+          };
+    </script>
+</body>
+</html>

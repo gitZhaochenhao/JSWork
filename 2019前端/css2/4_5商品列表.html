@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.box{
+			width: 800px;
+			height: 800px;
+			border: 1px solid #000000;
+			margin: 0 auto;
+			/* 将多余的元素切割 */
+			overflow: hidden;
+		}
+		.item{
+			width: 250px;
+			height: 200px;
+			background-color: #00CCFF;
+			margin-right: 25px;
+			margin-top: 20px;
+			float: left;
+		}
+		.hideBox{
+			/* 应当大于单行元素总宽度加上边距宽   
+			 此时每一行等能够撑得下三个元素商品因此不会换行
+			 且最后一个商品的margin-right值背box切割所以看不出来
+			 */
+			width: 875px;
+		}
+	</style>
+	<body>
+		<div class="box">
+			<div class="hideBox">
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+				<div class="item"></div>
+			</div>
+		</div>
+	</body>
+</html>

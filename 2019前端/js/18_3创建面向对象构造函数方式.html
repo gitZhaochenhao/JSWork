@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// 方法二 工厂模式
+			// 应用函数进行面向对象的创建
+			
+			// 构造函数首字母大写
+			function Myfun(name,age,gender,sing){
+				
+				// this指向clas对象
+				this.name=name;
+				this.age=age;
+				this.gender=gender;
+				
+				this.sing=function(){
+					alert(sing)
+				};
+				// 以构造函数的方式来创建面向对象并不用返回值
+			};
+			
+			var clas=new Myfun("周杰伦",15,false,"摇起来");
+			// 1.在内存中开辟空间
+			// 2.this指向当前实例对象
+			// 3.this.的方式给对象动态添加属性与方法
+			// 4.不需要return将对像从构造函数中返回出去
+			console.log(clas)
+			// Myfun {name: "周杰伦", age: 15, gender: false, sing: ƒ}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

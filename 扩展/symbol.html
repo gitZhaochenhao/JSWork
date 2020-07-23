@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  let The = Symbol('Symbol描述');
+  let obj = {name:'小明'};
+  //必须用这种方法添加symbol类型的key
+  obj[The] = 243
+  console.log(obj);
+  for (const theKey in obj) {
+      console.log(theKey)
+  }
+
+  let ages = Symbol('symbol Age');
+  class Person{
+      constructor(name,age) {
+          this.name = name;
+          this[ages] = age;
+      }
+  };
+  let obj1 = new Person('小明',34);
+
+  class person1 extends Person {
+      constructor(name,age) {
+          super(name,age);
+      }
+  };
+  let person3 = new person1('小红',23);
+  console.log(person3)
+</script>
+</body>
+</html>

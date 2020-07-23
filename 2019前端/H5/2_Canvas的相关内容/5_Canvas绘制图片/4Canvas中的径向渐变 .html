@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: #C7EDCC;
+        }
+
+        canvas {
+            border: 1px solid red;
+            /* background-color: pink; */
+        }
+    </style>
+</head>
+<body>
+<canvas id="test" width="600" height="600"></canvas>
+<script type="text/javascript">
+    //页面加载
+    window.onload = function () {
+        //获取画板
+        var canvas = document.querySelector("#test");
+        if (!canvas.getContext) return;
+        var c = canvas.getContext("2d");
+
+
+        /*
+        * 参数1:第一个圆的原点的横坐标
+        * 参数2:第一个圆的原点的纵坐标
+        * 参数3:半径
+        * 参数4:第二个圆的原点的横坐标
+        * 参数5:第二个圆的原点的纵坐标
+        * 参数6:半径
+        *
+        *
+        * */
+       var radial = c.createRadialGradient(100,100,20,130,130,50);
+           radial.addColorStop(0,'#EE84AA');
+           radial.addColorStop(0.9,'#FF0188');
+           radial.addColorStop(1,'rgba(255,1,136,0)');
+        
+           c.fillStyle = radial;
+           c.fillRect(0,0,500,500);
+        
+           //以下是添加的辅助线
+           c.arc(100,100,20,0,2*Math.PI);
+           c.moveTo(180,130);
+           c.arc(130,130,50,0,2*Math.PI);
+           c.stroke();
+
+
+
+
+    };
+
+</script>
+</body>
+</html>

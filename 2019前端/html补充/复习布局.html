@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+				list-style: none;
+			}
+			button{
+				box-shadow: 1px 1px 0px 0px #00008B;
+			}
+			html{
+				/* 禁用document的滚动条，为的是不使初始包含块移动 */
+				overflow: hidden;
+				height: 100%;
+			}
+			body{
+				overflow: auto;
+				height: 100%;
+				background-image: url(../css3/伸缩盒模型/页面练习/img/bg2.jpg);
+				min-width: 800px;
+			}
+			.heard{
+				height: 80px;
+				background-color: rgba(0,0,0,0.6);
+				padding: 10px 15px;
+				box-sizing: border-box;
+				position: relative;
+			}
+			.heard .logo{
+				float: left;
+			}
+			.heard .list{
+				float: right;
+				height: 100%;
+				text-align: center;
+				display: flex;
+				align-items: center;
+			}
+			.heard .list li{
+				float: left;
+				border: 1px solid #FFFFFF;
+				margin-right: 20px;
+				padding: 5px 10px;
+				border-radius: 5px;
+				cursor: pointer;
+				color: #FFFFFF;
+			}
+			.heard .list li:last-of-type{
+				margin-right: 0px;
+			}
+			
+			.heard .inp{
+				position: absolute;
+				left: 300px;
+				top: 25px;
+				
+			}
+			.heard .inp input{
+				display: block;
+				float: left;
+				
+			}
+			.heard .inp input[type='text']{
+				width: 200px;
+				height: 30px;
+				border: 1px solid #000000;
+				outline: none;
+				border-radius: 5px 0px 0px 5px;
+			}
+			
+			.heard .inp input[type='submit']{
+				width: 100px;
+				height: 32px;
+				background-color: #C0C0C0;
+				border: 1px solid #000000;
+				outline: none;
+				border-radius: 0px 5px 5px 0px;
+				cursor: pointer;
+			}
+			.heard .hot{
+				position: absolute;
+				width: 200px;
+				border: 1px solid black;
+				top: 30px;
+				border-radius: 0px 0px 5px 5px;
+				display: none;
+				z-index: 3;
+			}
+			.heard .hot li{
+				height: 40px;
+				line-height: 40px;
+				border-bottom: 1px solid #ccc;
+				text-align: center;
+				overflow: hidden;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				position: relative;
+			}
+			.heard .hot li:hover{
+				background-color: rgba(0,0,0,0.1);
+				cursor: pointer;
+			}
+			.heard .hot li:last-child{
+				border-bottom: 0px;	
+			}
+			
+			.midden .left .right{
+				float: left;
+			}
+			.footer{
+				width: 100%;
+				height: 100px;
+				background-color: rgba(255,255,255,0.6);
+			}
+			.main{
+				position: relative;
+				padding: 0px 200px;
+				overflow: hidden;
+			}
+			.midden,.left,.right{
+				float: left;
+				/* 用内边距将盒子高度撑开 */
+				padding-bottom: 10000px;
+				/* 用margin将盒子的底边框拉上来进行显示 */
+				margin-bottom: -10000px;
+			}
+			.midden{
+				width: 100%;
+				
+				border-right: 1px solid #C0C0C0;
+				border-left: 1px solid #C0C0C0;
+				/* 用内边距将盒子高度撑开 */
+				padding-bottom: 10000px;
+				/* 用margin将盒子的底边框拉上来进行显示 */
+				margin-bottom: -10000px;
+				/* 在设置padding时不要忘记带上那个前面的padding-bottom */
+				padding: 10px 10px 10000px 10px;
+				box-sizing: border-box;
+			}
+			.left,.right{
+				width: 200px;
+				background-color: pink;
+				position: relative;
+				background-color: rgba(225,225,225,0.6);
+			}
+			.left{
+				margin-left: -100%;
+				left: -200px;
+			}
+			.right{
+				margin-left: -200px;
+				right: -200px;
+			}
+			.clearfix::after{
+				content: '';
+				display: block;
+				clear: both;
+				height: 0px;
+			}
+			.clearfix{
+				*zoom: 1;
+			}
+			
+			.returnTopBtn{
+				width: 30px;
+				height: 50px;
+				background-color: rgba(0,0,0,0.1);
+				border: 1px solid #000035;
+				border-radius: 10px;
+				position: fixed;
+				left: 1450px;
+				top: 650px;
+				font-size: 14px;
+				padding: 5px;
+				cursor: pointer;
+			}
+			
+			.midden #table{
+				width: 500px;
+				margin: 50px auto;
+				border: 1px solid #C0C0C0;
+				background-color: rgba(0,0,0,0.1);
+				border-radius: 10px;
+				padding: 20px;
+				text-align: center;
+				position: relative;
+			}
+			.midden #table a{
+				text-align: center;
+				text-decoration: none;
+				color: #003399;
+			}
+			.midden #table button{
+				width: 100px;
+				height: 30px;
+				background-color: #00A4E4;
+				border: 1px solid #000000;
+				color: #FFFFFF;
+				padding: 5px;
+				border-radius: 5px;
+				margin-top: 30px;
+				outline: none;
+			}
+			.midden #table table{
+				width: 500px;
+			}
+			.midden #table table td{
+				text-align: center;
+				height: 40px;
+			}
+			.midden #table h2{
+				margin-top: 10px;
+			}
+			#addPage{
+				position: absolute;
+				width: 600px;
+				height: 500px;
+				top: 50%;
+				left: 50%;
+				text-align: center;
+				transform: translate(-50%,-50%);
+				background-color: rgba(255,255,255,1);
+				z-index: 999;
+				display: none;
+				border-radius: 20px;
+			}
+			#cover{
+				position: absolute;
+				left: 0px;
+				top: 0px;
+				bottom: 0px;
+				right: 0px;
+				background-color: rgba(0,0,0,0.5);
+				display: none;
+			}
+			
+			#addPage div{
+				margin: 40px;
+			}
+			#addPage #name input,#addPage #salary input,#addPage #offer input,#addPage #age input{
+				width: 350px;
+				height: 30px;
+				outline: none;
+				border: 1px solid #CCD6DE;
+				border-radius: 10px;
+			}
+			#addPage #salary label,#addPage #offer label,#addPage #age label{
+				letter-spacing: 15px;
+			}
+			#addPage button{
+				width: 100px;
+				height: 30px;
+				background-color: #00A4E4;
+				border: 1px solid #000000;
+				color: #FFFFFF;
+				padding: 5px;
+				border-radius: 5px;
+				margin-top: 30px;
+				outline: none;
+			}
+		</style>
+		
+		<!-- <script type="text/html" id="art01">
+			<%if(type){%>
+				<ul>
+					<%for(var i=0;i<selecter.length;i++){%>   
+					<li><%selecter[i]%></li>   
+					<%}%>
+				</ul>
+			<%}%>
+		</script> -->
+	</head>
+	<body>
+	<div class="heard">
+		<div class="logo">
+			<a href="#">
+				<img src="../css3/伸缩盒模型/页面练习/img/atguigu-logo.png" alt="logo" />
+			</a>
+		</div>
+		<div class="inp">
+			<input type="text"  placeholder="请输入关键词" id="l"/>
+			<input type="submit" value="搜索"/>
+			<ul class="hot" id="hot">
+				<li>罗志祥多人运动</li>
+				<li>谢鹏与杜依依</li>
+				<li>奥特曼大战小怪兽</li>
+				<li>你的月亮我的心</li>
+				<li>哈利路亚</li>
+				<li>忠犬八公</li>
+				<li>人鬼情未了</li>
+			</ul>
+		</div>
+		<ul class="list">
+			<li>网上商城</li>
+			<li>充值入口</li>
+			<li>荣工资讯</li>
+			<li>社会服务</li>
+		</ul>
+		
+	</div>
+	
+	<div class="main clearfix">
+		<div class="midden">
+			<div id="table">
+				<table border="1" cellpadding="10" cellspacing="0" id="Atable">
+					<tr>
+						<th>员工姓名</th>
+						<th>岗位</th>
+						<th>薪酬</th>
+						<th>年龄</th>
+						<th>其他</th>
+					</tr>
+					<tr>
+						<td>王明</td>
+						<td>工程师</td>
+						<td>20000</td>
+						<td>44</td>
+						<td><a href="#">删除</a></td>
+					</tr>
+					
+				</table>
+				<button id="addBtn">添加信息</button>
+			</div>
+		</div>
+		
+		<div class="left">
+			
+		</div>
+		<div class="right"></div>
+	</div>
+	<div class="footer">底部</div>
+	
+	<div class="returnTopBtn">回到顶部</div>
+	<div id="addPage">
+		<h2>员工信息添加导航</h2>
+		<div id="name">
+			<label>员工姓名</label>
+			<input type="text" />
+		</div>
+		<div id="offer">
+			<label>岗位</label>
+			<input type="text" />
+		</div>
+		<div id="salary">
+			<label>薪酬</label>
+			<input type="text" placeholder=" / 元"/>
+		</div>
+		<div id="age">
+			<label>年龄</label>
+			<input type="text"/>
+		</div>
+		<button id="ok">提交</button>
+	</div>
+	<div id="cover"></div>
+	
+	<script type="text/javascript" src="../jq/artTemplate-master/dist/template-native.js"></script>
+	<script type="text/javascript" src="../jq/jquery-1.11.3main.js"></script>
+	<script type="text/javascript">
+		// 获取输入框
+		var $inp=$('.heard .inp input[type="text"]');
+		// 热点图
+		var $hotImg=$('.hot');	
+		// 回到顶部
+		var $returnTopBtn=$('.returnTopBtn');
+		// 添加信息按钮
+		var $addBtn=$('#addBtn');
+		// 信息添加页面
+		var $addPage=$('#addPage')
+		// 遮挡层
+		var $cover=$('#cover')
+		// 信息确认按钮
+		var $okBtn=$('#ok');
+		
+		// 热点榜单显示效果
+		$inp.hover(function(){
+			$hotImg.css('display','block');
+		},function(){
+			$hotImg.css('display','none');
+		});
+		$hotImg.hover(function(){
+			$hotImg.css('display','block');
+		},function(){
+			$hotImg.css('display','none');
+		});
+		
+		// 回到顶部
+		$returnTopBtn.click(function(){
+			var allLang=10;
+			var zhen=1;
+			
+			var time=setInterval(function(){
+				var $offset=$(document.body).scrollTop()
+				var lang=$offset/(allLang/zhen);
+				$(document.body).scrollTop($offset-lang);
+				if($offset<=0){
+					clearInterval(time);
+					return
+				};
+			},zhen)
+		});
+		
+		$addBtn.click(function(){
+			$cover.css('display','block');
+			$addPage.css('display','block');
+		});
+		$cover.click(function(){
+			$addPage.css('display','none');
+			$cover.css('display','none');
+		})
+		
+		// 获取员工信息
+		var $name=$('#addPage #name input');
+		var $salary=$('#addPage #salary input');
+		var $offer=$('#addPage #offer input');
+		var $age=$('#addPage #age input');
+		// 获取员工信息表格
+		var $table=$('#Atable tbody');
+		$okBtn.click(function(){
+			if($name.val() && $salary.val() && $offer.val() && $age.val()){
+				// 创建tr
+				$('<tr></tr>')
+							.append('<td>'+$name.val().trim()+'</td>')
+							.append('<td>'+$offer.val().trim()+'</td>')
+							.append('<td>'+$salary.val().trim()+'</td>')
+							.append('<td>'+$age.val().trim()+'</td>')
+							.append('<td><a href="#">删除</a></td>')
+							.appendTo($table);
+				
+				$name.val('');
+				$salary.val('');
+				$offer.val('');
+				$age.val('');
+				$cover.css('display','none');
+				$addPage.css('display','none');
+			}else{
+				alert('请输入完整信息');
+			};
+		});
+		
+		// 当事件委托不起效果时，试着更换绑定事件的父元素
+		$('#table table tbody').delegate('a','click',function(){
+			$(this).parent().parent().remove();
+		});
+		
+		// // 模板引擎操作
+		// var data={
+		// 	type:true,
+		// 	selecter:['公司简介','慈善项目','公益基金','一对一扶贫','2022蓝图','工程招标']
+		// }
+		// var dataMain=template('art01',data);
+		// $('.left').html(dataMain)
+		
+	</script>
+	</body>
+</html>

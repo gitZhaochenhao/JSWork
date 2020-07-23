@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: #C7EDCC;
+        }
+
+        canvas {
+            border: 1px solid red;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<canvas id="test" width="600" height="600"></canvas>
+<script type="text/javascript">
+
+    //页面的加载
+    window.onload = function () {
+        //获取画板
+        var canvas = document.querySelector("#test");
+        //检测
+        if (!canvas.getContext) return;
+        //获取绘制对象
+        var ctx = canvas.getContext("2d");
+
+		ctx.strokeStyle='darkred';
+        ctx.moveTo(50,200);
+        /*
+        *
+        * 参数1:控制点1的横坐标
+        * 参数2:控制点1的纵坐标
+        * 参数3:控制点2的横坐标
+        * 参数4:控制点2的纵坐标
+        * 参数5:结束点的横坐标
+        * 参数6：结束点的纵坐标
+        *
+        * */
+        ctx.bezierCurveTo(100,100,200,150,300,500)
+        ctx.stroke();//绘制
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#warp{
+				/* 生成弹性盒 */
+				display: flex;
+				display: -webkit-flex;
+				height: 300px;
+				border-bottom: 3px solid #000000;
+			}
+			
+			/* 
+			 order 子元素排列顺序   设置给子元素的
+			 当伸缩项目中添加了order，浏览器先会按照html文档标签书写顺序渲染没有设置order的伸缩项目，然后按照order顺序进行渲染剩下的
+			 当多个伸缩项目同时设置了相同的order属性，那么浏览器会按照标签书写位置顺序进行渲染
+			 */
+			
+			#a1{
+				background-color: #0000FF;
+				
+			}
+			#a2{
+				background-color: deeppink;
+				
+			}
+			#a3{
+				background-color:rosybrown;
+				order: 1;
+			}
+			#a4{
+				background-color:#008000;
+				order: 2;
+			}
+			#a5{
+				background-color:#521E18;
+				order: 3;
+			}
+			#a6{
+				background-color:#C6E746;
+			
+			}
+		</style>
+	</head>
+	<body>
+		<div id="warp">
+			<div id="a1" class='box'>1</div>
+			<div id="a2" class='box'>2</div>
+			<div id="a3" class='box'>3</div>
+			<div id="a4" class='box'>4</div>
+			<div id="a5" class='box'>5</div>
+			<div id="a6" class='box'>6</div>
+			
+		</div>
+	</body>
+</html>

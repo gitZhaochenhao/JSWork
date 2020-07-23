@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">按钮</button>
+		<script type="text/javascript">
+			
+			// btn.onclick=function(){
+			// 	alert("第一")
+			// }
+			// btn.onclick=function(){
+			// 	alert("第二")
+			// }
+			
+			// 可让一个元素绑定多个事件类型  高版本浏览器
+			// 绑定 多个事件        不带on的事件名 事件处理函数  布尔值
+			// btn.addEventListener('click',fn1,false);
+			// btn.addEventListener('click',fn2,false);
+			
+			function fn1(){
+				alert("第一")
+			}
+			function fn2(){
+				alert("第二")
+			}
+			
+			// ie10及以下版本  低版本倒序执行
+			//               带on的事件名  事件处理函数
+			// btn.attachEvent('onclick',fn1);
+			// btn.attachEvent('onclick',fn2);
+			
+			addli(btn,'click',fn1,false)
+			// 兼容性封装
+			function addli(obj,type,fun,bool){
+				if(obj.addEventListener){
+					obj.addEventListener(type,fun,bool);
+				}
+				else{
+					obj.attachEvent('on'+type,fun);
+				}
+			}
+		</script>
+	</body>
+</html>

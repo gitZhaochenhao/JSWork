@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str01 = '过完节上课好开心呀a,心么么哒!';
+			console.log(str01.charAt(5))//.charAt(索引),返回值是指定索引位置的字符串,超出索引,结果是空字符串
+			console.log(str01.charCodeAt(9))//.charCodeAt返回在指定的位置的字符的 Unicode 编码
+			console.log(str01.concat('嘿嘿','哈哈','呵呵'))//返回的是拼接之后的新的字符串
+			console.log(str01.indexOf('心',8));//.indexOf(要找的字符串,从某个位置开始的索引);返回的是这个字符串的索引值,没找到则返回-1
+			console.log(str01.lastIndexOf('心',10));// .lastIndexOf(要找的字符串,从某个位置开始的索引);从后向前找,但是索引仍然是从左向右的方式,找不到则返回-1
+			console.log(str01.replace('好','不'));//.replace("原来的字符串","新的字符串");用来替换字符串的
+			console.log(str01.slice(3,9));// .slice(开始的索引,结束的索引); 从索引的位置开始提取,到索引的前一个结束,并返回这个提取后的字符串
+			console.log(str01.substring(3,9));//.substring(开始的索引,结束的索引),返回截取后的字符串,不包含结束的索引的字符串
+			console.log(str01.substr(3,6));//.substr(开始的索引,个数);返回的是截取后的新的字符串
+			
+			var  str02 = '周杰伦|蔡依林|王力宏|刘若英|刘德华';
+			console.log(str02.split('|'));//切割字符串
+			var str03 = 'AbCdeFg';
+			console.log(str03.toLocaleLowerCase());//转小写
+			console.log(str03.toLocaleUpperCase());//转大写
+			var str04 = '         金牛座                  ';
+			
+			console.log(str04.trim().length);//去掉两端空格
+		</script>
+	</body>
+</html>

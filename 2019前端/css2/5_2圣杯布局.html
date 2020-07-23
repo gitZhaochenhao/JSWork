@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				min-width: 800px;
+			}
+			.heard,.footer{
+				width: 100%;
+				height: 100px;
+				background-color: #CCCCCC;
+			}
+			.main{
+				padding: 0 200px;
+				height: 300px;
+			}
+			.left,.right{
+				height: 100%;
+				width: 200px;
+				background-color: pink;
+				float: left;
+				position: relative;
+			}
+			/* 圣杯布局将中间的三个元素全部左浮动 */
+			.midden{
+				/* 浮动后的元素转化为行类块元素必须设置宽高，否则尺寸由内容撑开 */
+				width: 100%;
+				height: 100%;
+				/* 为什么此处不像三列式布局一样进行padding来进行内容区域的显示呢？
+				 因为：此时我们的宽是由父元素继承来的，如果我们进行padding那么我们的元素宽度将大于父元素宽，不符合规则
+				 因此我们可以在父元素上进行padding，并将left于right进行定位到他们应该在的位置
+				 */
+				background-color: #008000;
+				float: left;
+			}
+			.left{
+				/* 利用负margin进行移动 */
+				margin-left: -100%;
+				background-color: pink;
+				left: -200px;
+			}
+			.right{
+				margin-left: -200px;
+				right: -200px;
+			}
+			.clearfix::after{
+				content: '';
+				display: block;
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="heard">顶部</div>
+		<div class="main clearfix">
+			<div class="midden">midden</div>
+			<div class="left">left</div>
+			<div class="right">right</div>
+		</div>
+		<div class="footer">底部</div>
+	</body>
+</html>

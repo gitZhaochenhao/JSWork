@@ -1,0 +1,8 @@
+{
+  "name": "doem",
+  "version": "1.0.0",
+  "dependencies": {
+    "unip": "0.0.1-alpha-7",
+    "uniq": "^1.0.1"
+  }
+}

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#warp{
+				width: 300px;
+				height: 300px;
+				margin: 100px auto;
+				background-color: pink;
+				position: relative;
+			}
+			#H{
+				width: 6px;
+				height: 60px;
+				background-color: #000000;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform-origin: 50% 100%;
+				transform: translate(-50%,-100%);
+			}
+			#M{
+				width: 4px;
+				height: 80px;
+				background-color: #000000;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform-origin: 50% 100%;
+				transform: translate(-50%,-100%);
+			}
+			#S{
+				width: 2px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-100%);
+				transform-origin: 50% 100%;
+			}
+			#R{
+				width: 10px;
+				height: 10px;
+				background-color: #008000;
+				border-radius: 50%;
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				transform-origin: 50% 100%;
+			}
+			#list{
+				list-style: none;
+				width: 300px;
+				height: 300px;
+				background-color: #0066CC;
+				position: relative;
+			}
+			#list li{
+				width: 2px;
+				height: 8px;
+				background-color: #000000;
+				position: absolute;
+				left: 50%;
+				top: 0;
+				transform: translate(-50%);
+				
+				/* 利用旋转基点的设置来进行刻度的360度设置 */
+				transform-origin: 1px 150px;
+			}
+			#list li:nth-child(5n+1){
+				width: 5px;
+				height: 15px;
+				background-color: #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="warp">
+			<!-- 刻度 -->
+			<ul id="list"></ul>
+			
+			<!-- 时针 -->
+			<div id="H"></div>
+			<!-- 分针 -->
+			<div id="M"></div>
+			<!-- 秒针 -->
+			<div id="S"></div>
+			<!-- 小圆点 -->
+			<div id="R"></div>
+		</div>
+		
+		<script type="text/javascript">
+			var list=document.getElementById('list');
+			var lis=list.getElementsByTagName('li')
+			// 时针
+			var H=document.getElementById('H')
+			// 分针
+			var M=document.getElementById('M')
+			// 秒针
+			var S=document.getElementById('S')
+			// 插入刻度
+			for (var i = 0; i < 60; i++) {
+				// 创建li
+				var li=document.createElement('li');
+				list.appendChild(li)
+				
+				lis[i].style.transform='rotate('+6*i+'deg) '
+			};
+			
+			setInterval(function(){
+				// 创建事件对象
+				var time=new Date();
+				// 小时
+				var timeH=time.getHours();
+				// 分钟
+				var timeM=time.getMinutes();
+				// 秒
+				var timeS=time.getSeconds();
+				
+				H.style.transform='translate(-50%,-100%) rotate('+30*timeH+'deg)';
+				M.style.transform='translate(-50%,-100%) rotate('+6*timeM+'deg)';
+				S.style.transform='translate(-50%,-100%) rotate('+6*timeS+'deg)';
+				
+			},1000)
+			
+			
+		</script>
+	</body>
+</html>

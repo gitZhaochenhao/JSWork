@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			/*
+			 * 量词:
+			 * {n}  出现n次
+			 * {n,} 出现n次到多次
+			 * {n,m} 出现n到m次
+			 * +    出现1次到多次  {1,}
+			 * *    出现0次到多次
+			 * ?    出现0次到1次
+			 * ^    必须用.......开头
+			 * $    必须用.......结束
+			 * ^$   绝对匹配
+			 */
+			
+			var reg = /a{5,}/;
+			// reg=/ca{5,7}b/
+			// reg=/ca+b/
+			// reg=/ca*b/
+			// reg=/ca?b/
+			reg=/^cab/;
+			// reg=/cab$/;
+			// reg=/^cab$/;
+			console.log(reg.test('fdafcaaaaaabc'));
+			console.log(reg.test('fdfcaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabc'));
+			console.log(reg.test('fdfcfbc'));
+			console.log(reg.test('范德萨范德萨发第三方的cab'));
+			console.log(reg.test('cab'));
+			
+			//匹配电话号码
+			//13581234567
+			//第一位: 1   
+			//第二位: 3-9
+			//第三位: 0-9
+			reg =/^1[0-5][0-9]{9}$/
+			console.log(reg.test('14581234567'));
+			
+		</script>
+	</body>
+</html>

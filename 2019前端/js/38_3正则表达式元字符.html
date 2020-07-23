@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 正则元字符: 在字符串中\表示转义的意思
+			 * . 匹配所有字符
+			 * \w 所有数字,字母和下划线
+			 * \W 取反
+			 * \d 所有数字
+			 * \D 取反
+			 * \s 空格
+			 * \S 非空格
+			 * \b 单词边界   字符前后的空格,包括单引号
+			 * \B 取反
+			 */
+			
+			var reg = /\./;
+			// reg = /\w/;
+			// reg = /\W/;
+			// reg = /\d/;
+			// reg = /\D/; 
+			// reg = /\s/;
+			reg = /\blove\b/;
+			// reg = /\Blove\B/;
+			console.log(reg.test('a-'));
+			console.log(reg.test('a'));
+			console.log(reg.test(' '));
+//			console.log('老刘说:\'同学们,你们\\\会想我吗\'');
+			console.log(reg.test('i love you'));
+			console.log(reg.test('love'));
+			
+			reg=/^[a-zA-Z0-9]+(\.\w+){0,2}@[a-z \d A-Z]{2,5}(\.[a-z A-Z]{2,3}){1,2} $/
+		</script>
+	</body>
+</html>

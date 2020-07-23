@@ -1,0 +1,44 @@
+current directory: /Users/zay/Documents/Developer/node-webkit/Projects/koala/src/rubygems/gems/libxml-ruby-3.0.0/ext/libxml
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/ruby -r ./siteconf20171115-26448-1n1wz6n.rb extconf.rb
+/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/lib/ruby/2.3.0/universal-darwin17/rbconfig.rb:214: warning: Insecure world writable dir /Users/zay/Documents/Developer/node-webkit/Projects/koala/src in PATH, mode 040777
+checking for libxml/xmlversion.h in /opt/include/libxml2,/opt/local/include/libxml2,/usr/local/include/libxml2,/usr/include/libxml2... no
+*** extconf.rb failed ***
+Could not create Makefile due to some reason, probably lack of necessary
+libraries and/or headers.  Check the mkmf.log file for more details.  You may
+need configuration options.
+
+Provided configuration options:
+	--with-opt-dir
+	--without-opt-dir
+	--with-opt-include
+	--without-opt-include=${opt-dir}/include
+	--with-opt-lib
+	--without-opt-lib=${opt-dir}/lib
+	--with-make-prog
+	--without-make-prog
+	--srcdir=.
+	--curdir
+	--ruby=/System/Library/Frameworks/Ruby.framework/Versions/2.3/usr/bin/$(RUBY_BASE_NAME)
+	--with-xml2-config
+	--without-xml2-config
+	--with-xml2-dir
+	--without-xml2-dir
+	--with-xml2-include
+	--without-xml2-include=${xml2-dir}/include
+	--with-xml2-lib
+	--without-xml2-lib=${xml2-dir}/lib
+ extconf failure: need libxml2.
+
+    Install the library or try one of the following options to extconf.rb:
+
+      --with-xml2-config=/path/to/xml2-config
+      --with-xml2-dir=/path/to/libxml2
+      --with-xml2-lib=/path/to/libxml2/lib
+      --with-xml2-include=/path/to/libxml2/include
+
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /Users/zay/Documents/Developer/node-webkit/Projects/koala/src/rubygems/extensions/universal-darwin-17/2.3.0/libxml-ruby-3.0.0/mkmf.log
+
+extconf failed, exit code 1

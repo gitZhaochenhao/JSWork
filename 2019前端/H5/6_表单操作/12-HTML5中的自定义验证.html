@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <input type="text" id="txt" required="required">
+    <input type="submit" value="提交" id="sm" />
+</form>
+<script type="text/javascript">
+    window.onload=function () {
+        var input = document.getElementById("txt");
+        var submit=document.getElementById("sm");
+        submit.onclick=function () {
+            if(input.value==="帅"){
+                input.setCustomValidity("含有敏感词");
+            }else{
+                input.setCustomValidity("");//验证通过
+            }
+        };
+        input.addEventListener("invalid",function () {
+            console.log(this.validity);
+        });
+    };
+</script>
+</body>
+</html>

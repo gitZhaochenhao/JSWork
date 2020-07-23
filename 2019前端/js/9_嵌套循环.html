@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			// for(var i =0;i<=12;i++){
+			// 	if(i%2==0){
+			// 		document.write("@@@@@@");
+			// 	}
+			// 	else{
+			// 		document.write("<br/>")
+			// 	}
+			// }
+			
+			// 三角形
+			// for(var i =1;i<=6;i++){
+			// 	for(var n=1;n<=i;n++){
+			// 		document.write("@");
+			// 	}
+			// 	document.write("<br/>")
+			// }
+			
+			// 乘法口诀
+			// for(var i =1;i<=9;i++){
+			// 	for(var n=1;n<=i;n++){
+			// 		document.write(n+"*"+i+"="+n*i);
+			// 		document.write("&nbsp;&nbsp;");
+			// 	}
+			// 	document.write("<br/>")
+			// }
+			
+			// 乘法口诀表格
+			document.write("<table border=1px cellspacing=0>")
+			for(var i =1;i<=9;i++){
+				document.write("<tr>")
+				for(var n=1;n<=i;n++){
+					document.write("<td>")
+					document.write(n+"*"+i+"="+n*i);
+					document.write("&nbsp;&nbsp;");
+					document.write("</td>")
+				}
+				document.write("</tr>")
+			}
+			document.write("</table>")
+		</script>
+	</head>
+	<body>
+		<!-- <table cellspacing="0"></table> -->
+	</body>
+</html>

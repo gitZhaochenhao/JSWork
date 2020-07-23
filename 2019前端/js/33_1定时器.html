@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>开启单次定时器</button>
+		<button>关闭单次定时器</button>
+		<button>开启多次定时器</button>
+		<button>关闭多次定时器</button>
+		<script type="text/javascript">
+			/*
+			 * BOM:浏览器对象模型  window
+			 * 
+			 * 定时器:是window对象下的一个方法,当到达设定的时间,触发某个行为
+			 * 
+			 * 单次定时器: 当设定的时间到达后,触发某个行为,只执行一次. 例如:定时炸药 
+			 * setTimerout(回调函数,间隔时间); 返回一个数值型的数据(标识)
+			 * 清除单次定时器:clearTimeout(定时器的标识)
+			 * 多次定时器: 只要到达设定的时间后,就会触发某个行为,是反复的.例如:⏰闹钟
+			 * setInterval(回调函数,间隔时间);返回一个数值型的数据(标识)
+			 * 清除单次定时器:clearInterval(定时器的标识)
+			 */
+			var btns = document.getElementsByTagName('button');
+			//全局变量存储定时器标识
+			var timer01 = 0;
+			var timer02 = 0;
+			//开启单次
+			btns[0].onclick = function(){
+				// 当时间到达,执行fn, 时间的单位是毫秒
+				timer01 = setTimeout(function(){
+					alert('单次');
+				},1000);
+			}
+			//关闭单次
+			btns[1].onclick = function(){
+				clearTimeout(timer01);
+			}
+			
+			//开启多次
+			btns[2].onclick = function(){
+				timer02 = setInterval(function(){
+					alert('铃铃铃~~~');
+				},1000);
+			}
+			//关闭多次
+			btns[3].onclick = function(){
+				clearInterval(timer02);	
+			}
+			
+			
+			function fn(){
+				alert('boom~~~~');
+			}
+		</script>
+	</body>
+</html>
+ 

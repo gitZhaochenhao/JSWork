@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid brown;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- canvas有自己的默宽高  他的宽高不要用css去设置，容易变形，宽高直接在标签中设置-->
+		<canvas id="art" width="600px" height="600px"></canvas>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				// 低级浏览器不支持canvas 
+				
+				var art=document.querySelector('#art');
+				
+				// 简写
+				if(!art.getContext)return;
+				// 创建绘制对象
+				var pen=art.getContext('2d');
+				// 设置绘制颜色
+				pen.strokeStyle='#0000FF';
+				// 设置描边宽度
+				pen.lineWidth=10;
+				// 设置连接处样式  round圆角  miter默认直角  bevel三角
+				pen.lineJoin='miter';
+				
+				pen.rect(100,100,100,100)
+				// pen.arc(100,100,50,0,360*Math.PI/180);  可
+				pen.fill();  
+				
+				// pen.strokeRect(100,100,100,100)  不可
+				
+				art.onclick=function(e){
+					var x=e.clientX-this.offsetLeft;
+					var y=e.clientY-this.offsetTop;
+					
+					// 路径与路径之间用beginPath进行划分
+					// pen.beginPath();
+					// 判断在当前路径中是否包含检测点的方法。
+					if(pen.isPointInPath(x,y)){
+						console.log(3)
+					}
+				}
+				
+			
+			}
+		</script>
+	</body>
+</html>

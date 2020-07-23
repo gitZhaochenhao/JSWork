@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0px;
+				list-style: none;
+				padding: 0px;
+			}
+			.box{
+				width: 1030px;
+				height: 530px;
+				/* background-color: #CCCCCC; */
+				margin: 100px auto;
+				
+			}
+			ul{
+				padding: 0px;
+				overflow: hidden;
+				border: 1px #CCCCCC solid;
+				width: 320px;
+			}
+			ul li{
+				float: left;
+				position: relative;
+			}
+			ul li a{
+				display: block;
+				width: 80px;
+				height: 31px;
+				border-top: 3px solid #FFFFFF;
+				text-decoration: none;
+				color: #333;
+				line-height: 31px;
+				text-align: center;
+				
+			}
+			.current{
+				border-color: red;
+			}
+			span{
+				width: 1px;
+				height: 15px;
+				display: block;
+				position: absolute;
+				right: 0px;
+				top: 12px;
+				background-color: #CCCCCC;
+				
+			}
+			.box div{
+				/* display: none; */
+				border: 1px solid #CCCCCC;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			<ul id="list">
+				<li ><a href="#" class="current">女士精品</a><span></span></li>
+				<li><a href="#">美妆粉底</a><span></span></li>
+				<li><a href="#">男士精品</a><span></span></li>
+				<li><a href="#">清洁物品</a></li>
+			</ul>
+			<div style="display: block;">
+				<img src="img/01.jpg" >
+			</div>
+			<div>
+				<img src="img/02.jpg" >
+			</div>
+			<div>
+				<img src="img/03.jpg" >
+			</div>
+			<div>
+				<img src="img/04.jpg" >
+			</div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			// 按钮
+			var li=document.getElementsByTagName('li');
+			
+			for (var i = 0; i < li.length; i++) {
+				li[i].num=i;
+				li[i].onmouseover=function(){
+					for (var i = 0; i < li.length; i++) {
+						li[i].className='';
+						
+					}
+					this.className='current';
+				};
+			};
+			
+				
+			
+			
+				
+			
+		</script>
+	</body>
+</html>

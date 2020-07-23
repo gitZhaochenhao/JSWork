@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Mustache - mustache-1.0.5 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-classify">::classify</a>
+    
+    <li ><a href="#method-c-compiled-3F">::compiled?</a>
+    
+    <li ><a href="#method-c-const_from_file">::const_from_file</a>
+    
+    <li ><a href="#method-c-inheritable_config_for">::inheritable_config_for</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-partial">::partial</a>
+    
+    <li ><a href="#method-c-path">::path</a>
+    
+    <li ><a href="#method-c-path-3D">::path=</a>
+    
+    <li ><a href="#method-c-raise_on_context_miss-3D">::raise_on_context_miss=</a>
+    
+    <li ><a href="#method-c-raise_on_context_miss-3F">::raise_on_context_miss?</a>
+    
+    <li ><a href="#method-c-render">::render</a>
+    
+    <li ><a href="#method-c-render_file">::render_file</a>
+    
+    <li ><a href="#method-c-rescued_const_get">::rescued_const_get</a>
+    
+    <li ><a href="#method-c-template">::template</a>
+    
+    <li ><a href="#method-c-template-3D">::template=</a>
+    
+    <li ><a href="#method-c-template_extension">::template_extension</a>
+    
+    <li ><a href="#method-c-template_extension-3D">::template_extension=</a>
+    
+    <li ><a href="#method-c-template_file">::template_file</a>
+    
+    <li ><a href="#method-c-template_file-3D">::template_file=</a>
+    
+    <li ><a href="#method-c-template_name">::template_name</a>
+    
+    <li ><a href="#method-c-template_name-3D">::template_name=</a>
+    
+    <li ><a href="#method-c-template_path">::template_path</a>
+    
+    <li ><a href="#method-c-template_path-3D">::template_path=</a>
+    
+    <li ><a href="#method-c-templateify">::templateify</a>
+    
+    <li ><a href="#method-c-underscore">::underscore</a>
+    
+    <li ><a href="#method-c-view_class">::view_class</a>
+    
+    <li ><a href="#method-c-view_namespace">::view_namespace</a>
+    
+    <li ><a href="#method-c-view_namespace-3D">::view_namespace=</a>
+    
+    <li ><a href="#method-c-view_path">::view_path</a>
+    
+    <li ><a href="#method-c-view_path-3D">::view_path=</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-5B-5D-3D">#[]=</a>
+    
+    <li ><a href="#method-i-compiled-3F">#compiled?</a>
+    
+    <li ><a href="#method-i-context">#context</a>
+    
+    <li ><a href="#method-i-escapeHTML">#escapeHTML</a>
+    
+    <li ><a href="#method-i-partial">#partial</a>
+    
+    <li ><a href="#method-i-path">#path</a>
+    
+    <li ><a href="#method-i-raise_on_context_miss-3D">#raise_on_context_miss=</a>
+    
+    <li ><a href="#method-i-raise_on_context_miss-3F">#raise_on_context_miss?</a>
+    
+    <li ><a href="#method-i-render">#render</a>
+    
+    <li ><a href="#method-i-render_file">#render_file</a>
+    
+    <li ><a href="#method-i-template">#template</a>
+    
+    <li ><a href="#method-i-template-3D">#template=</a>
+    
+    <li ><a href="#method-i-template_extension">#template_extension</a>
+    
+    <li ><a href="#method-i-template_extension-3D">#template_extension=</a>
+    
+    <li ><a href="#method-i-template_file">#template_file</a>
+    
+    <li ><a href="#method-i-template_file-3D">#template_file=</a>
+    
+    <li ><a href="#method-i-template_name">#template_name</a>
+    
+    <li ><a href="#method-i-template_name-3D">#template_name=</a>
+    
+    <li ><a href="#method-i-template_path">#template_path</a>
+    
+    <li ><a href="#method-i-template_path-3D">#template_path=</a>
+    
+    <li ><a href="#method-i-templateify">#templateify</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Mustache">
+  <h1 id="class-Mustache" class="class">
+    class Mustache
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Mustache.html">Mustache</a> is the base class from which your <a
+href="Mustache.html">Mustache</a> subclasses should inherit (though it can
+be used on its own).</p>
+
+<p>The typical <a href="Mustache.html">Mustache</a> workflow is as follows:</p>
+<ul><li>
+<p>Create a <a href="Mustache.html">Mustache</a> subclass: class Stats &lt; <a
+href="Mustache.html">Mustache</a></p>
+</li><li>
+<p>Create a template: stats.mustache</p>
+</li><li>
+<p>Instantiate an instance: view = Stats.new</p>
+</li><li>
+<p>Render that instance: view.render</p>
+</li></ul>
+
+<p>You can skip the instantiation by calling `Stats.render` directly.</p>
+
+<p>While <a href="Mustache.html">Mustache</a> will do its best to load and
+render a template for you, this process is completely customizable using a
+few options.</p>
+
+<p>All settings can be overriden at the class level.</p>
+
+<p>For example, going with the above example, we can use `Stats.template_path
+= “/usr/local/templates”` to specify the path <a
+href="Mustache.html">Mustache</a> uses to find templates.</p>
+
+<p>Here are the available options:</p>
+<ul><li>
+<p><a href="Mustache.html#method-c-template_path">::template_path</a></p>
+</li></ul>
+
+<p>The `template_path` setting determines the path <a
+href="Mustache.html">Mustache</a> uses when looking for a template. By
+default it is “.” Setting it to /usr/local/templates, for example, means
+(given all other settings are default) a <a
+href="Mustache.html">Mustache</a> subclass `Stats` will try to load
+/usr/local/templates/stats.mustache</p>
+<ul><li>
+<p><a
+href="Mustache.html#method-c-template_extension">::template_extension</a></p>
+</li></ul>
+
+<p>The `template_extension` is the extension <a
+href="Mustache.html">Mustache</a> uses when looking for template files. By
+default it is “mustache”</p>
+<ul><li>
+<p><a href="Mustache.html#method-c-template_file">::template_file</a></p>
+</li></ul>
+
+<p>You can tell <a href="Mustache.html">Mustache</a> exactly which template to
+use with this setting. It can be a relative or absolute path.</p>
+<ul><li>
+<p>template</p>
+</li></ul>
+
+<p>Sometimes you want <a href="Mustache.html">Mustache</a> to render a string,
+not a file. In those cases you may set the `template` setting. For example:</p>
+
+<pre>&gt;&gt; Mustache.render(&quot;Hello {{planet}}&quot;, :planet =&gt; &quot;World!&quot;)
+=&gt; &quot;Hello World!&quot;</pre>
+
+<p>The `template` setting is also available on instances.</p>
+
+<pre class="ruby"><span class="ruby-identifier">view</span> = <span class="ruby-constant">Mustache</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">view</span>.<span class="ruby-identifier">template</span> = <span class="ruby-string">&quot;Hi, {{person}}!&quot;</span>
+<span class="ruby-identifier">view</span>[:<span class="ruby-identifier">person</span>] = <span class="ruby-string">&#39;Mom&#39;</span>
+<span class="ruby-identifier">view</span>.<span class="ruby-identifier">render</span> <span class="ruby-comment"># =&gt; Hi, mom!</span>
+</pre>
+<ul><li>
+<p><a href="Mustache.html#method-c-view_namespace">::view_namespace</a></p>
+</li></ul>
+
+<p>To make life easy on those developing <a href="Mustache.html">Mustache</a>
+plugins for web frameworks or other libraries, <a
+href="Mustache.html">Mustache</a> will attempt to load view classes (i.e.
+<a href="Mustache.html">Mustache</a> subclasses) using the `view_class`
+class method. The `view_namespace` tells <a
+href="Mustache.html">Mustache</a> under which constant view classes live.
+By default it is `Object`.</p>
+<ul><li>
+<p><a href="Mustache.html#method-c-view_path">::view_path</a></p>
+</li></ul>
+
+<p>Similar to `template_path`, the `view_path` option tells <a
+href="Mustache.html">Mustache</a> where to look for files containing view
+classes when using the `view_class` method.</p>
+
+<p>Settings which can be configured for all view classes, a single view class,
+or a single <a href="Mustache.html">Mustache</a> instance.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="Enumerable">Enumerable
+        
+        <dd>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initialize a new mustache instance. @param [Hash] options An options hash</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@options</span> = <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-partial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">partial</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a name, attempts to read a file and return the contents as a string.
+The file is not rendered, so it might contain {{mustaches}}.</p>
+
+<p>Call `render` if you need to process it.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="partial-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">partial</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">partial</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Alias for `template_path`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="path-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">path</span>
+  <span class="ruby-identifier">template_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-path-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path=</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Alias for `template_path`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="path-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">path=</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_path</span> = <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-raise_on_context_miss-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_on_context_miss=</span><span
+            class="method-args">(boolean)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="raise_on_context_miss-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raise_on_context_miss=</span>(<span class="ruby-identifier">boolean</span>)
+  <span class="ruby-ivar">@raise_on_context_miss</span> = <span class="ruby-identifier">boolean</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-raise_on_context_miss-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_on_context_miss?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Should an exception be raised when we cannot find a corresponding method or
+key in the current context? By default this is false to emulate
+ctemplate&#39;s behavior, but it may be useful to enable when debugging or
+developing.</p>
+
+<p>If set to true and there is a context miss, `Mustache::ContextMiss` will be
+raised.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_on_context_miss-3F-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raise_on_context_miss?</span>
+  <span class="ruby-ivar">@raise_on_context_miss</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-render" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Instantiates an instance of this class and calls `render` with the passed
+args.</p>
+
+<p>@return A rendered String version of a template.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="render-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">render</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">new</span>.<span class="ruby-identifier">render</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-render_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render_file</span><span
+            class="method-args">(name, context = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a file name and an optional context, attempts to load and render the
+file as a template.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="render_file-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">render_file</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">context</span> = {})
+  <span class="ruby-identifier">render</span>(<span class="ruby-identifier">partial</span>(<span class="ruby-identifier">name</span>), <span class="ruby-identifier">context</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The template is the actual string <a href="Mustache.html">Mustache</a> uses
+as its template. There is a bit of magic here: what we get back is actually
+a <a href="Mustache/Template.html">Mustache::Template</a> object, but you
+can still safely use `template=`</p>
+
+<pre>with a string.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="template-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template</span>
+  <span class="ruby-ivar">@template</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">templateify</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">template_file</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template=</span><span
+            class="method-args">(template)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template=</span>(<span class="ruby-identifier">template</span>)
+  <span class="ruby-ivar">@template</span> = <span class="ruby-identifier">templateify</span>(<span class="ruby-identifier">template</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template_extension" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_extension</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A <a href="Mustache.html">Mustache</a> template&#39;s default extension is
+&#39;mustache&#39;, but this can be changed.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="template_extension-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_extension</span>
+  <span class="ruby-ivar">@template_extension</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">inheritable_config_for</span> <span class="ruby-value">:template_extension</span>, <span class="ruby-string">&#39;mustache&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template_extension-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_extension=</span><span
+            class="method-args">(template_extension)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_extension-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_extension=</span>(<span class="ruby-identifier">template_extension</span>)
+  <span class="ruby-ivar">@template_extension</span> = <span class="ruby-identifier">template_extension</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The template file is the absolute path of the file <a
+href="Mustache.html">Mustache</a> will use as its template. By default
+it&#39;s ./class_name.mustache</p>
+          
+          
+
+          
+          <div class="method-source-code" id="template_file-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_file</span>
+  <span class="ruby-ivar">@template_file</span> <span class="ruby-operator">||</span> <span class="ruby-node">&quot;#{path}/#{template_name}.#{template_extension}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template_file-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_file=</span><span
+            class="method-args">(template_file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_file-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_file=</span>(<span class="ruby-identifier">template_file</span>)
+  <span class="ruby-ivar">@template_file</span> = <span class="ruby-identifier">template_file</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The template name is the <a href="Mustache.html">Mustache</a> template file
+without any extension or other information. Defaults to `class_name`.</p>
+
+<p>You may want to change this if your class is named Stat but you want to
+re-use another template.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Stat</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_name</span> = <span class="ruby-string">&quot;graphs&quot;</span> <span class="ruby-comment"># use graphs.mustache</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="template_name-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_name</span>
+  <span class="ruby-ivar">@template_name</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">underscore</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template_name-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_name=</span><span
+            class="method-args">(template_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_name-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_name=</span>(<span class="ruby-identifier">template_name</span>)
+  <span class="ruby-ivar">@template_name</span> = <span class="ruby-identifier">template_name</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The template path informs your <a href="Mustache.html">Mustache</a> view
+where to look for its corresponding template. By default it&#39;s the
+current directory (“.”)</p>
+
+<p>A class named Stat with a <a
+href="Mustache.html#method-c-template_path">::template_path</a> of
+“app/templates” will look for “app/templates/stat.mustache”</p>
+          
+          
+
+          
+          <div class="method-source-code" id="template_path-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_path</span>
+  <span class="ruby-ivar">@template_path</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">inheritable_config_for</span> <span class="ruby-value">:template_path</span>, <span class="ruby-string">&#39;.&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-template_path-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_path=</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_path-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_path=</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-ivar">@template_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-ivar">@template</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-view_namespace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">view_namespace</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The constant under which <a href="Mustache.html">Mustache</a> will look for
+views when autoloading. By default the view namespace is `Object`, but it
+might be nice to set it to something like `Hurl::Views` if your app&#39;s
+main namespace is `Hurl`.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="view_namespace-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">view_namespace</span>
+  <span class="ruby-ivar">@view_namespace</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">inheritable_config_for</span>(<span class="ruby-value">:view_namespace</span>, <span class="ruby-constant">Object</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-view_namespace-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">view_namespace=</span><span
+            class="method-args">(namespace)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="view_namespace-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 206</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">view_namespace=</span>(<span class="ruby-identifier">namespace</span>)
+  <span class="ruby-ivar">@view_namespace</span> = <span class="ruby-identifier">namespace</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-view_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">view_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Mustache.html">Mustache</a> searches the view path for .rb files
+to require when asked to find a view class. Defaults to “.”</p>
+          
+          
+
+          
+          <div class="method-source-code" id="view_path-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">view_path</span>
+  <span class="ruby-ivar">@view_path</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">inheritable_config_for</span>(<span class="ruby-value">:view_path</span>, <span class="ruby-string">&#39;.&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-view_path-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">view_path=</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="view_path-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">view_path=</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-ivar">@view_path</span> = <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-classify" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">classify</span><span
+            class="method-args">(underscored)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>template_partial =&gt; TemplatePartial template/partial =&gt;
+Template::Partial</p>
+          
+          
+
+          
+          <div class="method-source-code" id="classify-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">classify</span>(<span class="ruby-identifier">underscored</span>)
+  <span class="ruby-constant">Mustache</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">underscored</span>).<span class="ruby-identifier">classify</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-compiled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compiled?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Has this template already been compiled? Compilation is somewhat expensive
+so it may be useful to check this before attempting it.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compiled-3F-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">compiled?</span>
+  <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Template</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-const_from_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">const_from_file</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="const_from_file-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 243</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">const_from_file</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">file_name</span> = <span class="ruby-identifier">underscore</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">file_path</span> = <span class="ruby-node">&quot;#{view_path}/#{file_name}.rb&quot;</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Mustache</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exists?</span>(<span class="ruby-identifier">file_path</span>)
+
+  <span class="ruby-identifier">require</span> <span class="ruby-identifier">file_path</span>.<span class="ruby-identifier">chomp</span>(<span class="ruby-string">&#39;.rb&#39;</span>)
+  <span class="ruby-identifier">rescued_const_get</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-inheritable_config_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inheritable_config_for</span><span
+            class="method-args">(attr_name, default)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return the value of the configuration setting on the superclass, or return
+the default.</p>
+
+<p>@param [Symbol] attr_name Name of the attribute. It should match</p>
+
+<pre>the instance variable.</pre>
+
+<p>@param [Object] default Default value to use if the superclass does</p>
+
+<pre>not respond.</pre>
+
+<p>@return Inherited or default configuration setting.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inheritable_config_for-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 296</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">inheritable_config_for</span>(<span class="ruby-identifier">attr_name</span>, <span class="ruby-identifier">default</span>)
+  <span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">attr_name</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attr_name</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">default</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-rescued_const_get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rescued_const_get</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rescued_const_get-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">rescued_const_get</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">name</span>, <span class="ruby-keyword">true</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Mustache</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-templateify" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">templateify</span><span
+            class="method-args">(obj, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param [Template,String] obj      Turns `obj` into a template @param [Hash]
+options  Options for template creation</p>
+          
+          
+
+          
+          <div class="method-source-code" id="templateify-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 277</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">templateify</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">obj</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Template</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">obj</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Template</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-underscore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">underscore</span><span
+            class="method-args">(classified = name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>TemplatePartial =&gt; template_partial</pre>
+
+<p>Template::Partial =&gt; template/partial Takes a string but defaults to
+using the current class&#39; name.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="underscore-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">underscore</span>(<span class="ruby-identifier">classified</span> = <span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">classified</span> = <span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">name</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">classified</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-constant">Mustache</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span><span class="ruby-operator">::</span><span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">classified</span>).<span class="ruby-identifier">underscore</span>(<span class="ruby-identifier">view_namespace</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-view_class" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">view_class</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>When given a symbol or string representing a class, will try to produce an
+appropriate view class. e.g.</p>
+
+<pre class="ruby"><span class="ruby-constant">Mustache</span>.<span class="ruby-identifier">view_namespace</span> = <span class="ruby-constant">Hurl</span><span class="ruby-operator">::</span><span class="ruby-constant">Views</span>
+<span class="ruby-constant">Mustache</span>.<span class="ruby-identifier">view_class</span>(:<span class="ruby-constant">Partial</span>) <span class="ruby-comment"># =&gt; Hurl::Views::Partial</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="view_class-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">view_class</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">name</span> = <span class="ruby-identifier">classify</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>)
+
+  <span class="ruby-comment"># Emptiness begets emptiness.</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Mustache</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">name</span> = <span class="ruby-node">&quot;#{view_namespace}::#{name}&quot;</span>
+  <span class="ruby-identifier">const</span> = <span class="ruby-identifier">rescued_const_get</span>(<span class="ruby-identifier">name</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">const</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">const</span>
+
+  <span class="ruby-identifier">const_from_file</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Mustache/Context.html">Context</a> accessors.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">view</span> = <span class="ruby-constant">Mustache</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-identifier">view</span>[:<span class="ruby-identifier">name</span>] = <span class="ruby-string">&quot;Jon&quot;</span>
+<span class="ruby-identifier">view</span>.<span class="ruby-identifier">template</span> = <span class="ruby-string">&quot;Hi, {{name}}!&quot;</span>
+<span class="ruby-identifier">view</span>.<span class="ruby-identifier">render</span> <span class="ruby-comment"># =&gt; &quot;Hi, Jon!&quot;</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">context</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-5B-5D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]=</span><span
+            class="method-args">(key, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]=</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">context</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compiled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compiled?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Has this instance or its class already compiled a template?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compiled-3F-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compiled?</span>
+  (<span class="ruby-ivar">@template</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@template</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Template</span>)) <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">compiled?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-context" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">context</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A helper method which gives access to the context at a given time. Kind of
+a hack for now, but useful when you&#39;re in an iterating section and want
+access to the hash currently being iterated over.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="context-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">context</span>
+  <span class="ruby-ivar">@context</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Context</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-escapeHTML" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">escapeHTML</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Override this to provide custom escaping.</p>
+
+<p>Example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">PersonView</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Mustache</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">escapeHTML</span>(<span class="ruby-identifier">str</span>)
+    <span class="ruby-identifier">my_html_escape_method</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>@param [String] str String to escape.</p>
+
+<p>@return [String] Escaped HTML.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="escapeHTML-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 205</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">escapeHTML</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escapeHTML</span>(<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-partial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">partial</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Override this in your subclass if you want to do fun things like reading
+templates from a database. It will be rendered by the context, so all you
+need to do is return a string.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="partial-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">partial</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">path</span> = <span class="ruby-node">&quot;#{template_path}/#{name}.#{template_extension}&quot;</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">raise_on_context_miss?</span>
+    <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-path" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">path</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Mustache.html#method-i-template_path">template_path</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-raise_on_context_miss-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_on_context_miss=</span><span
+            class="method-args">(boolean)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="raise_on_context_miss-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_on_context_miss=</span>(<span class="ruby-identifier">boolean</span>)
+  <span class="ruby-ivar">@raise_on_context_miss</span> = <span class="ruby-identifier">boolean</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_on_context_miss-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_on_context_miss?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Instance level version of `Mustache.raise_on_context_miss?`</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_on_context_miss-3F-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_on_context_miss?</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">raise_on_context_miss?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@raise_on_context_miss</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-render" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render</span><span
+            class="method-args">(data = template, ctx = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Parses our fancy pants template file and returns normal file with all
+special {{tags}} and {{#sections}}replaced{{/sections}}.</p>
+
+<p>Examples</p>
+
+<pre class="ruby"><span class="ruby-ivar">@view</span>.<span class="ruby-identifier">render</span>(<span class="ruby-string">&quot;Hi {{thing}}!&quot;</span>, :<span class="ruby-identifier">thing</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">world</span>)
+
+<span class="ruby-constant">View</span>.<span class="ruby-identifier">template</span> = <span class="ruby-string">&quot;Hi {{thing}}!&quot;</span>
+<span class="ruby-ivar">@view</span> = <span class="ruby-constant">View</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-ivar">@view</span>.<span class="ruby-identifier">render</span>(:<span class="ruby-identifier">thing</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">world</span>)
+</pre>
+
+<p>@param [String,Hash] data A String template or a Hash context.</p>
+
+<pre>If a Hash is given, we&#39;ll try to figure
+out the template from the class.</pre>
+
+<p>@param [Hash] ctx A Hash context if `data` is a String template.</p>
+
+<p>@return [String] Returns a rendered version of a template.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="render-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render</span>(<span class="ruby-identifier">data</span> = <span class="ruby-identifier">template</span>, <span class="ruby-identifier">ctx</span> = {})
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">ctx</span> = <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">template_name</span> = <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">tpl</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Hash</span>
+    <span class="ruby-identifier">templateify</span>(<span class="ruby-identifier">template</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Symbol</span>
+    <span class="ruby-identifier">templateify</span>(<span class="ruby-identifier">template</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">templateify</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">tpl</span>.<span class="ruby-identifier">render</span>(<span class="ruby-identifier">context</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">ctx</span> <span class="ruby-operator">==</span> {}
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">context</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">ctx</span>)
+    <span class="ruby-identifier">tpl</span>.<span class="ruby-identifier">render</span>(<span class="ruby-identifier">context</span>)
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">context</span>.<span class="ruby-identifier">pop</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-render_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render_file</span><span
+            class="method-args">(name, context = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Given a file name and an optional context, attempts to load and render the
+file as a template.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="render_file-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render_file</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">context</span> = {})
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">render_file</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">context</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The template can be set at the instance level.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="template-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@template</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template</span>
+
+  <span class="ruby-comment"># If they sent any instance-level options use that instead of the class&#39;s.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@template_path</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@template_extension</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@template_name</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@template_file</span>
+    <span class="ruby-ivar">@template</span> = <span class="ruby-identifier">templateify</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">template_file</span>))
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@template</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">template</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template=</span><span
+            class="method-args">(template)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template=</span>(<span class="ruby-identifier">template</span>)
+  <span class="ruby-ivar">@template</span> = <span class="ruby-identifier">templateify</span>(<span class="ruby-identifier">template</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_extension" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_extension</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_extension-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_extension</span>
+  <span class="ruby-ivar">@template_extension</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">template_extension</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_extension-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_extension=</span><span
+            class="method-args">(template_extension)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_extension-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_extension=</span>(<span class="ruby-identifier">template_extension</span>)
+  <span class="ruby-ivar">@template_extension</span> = <span class="ruby-identifier">template_extension</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The template file is the absolute path of the file <a
+href="Mustache.html">Mustache</a> will use as its template. By default
+it&#39;s ./class_name.mustache</p>
+          
+          
+
+          
+          <div class="method-source-code" id="template_file-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_file</span>
+  <span class="ruby-ivar">@template_file</span> <span class="ruby-operator">||</span> <span class="ruby-node">&quot;#{path}/#{template_name}.#{template_extension}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_file-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_file=</span><span
+            class="method-args">(template_file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_file-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_file=</span>(<span class="ruby-identifier">template_file</span>)
+  <span class="ruby-ivar">@template_file</span> = <span class="ruby-identifier">template_file</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_name-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_name</span>
+  <span class="ruby-ivar">@template_name</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">template_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_name-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_name=</span><span
+            class="method-args">(template_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_name-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_name=</span>(<span class="ruby-identifier">template_name</span>)
+  <span class="ruby-ivar">@template_name</span> = <span class="ruby-identifier">template_name</span>
+  <span class="ruby-ivar">@template</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_path-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_path</span>
+  <span class="ruby-ivar">@template_path</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">template_path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Mustache.html#method-i-path">path</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template_path-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template_path=</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="template_path-3D-source">
+            <pre><span class="ruby-comment"># File lib/mustache/settings.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template_path=</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-ivar">@template_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-ivar">@template</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-templateify" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">templateify</span><span
+            class="method-args">(obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="templateify-source">
+            <pre><span class="ruby-comment"># File lib/mustache.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">templateify</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-identifier">opts</span> = {<span class="ruby-value">:partial_resolver</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">method</span>(<span class="ruby-value">:partial</span>)}
+  <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-ivar">@options</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">templateify</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

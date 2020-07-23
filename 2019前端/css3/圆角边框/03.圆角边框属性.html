@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        /*
+        css3给我们提供新属性，尽管元素的外形，元素的位置发生的了变换，
+        但是，该元素在文档流中的位置是不变，所以，子元素依旧沿着之前样式排列
+        其他的兄弟元素也不会造成干扰
+        */
+        #box {
+            width: 200px;
+            height: 200px;
+            margin:200px;
+            border:2px solid black;
+            /*一个参数时  四个角同时生效*/
+            /*border-radius: 20px;*/
+            /* 左上角为开始    顺序为上右下左 */
+            /*两个参数时   第一个值为上下  第二个值为左右*/
+            /*border-radius: 10px 50px;*/
+            /*三个参数   上   左右   下*/
+            /*border-radius: 10px 50px 30px;*/
+            /*四个参数   上  右  下  左*/
+            border-radius: 10px  50px   100px  30px;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+
+</html>

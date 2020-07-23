@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				list-style: none;
+			}
+			ul{
+				margin: 200px auto;
+			}
+			li{
+				float: left;
+				/* 默认盒子样式 */
+				width: 1px;
+				height: 8px;
+				background-color: #000000;
+				margin-right: 8px;
+				
+				/* 计算函数，在你需要计数的元素中定义 */
+				counter-increment: num;
+			}
+			/* 清除最后一个li的右外边距 */
+			ul li:last-child{
+				margin-right: 0px;
+			}
+			
+			/* 五的倍数盒子有特殊样式 */
+			ul li:nth-child(5n+1){
+				width: 2px;
+				height: 15px;
+			}
+			
+			/* 十的倍数盒子有特殊样式 */
+			ul li:nth-child(10n+1){
+				width: 4px;
+				height: 20px;
+			}
+			
+			ul li:nth-child(10n)::before{
+				/* 用计数器来进行值的展现 */
+				content:counter(num);
+				position: relative;
+				top: 20px;
+				
+			}
+			
+			ul li:first-child::before{
+				content:'0';
+				position: relative;
+				top: 20px;
+				left: -2px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.onload=function(){
+				// 创建节点
+				var ul=document.createElement('ul');
+				document.body.appendChild(ul)
+				// 插入100个li
+				for (var i = 0; i < 100; i++) {
+					//循环创建100个li 所以不能写在循环外部
+					var li=document.createElement('li');
+					ul.appendChild(li)
+				}
+			};
+		</script>
+	</body>
+</html>

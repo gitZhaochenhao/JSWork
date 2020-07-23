@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				text-decoration: none;
+			}
+			#box{
+				width: 300px;
+				height: 170px;
+				margin: 100px auto;
+			}
+			.table th,td{
+				width: 100px;
+				text-align: center;
+				border: 1px solid aliceblue;
+				padding: 5px 0px;
+				
+			}
+			table{
+				border: 1px solid antiquewhite;
+				border-spacing: 0px;
+				/* 一像素边框 */
+				border-collapse: collapse ;
+			}
+			.cover{
+				position: absolute;
+				right: 0px;
+				top: 0px;
+				left: 0px;
+				bottom: 0px;
+				background-color: rgba(0,0,0,0.5);
+				display: none;
+			}
+			.popr{
+				width: 430px;
+				height: 250px;
+				position: absolute;
+				left: 50%;
+				margin-left: -215px;
+				top: 50%;
+				margin-top: -125px;
+				background-color: #fff;
+				display: none;
+				
+			}
+			.x{
+				float: right;
+				background-color:rgba(0,0,0,0);
+				border: 0px;
+				font-size: 20px;
+			}
+			.heard{
+				height: 40px;
+				background-color:#ccc;
+				line-height: 40px;
+				font-weight: bold;
+				text-align: center;
+			}
+			label{
+				margin-left: 15px;
+			}
+			#name,#person{
+				width: 320px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+			}
+			#ok{
+				/* position: relative;
+				left: 50%;
+				margin-left: -40px; */
+				width: 80px;
+				display: block;
+				margin: 10px auto;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<button id="add">添加影片</button>
+			<table   class="table">
+				<tr bgcolor="#FAEBD7">
+					<th>影片名称</th>
+					<th>主演</th>
+					<th>已看完</th>
+				</tr>
+				<tbody id="tbody">
+					<tr>
+						<td>飞驰人生</td>
+						<td>沈腾</td>
+						<td><a href="#">删除</a></td>
+					</tr>
+					<tr>
+						<td>煎饼侠</td>
+						<td>大鹏</td>
+						<td><a href="#">删除</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+			<div class="cover" id="cover"></div>
+			<div class="popr" id="popr">
+				<div class="heard">
+					添加数据<button class="x">x</button>
+				</div>
+				<br />
+				<label for="name">影片名称</label>
+				<input type="text" id="name" autofocus="autofocus" placeholder="请输入影片名称" autocomplete="off"/>
+				<br />
+				<br />
+				<label for="person">领衔主演</label>
+				<input type="text" id="person"  autocomplete="off"/>
+				<br />
+				<br />
+				<button id="ok">完成</button>
+			</div>
+			
+			
+		<script type="text/javascript">
+			var addbtn=document.getElementById("add");
+			var cover=document.getElementById("cover");
+			var popr=document.getElementById("popr");
+			var okbtn=document.getElementById("ok");
+			var nameval=document.getElementById("name");
+			var personval=document.getElementById("person");
+			var tbody=document.getElementById("tbody");
+			
+			// 给每一个删除绑定事件
+			for (var i = 0; i < tbody.children.length; i++) {
+				var tr=tbody.children[i];
+				var a=tr.getElementsByTagName('a')[0];
+				a.onclick=function(){
+					tbody.removeChild(this.parentElement.parentElement)
+				}
+			}
+			
+			
+			addbtn.onclick=function(){
+				cover.style.display="block";
+				popr.style.display="block";
+				
+			};
+			
+			
+			ok.onclick=function(){
+				var nval=nameval.value.trim();
+				var perval=personval.value.trim();
+				if( nameval.value && personval.value ){
+					var trs=document.createElement("tr");
+					tbody.appendChild(trs)
+					for(var i=0;i<3;i++){
+						var tds=document.createElement("td");
+						if(i==0){
+							tds.innerText=nameval.value.trim();
+						}
+						else if(i==1){
+							tds.innerText=personval.value.trim();
+						}
+						
+						else{
+							var asss=document.createElement("a");
+							asss.href="#"
+							asss.innerText="删除"
+							tds.appendChild(asss)
+							asss.onclick=function(){
+								tbody.removeChild(this.parentElement.parentElement) 
+							}
+						}
+						trs.appendChild(tds)
+					}
+					
+					
+					nameval.value='';
+					personval.value ='';
+					cover.style.display="none";
+					popr.style.display="none";
+				}
+				else{
+					alert("请输入")
+				}
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

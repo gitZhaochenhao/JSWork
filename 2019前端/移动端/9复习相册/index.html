@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			img{
+				display: block;
+			}
+			a{
+				text-decoration: none;
+				-webkit-logical-height: rgba(0,0,0,0);
+			}
+			input{
+				outline: none;
+			}
+			.wrap{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			.wrap .header,.wrap .bigImg .bigImgHeader{
+				position: relative;
+				z-index: 2;
+				width: 100%;
+				height: 2rem;
+				text-align: center;
+				line-height: 2rem;
+				font-size: .8rem;
+				color: white;
+				background-color: #333333;
+				font-family: "宋体";
+			}
+			.wrap .contentWrap{
+				position: absolute;
+				overflow: hidden;
+				left: 0;
+				top: 2rem;
+				bottom: 0;
+				right: 0;
+				/*background-color: #006B95;*/
+			}
+			.wrap .contentWrap .content{
+			}
+			.wrap .contentWrap .content .contentList{
+				position: relative;
+				overflow: hidden;
+				list-style: none;
+			}
+			.wrap .contentWrap .content .contentList li{
+				float: left;
+				width: 7rem;
+				height: 7rem;
+				margin: 0.5rem;
+				background-image: url(img/loadingImg.gif);
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+			.wrap .contentWrap .content .contentList li img{
+				width: 100%;
+				border-radius: 10px;
+				opacity: 0;
+				transition: opacity 1s;
+			}
+			.wrap .contentWrap .content .footer{
+				position: absolute;
+				left: 0;
+				bottom: -4rem;
+				width: 100%;
+				height: 4rem;
+				line-height: 4rem;
+				font-family: '宋体';
+				color: #333;
+				font-family: '宋体';
+				font-size: .8rem;
+				text-align: center;
+				transform: scale(0);
+			}
+			.wrap .scrollBar{
+				position: absolute;
+				right: 0;
+				top: 2rem;
+				width: 5px;
+				background-color: hotpink;
+				opacity: 0;
+				transition: opacity 1s;
+			}
+			.wrap .bigImg{
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				background-color: #eee;
+				z-index:5;
+				transform: scale(0);
+				transition: transform 1s;
+			}
+			.wrap .bigImg .bigImgHeader a{
+				float: right;
+				margin-right: 10px;
+				margin-left: -10px;
+				color: white;
+			}
+			.wrap .bigImg .bigImgContent img{
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				width: 12rem;
+				height: 12rem;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="header">
+				三国女将
+			</header>
+			<div class="contentWrap">
+				<div class="content">
+					<ul class="contentList">
+					</ul>
+					<div class="footer">加载中</div>
+				</div>
+			</div>
+			<div class="scrollBar"></div>
+			<div class="bigImg">
+				<header class="bigImgHeader">
+					大图预览
+					<a class="a" id="as" href="javasrcipt:;" >
+						×
+					</a>
+				</header>
+				<div class="bigImgContent">
+					<img src="img/10.jpg">
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/transform.js"></script>
+		<script src="js/drag.js"></script>
+		<script type="text/javascript">
+			!(function(){
+				var width = document.documentElement.clientWidth;
+				var styleNode = document.createElement('style');
+				styleNode.innerHTML = 'html{font-size:'+width/16+'px;}';
+				document.head.appendChild(styleNode);
+				document.addEventListener('touchstart',function(e){
+					e = e||window.event;
+					e.preventDefault();
+				});
+				var aNode = document.querySelectorAll('a');
+				for (var i = 0; i < aNode.length; i++) {
+					aNode[i].addEventListener('touchstart',function(e){
+						e = e||window.event;
+						window.href = this.href;
+						e.stopPropagation();
+					});
+				};
+			})();
+		
+			var arr = [];
+			for (var i = 0; i < 26; i++) {
+				arr.push("img/"+(i%18+1)+".jpg");
+			};
+			
+			var contentList = document.querySelector('.wrap .contentWrap .content .contentList');
+			var content = document.querySelector('.wrap .contentWrap .content');
+			var header = document.querySelector('.wrap .header');
+			var contentWrap = document.querySelector('.wrap .contentWrap');
+			var footer = document.querySelector('.wrap .contentWrap .content .footer');
+			var scrollBar = document.querySelector('.wrap .scrollBar');
+			var bigImg = document.querySelector('.wrap .bigImg');
+			var closeBigImg = document.querySelector('.wrap .bigImg .bigImgHeader #as');
+			var img = document.querySelector('.wrap .bigImg .bigImgContent img');
+			var start = 0;
+			var end = 0;
+			var lang = 12;
+			var isOver = false;
+			var ismove = false;
+			
+			
+			createrLi();
+			function createrLi(){
+				//判断是否越界
+				if(start>=arr.length){
+					transformCss(footer,'scale',1);
+					footer.innerHTML = '您可别再划了！';
+					setTimeout(function(){
+						content.style.transition = '0.5s';
+						transformCss(content,'translateY',contentWrap.clientHeight-content.offsetHeight);
+					},1000);
+					return;
+				};
+				end = start + lang;
+				//防止多余的创建
+				if(end>arr.length){
+					end=arr.length;
+				};
+				for (var i = start; i < end; i++) {
+					var liNode = document.createElement('li');
+					liNode.imgSrc = arr[i];
+					liNode.isLoad = true;
+					contentList.appendChild(liNode);
+					//绑定触屏事件,防抖
+					liNode.addEventListener('touchmove',function(){
+						ismove = true;
+					});
+					liNode.addEventListener('touchend',function(){
+							console.log(ismove)
+						if(!ismove){
+							var left = this.getBoundingClientRect().left;
+							var top = this.getBoundingClientRect().top;
+							bigImg.style.transformOrigin = left+'px '+top+'px';
+							img.src = this.imgSrc;
+							transformCss(bigImg,'scale',1);
+						};
+						ismove = false;
+					});
+				};
+				start = end;
+				//懒加载
+				lazyLoad();
+			};
+			
+			function lazyLoad(){
+				var H = document.documentElement.clientHeight;
+				var h = header.offsetHeight;
+				var liNum = document.querySelectorAll('.wrap .contentWrap .content .contentList li');
+				for (var i = 0; i < liNum.length; i++) {
+					var liH = liNum[i].getBoundingClientRect().top;
+					if(liNum[i].isLoad && liH > h && liH < H){
+						imgLoad(liNum[i]);
+					};
+				};
+			};
+			
+			function imgLoad(liNodes){
+				var imgNode = new Image();
+				imgNode.src = liNodes.imgSrc;
+				liNodes.appendChild(imgNode);
+				liNodes.isLoad = false;
+				imgNode.onload=function(){
+					imgNode.style.opacity=1;
+				};
+			};
+			
+			var callBack = {
+				start:function(){
+					var H = contentWrap.clientHeight - content.offsetHeight;
+					var h = transformCss(content,'translateY');
+					if(Math.abs(h) >= Math.abs(H)-1){
+						isOver = true;
+					};
+					var scrollscale = contentWrap.offsetHeight / content.offsetHeight;
+					var scrollH = scrollscale*contentWrap.offsetHeight;
+					scrollBar.style.height = scrollH+'px';
+					scrollBar.style.opacity=1;
+				},
+				move:function(){
+					if(isOver){
+						var h = transformCss(content,'translateY');
+						var H = contentWrap.clientHeight - content.offsetHeight;
+						var overH = Math.abs(h) - Math.abs(H);
+						var scales = overH/footer.offsetHeight;
+						scales = scales > 1 ? 1 : scales;
+						console.log(scales);
+						transformCss(footer,'scale',scales);
+					};
+					lazyLoad();
+					var scrollscale = contentWrap.offsetHeight / content.offsetHeight;
+					var scrollH = scrollscale*contentWrap.offsetHeight;
+					scrollBar.style.height = scrollH+'px';
+					var lastY = transformCss(content,'translateY');
+					var scrollBarPosition = -lastY*scrollscale;
+					transformCss(scrollBar,'translateY',scrollBarPosition);
+					scrollBar.style.opacity=1;
+				},
+				endTrue:function(timer){
+					var h = transformCss(content,'translateY');
+					var H = contentWrap.clientHeight - content.offsetHeight;
+					var overH = Math.abs(h) - Math.abs(H);
+					var scales = overH/footer.offsetHeight;
+					if(scales >= 1 && isOver){
+						isOver = false;
+						clearInterval(timer)
+						transformCss(footer,'scale',0);
+						createrLi();
+					};
+					var scrollscale = contentWrap.offsetHeight / content.offsetHeight;
+					var scrollH = scrollscale*contentWrap.offsetHeight;
+					scrollBar.style.height = scrollH+'px';
+					scrollBar.style.opacity=0;
+				},
+				end:function(){
+					var scrollscale = contentWrap.offsetHeight / content.offsetHeight;
+					var scrollH = scrollscale*contentWrap.offsetHeight;
+					scrollBar.style.height = scrollH+'px';
+					scrollBar.style.opacity=0;
+				}
+			};
+			//滚动滑屏
+			contentDrag(contentWrap,callBack);
+			
+			closeBigImg.addEventListener('touchstart',function(){
+				transformCss(bigImg,'scale',0);
+				ismove = false;
+			});
+
+		</script>
+	</body>
+</html>

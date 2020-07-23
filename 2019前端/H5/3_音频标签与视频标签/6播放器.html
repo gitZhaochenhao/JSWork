@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/index.css">
+	
+</head>
+<body>
+<!---为了方便操作,最外面有一个div-->
+<div id="wrap">
+	<!-- src="https://blz-videos.nosdn.127.net/1/OverWatch/AnimatedShots/Overwatch_AnimatedShot_Soldier76_Hero.mp4" -->
+    <video  src="https://blz-videos.nosdn.127.net/1/OverWatch/AnimatedShots/Overwatch_AnimatedShot_Soldier76_Hero.mp4" ></video>
+    <div class="controls">
+        <div class="btns"><!--左侧区域-->
+            <span class="start"></span>
+            <span class="stop"></span>
+        </div>
+        <div class="progress"><!--中间进度条区域-->
+            <div class="container">
+                <div class="inner"></div>
+            </div>
+            <div class="deeppink"></div>
+        </div>
+		
+		
+        <div class="time-sound"><!--右侧区域-->
+            <div class="time"><!--右侧显示时间的区域-->
+                <span class="now">00:00:00</span>/<span class="all">00:00:00</span>
+            </div>
+            <div class="sound"><!--右侧中间显示音量和静音的区域-->
+                <div class="muted">
+                    <span></span>
+                </div>
+                <div class="sound-progress">
+                    <div class="sound-container">
+                        <div class="sound-inner"></div>
+                    </div>
+                    <div class="sound-pink"></div>
+                </div>
+            </div>
+            <div class="full-screen"><!--右侧全屏区域-->
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 拖拽插件 -->
+<script type="text/javascript" src="js/drag.js"></script>
+<script type="text/javascript">
+	window.onload=function(){
+		// 视频
+		var video=document.querySelector('video');
+		// 操作栏
+		var make=document.querySelector('.controls');
+		// 总进度条
+		var container=document.querySelector('.container');
+		// 进度条按钮
+		var inner=document.querySelector('.inner');
+		// 粉色进度条
+		var innerDeeppink=document.querySelector('.deeppink');
+		// 音量进度条容器
+		var soundProgress=document.querySelector('.sound-progress');
+		// 音量钮按
+		var soundInner=document.querySelector('.sound-inner');
+		// 音量粉色进度条
+		var soundPink=document.querySelector('.sound-pink');
+		// 静音按钮
+		var muted=document.querySelector('.muted span');
+		// 开始播放按钮
+		var playBtn=document.querySelector('.start');
+		// 停止播放按钮
+		var stop=document.querySelector('.stop');
+		// btns
+		var btns=document.querySelector('.btns');
+		// 总时长
+		var all=document.querySelector('.all');
+		// 当前时长
+		var now=document.querySelector('.now');
+		// 进度条载体
+		var progress=document.querySelector('.progress');
+		// 全屏按钮
+		var fullScreen=document.querySelector('.full-screen');
+		// 是否全屏状态
+		var full=false;
+		// 初始化视频尺寸
+		video.width=document.documentElement.clientWidth;
+		video.height=document.documentElement.clientHeight-make.offsetHeight;
+		
+		// 当视口缩放至800px已下我们不再将进行视频区域的尺寸动态设定
+		// 窗口尺寸改变事件
+		window.onresize=function(){
+			if(document.documentElement.clientWidth>=800){
+				video.width=document.documentElement.clientWidth;
+				video.height=document.documentElement.clientHeight-make.offsetHeight;
+			};
+		};
+
+		// 进度条拖拽
+		var innerCall={
+			move:function(){
+				// this指向inner参数一  猜测：在插件中可能有参数1调用参数二的可能
+				this.style.left=innerDeeppink.style.width=this.offsetLeft+'px';
+				// 拖拽时视频更随同步
+				// console.log((parseInt(this.style.left)/progress.offsetWidth)*video.duration)
+				video.currentTime=(parseInt(this.style.left)/(progress.offsetWidth-inner.offsetWidth))*video.duration;
+			}
+		};
+		// 定义一个全局变量来记录音量的实时变化；默认为最大音量1
+		var flag=1;
+		// 音量条拖拽
+		var soundCall={
+			move:function(){
+				this.style.left=soundPink.style.width=this.offsetLeft+'px';
+				// 将拖拽与音量动态关联
+				flag=(parseInt(this.style.left)/(soundProgress.clientWidth-soundInner.offsetWidth));
+				
+				// 判断是否已经将音量调至0，静音
+				if(flag===0){
+					video.muted=true;
+					video.volume=0;
+					muted.style.backgroundPosition='0px -46px';
+				}else{
+					video.muted=false;
+					video.volume=flag;
+					muted.style.backgroundPosition='0px -34px';
+				};
+			}
+		};
+		// 插件中的拖拽方法 参数一：拖拽对象  参数二：一个对象，里面有一个方法其中设置操作
+		$.drag(inner,innerCall);
+		$.drag(soundInner,soundCall);
+		
+		
+		(function(){
+			var timeId;
+			
+			// 停止/播放视频
+			playBtn.onclick=function(){
+				// paused查看视屏是否在播放，若在播放则返回false
+				if(video.paused){
+					// 开始播放
+					video.play();
+					playBtn.style.backgroundPosition=' 0px -11px';
+					timeId=setInterval(move,1000);
+				}else{
+					video.pause();
+					playBtn.style.backgroundPosition=' 0px -23px';
+					// 当暂停时取消定时器进度条同步
+					clearInterval(timeId);
+				};
+			};
+			// 重置视频
+			stop.onclick=function(){
+				// 视频停止
+				video.pause();
+				// 进度条回到初始位置
+				inner.style.left='0px';
+				innerDeeppink.style.width='0px';
+				// 关闭定时器
+				clearTimeout(timeId);
+				// 按钮改变图案
+				playBtn.style.backgroundPosition=' 0px -23px';
+				// 设置以观看时长
+				video.currentTime=0;
+			};
+			// 点击进度条进行视频跳转
+			container.onclick=function(e){
+				// 进度条与按钮进行跳转
+				// console.log(e.clientX,btns.style.width)
+				inner.style.left=innerDeeppink.style.width=e.clientX-(55)+'px';
+				video.play();
+				// 播放按钮图片设置
+				playBtn.style.backgroundPosition=' 0px -11px';
+				timeId=setInterval(move,1000);
+				// 视频跳转,设置当前观看时间进度
+				video.currentTime=((e.clientX-progress.offsetLeft)/progress.offsetWidth)*video.duration;
+				// console.log(video.currentTime);
+			}
+			// 显示总时长与当前时长
+			video.addEventListener('loadeddata',function(){
+				// 将总时长进行形式的变换
+				all.innerHTML=changTime(video.duration);
+			});
+			// 音量按钮的初始化位置
+			soundInner.style.left=soundPink.style.width=soundProgress.offsetWidth-soundInner.offsetWidth+'px';
+			// 音量按钮的静音与非静音状态
+			muted.onclick=function(){
+				if(video.muted){
+					// 此时是静音状态
+					video.volume=flag;
+					video.muted=false;
+					this.style.backgroundPosition='0px -34px';
+					soundInner.style.left=soundPink.style.width=(soundProgress.clientWidth-soundInner.offsetWidth)*flag+'px';
+				}else{
+					// 此时没静音
+					video.muted=true;
+					video.volume=0;
+					soundInner.style.left=soundPink.style.width='0px';
+					this.style.backgroundPosition='0px -46px';
+				}
+			}
+			// 全屏功能
+			fullScreen.onclick=function(){
+				if(full){
+				    //现在是全屏,要变成不是全屏的状态
+				    full=false;
+				    this.classList.remove("active");
+					// 全屏与取消全屏的兼容性写法
+				    if(document.exitFullscreen){
+				        document.exitFullscreen();
+				    }else if(document.mozCancelFullScreen){
+				        document.mozCancelFullScreen();
+				    }else if(document.msExtiFullScreen){
+				        document.msExitFullScreen();
+				    }
+				
+				}else{
+				    //此时不是全屏,但是要变成全屏
+				    full=true;
+				    this.classList.add("active");
+				    if(document.documentElement.requestFullscreen){
+				        document.documentElement.requestFullscreen();//W3C
+				    }else if(document.mozRequestFullScreen){
+				        document.mozRequestFullScreen();//火狐的
+				    }else if(document.webkitRequestFullScreen){
+				        document.webkitRequestFullScreen();//谷歌
+				    }else if(document.msRequestFullScreen){
+				        document.msRequestFullScreen();//IE11
+				    }
+				}
+			}
+		})();
+		
+		// 视频进度与进度条进度同步
+		function move(){                                      
+			// 当前时间
+			setInterval(function(){
+				now.innerHTML=changTime(video.currentTime);
+			},1000);
+			 //(当前时长/视频总时长)*进度条长度
+			inner.style.left=innerDeeppink.style.width=(video.currentTime/video.duration)*(container.clientWidth-inner.offsetWidth)+'px';
+		} ;
+		
+		// 时长换算
+		function changTime(time){
+			// 为了保障数据的可计算性
+			var time=parseInt(time);
+			
+			var h=Math.floor(time/3600);
+			var m=Math.floor(time%3600/60);
+			var s=Math.floor(time%60);
+			
+			h=h<10?'0'+h:h;
+			m=m<10?'0'+m:m;
+			s=s<10?'0'+s:s;
+			
+			return h+':'+m+':'+s;
+		};
+		
+		
+	}
+</script>   
+
+</body>
+</html>

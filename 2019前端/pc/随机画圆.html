@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				border: 1px solid #000000;
+			
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="600" height="600" id="canvas"></canvas>
+		
+		<script>
+			var canvas=document.querySelector('#canvas');
+			var ctx=canvas.getContext('2d');
+			// 定义一个数组来储存我们每一个随机创建的圆
+			var arr=[];
+			// 随机创建圆的规格颜色数据
+			setInterval(function(){
+				var obj={};
+				// 半径
+				obj.r=10;
+				// 原点的横坐标
+				obj.x=Math.floor(Math.random()*canvas.width);
+				// 原点纵坐标
+				obj.y=Math.floor(Math.random()*canvas.height);
+				// 定义随机颜色rgba，
+				obj.red=Math.floor(Math.random()*255);
+				obj.green=Math.floor(Math.random()*255);
+				obj.blue=Math.floor(Math.random()*255);
+				// 透明度是0-1之间
+				obj.a=1;
+				// 将每次创建的圆加入数组中
+				arr.push(obj);
+			},16);
+			
+			
+			// 在画布上创建圆
+			setInterval(function(){
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				for (var i = 0; i < arr.length; i++) {
+					var obj=arr[i];
+					// 圆渐大效果
+					obj.r++;
+					// 圆渐浅效果
+					obj.a-=0.01;
+					if(obj.a<=0){
+						arr.splice(i,1);
+					};
+				};
+				
+				for (var i = 0; i < arr.length; i++){
+					var obj=arr[i];
+					console.log(i)
+					ctx.beginPath();
+					ctx.arc(obj.x,obj.y,obj.r,0,2*Math.PI);
+					ctx.fillStyle='rgba('+obj.red+','+obj.green+','+obj.blue+','+obj.a+')';
+					ctx.fill();
+				};
+			},16);
+				
+		</script>
+	</body>
+</html>

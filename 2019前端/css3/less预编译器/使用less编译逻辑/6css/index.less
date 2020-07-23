@@ -1,0 +1,28 @@
+// 导入定义了.boxStyle()的less文件;
+@import "mixin";
+
+.warp{
+	.boxStyle(@W:600px,@H:600px,@Bgcolor:blue);
+	.inner{
+		.boxStyle(@W:400px,@H:400px,@Bgcolor:red);
+		.in{
+			.boxStyle(@W:200px,@H:200px,@Bgcolor:green);
+		}
+		
+	}
+}
+
+
+// <div class="out">
+// 			<div class="hideBox">
+// 				<ul class="list">
+// 					<li></li>
+// 					<li></li>
+// 					<li></li>
+// 					<li></li>
+// 					<li></li>
+// 					<li></li>
+// 				</ul>
+// 			</div>
+// 		</div>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			
+			.box{
+				width: 10rem;
+				height: 1rem;
+				background-color: #006B95;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+		<!--当页面图稿的宽度大于视口时使用，但是其中的所有元素都需要进行缩放计算，计算这个元素到了我们的小视口中为多少rem-->
+		<script type="text/javascript">
+			//行内样式进行适配
+//			//html标签
+//			var htmlNode=document.querySelector('html');
+//			//屏幕的宽度
+//			var width=document.documentElement.clientWidth;
+//			//进行行内样式设置
+//			htmlNode.style.fontSize=width+'px';
+
+			//style内嵌文本设置
+//			var width=document.documentElement.clientWidth;
+//			//创建style标签
+//			var styleNode=document.createElement('style');
+//			//思考：当我们想将一个元素的宽设置成屏幕宽度的1/3时会出现小数的rem，因此在实际开发中，我们常将1rem=屏幕总宽度的16,12,10分之一，这样便不会出现小数
+//			styleNode.innerHTML='html{font-size:'+width/16+'px;}';
+//			//将style标签加入文档
+//			document.head.appendChild(styleNode);
+
+			//rem的封装：在程序中我们常把只需要要运行一次的程序与初始化操作写在自调用函数中,我们常在自调用函数的前面加上！以防止前面有程序没加;出错
+			!(function(){
+				var width=document.documentElement.clientWidth;
+				//创建style标签
+				var styleNode=document.createElement('style');
+				// !important 表示最高级，也是提醒该属性设置的重要性
+				styleNode.innerHTML='html{font-size:'+width/16+'px !important}';
+				//将style标签加入文档
+				document.head.appendChild(styleNode);
+			})();
+		</script>
+	</body>
+</html>

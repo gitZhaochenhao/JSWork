@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" name="" id="search"> <input type="button" value="搜索">
+<!--延迟当前要执行的操作，若在延迟时间内再次进行了该操作，则重新计时-->
+<script type="text/javascript">
+  let search = document.getElementById('search');
+  let timeId;
+  search.addEventListener('keyup',() =>{
+      clearTimeout(timeId);
+      timeId = setTimeout(()=>{
+          let data = search.value;
+          mock(data);
+      },500);
+  });
+
+  function mock(data) {
+    console.log(`testAjax-----------${data}`);
+  };
+</script>
+</body>
+</html>

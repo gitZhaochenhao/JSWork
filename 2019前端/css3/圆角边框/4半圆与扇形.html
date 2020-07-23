@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        /*
+        css3给我们提供新属性，尽管元素的外形，元素的位置发生的了变换，
+        但是，该元素在文档流中的位置是不变，所以，子元素依旧沿着之前样式排列
+        其他的兄弟元素也不会造成干扰
+        */
+        #box {
+            width: 200px;
+            height: 100px;
+            margin:200px;
+            background-color: #008000;
+			border-radius:100px 100px 0px 0px  ;
+        }
+		
+		.box2 {
+		    width: 200px;
+		    height: 200px;
+		    margin:200px;
+		    background-color: #008000;
+			border-radius:200px 0px 0px 0px ;
+		}
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<div class="box2"></div>
+</body>
+
+</html>

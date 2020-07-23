@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				background-color: #008000;
+			}
+			/*orientation 判断是竖屏还是横屏  landscape横屏  portrait横屏 */
+			/* @media only screen and (orientation:landscape) {
+				.box{
+					background-color: firebrick;
+				}
+			} */
+			
+			/* device-width 在pc端中是对屏幕分辨率进行判断，
+			 在移动端中是对设备独立像素的判断，一般是判断一个定值
+			 */
+			/* @media only screen and (device-width:1920px) {
+				.box{
+					background-color: yellow;
+				}
+			} */
+			/* 375苹果6设独像素 */
+			/* @media only screen and (device-width:375px) {
+				.box{
+					background-color: yellow;
+				}
+			} */
+			
+			/* 判断设备独立像素dpr，用于移动端与苹果电脑,根据不同的dpr来展示不同的图片 */
+			@media only screen and (-webkit-device-pixel-ratio:2) {
+				.box{
+					background-image: url(img/brand@2x.png);
+				}
+			}
+			@media only screen and (-webkit-device-pixel-ratio:3) {
+				.box{
+					background-image: url(img/brand@3x.png);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box"></div>
+	</body>
+</html>

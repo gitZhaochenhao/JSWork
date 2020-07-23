@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+        .box{
+            position: absolute;
+            overflow: hidden;
+            left: 50%;
+            transform: translate(-50%,60%);
+        }
+        .box #text{
+            box-sizing: border-box;
+            margin: 0;
+            width: 600px;
+            height: 44px;
+            border-radius: 10px 0 0 10px;
+            border: 2px solid #c4c7ce;
+            box-sizing: border-box;
+            padding-left: 10px;
+        }
+        .box #serach{
+            position: relative;
+            top: 2px;
+            cursor: pointer;
+            width: 108px;
+            height: 44px;
+            line-height: 45px;
+            line-height: 44px\9;
+            padding: 0;
+            background: 0 0;
+            background-color: #4e6ef2;
+            border-radius: 0 10px 10px 0;
+            font-size: 17px;
+            color: #fff;
+            box-shadow: none;
+            font-weight: 400;
+            border: none;
+            outline: 0;
+            margin-left: -7px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <input type="radio" data-url="https://www.baidu.com/s?wd=" name="q" value="百度一下">百度浏览器
+        <input type="radio" data-url="https://www.so.com/s?q=" name="q" value="360搜索">360浏览器
+
+        <form action="https://www.baidu.com/s?wd=" id="form">
+            <input type="text" id="text"  autocomplete="off">
+            <input type="submit" id="serach" value="百度一下">
+        </form>
+    </div>
+
+    <script type="text/javascript">
+        var search = document.getElementById('serach');
+        var text = document.getElementById('text');
+        var selectSearch = document.querySelectorAll('.box input[name=q]');
+        var formUrl = document.getElementById('form');
+        text.addEventListener('click',function (e) {
+            e = e || window.event;
+            this.focus();
+            this.style.borderColor = '#4e6ef2';
+            e.stopPropagation();
+        });
+        document.addEventListener('click',function () {
+            text.style.borderColor = '#c4c7ce';
+            search.blur();
+        });
+        search.addEventListener('click',function () {
+            location.href = formUrl.action+text.value;
+            alert('请稍后');
+        });
+        for (var i = 0; i < selectSearch.length; i++) {
+            selectSearch[i].addEventListener('click',function () {
+                search.value = this.value;
+                formUrl.action = this.dataset.url;
+            });
+        };
+    </script>
+</body>
+</html>

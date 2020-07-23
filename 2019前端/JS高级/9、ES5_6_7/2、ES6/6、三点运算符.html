@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+      // 1.rest可变参数
+        function fun(name,...value) {
+            //...参数  与arguments参数列表相似，但比参数列表更加灵活
+            //。。。参数是一个真正的数组,里面存放这没有形参接受的实参
+            console.log(value);
+        };
+        fun('kobe',43,'ball');
+
+        // 2.拓展运算符,类似于rest参数的逆拆解
+        let arr2 = [2,3,4,5];
+        let arr1 = [1,...arr2,6];//...arr2 => 2,3,4,5 将数组拆解
+        console.log(arr1);
+        console.log(...arr2)//遍历出的数组的值，注意！！！三点运算符不能遍历对象
+
+        //rest逆向传参
+        var arr3 = [1,2,3];
+        function fun1(a,b,c) {
+            console.log(a,b,c,'这里是逆拆解的三点运算符使用');
+        };
+        fun1(...arr3);
+
+        //深拷贝
+        var arr4 = ['a1',[1,2],'a3'];
+        // var arr5 = arr4;//浅拷贝
+        var arr5 = [...arr4];//深拷贝(当然，数组里面不能有引用数据类型)
+        arr5[1][1] = 'b2';
+        console.log(arr4,arr5);
+
+
+    </script>
+</body>
+</html>

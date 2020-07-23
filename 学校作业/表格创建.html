@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<style type="text/css">
+			#table th,td{
+				width: 100px;
+				text-align: center;
+				border: 2px solid black;
+				padding: 5px 0px;
+				margin-left: 200px;
+			}
+			#table{
+				margin: 200px auto;
+				border: 1px solid antiquewhite;
+				border-spacing: 0px;
+				/* 一像素边框 */
+				border-collapse: collapse ;
+			}
+		</style>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="" id="table">
+		</table>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var data = [
+					['学号','姓名','HTML成绩','CSS成绩','JAVASCRIPT成绩','总分','平均分'],
+					[1,'小明',77,60,70],
+					[2,'小红',74,92,78],
+					[3,'小李',45,90,46],
+					[4,'小张',80,67,77],
+				];
+				
+				// 总分函数
+				function add(i){
+					var sum = 0;
+					 for (var j = 2; j < 5; j++) {
+					 	sum += data[i][j]
+					 }
+					 return sum
+				};
+				//平均分函数
+				function ava(i) {
+					var sum = 0;
+					for (var j = 2; j < 5; j++) {
+						sum += data[i][j]
+					}
+					var ava = Math.round(sum/3);
+					return ava
+				}
+				for (var i = 1; i < data.length; i++) {
+					data[i].push(add(i));
+					data[i].push(ava(i));
+				};
+				// 动态创建表格
+				var tableNode = document.getElementById('table');
+				for(var row of data){
+					var rowNode = document.createElement('tr');
+					for(var col of row){
+						var colNode = document.createElement('td');
+						colNode.innerText = col;
+						rowNode.appendChild(colNode);
+					}
+					tableNode.appendChild(rowNode);
+				}
+				document.documentElement.appendChild(tableNode);
+			}
+		</script>
+	</body>
+</html>

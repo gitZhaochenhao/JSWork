@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style type="text/css">
+			
+			/* 直接后代选择器 */
+			/* .box>span{
+				background-color: #00CCFF;
+			} */
+			
+			/* 后代选择器 */
+			/* .box span{
+				background-color: #00CCFF;
+			} */
+			
+			/* 相邻兄弟选择器      +下一个相邻标签的名字*/
+			/* .inner>span + span{
+				background-color: #00CCFF;
+			} */
+			
+			/* 通用兄弟选择器 */
+			.inner>span ~ span{
+				background-color: #008000;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="inner">
+				<span>我是inner1</span>
+				<!-- <br /> -->
+				<span>我是inner2</span>
+				<br />
+				<a href="">超链接</a>
+				<br />
+				<span>我是inner2</span>
+			</div>
+			<span>我是box的span</span>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        //基础数据类型:string number null undefind boolean
+        //引用数据类型:object Array Function
+
+        var str = '小明';
+        var num = 66;
+        var fun = function(){
+
+        };
+        var sex ;
+        var test = null;
+        var arr = [2,334,5,5];
+        console.log(typeof str);//string
+        console.log(typeof num);//number
+        console.log(typeof fun);//function
+        console.log(typeof sex);//变量被定义但并没有被赋值则会返回undefind,只有变量被赋值null时才会返回null
+        //typeof方法中 Array与null全部被等同于object
+        console.log(typeof arr);//object
+        console.log(typeof test);//object 证明:typrof并不能够完全区分数据类型
+
+        console.log('-----------------------------------------');
+        //A instanceof B  使用instanceof关键字可以严格区分数据类型，并返回布尔值
+        console.log(arr instanceof Array);
+        console.log(test instanceof Object);
+
+        console.log('-----------------------------------------');
+        //==双等于是将并不区分数据类型，在此判断中是将二者都转化为布尔值类型，都是false因此为true
+        console.log(null == undefined);
+        //三等于区分数据类型
+        console.log(null === undefined);
+    </script>
+</body>
+</html>

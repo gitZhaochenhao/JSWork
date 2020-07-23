@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /*
+        *
+        * 复习
+        *
+        * 绘制文本:
+        * strokeText("文本内容",横坐标,纵坐标)---空心的
+        * fillText("文本内容",横坐标,纵坐标)---实心的
+        * 文本的对齐方式：
+        * textAlign="center"居中,left:靠在起始点的左侧,right:起始点的右侧---start和end
+        * textBaseLine="top" 和"bottom"和middel
+        * 文本如何居中: 首先设置textAlign="center" 再设置textBaseLine="middel";
+        * 最后把文本显示在(文本的坐标)画板横向的中间和画板的纵向的中间
+        * 横向的中间(width/2) 纵向的中间(height/2)
+        * 阴影操作
+        * shadowOffsetX===横向的偏移量
+        * shadowOffsetY===纵向的偏移量
+        * shadowColor="颜色"===阴影的颜色
+        * shadowblur=设置阴影的模糊度
+        *
+        *
+        * 像素的操作:
+        * 如果我想获取已经绘制后的画板的像素(整个画板的像素数据)
+        * var imageData=ctx.getImageData(起始点的横坐标,起始点的纵坐标,宽和高)
+        * 上面的方法返回的是一个数据对象(该数据对象中的data属性---width*height*4)--横向的像素点*纵向的像素点*4--每个像素点中的4个值的总数
+        * 获取的是像素的总个数*4----总数
+        * 上面返回的对象的widht---->横向的总的像素个数
+        * 上面返回的对象的height--->纵向的总的像素个数
+        *
+        * 如果我们想要操作这个像素数据中每个像素点的rgba,那么需要用到一个小公式
+		* (y*canvas.width+x)
+        * 4*i----->R
+        * 4*i+1---->G
+        * 4*i+2-----B
+        * 4*i+3-----A(透明度)
+        * 上面的四个值:范围:0-255之间
+        * 如果我想把某个像素数据绘制到画板中
+        * ctx.putImageData(像素数据对象,x,y);
+        * 马赛克:
+        * 思路: 把一个大的图片,按照一个固定的值分隔成对应的多少的小块(size=5)按照5个像素为一个单位,把整个的图片分成了width/size横向的小块
+        * height/size纵向的小块
+        * for(var i=0;i<width/size;i++){
+        * for(var j=0;j<height/size;j++){
+        *       先获取每个小块的某个点(坐标)的颜色（随机的坐标）
+        *   var x=Math.floor(Math.random()*size);
+        *  var y= Math.floor(Math.random()*size);
+        *  获取的是这个坐标点的颜色值
+        *   var color=getPxColor(oldImageData,i*size+x,j*size+y)
+        *   //把获取的颜色重新的绘制到每个小块中
+        * for(var k=0;k<size;k++){
+        * for(var t=0;t<size;t++){
+        *   setPxColor(newImageData,i*size+k,j*size+t,color);
+        * }
+        * }
+        * }
+        * }
+        *
+        * ctx.putImageData(newImageData,img的width,0);
+        *
+        *
+        *  ctx.globalAlpha = 0.5;//设置透明的-------0,1 全局的透明属性---整个画板都透明了
+        *
+        *
+         * globalCompositeOperation=type 用来合成
+     * 红色是原有的
+     * 绿色是新的
+     * type的值如下:
+     * source-over  默认的----新的  覆盖  老的
+     * source-in     ------显示新的重叠的,其他透明
+     * source-out    ------显示新的没有重叠的,其他透明
+     * source-atop   ------显示新重叠的和老的,其他透明
+     * destination-over----新的在老的下面
+     * destination-in  ----显示老的重叠,其他透明
+     * destination-out  ---显示老的没重叠的,其他透明
+     * destination-atop ---显示老重叠和新的,其他透明
+     * lighter --------都显示,重叠的颜色处理了
+     *
+     * darken  ------都显示,重叠部分最黑的像素
+     * (这个会把颜色位进行比较,得到最小的)
+     * red: #ff0000
+     * green: #00ff00
+     * 结果就是:#000000
+     *
+     * lighten-----都显示,重叠部分最亮的像素(同上)
+     * red: #ff0000
+     * green: #00ff00
+     * 结果就是:#ffffff
+     *
+     * xor   --------------重叠的部分透明
+     * copy ---------只有新图像会被保留，其余的全部被清除(边透明)
+        *
+        *
+        *
+        * 课程介绍: 画板的路径和一个方法可以获取鼠标点击的位置;---Canvas的结束
+        * 音视频的标签 及播放器---HTML5的内容
+        *
+        * */
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

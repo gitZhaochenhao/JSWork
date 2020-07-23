@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			// 原型链：先在构造函数中寻找，再去原型中寻找再去父对象最后去object中寻找
+			
+			function person(name,age){
+				this.name=name;
+				this.age=age;
+				// this.play=function(){
+				// 	alert("构造函数走路")
+				// }
+			}
+			
+			var LiMing=new person("李明",16);
+			var XinaoWang=new person("小王",33)
+		
+			console.log(LiMing)
+			console.log(XinaoWang)
+			console.dir(person)
+
+			// person.prototype.play=function(){
+			// 	alert("原型走路")
+			// }
+			
+			Object.prototype.play=function(){
+				alert("object走路")
+			}
+			
+			LiMing.play()
+			
+			// 实例名 instanceof 构造函数名   查看实例化是否属于该对象 返回的是布尔值类型数据
+			console.log(XinaoWang instanceof person)
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		
+		<div class="mui-slider">
+		  <div class="mui-slider-group mui-slider-loop">
+		    <!--支持循环，需要重复图片节点-->
+		    <div class="mui-slider-item"><a href="#"><img src="img/4.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/1.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/2.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/3.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/4.jpg" /></a></div>
+		    <div class="mui-slider-item"><a href="#"><img src="img/1.jpg" /></a></div>
+		    <!--支持循环，需要重复图片节点-->
+		  </div>
+		  <!--轮播图的小圆点-->
+		  	<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+		<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="btn">开始轮播</button>
+	</body>
+	<script>
+		
+		var gallery = mui('.mui-slider');
+		var flag = false;
+		mui('body').on('tap','#btn',function(e){
+			if(!flag){
+				gallery.slider({
+				  interval:2000//自动轮播周期，若为0则不自动播放，默认为0；
+				});
+				e.target.innerHTML='停止轮播';
+			}else{
+				gallery.slider({
+				  interval:0//自动轮播周期，若为0则不自动播放，默认为0；
+				});
+				e.target.innerHTML='开始轮播';
+			};
+			flag = !flag;
+		});
+	</script>
+</html>

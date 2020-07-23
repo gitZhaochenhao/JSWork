@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.list{
+				list-style: none;
+				margin: 200px;
+				height: 300px;
+				border: 1px solid #00008B;
+			}
+			.list li{
+				width: 50px;
+				background-color: #0066CC;
+				height: 50px;
+				margin: 30px;
+				float: left;
+				transition: 1s;
+			}
+			
+			/* :hover伪类也可以控制三种情况下的元素
+			 1.自身:hover
+			 2.子元素      父元素:hover 子元素
+			 3.兄弟元素    元素:hover+兄弟元素
+			 */
+			.list li:hover+li{
+				
+				transform: rotate(45deg);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul class="list">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

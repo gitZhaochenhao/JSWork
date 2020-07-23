@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#warp{
+				/* 生成弹性盒 */
+				display: flex;
+				display: -webkit-flex;
+				height: 300px;
+				border-bottom: 3px solid #000000;
+				
+				/* 伸缩盒中元素换行 */
+				/* 默认不换行 就算伸缩项目总宽度大于伸缩盒宽度也会在伸缩盒中按每个伸缩项目的宽度比例显示*/
+				flex-wrap: nowrap;
+				/* 元素换行 */
+				flex-wrap: wrap;
+				
+				/* 行侧轴富裕空间设置 */
+				/* align-items: flex-start;
+				align-items: center; */
+				
+				/* 
+				 align-items设置行侧轴
+				 align-content设置总侧轴
+				 */
+				
+				/* 所有元素依据总侧轴进行居中 */
+				align-content: center;
+				/* 所有元素依据总侧轴进行居中 */
+				align-content: flex-end;
+				align-content: flex-start;
+				/* 所有元素依据总侧轴进行富裕空空间包裹元素 */
+				align-content: space-around;
+				/* 所有元素依据总侧轴进行元素包裹富裕空间 */
+				align-content: space-between;
+			}
+			.box{
+				width:50%;
+			}
+			#a1{
+				background-color: #0000FF;
+				
+			}
+			#a2{
+				background-color: deeppink;
+				
+			}
+			#a3{
+				background-color:rosybrown;
+			
+			}
+		</style>
+	</head>
+	<body>
+		<div id="warp">
+			<div id="a1" class='box'>1</div>
+			<div id="a2" class='box'>2</div>
+			<div id="a3" class='box'>3</div>
+		</div>
+	</body>
+</html>

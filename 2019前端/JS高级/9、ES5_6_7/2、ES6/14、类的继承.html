@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+    class Person {
+        //静态方法
+        static selfPlay(){
+            console.log('属于类自己的方法或属性')
+        }
+        //构造方法，给实例对象定义属性或方法
+        constructor(name,age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        //一般方法，公共方法，相当于构造函数中原型中定义一个方法或属性,是所有实力对象都可以使用的
+        prototypes(){
+            console.log('这里是普通方法，公共方法')
+        }
+    };
+
+    //Person类的子类，继承
+    class boyPerson extends Person{
+        static selfPlay(){
+            console.log('仅属于我自己的属性')
+        }
+        constructor(name,age,sex) {
+            //必须要有，表示继承父类的构造方法，并传参
+            super(name,age);
+            this.sex = sex
+        }
+
+        prototypes() {
+            console.log('当继承过来的方法不能满足子类需求时，我们可以将这个方法重写覆盖，不影响父类的该方法')
+        }
+    };
+    let person1 = new Person('kode',43);
+    // person1.prototypes();
+    // Person.selfPlay();
+    console.log(person1);
+
+    //类的继承同样底层都是完成了一个，将子构造函数的原型作为父构造函数的实例对象行为,此时也代表着父类的一般方法与构造方法也继承了过来，静态方法除外，静态方法是属于单一类的，不会被继承
+    let person2 = new boyPerson('小木',23,'男');
+    console.log(person2);
+    person2.prototypes();
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			img{
+				width: 100px;
+				
+				height: 100px;
+				position: absolute;
+				left: 200px;
+				top: 200px;
+			}
+			#div{
+				width: 100px;
+				height: 100px;
+				background-color: #008000;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="mr.png" />
+		<div id="div"></div>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				// 获取div
+				var div=document.querySelector('#div');
+				// 获取图片
+				var img=document.querySelector('img');
+
+				// 鼠标按下事件 仅限于div中
+				div.onmousedown=function(e){
+					var mousedownX=e.clientX;
+					var mousedownY=e.clientY;
+					// 储存鼠标按下的方位
+					var mousedown={x:mousedownX,y:mousedownY};
+
+					var divPositionX=this.offsetLeft;
+					var divPositionY=this.offsetTop;
+					// 储存当我们每次按下鼠标时，div的位置
+					var divPosition={x:divPositionX,y:divPositionY};
+					
+					// 按下后鼠标移动
+					document.onmousemove=function(e){
+						var mousemoveX=e.clientX;
+						var mousemoveY=e.clientY;
+						// 储存鼠标移动的方位
+						var mousemove={x:mousemoveX,y:mousemoveY};
+						
+						// 对div进行持续的位置位置调整
+						var divX=divPosition.x+(mousemove.x-mousedown.x);
+						var divY=divPosition.y+(mousemove.y-mousedown.y);
+						// 判断拖拽对象不越界  且出现自动贴边效果
+						if(divX<20){
+							divX=0
+						}else if(divX>document.documentElement.clientWidth-div.offsetWidth-20){
+							divX=document.documentElement.clientWidth-div.offsetWidth
+						};
+						if(divY<20){
+							divY=0
+						}else if(divY>document.documentElement.clientHeight-div.offsetHeight-20){
+							divY=document.documentElement.clientHeight-div.offsetHeight
+						};
+						
+						// 实现图片碰撞切换功能
+						var L1=div.offsetLeft;
+						var R1=div.offsetLeft+div.offsetWidth;
+						var T1=div.offsetTop;
+						var B1=div.offsetTop+div.offsetHeight;
+						
+						var L2=img.offsetLeft;
+						var R2=img.offsetLeft+img.offsetWidth;
+						var T2=img.offsetTop;
+						var B2=img.offsetTop+img.offsetHeight;
+						
+						if(R1<L2||B1<T2||L1>R2||T1>B2){
+							// 没碰上
+							img.src='mr.png';
+						}else{
+							// 碰上了
+							img.src='zz.png';
+						}
+						
+						// 对div进行持续的位置位置调整
+						div.style.left=divX+'px';
+						div.style.top=divY+'px';
+						
+						// 鼠标抬起
+						document.onmouseup=function(){
+							document.onmousemove=document.onmouseup=null;
+						}					
+					};
+					// 取消默认行为，防止图片的虚影跟随移动
+					return false
+				}
+			}
+		</script>
+	</body>
+</html>

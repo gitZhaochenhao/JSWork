@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#color-red{
+				/* display: none; */
+			}
+			
+			/* 实现了用label替换丑陋复选框的操作 */
+			
+			#color-red+label{
+				position: absolute;
+				width: 22px;
+				height: 22px;
+				background-color: red;
+				left: 5px;
+			}
+			
+			#color-red:checked+label::before{
+				/* css中很多符号可以用数字表示  \2714就是对勾的意思 */
+				content: '\2714';
+				display: block;
+				text-align: center;
+				color: #FFFFFF;
+				background-color: black;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<!--将复选框与label关联 -->
+		<input type="checkbox" id="color-red" />
+		<label for="color-red"></label>
+	</body>
+</html>

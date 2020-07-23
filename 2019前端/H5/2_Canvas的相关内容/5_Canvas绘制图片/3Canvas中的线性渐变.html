@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid brown;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- canvas有自己的默宽高  他的宽高不要用css去设置，容易变形，宽高直接在标签中设置-->
+		<canvas id="art" width="600px" height="600px"></canvas>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				// 低级浏览器不支持canvas 
+				
+				var art=document.querySelector('#art');
+				
+				// 简写
+				if(!art.getContext)return;
+				// 创建绘制对象
+				var pen=art.getContext('2d');
+				
+				// 设置径向渐变的区域
+				// 渐变开始位置点，结束的渐变位置点
+				var gra=pen.createLinearGradient(100,100,200,10);
+				// 设置颜色区域范围(0-1之间)与渐变颜色
+				gra.addColorStop(0,'red');
+				gra.addColorStop(0.5,'green');
+				gra.addColorStop(1,'blue');
+				// 将填充风格设置为线性渐变
+				pen.fillStyle=gra;
+				pen.fillRect(0,0,400,500);
+			}
+		</script>
+	</body>
+</html>

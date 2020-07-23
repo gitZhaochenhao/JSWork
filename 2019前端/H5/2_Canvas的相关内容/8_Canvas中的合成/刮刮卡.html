@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"></meta>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			canvas{
+				position: absolute;
+			}
+			ul,ul>li{
+				height: 100%;
+			}
+			li{
+				background-image: url(img/b.png);
+				background-size: 100%;
+				background-repeat: no-repeat;
+				background-size: 100% 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas"></canvas>
+		<ul>
+			<li></li>
+		</ul>
+	</body>
+	
+	<script type="text/javascript">
+		var canvas=document.querySelector('#canvas');
+		// 要用属性设置宽高
+		canvas.width=document.documentElement.clientWidth;
+		canvas.height=document.documentElement.clientHeight;
+		
+		var ctx=canvas.getContext('2d');
+		// 创建图片并绘制
+		var image=new Image();
+		image.src='img/a.png';
+		image.onload=function(){
+			ctx.drawImage(image,0,0,canvas.width,canvas.height);
+			
+			// 移动端事件通过绑定事件进行添加
+			canvas.addEventListener('touchstart',function(e){
+				var e=e || window.event;
+				// console.log(e)
+				// 获取某个触屏点       changedTouches储存着很多触点   我们随机使用一个触点
+				var touchC=e.changedTouches[0];
+				// 获取触点距视口的水平与垂直位置
+				var X=touchC.clientX;
+				var Y=touchC.clientY;
+				
+				// 路径样式
+				ctx.lineWidth=50;
+				ctx.lineJoin='round';
+				ctx.lineCap='round';
+				// 新图与老图重叠部分透明
+				ctx.globalCompositeOperation="destination-out";
+				ctx.moveTo(X,Y);
+				// ctx.lineTo(X+1,Y+1)
+				// ctx.stroke();
+			})
+			
+			// 该事件是频繁触发事件每一刻都在执行
+			canvas.addEventListener('touchmove',function(e){
+				var touchC=e.changedTouches[0];
+				var X=touchC.clientX;
+				var Y=touchC.clientY;
+				// 因为触碰事件中已经设置了初始点
+				ctx.lineTo(X,Y);
+				ctx.stroke();
+			});
+			
+			// 我们要查看透明度以为0的像素占总像素的比重，来确定是否进行背景图片的自动展示
+			canvas.addEventListener('touchend',function(){
+				// var allA=0;
+				var endA=0;
+				// 获取的时提取区域的所有信息
+				var imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+				var Sbody=canvas.width*canvas.height;
+				// console.log(Sbody)
+				for (var i = 0; i < Sbody; i++) {
+					if(imageData.data[i*4+3]===0){
+						endA++;
+					};
+					if(endA/Sbody>=2/3){
+						canvas.style.opacity=0;
+						canvas.style.transition='1s';
+					}
+				}
+			})
+			
+			
+			canvas.addEventListener('transitionend',function(){
+				
+				// 在原生js中也能够使用
+				this.remove();
+			})
+			
+			
+			
+			
+			
+			
+			
+			
+		};
+	</script>
+</html>

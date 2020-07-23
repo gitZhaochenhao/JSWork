@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid brown;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- canvas有自己的默宽高  他的宽高不要用css去设置，容易变形，宽高直接在标签中设置-->
+		<canvas id="art" width="600px" height="600px"></canvas>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				// 低级浏览器不支持canvas 
+				
+				var art=document.querySelector('#art');
+				
+				// 简写
+				if(!art.getContext)return;
+				// 创建绘制对象
+				var pen=art.getContext('2d');
+				// 设置绘制颜色
+				pen.strokeStyle='#0000FF';
+				// 设置描边宽度
+				pen.lineWidth=10;
+				// 设置连接处样式  round圆角  miter默认直角  bevel三角
+				pen.lineJoin='miter';
+				// 三种画矩形的方法的方法 strokeRect()  fillRect() clearRect()
+				//                     路径方式画矩形  填充方式画矩形  
+				// 前两个参数代表起始点的横纵坐标  后两个表示举行的宽和和高
+				pen.strokeRect(100,100,100,200);
+				
+				// Canvas画板其实是一个透明背景的图片
+				var path=art.toDataURL()//获取画板图路径
+				console.log(path);
+				
+			
+			}
+		</script>
+	</body>
+</html>

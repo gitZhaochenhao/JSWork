@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			var json01={name :"李明",age:19}
+			console.log(json01)
+			
+			// 在我们用json进行前后端交互时需要我们将对象转化为字符串类型  JSON.stringify(对象名)
+			console.log(JSON.stringify(json01))
+			
+			var json01str='{"name":"李明","age":"19"}'
+			// 在我们接受后端发来的数据时也要将其字符串类型转化掉   JSON.parse(对象名)
+			console.log(JSON.parse(json01str))
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

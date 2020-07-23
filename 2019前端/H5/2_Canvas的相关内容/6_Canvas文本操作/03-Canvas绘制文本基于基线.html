@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            background-color: #C7EDCC;
+        }
+        canvas{
+            border:2px solid red;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<canvas id="test" width="400" height="300"></canvas>
+<script type="text/javascript">
+
+    window.onload=function () {
+        var canvas=document.querySelector("#test");
+        if(!canvas.getContext)return;
+        var ctx=canvas.getContext("2d");
+        var gradient=ctx.createLinearGradient(0,0,400,300);
+        gradient.addColorStop(0,"red");
+        gradient.addColorStop(.5,"green");
+        gradient.addColorStop(1,"blue");
+        ctx.strokeStyle=gradient;
+        ctx.font="40px sans-serif";
+        ctx.strokeText("谢谢惠顾",200,100);
+        /*
+        * top:文本在基线的下面显示
+        * hanging:底线的位置(差不多)
+        * middle:基线在文本的中间，文字中间点与基线位置一致
+        * bottom:文本在基线的上面显示
+        * alphabetic:默认值
+        *ideographic:和bottom差不多
+        * */
+		// 基线位置永远不会改变
+        ctx.textBaseline="middle";
+		
+
+        ctx.fillStyle="blue";
+        ctx.fillText("谢谢惠顾",200,100);
+    };
+</script>
+</body>
+</html>

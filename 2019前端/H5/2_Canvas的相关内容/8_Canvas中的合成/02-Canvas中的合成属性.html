@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: #C7EDCC;
+        }
+
+        canvas {
+            border: 2px solid red;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<canvas id="test" width="600" height="600"></canvas>
+<script type="text/javascript">
+    //页面加载
+    window.onload = function () {
+        //获取画布和绘制对象
+        var canvas = document.querySelector("#test");
+        if (!canvas.getContext) return;
+        var ctx = canvas.getContext("2d");
+
+        /*
+     *
+     * globalCompositeOperation=type 用来合成
+     * 红色是原有的
+     * 绿色是新的
+     * type的值如下:
+     * source-over  默认的----新的  覆盖  老的
+     * source-in     ------显示新的重叠的,其他透明
+     * source-out    ------显示新的没有重叠的,其他透明
+     * source-atop   ------显示新重叠的和老的,其他透明
+     * destination-over----新的在老的下面
+     * destination-in  ----显示老的重叠,其他透明
+     * destination-out  ---显示老的没重叠的,其他透明
+     * destination-atop ---显示老重叠和新的,其他透明
+     * lighter --------都显示,重叠的颜色处理了
+     *
+     * darken  ------都显示,重叠部分最黑的像素
+     * (这个会把颜色位进行比较,得到最小的)
+     * red: #ff0000
+     * green: #00ff00
+     * 结果就是:#000000
+     *
+     * lighten-----都显示,重叠部分最亮的像素(同上)
+     * red: #ff0000
+     * green: #00ff00
+     * 结果就是:#ffffff
+     *
+     * xor   --------------重叠的部分透明
+     * copy ---------只有新图像会被保留，其余的全部被清除(边透明)
+     *
+     * */
+
+
+        //绘制一个矩形
+        ctx.fillStyle="red";
+        ctx.fillRect(50,50,100,100);
+        ctx.globalCompositeOperation="destination-out";
+        ctx.fillStyle="green";
+        ctx.fillRect(100,100,100,100);
+
+
+    };
+</script>
+</body>
+</html>

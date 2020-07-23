@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<!--设置理想视口，将980的布局视口拉回来，使得元素比例大小正常，content="width=device-width"表示理想视口的宽与手机屏幕的宽度一致
+	这时三个视口的尺寸完全相等
+	-->
+	<!--<meta name="viewport" content="width=device-width" />-->
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+</head>
+<body>
+	<script type="application/javascript">
+		
+		//当我们不设置meta标签时，默认是的布局视口宽度为980，meta让布局视口与屏幕宽度等大，此时布局视口=视觉视口=理想视口
+		console.log(document.documentElement.clientWidth);
+	</script>
+</body>
+</html>

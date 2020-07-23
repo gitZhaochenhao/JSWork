@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class String - backports-3.10.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-try_convert">::try_convert</a>
+    
+    <li ><a href="#method-i-2B-40">#+@</a>
+    
+    <li ><a href="#method-i-2D-40">#-@</a>
+    
+    <li ><a href="#method-i-ascii_only-3F">#ascii_only?</a>
+    
+    <li ><a href="#method-i-byteslice">#byteslice</a>
+    
+    <li ><a href="#method-i-camelize">#camelize</a>
+    
+    <li ><a href="#method-i-chr">#chr</a>
+    
+    <li ><a href="#method-i-clear">#clear</a>
+    
+    <li ><a href="#method-i-codepoints">#codepoints</a>
+    
+    <li ><a href="#method-i-constantize">#constantize</a>
+    
+    <li ><a href="#method-i-dasherize">#dasherize</a>
+    
+    <li ><a href="#method-i-demodulize">#demodulize</a>
+    
+    <li ><a href="#method-i-each_char">#each_char</a>
+    
+    <li ><a href="#method-i-end_with-3F">#end_with?</a>
+    
+    <li ><a href="#method-i-length">#length</a>
+    
+    <li ><a href="#method-i-match-3F">#match?</a>
+    
+    <li ><a href="#method-i-ord">#ord</a>
+    
+    <li ><a href="#method-i-partition_with_new_meaning">#partition_with_new_meaning</a>
+    
+    <li ><a href="#method-i-prepend">#prepend</a>
+    
+    <li ><a href="#method-i-rpartition">#rpartition</a>
+    
+    <li ><a href="#method-i-start_with-3F">#start_with?</a>
+    
+    <li ><a href="#method-i-underscore">#underscore</a>
+    
+    <li ><a href="#method-i-unicode_normalize">#unicode_normalize</a>
+    
+    <li ><a href="#method-i-unicode_normalize-21">#unicode_normalize!</a>
+    
+    <li ><a href="#method-i-unicode_normalized-3F">#unicode_normalized?</a>
+    
+    <li ><a href="#method-i-upto_with_exclusive">#upto_with_exclusive</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-String">
+  <h1 id="class-String" class="class">
+    class String
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-try_convert" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">try_convert</span><span
+            class="method-args">(x)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="try_convert-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/string/try_convert.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-constant">String</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-identifier">x</span>)
+  <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">try_convert</span>(<span class="ruby-identifier">x</span>, <span class="ruby-constant">String</span>, <span class="ruby-value">:to_str</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-2B-40" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">+@</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="2B-40-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.3.0/string/uplus.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">+@</span>
+  <span class="ruby-identifier">frozen?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">dup</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-2D-40" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">-@</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="2D-40-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.3.0/string/uminus.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">-@</span>
+  <span class="ruby-identifier">frozen?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">dup</span>.<span class="ruby-identifier">freeze</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ascii_only-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ascii_only?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ascii_only-3F-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/string/ascii_only.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ascii_only?</span>
+  <span class="ruby-operator">!</span>(<span class="ruby-keyword">self</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/[^\x00-\x7f]/</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-byteslice" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">byteslice</span><span
+            class="method-args">(start, len = Backports::Undefined)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="byteslice-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.3/string/byteslice.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">byteslice</span>(<span class="ruby-identifier">start</span>, <span class="ruby-identifier">len</span> = <span class="ruby-constant">Backports</span><span class="ruby-operator">::</span><span class="ruby-constant">Undefined</span>)
+  <span class="ruby-comment"># Argument parsing &amp; checking</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Backports</span><span class="ruby-operator">::</span><span class="ruby-constant">Undefined</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">len</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">start</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Range</span>)
+      <span class="ruby-identifier">range</span> = <span class="ruby-identifier">start</span>
+      <span class="ruby-identifier">start</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_int</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">begin</span>)
+      <span class="ruby-identifier">start</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">bytesize</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">start</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">last</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_int</span>(<span class="ruby-identifier">range</span>.<span class="ruby-identifier">end</span>)
+      <span class="ruby-identifier">last</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">bytesize</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">last</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">range</span>.<span class="ruby-identifier">exclude_end?</span>
+      <span class="ruby-identifier">len</span> = <span class="ruby-identifier">last</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">start</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">start</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_int</span>(<span class="ruby-identifier">start</span>)
+      <span class="ruby-identifier">start</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">bytesize</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">start</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">len</span> = <span class="ruby-value">1</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">start</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">bytesize</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">start</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_int</span>(<span class="ruby-identifier">start</span>)
+    <span class="ruby-identifier">start</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">bytesize</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">start</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">len</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_int</span>(<span class="ruby-identifier">len</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">start</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">start</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">bytesize</span>
+  <span class="ruby-identifier">len</span> = <span class="ruby-value">0</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">len</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-comment"># Actual implementation:</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">unpack</span>(<span class="ruby-node">&quot;@#{start}a#{len}&quot;</span>).<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">str</span> = <span class="ruby-identifier">dup</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">str</span>) <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_of?</span>(<span class="ruby-constant">String</span>) <span class="ruby-comment"># Must return subclass</span>
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-identifier">encoding</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:encoding</span>)
+  <span class="ruby-identifier">str</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-camelize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">camelize</span><span
+            class="method-args">(first_letter = :upper)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/String/Inflections.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="camelize-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/string.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">camelize</span>(<span class="ruby-identifier">first_letter</span> = <span class="ruby-value">:upper</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">first_letter</span> <span class="ruby-operator">==</span> <span class="ruby-value">:upper</span>
+    <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\/(.?)/</span>) { <span class="ruby-node">&quot;::#{$1.upcase}&quot;</span> }.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/(?:^|_)(.)/</span>) { <span class="ruby-node">$1</span>.<span class="ruby-identifier">upcase</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">0</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">camelize</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-chr" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">chr</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="chr-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/string/chr.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">chr</span>
+  <span class="ruby-identifier">chars</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">||</span> <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/string/clear.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>,<span class="ruby-identifier">length</span>] = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-codepoints" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">codepoints</span><span
+            class="method-args">() { |cp| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="codepoints-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/string/codepoints.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">codepoints</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:codepoints</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;U*&quot;</span>).<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">cp</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">cp</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-constantize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">constantize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/String/Inflections.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="constantize-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/string.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">constantize</span>
+  <span class="ruby-identifier">names</span> = <span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;::&#39;</span>)
+  <span class="ruby-identifier">names</span>.<span class="ruby-identifier">shift</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">names</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">names</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">constant</span> = <span class="ruby-constant">Object</span>
+  <span class="ruby-identifier">names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">constant</span> = <span class="ruby-identifier">constant</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">constant</span>.<span class="ruby-identifier">const_get</span>(<span class="ruby-identifier">name</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">constant</span>.<span class="ruby-identifier">const_missing</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">constant</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dasherize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dasherize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/String/Inflections.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="dasherize-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/string.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dasherize</span>
+  <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/_/</span>, <span class="ruby-string">&#39;-&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-demodulize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">demodulize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/String/Inflections.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="demodulize-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/string.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">demodulize</span>
+  <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^.*::/</span>, <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_char" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_char</span><span
+            class="method-args">() { |c| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_char-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/string/each_char.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each_char</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_char</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/./m</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">c</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_with-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_with?</span><span
+            class="method-args">(*suffixes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="end_with-3F-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/string/end_with.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_with?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">suffixes</span>)
+  <span class="ruby-identifier">suffixes</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">suffix</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">suffix</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_str</span>
+      <span class="ruby-identifier">suffix</span> = <span class="ruby-identifier">suffix</span>.<span class="ruby-identifier">to_str</span>
+      <span class="ruby-keyword">self</span>[<span class="ruby-operator">-</span><span class="ruby-identifier">suffix</span>.<span class="ruby-identifier">length</span>, <span class="ruby-identifier">suffix</span>.<span class="ruby-identifier">length</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">suffix</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-length" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">length</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="length-source">
+            <pre><span class="ruby-comment"># File lib/backports/force/string_length.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">unpack</span>(<span class="ruby-string">&quot;U*&quot;</span>).<span class="ruby-identifier">length</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-match-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">match?</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="match-3F-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.4.0/string/match.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">match?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># Fiber to avoid setting $~</span>
+  <span class="ruby-identifier">f</span> = <span class="ruby-constant">Fiber</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-operator">!</span><span class="ruby-identifier">match</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>).<span class="ruby-identifier">nil?</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">f</span>.<span class="ruby-identifier">resume</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ord" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ord</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ord-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.1/string/ord.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ord</span>
+  <span class="ruby-identifier">codepoints</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;empty string&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-partition_with_new_meaning" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">partition_with_new_meaning</span><span
+            class="method-args">(pattern = Backports::Undefined) { |c| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="partition_with_new_meaning-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/string/partition.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">partition_with_new_meaning</span>(<span class="ruby-identifier">pattern</span> = <span class="ruby-constant">Backports</span><span class="ruby-operator">::</span><span class="ruby-constant">Undefined</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">partition_without_new_meaning</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">c</span>} <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Backports</span><span class="ruby-operator">::</span><span class="ruby-constant">Undefined</span>
+  <span class="ruby-identifier">pattern</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-constant">String</span>, <span class="ruby-value">:to_str</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Regexp</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-identifier">index</span>(<span class="ruby-identifier">pattern</span>)
+  <span class="ruby-keyword">return</span> [<span class="ruby-keyword">self</span>, <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;&quot;</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">i</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Regexp</span>
+    <span class="ruby-identifier">match</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>
+    [<span class="ruby-identifier">match</span>.<span class="ruby-identifier">pre_match</span>, <span class="ruby-identifier">match</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">match</span>.<span class="ruby-identifier">post_match</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">last</span> = <span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">length</span>
+    [<span class="ruby-keyword">self</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">i</span>], <span class="ruby-keyword">self</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">...</span><span class="ruby-identifier">last</span>], <span class="ruby-keyword">self</span>[<span class="ruby-identifier">last</span><span class="ruby-operator">...</span><span class="ruby-identifier">length</span>]]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prepend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepend</span><span
+            class="method-args">(other_str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prepend-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.9.3/string/prepend.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prepend</span>(<span class="ruby-identifier">other_str</span>)
+  <span class="ruby-identifier">replace</span> <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to_str</span>(<span class="ruby-identifier">other_str</span>) <span class="ruby-operator">+</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rpartition" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rpartition</span><span
+            class="method-args">(pattern)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rpartition-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/string/rpartition.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rpartition</span>(<span class="ruby-identifier">pattern</span>)
+  <span class="ruby-identifier">pattern</span> = <span class="ruby-constant">Backports</span>.<span class="ruby-identifier">coerce_to</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-constant">String</span>, <span class="ruby-value">:to_str</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Regexp</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-identifier">rindex</span>(<span class="ruby-identifier">pattern</span>)
+  <span class="ruby-keyword">return</span> [<span class="ruby-string">&quot;&quot;</span>, <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-keyword">self</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">i</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">is_a?</span> <span class="ruby-constant">Regexp</span>
+    <span class="ruby-identifier">match</span> = <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">last_match</span>
+    [<span class="ruby-identifier">match</span>.<span class="ruby-identifier">pre_match</span>, <span class="ruby-identifier">match</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">match</span>.<span class="ruby-identifier">post_match</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">last</span> = <span class="ruby-identifier">i</span><span class="ruby-operator">+</span><span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">length</span>
+    [<span class="ruby-keyword">self</span>[<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">i</span>], <span class="ruby-keyword">self</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">...</span><span class="ruby-identifier">last</span>], <span class="ruby-keyword">self</span>[<span class="ruby-identifier">last</span><span class="ruby-operator">...</span><span class="ruby-identifier">length</span>]]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start_with-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_with?</span><span
+            class="method-args">(*prefixes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="start_with-3F-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/string/start_with.rb, line 3</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start_with?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">prefixes</span>)
+  <span class="ruby-identifier">prefixes</span>.<span class="ruby-identifier">any?</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">prefix</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-value">:to_str</span>
+      <span class="ruby-identifier">prefix</span> = <span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">to_str</span>
+      <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span>, <span class="ruby-identifier">prefix</span>.<span class="ruby-identifier">length</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">prefix</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-underscore" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">underscore</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard in rails. See official <a
+href="http://api.rubyonrails.org/classes/ActiveSupport/CoreExtensions/String/Inflections.html">documentation</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="underscore-source">
+            <pre><span class="ruby-comment"># File lib/backports/rails/string.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">underscore</span>
+  <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/::/</span>, <span class="ruby-string">&#39;/&#39;</span>).
+    <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/([A-Z]+)([A-Z][a-z])/</span>,<span class="ruby-string">&#39;\1_\2&#39;</span>).
+    <span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/([a-z\d])([A-Z])/</span>,<span class="ruby-string">&#39;\1_\2&#39;</span>).
+    <span class="ruby-identifier">tr</span>(<span class="ruby-string">&quot;-&quot;</span>, <span class="ruby-string">&quot;_&quot;</span>).
+    <span class="ruby-identifier">downcase</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unicode_normalize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_normalize</span><span
+            class="method-args">(form = :nfc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_normalize-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.2.0/string/unicode_normalize.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unicode_normalize</span>(<span class="ruby-identifier">form</span> = <span class="ruby-value">:nfc</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;backports/tools/normalize.rb&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-constant">UnicodeNormalize</span>
+  <span class="ruby-comment">## The following line can be uncommented to avoid repeated checking for</span>
+  <span class="ruby-comment">## UnicodeNormalize. However, tests didn&#39;t show any noticeable speedup</span>
+  <span class="ruby-comment">## when doing this. This comment also applies to the commented out lines</span>
+  <span class="ruby-comment">## in String#unicode_normalize! and String#unicode_normalized?.</span>
+  <span class="ruby-comment"># String.send(:define_method, :unicode_normalize, -&gt;(form = :nfc) { UnicodeNormalize.normalize(self, form) } )</span>
+  <span class="ruby-constant">UnicodeNormalize</span>.<span class="ruby-identifier">normalize</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">form</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unicode_normalize-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_normalize!</span><span
+            class="method-args">(form = :nfc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_normalize-21-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.2.0/string/unicode_normalize.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unicode_normalize!</span>(<span class="ruby-identifier">form</span> = <span class="ruby-value">:nfc</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;backports/tools/normalize.rb&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-constant">UnicodeNormalize</span>
+  <span class="ruby-comment"># String.send(:define_method, :unicode_normalize!, -&gt;(form = :nfc) { replace(unicode_normalize(form)) } )</span>
+  <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">unicode_normalize</span>(<span class="ruby-identifier">form</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unicode_normalized-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unicode_normalized?</span><span
+            class="method-args">(form = :nfc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unicode_normalized-3F-source">
+            <pre><span class="ruby-comment"># File lib/backports/2.2.0/string/unicode_normalize.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unicode_normalized?</span>(<span class="ruby-identifier">form</span> = <span class="ruby-value">:nfc</span>)
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;backports/tools/normalize.rb&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">defined?</span> <span class="ruby-constant">UnicodeNormalize</span>
+  <span class="ruby-comment"># String.send(:define_method, :unicode_normalized?, -&gt;(form = :nfc) { UnicodeNormalize.normalized?(self, form) } )</span>
+  <span class="ruby-constant">UnicodeNormalize</span>.<span class="ruby-identifier">normalized?</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">form</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upto_with_exclusive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upto_with_exclusive</span><span
+            class="method-args">(to, excl=false) { |s| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upto_with_exclusive-source">
+            <pre><span class="ruby-comment"># File lib/backports/1.8.7/string/upto.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">upto_with_exclusive</span>(<span class="ruby-identifier">to</span>, <span class="ruby-identifier">excl</span>=<span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">upto_without_exclusive</span>(<span class="ruby-identifier">to</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">s</span>} <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">excl</span>
+  <span class="ruby-identifier">r</span> = <span class="ruby-constant">Range</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">to</span>, <span class="ruby-identifier">excl</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">r</span>.<span class="ruby-identifier">to_enum</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">r</span>.<span class="ruby-identifier">each</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">s</span>}
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

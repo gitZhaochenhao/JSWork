@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$永远24K纯帅的$</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html, body {
+            background-color: #C7EDCC;
+        }
+
+        canvas {
+            border: 1px solid red;
+            background-color: pink;
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<canvas id="test" width="600" height="600"></canvas>
+<script type="text/javascript">
+    //页面加载
+    window.onload = function () {
+        //获取画板
+        var canvas = document.querySelector("#test");
+        //获取绘制对象
+        //获取画板
+        var canvas = document.querySelector("#test");
+        //获取绘制对象
+        if (!canvas.getContext) return;
+        var ctx = canvas.getContext("2d");
+        
+		// 原点变化，真实画布位置改变
+		ctx.translate(200,200);
+		// 依据改变了的原点，进行画布旋转
+		ctx.rotate(45*Math.PI/180);
+		// 当下的x轴单位像素扩大两倍
+		ctx.scale(2,1);
+		// 进行绘制
+		ctx.fillRect(0,0,200,200)
+		
+		
+		
+		}
+        
+        
+        
+</script>
+
+</body>
+</html>

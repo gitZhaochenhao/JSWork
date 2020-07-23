@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html,body{
+				height: 100%;
+				overflow: hidden;
+			}
+			img{
+				display: block;
+			}
+			ul{
+				list-style: none;
+			}
+			a{
+				text-decoration: none;
+				-webkit-tap-highlight-color: rgba(0,0,0,0);
+			}
+			#wrap{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			#content{
+				position: absolute;
+				width: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<div id="content"></div>
+		</div>
+		
+		<script type="text/javascript">
+			!(function(){
+				var width=document.documentElement.clientWidth;
+				var styleNode=document.createElement('style');
+				styleNode.innerHTML='html{font-size:'+width/16+'px;}';
+				document.head.appendChild(styleNode);
+				
+				document.addEventListener('touchstart',function(event){
+					event=event||window.event;
+					event.preventDefault();
+				},{ passive: false });
+				
+				var aNode=document.getElementsByTagName('a');
+				for (var i = 0; i < aNode.length; i++) {
+					aNode[i].addEventListener('touchstart',function(){
+						window.href=this.href;
+					});
+				};
+			})();
+			
+			// 基础小盒子
+			var wrap=document.getElementById('wrap');
+			// 移动的内容大盒子
+			var content=document.getElementById('content');
+			//防抖标志
+			let flag = false;
+			content.style.backgroundColor='#00CCCC';
+			for (var i = 0; i < 100; i++) {
+				content.innerHTML+=i+'<br/>';
+			};
+			
+			var eleY=0;
+			var eleX = 0;
+			var lastX = 0;
+			var lastY=0;
+			var touchY;
+			var touchX;
+			// 将一切事件都绑定在基础小盒子上  最终位置=元素的起始位置+手指移动距离
+			wrap.addEventListener('touchstart',function(e){
+				e=e||window.event;
+				var touch=e.changedTouches[0];
+				// 盒子的起始位置纵
+				eleY=lastY;
+				// 触屏点起始位置
+				touchY=touch.clientY;
+				touchX = touch.clientX;
+				// console.log(eleY);
+				flag = false;
+			});
+			wrap.addEventListener('touchmove',function(e){
+				e=e||window.event;
+				var touch=e.changedTouches[0];
+				// 触屏实时位置
+				var endY=touch.clientY;
+				// 起始触屏点与实时位置的差值
+				var disY=endY-touchY;
+				var disX = touch.clientX - touchX;
+				// 最终位置=元素的起始位置+手指移动距离
+				lastY=eleY+disY;
+				//
+				lastX = eleX + disX;
+				// console.log(flagMove)
+				if(flag){
+					return;
+				};
+				if(Math.abs(disX)>Math.abs(disY)){
+					if(!flag){
+						console.log(111)
+						flag = true;
+						return;
+					};
+				};
+				// 临界值判定
+				if(lastY>0){
+					lastY=0;
+				}else if(lastY<document.documentElement.clientHeight-content.offsetHeight){
+					lastY=document.documentElement.clientHeight-content.offsetHeight;
+				};
+				
+				// 位置设定
+				content.style.top=lastY+'px';
+				
+			});
+			// wrap.addEventListener('touchend',function(e){
+			// 	e=e||window.event;
+			// 	var touch=e.changedTouches[0];
+			// });
+		</script>
+	</body>
+</html>

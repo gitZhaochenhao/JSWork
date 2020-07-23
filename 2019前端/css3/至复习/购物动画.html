@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#btn{
+				width: 200px;
+				height: 30px;
+				background-color: #2B81AF;
+				position: absolute;
+				left: 50px;
+				top: 400px;
+				outline: none;
+				border: 1px solid #0000CC;
+				border-radius: 5px;
+			}
+			
+			#car{
+				width: 300px;
+				height: 100px;
+				background-color: #008000;
+				position: absolute;
+				top: 100px;
+				right: 50px;
+				font-size: 20px;
+				font-weight: bold;
+				text-align: center;
+				line-height: 100px;
+			}
+			#dian{
+				width: 10px;
+				height: 10px;
+				background-color: red;
+				border-radius: 50%;
+				position: absolute;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">加入购物车</button>
+		<div id="dian"></div>
+		<div id="car">我的购物车>><span id="span"></span></div>
+		
+		<script type="text/javascript" src="jquery-1.11.3main.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var $btn=$('#btn');
+				var $dian=$('#dian');
+				var $car=$('#car');
+				var $span=$('#span');
+				var $num=0;
+				// alert($btn.offset().left+'px')
+				$dian.css({'left':$btn.offset().left+$btn.outerWidth()/2+'px','top':$btn.offset().top+$btn.outerHeight()/2+'px'});
+				
+				$btn.click(function(){
+					
+					$dian.show().animate({'left':$car.offset().left+$car.outerWidth()/2+'px','top':$car.offset().top+$car.outerHeight()/2+'px'},1000,
+					function(){
+						$dian.hide();
+						$num++;
+						$span.html($num);
+						$dian.css({'left':$btn.offset().left+$btn.outerWidth()/2+'px','top':$btn.offset().top+$btn.outerHeight()/2+'px'});
+					}
+					)
+						
+					
+				})
+			})
+		</script>
+	</body>
+</html>

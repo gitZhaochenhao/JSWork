@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				margin: 200px auto;
+				background-color: #0066CC;
+				/* transform-origin  设置变化基点   以元素自身尺寸为参照物 左上角为0px 0px(left top 0% 0%) 参数一设置水平  参数二设置垂直 
+				transform-origin :~px ~px
+				transform-origin :~% ~%   用百分比来设置基点时依旧参照自身尺寸来计算
+				transform-origin :left/right/center  top/center/bottom
+				 transform-origin :center center    为默认值
+				 transform-origin 只有一个参数时另一个未设置的参数为默认值center
+				 */
+				transform-origin: left top;
+				/* transform:rotate(~deg)  旋转，正值顺时针旋转反之 */
+				transform: skew(0deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

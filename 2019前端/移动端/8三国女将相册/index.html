@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+			* {
+			  margin: 0;
+			  padding: 0;
+			}
+			a {
+			  text-decoration: none;
+			  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+			}
+			ul,
+			li {
+			  list-style: none;
+			}
+			img {
+			  display: block;
+			}
+			input {
+			  outline: none;
+			}
+			html,
+			body {
+			  height: 100%;
+			  overflow: hidden;
+			}
+			.wrap{
+				position: relative;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+			}
+			
+			.wrap .header,.wrap .bigImg .bigImgHeader{
+				width: 100%;
+				height: 2rem;
+				text-align: center;
+				line-height: 2rem;
+				background-color: #333;
+				color: #fff;
+				font-family: '宋体';
+				font-size: .8rem;
+			}
+			
+			.wrap .contentWrap,.wrap .bigImg .bigImgContent{
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				right: 0;
+				top: 2rem;
+				overflow: hidden;
+			}
+			
+			.wrap .contentWrap .content{
+				position: relative;
+			}
+			
+			.wrap .contentWrap .content .contentList{
+				overflow: hidden;
+			}
+			
+			.wrap .contentWrap .content .contentList li{
+				float: left;
+				width: 7rem;
+				height: 7rem;
+				margin: 0.5rem;
+				background-image: url(img/loadingImg.gif);
+				background-repeat: no-repeat;
+				background-position: center;
+			}
+			
+			.wrap .contentWrap .content .contentList li img{
+				width: 100%;
+				height: 100%;
+				border-radius: 10px;
+				opacity: 0;
+				transition: 2s;
+			}
+			
+			.wrap .contentWrap .content .footer{
+				position: absolute;
+				left: 0;
+				bottom: -4rem;
+				width: 100%;
+				height: 4rem;
+				line-height: 4rem;
+				font-family: '宋体';
+				color: #333;
+				font-family: '宋体';
+				font-size: .8rem;
+				text-align: center;
+				transform: scale(0);
+			}
+			.wrap .scrollBar{
+				position: absolute;
+				right: 0;
+				top: 2rem;
+				width: 5px;
+				background-color: hotpink;
+				opacity: 0;
+				transition: opacity 1s;
+			}
+			.wrap .bigImg{
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: #eee;
+				transform: scale(0);
+				transition:transform 1s;
+			}
+			.wrap .bigImg .bigImgHeader a{
+				float: right;
+				color: #FFFFFF;
+				margin-right: 10px;
+				margin-left: -30px;
+			}
+			.wrap .bigImg .bigImgContent img{
+				position: absolute;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				margin: auto;
+				width: 12rem;
+				height: 12rem;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="header">
+				三国女将
+			</header>
+			<div class="contentWrap">
+				<div class="content">
+					<ul class="contentList">
+						<!--<li>
+							<img src="img/1.jpg"/>
+						</li>-->
+					</ul>
+					<div class="footer">滑动加载更多</div>
+				</div>
+			</div>
+			<div class="scrollBar"></div>
+			<div class="bigImg">
+				<header class="bigImgHeader">
+					大图预览
+					<a href="javascript:;">×</a>
+				</header>
+				<div class="bigImgContent">
+					<img src="img/1.jpg" />
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/transform.js"></script>
+		<script type="text/javascript" src="js/drag.js"></script>
+		<script type="text/javascript">
+			//移动端固定准备工作
+			!(function(){
+			var width = document.documentElement.clientWidth;
+			var styleNode = document.createElement('style');
+			styleNode.innerHTML = 'html{font-size: '+ width/16 +'px !important;}';
+			document.head.appendChild(styleNode);
+			document.addEventListener('touchstart',function(event){
+				event.preventDefault();
+			});
+		
+		
+			var aNodes = document.querySelectorAll('a');
+			
+			for(var i = 0; i < aNodes.length; i++){
+				aNodes[i].addEventListener('touchstart',function(){
+					window.location.href = this.href;
+				})
+			}
+			})();
+			
+			var arr=[];
+			var contentList = document.querySelector('.wrap .contentWrap .content .contentList');
+			var header = document.querySelector('.wrap .header');
+			var contentWrap = document.querySelector('.wrap .contentWrap');
+			var content = document.querySelector('.wrap .contentWrap .content');
+			var footer = document.querySelector('.wrap .contentWrap .content .footer');
+			var scrollBar = document.querySelector('.wrap .scrollBar');
+			var bigImg = document.querySelector('.wrap .bigImg');
+			var imgNode = document.querySelector('.wrap .bigImg .bigImgContent img');
+			var closeImg = document.querySelector('.wrap .bigImg .bigImgHeader a');
+			var start=0;
+			var lang=12;
+			var end=0;
+			var isFooter = false;
+			
+			//循环添加X个图片地址
+			for (var i = 0; i < 26; i++) {
+				arr.push("img/"+(i%18+1)+".jpg")
+			};
+			
+			//创建初始的li
+			createrLi();
+			//初始化滚动条高度
+			var scrollScale = contentWrap.clientHeight / content.offsetHeight;
+			scrollBar.style.height = document.documentElement.clientHeight * scrollScale+'px';
+			
+			function createrLi(){
+				if(start >= arr.length){
+					transformCss(footer,'scale',1);
+					footer.innerHTML = '您可别再划了！';
+					setTimeout(function(){
+						content.style.transition = '0.5s';
+						transformCss(content,'translateY',contentWrap.clientHeight-content.offsetHeight);
+					},1000);
+					return;
+				};
+				end=start+lang;
+				end = end>arr.length?arr.length:end;
+				//动态创建li
+				for (var i = start; i < end; i++) {
+					//创建li
+					var liNode = document.createElement('li');
+					var ismove = false;	
+					//懒加载的关键，给每个对象添加不同的属性值，这样才能在任何地方进行获取
+					liNode.imgSrc=arr[i];
+					//为防止重复创建图片的问题，我们为每一个元素添加一个辨别是否创建国图片的属性
+					liNode.isLoad=false;
+					contentList.appendChild(liNode);
+					//出现大图的逻辑
+					liNode.addEventListener('touchmove',function(){
+						ismove = true;
+					});
+					liNode.addEventListener('touchend',function(){
+						if(!ismove){
+							//变换原点来调整大图出现的位置
+							var left = this.getBoundingClientRect().left;
+							var top = this.getBoundingClientRect().top;
+							bigImg.style.transformOrigin = left + 'px ' + top + 'px';
+							transformCss(bigImg,'scale',1);
+							imgNode.src = this.imgSrc;
+						};
+						ismove = false;
+					});
+				};
+				start=end;
+				//懒加载
+				lazyLode();
+			};
+			
+			//当图片内容区出现在屏幕范围内时才加载
+			//懒加载
+			function lazyLode(){
+				var H = document.documentElement.clientHeight;
+				var headerH = header.offsetHeight;
+				console.log(3);
+				var liNodes = contentList.querySelectorAll('li');
+				for (var i = 0; i < liNodes.length; i++) {
+					//每一个li的位置
+					var liH = liNodes[i].getBoundingClientRect().top; 
+					//判断每一个li的位置
+					if(!liNodes[i].isLoad && liH > headerH && liH < H){
+						//让符合条件的li加载图片
+						imageLode(liNodes[i]);
+						
+					};
+				};
+			};
+			
+			function imageLode(liElm){
+				liElm.isLoad=true;
+				var image=new Image();
+				image.src=liElm.imgSrc;
+				image.onload=function(){
+//					var img = document.querySelectorAll('.wrap .contentWrap .content .contentList li img');
+					image.style.opacity=1;
+				};
+				liElm.append(image);
+			};
+			 
+			
+			var callback={
+				start:function(){
+					//临界值
+					var h = contentWrap.clientHeight - content.offsetHeight;
+					//当前位置
+					var H = transformCss(content,'translateY');
+					//判断当前位置是否大于临界值，若大于则显示加载信息
+					if(Math.abs(H) >= Math.abs(h)-1){
+						isFooter = true;
+					};
+					scrollBar.style.opacity = 1;
+				},
+				move:function(){
+					//当符合条件时，动态出现加载信息，并按比例缩放
+					if(isFooter){
+						//临界值
+						var h = contentWrap.clientHeight - content.offsetHeight;
+						//当前位置
+						var H = transformCss(content,'translateY');
+						//底部缝隙高度
+						var footerH = Math.abs(H) - Math.abs(h);
+						//底部高度
+						var footerHeight = footer.offsetHeight;
+						//缩放比例 = 当期缝隙高度/底部总高度
+						var footerScale = footerH/footerHeight;
+						//比例不能大于1
+						footerScale = footerScale>1?1:footerScale;
+						//动态缩放
+						transformCss(footer,'scale',footerScale);
+					};
+					scrollBar.style.opacity = 1;
+					var scrollScale = contentWrap.clientHeight / content.offsetHeight;
+					var lastY = transformCss(content,'translateY');
+					//移动位置 = -内容区当前位置*比例值
+					transformCss(scrollBar,'translateY',-lastY*scrollScale);
+					//懒加载
+					lazyLode();
+				},
+				endTrue:function(timer){
+					//临界值
+					var h = contentWrap.clientHeight - content.offsetHeight;
+					//当前位置
+					var H = transformCss(content,'translateY');
+					//底部缝隙高度
+					var footerH = Math.abs(H) - Math.abs(h);
+					//底部高度
+					var footerHeight = footer.offsetHeight;
+					//缩放比例 = 当期缝隙高度/底部总高度
+					var footerScale = footerH/footerHeight;
+					//在加载区域完全拉出后再继续加载新图
+					if(isFooter && footerScale >= 1){
+						//取消回弹效果
+						clearInterval(timer);
+						isFooter = false;
+						transformCss(footer,'scale',0);
+						createrLi();
+						var scrollScale = contentWrap.clientHeight / content.offsetHeight;
+						scrollBar.style.height = document.documentElement.clientHeight * scrollScale+'px';
+						scrollBar.style.opacity = 0;
+					};
+				},
+				end:function(){
+					scrollBar.style.opacity = 0;
+				}
+			};
+			//拖拽
+			contentDrag(contentWrap,callback);
+			
+			closeImg.addEventListener('touchend',function(){
+				transformCss(bigImg,'scale',0);
+			});
+		</script>
+	</body>
+</html>

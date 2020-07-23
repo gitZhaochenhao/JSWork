@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="">
+    <input type="text" value="" id="txt" required/>
+    <input type="submit" value="提交" id="sm"/>
+</form>
+<script type="text/javascript">
+    window.onload = function () {
+        //获取文本框
+        var input = document.getElementById("txt");
+        input.addEventListener("invalid", function () {
+            console.log("失败了");
+            console.log(this.validity);//里面有各种验证失败的信息
+        });
+    };
+</script>
+</body>
+</html>

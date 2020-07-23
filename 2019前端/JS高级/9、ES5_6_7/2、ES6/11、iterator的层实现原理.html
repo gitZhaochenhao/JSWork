@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+      let arr = [2,3,4,5,6];
+      let obj = {name:'kode',age:43};
+
+      function iterator() {
+        let index = 0;
+        //谁调用的,保存this
+        let that = this;
+        if(that instanceof Array){
+            return {
+                next(){
+                    //系统底层自从识别value,当done为true 是自动不再向后遍历
+                    return index < that.length ? {value:that[index++],done:false} : {value:that[index++],done:true}
+                }
+            }
+        }else {
+            //将一个对象中的所有键储存在一个数组中，并返回
+            var keys = Object.keys(that);
+            return {
+                next(){
+                    return index < keys.length ? {value:that[keys[index++]],done:false} : {value:that[keys[index++]],done:true}
+                }
+            }
+        }
+
+      };
+
+      //重写Array中的iterator接口,当for..of时会自动调用数组身上的接口
+      Array.prototype[Symbol.iterator] = iterator;
+      //手动给Object身上添加iterator接口
+      Object.prototype[Symbol.iterator] = iterator;
+      for (const i of arr) {
+          console.log(i)
+      };
+      for (const i of obj) {
+          console.log(i)
+      };
+      console.log(arr)
+      console.log(obj)
+
+
+
+    </script>
+</body>
+</html>

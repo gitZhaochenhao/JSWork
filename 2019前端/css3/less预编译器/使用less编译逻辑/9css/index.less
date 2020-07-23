@@ -1,0 +1,15 @@
+// 方法的命名空间
+#card(){
+	background-color: greenyellow;
+	.d(@width:300px){
+		width: @width;
+		#c(@height:200px){
+			width: @width;
+			height: @height;
+		}
+	}
+}
+
+.one{
+	#card > .d > #c(200px);
+}

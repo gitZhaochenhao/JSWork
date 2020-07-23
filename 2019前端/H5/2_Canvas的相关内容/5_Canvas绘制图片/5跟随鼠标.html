@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#img{
+				position: absolute;
+				
+			}
+		</style>
+	</head>
+	<body>
+		<img src="../../../css3/动画/img/load/logo3.png" id="img" width="50" height="50">
+	</body>
+	<script type="text/javascript">
+		var img=document.getElementById('img');
+		
+		document.onmousemove=function(e){
+			var x=e.clientX;
+			var y=e.clientY;
+			img.style.left=x+'px';
+			img.style.top=y+'px';
+		}
+	</script>
+</html>

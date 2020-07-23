@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{
+				width: 200px;
+				height: 200px;
+				background-color:rgba(255,255,255,0.4);
+				margin: 200px auto;
+				position: relative;
+				/* perspective: 300px; */
+				transform-style: preserve-3d;
+				transform: rotateX(0deg) rotateY(0deg);
+			}
+			.wrap div{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				text-align: center;
+				line-height: 200px;
+			}
+			.wrap div:nth-child(1){
+				background-color: rgba(255,0,0,0.4);
+			}
+			.wrap div:nth-child(2){
+				background-color: rgba(255,255,0,0.4);
+				top: -200px;
+				transform-origin:bottom; 
+				transform: rotateX(90deg);
+			}
+			.wrap div:nth-child(3){
+				background-color: rgba(0,255,0,0.4);
+				left: 200px;
+				transform-origin:left;
+				transform: rotateY(90deg);
+			}
+			.wrap div:nth-child(4){
+				background-color: rgba(255,0,255,0.4);
+				top: 200px;
+				transform-origin:top;
+				transform: rotateX(-90deg);
+			}
+			.wrap div:nth-child(5){
+				background-color: rgba(0,255,255,0.4);
+				left: -200px;
+				transform-origin:right;
+				transform: rotateY(-90deg);
+			}
+			.wrap div:nth-child(6){
+				background-color: rgba(0,0,255,0.4);
+				transform: translateZ(-200px) rotateY(180deg);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrap" id="warp">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+			<div>5</div>
+			<div>6</div>
+		</div>
+		
+		<script type="text/javascript">
+			var warp=document.getElementById('warp');
+			var num=0;
+			setInterval(function(){
+				num++;
+				warp.style.transform='rotateX('+num+'deg) '+'rotateY('+num+'deg)'
+			},30)
+		</script>
+	</body>
+</html>

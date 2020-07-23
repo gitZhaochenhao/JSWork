@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<video id="v" width="0" height="0"  src="3_音频标签与视频标签/0fb1d3ab17e448cba44f0bb3faf8b95f.mp4" autoplay="autoplay" controls="controls" ></video>
+		<canvas  id="canvas" width="200" height="200"></canvas>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				var canvas=document.querySelector('#canvas');
+				var video=document.querySelector('#v');
+				
+				if(!canvas.getContext)return;
+				var ctx=canvas.getContext('2d');
+				
+				video.addEventListener('loadeddata',function(){
+					setInterval(function(){
+						ctx.drawImage(video,0,0,canvas.width,canvas.height);
+						// console.log(2)
+					},10)
+				});
+			}
+			
+			
+		</script>
+	</body>
+</html>

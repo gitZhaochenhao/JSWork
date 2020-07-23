@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            overflow: hidden;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background-color: #222;
+        }
+        .reveal{
+            position: relative;
+            display: flex;
+            color: #6ee1f5;
+            font-size: 2em;
+            letter-spacing: 3px;
+            white-space: pre;
+        }
+        .reveal span{
+            opacity: 0;
+            transform: scale(0);
+            animation: fadeIn 1.3s forwards;
+        }
+        .reveal::before,.reveal::after{
+            position: absolute;
+            content: '';
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            height: 100%;
+            background: white;
+            opacity: 0;
+            transform: scale(0);
+        }
+        .reveal::before{
+            left: 50%;
+            animation: slideLeft 1.5s cubic-bezier(0.7,-0.6,0.3,1.5) forwards;
+        }
+        .reveal::after{
+            right: 50%;
+            animation: slideRight 1.5s cubic-bezier(0.7,-0.6,0.3,1.5) forwards;
+        }
+        @keyframes fadeIn {
+            to{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes slideLeft {
+            to{
+                left: -6%;
+                opacity: 1;
+                transform: scale(0.9);
+            }
+        }
+        @keyframes slideRight {
+            to{
+                right: -6%;
+                opacity: 1;
+                transform: scale(0.9);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">sword art online Hello What You Name</div>
+    <script type="text/javascript">
+      let duration = 0.8;
+      let delay = 0.3;
+      let revealText = document.querySelector('.reveal');
+      //将每一个字母都为一个值，存放到数组中
+      let letters = revealText.textContent.split('');
+      //将当下页面字符清除，用后续效果替代
+      revealText.textContent = '';
+      //获取数组一半长度
+      let middle = letters.filter(e => e !== '').length/2;
+      // alert(middle);
+      //遍历数组
+      letters.forEach((item,index) => {
+          //创建span节点
+          let span = document.createElement('span');
+          //给每个span节点添加内容，从储存字母的数组中取出
+          span.textContent = item;
+          //设置每个字母出现的延迟时间       基础延迟时长+(下标-数组一半长度的绝对值)*0.01  延长时间由中间向两侧递减  因为Math.abs(index - middle)是固定值
+          span.style.animationDelay = `${delay + Math.abs(index - middle) * 0.01}s`;
+          revealText.appendChild(span);
+      })  ;
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02_常见的闭包</title>
+
+</head>
+<body>
+<!--
+1. 将函数作为另一个函数的返回值
+2. 将函数作为实参传递给另一个函数调用
+-->
+<script type="text/javascript">
+  alert('xxx')
+  console.log('执行了。。。。');
+  function fun(msg, time) {
+    setTimeout(function () {
+      console.log(msg);
+    }, time)
+    console.log('fun函数的最后一行代码');
+  }
+  fun('传入的数据', 2000)
+</script>
+</body>
+</html>

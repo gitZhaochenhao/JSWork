@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="btn">设置</button>
+		<div id="box01"></div>
+		
+		<script type="text/javascript">
+			var arr=["三国志","金瓶梅","射雕英雄传","神雕侠侣","六指琴魔","喜天游"]
+			var btn = document.getElementById('btn');
+			var box01 = document.getElementById('box01');
+			var str='<ul id="list">';
+			
+			// 我们可以通过innerhtml的方式添加节点
+			btn.onclick=function(){
+				for (var i = 0; i < arr.length; i++) {
+					str+='<li>'+arr[i]+'</li>'
+				};
+				str+='</ul>';
+				box01.innerHTML=str;
+				
+				var list=document.getElementById("list")
+				var li=list.children;//提取内部子元素以列表形式储存[li,li,li,li,li]
+				for (var i = 0; i < li.length; i++) {		
+					if(i % 2 == 0){
+						li[i].style.backgroundColor="red";
+						li[i].onmouseover=function(){
+							this.style.backgroundColor="blue"
+						}
+					}
+					else{
+						li[i].style.backgroundColor="green"
+					}
+				}
+			};
+			
+		</script>
+	</body>
+</html>

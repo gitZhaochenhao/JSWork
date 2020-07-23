@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 130px;
+				height: 130px;
+				background-color: #008000;
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				margin: auto;
+				background-image: url(img/bike.png);
+				overflow: hidden;
+				/* 整个动画时长为0.5秒  关键帧之间进过32次等额跳转  动画一直循环 */
+				animation: rabbit 0.5s steps(32) infinite;
+			}
+			@keyframes rabbit{
+				from{background-position: 0px 0px;}
+				to{background-position:0px -4160px ;}
+			}
+		</style>
+	</head>
+	<body>
+		<div ></div>
+	</body>
+</html>

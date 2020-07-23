@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #0000ED;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	
+	<script type="text/javascript">
+		var canvas=document.getElementById('canvas');
+		// if(!canvas.getContext) return;
+		
+		var ctx=canvas.getContext('2d');
+		
+		// 获取某区域的所有像素点信息
+		// 下面的代码通过 getImageData() 复制画布上指定矩形的像素数据，然后通过 putImageData() 将图像数据放回画布：
+		var imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+		// 我们的小像素点时从0开始     (255,0,0,155)(45,234,66,255)  这是1-7个小点，因此通过i*4我们可以得到每一个像素中第一个小点
+		// 可以获取我们要获得的区域的宽高尺寸与构成像素点的像素小点数量(r-g-b-a)
+		console.log(imageData);
+		console.log(imageData.data);//所有像素小点
+		console.log(imageData.height);
+		console.log(imageData.width);
+		
+		// 对所有像素点的r-g-b-a的值进行设置
+		for (var i = 0; i < imageData.data.length; i++) {
+			imageData.data[i*4]=255;
+			imageData.data[i*4+1]=0;
+			imageData.data[i*4+2]=0;
+			imageData.data[i*4+3]=255;
+		}
+		
+		// 对获取了像素点信息的区域进行设置，起始点位置
+		ctx.putImageData(imageData,0,0)
+		
+	</script>
+	
+	
+	/*
+	每一个像素都是由四个小色彩点构成的r-g-b-a 他们都储存在data中序列号从0开始计算，序列号0-3构成一个完整的像素。。。。以此类推
+	因此，4的倍数便是每一个像素的第一个小色彩点
+	*/
+</html>
+

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid #0000ED;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+	
+	<script type="text/javascript">
+		var canvas=document.getElementById('canvas');
+		// if(!canvas.getContext) return;
+		
+		var ctx=canvas.getContext('2d');
+		
+		ctx.save();
+		ctx.beginPath();
+		ctx.fillStyle='greenyellow';
+		ctx.fillRect(100,100,100,100);
+		ctx.restore();
+		
+		// 获取某区域的所有像素点信息
+		var imageData=ctx.getImageData(0,0,canvas.width,canvas.height);
+		// 这个坐标的颜色小点
+		var color=getColor(imageData,150,150,[0,0,255,255]);
+		
+		
+		function getColor(img,x,y,color){
+			img.data[(y*canvas.width+x)*4]=color[0];
+			img.data[(y*canvas.width+x)*4+1]=color[1];
+			img.data[(y*canvas.width+x)*4+2]=color[2];
+			img.data[(y*canvas.width+x)*4+3]=color[3];
+		};
+		
+		ctx.putImageData(imageData,0,0);
+		
+	</script>
+</html>

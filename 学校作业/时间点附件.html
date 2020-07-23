@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        ul{
+            list-style: none;
+        }
+        li{
+            margin-top: 2px;
+            width: 500px;
+            height: 100px;
+            border: 2px solid #A52A2A;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ul id="timeList">
+        <li id="day">
+        </li>
+        <li id="week">
+        </li>
+        <li id="time">
+        </li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+        var Times = document.getElementById('Times')
+        var time = new Date();
+        var Year = time.getFullYear();
+        var Moth = time.getMonth()+1;
+        var Day = time.getDay()-2;
+        var Week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'];
+        var H = time.getHours();
+        var M = time.getMinutes();
+        var S = time.getSeconds();
+        var nowTime = document.getElementById('time');
+        var nowWeek = document.getElementById('week');
+        var nowDay = document.getElementById('day');
+        nowTime.innerText ='当前时间:' + H+':'+M+':'+S;
+        nowDay.innerText ='当前日期:'+ Year+'-'+Moth+'-'+Day;
+        nowWeek.innerText ='当前工作日:'+ Week[time.getDay()];
+        setInterval(function(){
+            var time = new Date();
+            var H = time.getHours();
+            var M = time.getMinutes();
+            var S = time.getSeconds();
+            if(S<10){
+                S='0'+S
+            };
+            nowTime.innerText ='当前时间:' + H+':'+M+':'+S;
+            nowDay.innerText ='当前日期:'+ Year+'-'+Moth+'-'+Day;
+            nowWeek.innerText ='当前工作日:'+ Week[time.getDay()];
+        },1000);
+        if(S<10){
+            S=0+S
+        };
+
+
+
+</script>
+</body>
+</html>

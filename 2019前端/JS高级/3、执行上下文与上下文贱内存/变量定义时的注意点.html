@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+      var a = 'aaa';
+      console.log(b);//undefind
+      var b = 'bbb';
+      var c = 'ccc';
+      console.log(b,c);//bbb   ccc
+
+        function fun() {
+            var b = '函数b';
+            //当我们定义变量时，尽管不前缀 var 程序也不会报错，但是，不前缀 var 的变量不管在全局还是在局部的函数中定义，都会提升为全局变量,因此会出现覆盖全局变量的情况
+            c = '函数c';
+        };
+        fun();
+        console.log(b,c);
+
+        //请务必不要将变量名定义为name，因为在window中有一个name属性，会产生覆盖
+        console.log(name);
+        //函数自带name属性，属性值为函数名
+        console.log(fun.name)
+
+    </script>
+</body>
+</html>

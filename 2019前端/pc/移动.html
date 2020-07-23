@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#canvas{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				border: 1px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="400" height="400" id="canvas"></canvas>
+		
+		<script>
+			var canvas=document.querySelector('#canvas');
+			var ctx=canvas.getContext('2d');
+			
+			var arr=[];
+			
+			setInterval(function(){
+				var obj={};
+				obj.r=Math.random()*10+5;
+				obj.X=Math.random()*canvas.width;
+				obj.Y=canvas.width-obj.r;
+				obj.red=255*Math.random();
+				obj.green=255*Math.random();
+				obj.blue=255*Math.random();
+				obj.a=Math.random();
+				obj.deg=0;
+				
+				arr.push(obj);
+			},16);
+			
+			setInterval(function(){
+				ctx.clearRect(0,0,canvas.width,canvas.height);
+				for (var i = 0; i < arr.length; i++) {
+					var obj=arr[i];
+					obj.deg++;
+					obj.X+=Math.sin(obj.deg)*20;
+					obj.Y-=10;
+					
+					ctx.beginPath();
+					ctx.arc(obj.X,obj.Y,obj.r,0,2*Math.PI);
+					ctx.fillStyle='rgba('+obj.red+','+obj.green+','+obj.blue+','+obj.a+')';
+					ctx.fill();
+				};
+			},100);
+		</script>
+	</body>
+</html>

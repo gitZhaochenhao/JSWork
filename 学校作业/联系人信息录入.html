@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #table{
+            margin: 200px auto;
+            border: 1px solid #000;
+            border-spacing: 0px;
+            /* 一像素边框 */
+            border-collapse: collapse ;
+            border-radius: 10px;
+        }
+        #table tr td,th{
+            width: 120px;
+            height: 50px;
+            text-align: center;
+        }
+        #table tr th{
+            background-color: #add8e6;
+        }
+        #table #tbody tr:nth-child(2n){
+            background-color: #F1F3F3F3;
+        }
+        #table #tbody tr td{
+            height: 30px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #table #tbody tr td:last-child{
+            cursor: pointer;
+        }
+        #table #tbody tr td:last-child:hover{
+            background-color: lightsteelblue;
+            box-shadow: 1px 1px 5px -1px #4e6ef2 inset;
+        }
+        #addBtn{
+            position: absolute;
+            left: 50%;
+            top: 150px;
+            transform: translateX(-50%);
+            width: 150px;
+            font-size: 17px;
+            font-weight: bold;
+            height: 40px;
+            outline: none;
+            background-color: cadetblue;
+            border-radius: 5px;
+            border: 1px solid #555555;
+            cursor: pointer;
+        }
+        #addPage{
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            width: 800px;
+            height: 500px;
+            border: 1px solid lightblue;
+            border-radius: 10px;
+            background-color: whitesmoke;
+            z-index: 2;
+            display: none;
+        }
+        #addPage h1{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #addPage .content{
+            position: relative;
+            width: 100%;
+            background-color: white;
+            margin-top: 50px;
+            padding: 30px 0 30px 30px;
+            box-sizing: border-box;
+            height: 400px;
+        }
+        #addPage .content div{
+            margin-top: 30px;
+        }
+        #addPage .content div:first-child{
+            margin: 0;
+        }
+        #addPage .content div input[type='text']{
+            width: 650px;
+            height: 30px;
+            border: 1px solid cornflowerblue;
+            box-shadow: 0px 0px 12px -10px cornflowerblue inset;
+            border-radius: 10px;
+            outline: none;
+            padding-left: 10px;
+        }
+        #addPage .content #Ok{
+            position: absolute;
+            left: 50%;
+            top: 80%;
+            cursor: pointer;
+            transform: translate(-50%,-50%);
+            width: 100px;
+            height: 30px;
+            outline: none;
+            background-color: cornflowerblue;
+            border-radius: 5px;
+            border: 1px solid #555555;
+        }
+        .cover{
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+    <button id="addBtn">点击添加成员信息</button>
+    <table id="table">
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>性别</th>
+            <th>邮件地址</th>
+            <th>删除信息</th>
+        </tr>
+        <tbody id="tbody">
+            <tr>
+                <td>张三</td>
+                <td>20</td>
+                <td>男</td>
+                <td>234234@qq.com</td>
+                <td class="del">移除</td>
+            </tr>
+            <tr>
+                <td>李思</td>
+                <td>19</td>
+                <td>女</td>
+                <td>11122@qq.com</td>
+                <td class="del">移除</td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="addPage">
+        <h1>成员信息录入</h1>
+        <div class="content">
+            <div class="one">
+                <label>姓名:</label>
+                <input type="text" class="name" placeholder="请输入姓名"><br>
+            </div>
+            <div class="tow">
+                <label>年龄:</label>
+                <input type="text" class="age" placeholder="请输入年龄"><br>
+            </div>
+            <div class="three">
+                <label>性别:</label>
+                <input type="radio" class="sex" name="sex" value="男">男
+                <input type="radio" class="sex" name="sex" value="女">女<br>
+            </div>
+            <div class="fire">
+                <label>邮件:</label>
+                <input type="text" class="idMag" placeholder="请输入邮件地址" required="required"/>
+            </div>
+            <input type="submit" id="Ok" value="添加信息">
+        </div>
+    </div>
+    <div class="cover"></div>
+    <script type="text/javascript">
+        window.onload = function () {
+            //添加信息按钮
+            var addBtn = document.getElementById('addBtn');
+            var cover = document.querySelector('.cover');
+            var addPage = document.getElementById('addPage');
+            var okBtn = document.getElementById('Ok');
+            var table = document.getElementById('tbody');
+
+            //添加信息按钮事件
+            addBtn.addEventListener('click',function () {
+                cover.style.display = 'block';
+                addPage.style.display = 'block';
+            });
+            okBtn.addEventListener('click',function () {
+                var name = document.querySelector('.name').value;
+                var age = document.querySelector('.age').value;
+                var sex = document.querySelectorAll('.sex');
+                var idMag = document.querySelector('.idMag').value;
+                if(name && age && idMag){
+                    //邮箱正则表达式
+                    var rest =  /^[A-Za-z0-9]+([_\.][A-Za-z0-9]+)*@([A-Za-z0-9\-]+\.)+[A-Za-z]{2,6}$/;
+                    if(!rest.test(idMag)){
+                        alert('您的邮箱格式填写错误');
+                        return
+                    }
+                   function radioTrue(){
+                        for (var i = 0; i < sex.length; i++) {
+                            if(sex[i].checked){
+                                return sex[i].value
+                            };
+                        };
+                    };
+                    sex = radioTrue();
+                    var trNode = document.createElement('tr');
+                    for (var i = 0; i < 5; i++) {
+                        var tdNode = document.createElement('td');
+                        switch (i) {
+                            case 0:
+                                tdNode.innerText = name;
+                                trNode.appendChild(tdNode);
+                                break;
+                            case 1:
+                                tdNode.innerText = age;
+                                trNode.appendChild(tdNode);
+                                break;
+                            case 2:
+                                tdNode.innerText = sex;
+                                trNode.appendChild(tdNode);
+                                break;
+                            case 3:
+                                tdNode.innerText = idMag;
+                                trNode.appendChild(tdNode);
+                                break;
+                            case 4:
+                                tdNode.innerText = '移除';
+                                tdNode.className = 'del';
+                                trNode.appendChild(tdNode);
+                                break;
+                        };
+                    };
+                    table.appendChild(trNode);
+                    cover.style.display = 'none';
+                    addPage.style.display = 'none';
+                    var names = document.querySelector('.name');
+                    var ages = document.querySelector('.age');
+                    var sexs = document.querySelectorAll('.sex');
+                    var idMags = document.querySelector('.idMag');
+                    names.value = '';
+                    idMags.value = '';
+                    ages.value = '';
+                    for (let i = 0; i <sexs.length ; i++) {
+                        sexs[i].checked = false;
+                    }
+                }else {
+                    alert('请填写完整信息')
+                }
+            });
+            cover.addEventListener('click',function () {
+                this.style.display ='none';
+                addPage.style.display ='none';
+                var names = document.querySelector('.name');
+                var ages = document.querySelector('.age');
+                var sexs = document.querySelectorAll('.sex');
+                var idMags = document.querySelector('.idMag');
+                names.value = '';
+                idMags.value = '';
+                ages.value = '';
+            })
+            table.addEventListener('click',function (e) {
+                e = e || window.event;
+                var target = e.target;
+                if(target.className === 'del'){
+                    target.parentElement.remove();
+                };
+            });
+        };
+    </script>
+</body>
+</html>

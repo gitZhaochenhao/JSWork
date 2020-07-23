@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+        ul,
+        li {
+            list-style: none;
+        }
+        img {
+            display: block;
+        }
+        input {
+            outline: none;
+        }
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+        }
+        #wrap{
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #wrap .header,#wrap .maskImg .maskHeader{
+            width: 100%;
+            height: 2rem;
+            text-align: center;
+            line-height: 2rem;
+            background-color: #333;
+            color: #fff;
+            font-family: '宋体';
+            font-size: .8rem;
+        }
+        #wrap .contentWrap{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            top: 2rem;
+            overflow: hidden;
+        }
+        #wrap .contentWrap .content{
+            width: 100%;
+            float: left;
+        }
+        #wrap .contentWrap .content .imgList{
+            position: relative;
+            float: left;
+            width: 100%;
+        }
+        #wrap .contentWrap .content .imgList li{
+            float: left;
+            width: 7rem;
+            height: 7rem;
+            margin: 0.5rem;
+            background-image: url(img/loadingImg.gif);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        #wrap .contentWrap .content .imgList li img{
+            width: 100%;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        #wrap .contentWrap .content .imgList .load{
+            position: absolute;
+            left: 0;
+            bottom: -4rem;
+            width: 100%;
+            height: 4rem;
+            text-align: center;
+            line-height: 4rem;
+            opacity: 0;
+            transform: scale(0);
+        }
+        #wrap .maskImg{
+            position:absolute ;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background-color: darkgrey;
+            transform: scale(0);
+            transition: transform 1s;
+        }
+        #wrap .maskImg .maskHeader a{
+            color: darkgrey;
+            float: right;
+            margin-right: 10px;
+            margin-left: -10px;
+        }
+        #wrap .maskImg .bigImg{
+            width: 15rem;
+            margin: 0 0.5rem;
+            margin: 115px auto 0;
+        }
+        #wrap .maskImg .bigImg img{
+            width: 100%;
+        }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+    <div id="wrap">
+        <header class="header">
+            新三国女将
+        </header>
+        <div class="contentWrap">
+            <div class="content">
+                <ul class="imgList">
+<!--                    <li>-->
+<!--                        <img src="img/1.jpg">-->
+<!--                    </li>-->
+                    <div class="load">
+                        下滑加载更多！
+                    </div>
+                </ul>
+            </div>
+        </div>
+        <div class="maskImg">
+            <header class="maskHeader">
+                大图预览
+                <a href="javasrcipt:;">×</a>
+            </header>
+            <div class="bigImg">
+                <img src="img/1.jpg">
+            </div>
+        </div>
+    </div>
+
+    <script src="js/transform.js"></script>
+    <script src="js/drag.js"></script>
+    <script>
+        !(function () {
+            var width = document.documentElement.clientWidth;
+            var styleNode = document.createElement('style');
+            styleNode.innerHTML = 'html{font-size:'+width/16+'px}';
+            document.head.appendChild(styleNode);
+            document.addEventListener('touchstart',function(event){
+                event.preventDefault();
+            });
+            var aNodes = document.querySelectorAll('a');
+
+            for(var i = 0; i < aNodes.length; i++){
+                aNodes[i].addEventListener('touchstart',function(){
+                    window.location.href = this.href;
+                });
+            };
+        })();
+
+        window.onload = function () {
+
+        var data = [];
+        for (var i = 0; i < 30; i++) {
+            data.push("img/"+(i%18+1)+".jpg");
+        };
+        var contentWrap = document.querySelector('#wrap .contentWrap ');
+        var isLoad = false;
+        var isBack = false;
+        // contentWrap.style.height =  +'px';
+    //初始化加载图片
+        var start = 0;
+        var lang = 12;
+        var end = 0;
+        var bigImg = document.querySelector('#wrap .maskImg');
+        var bigData = document.querySelector('#wrap .maskImg .bigImg img');
+        var bigImgAnodes = document.querySelector('#wrap .maskImg .maskHeader a');
+            bigImgAnodes.addEventListener('touchstart',function () {
+                bigImg.style.transform='scale(0)';
+            })
+        creatLi();
+        function creatLi() {
+        //    初始创建12个li但是只有看见的才懒加载
+            end = start + lang;
+            if(start>data.length){
+                return;
+            };
+            end = end>data.length?data.length:end;
+            for (var i = start; i < end; i++) {
+                var imgList = document.querySelector('#wrap .contentWrap .content .imgList');
+                var liNode = document.createElement('li');
+                liNode.imgSrc = data[i];
+                liNode.isLoad = true;
+                imgList.appendChild(liNode);
+                liNode.addEventListener('touchstart',function () {
+                    var left = this.getBoundingClientRect().left;
+                    var top = this.getBoundingClientRect().top;
+                    bigImg.style.transformOrigin = left+'px '+top+'px';
+                    bigImg.style.transform = 'scale(1)';
+                    bigData.src = this.imgSrc;
+                });
+            };
+            start = end;
+            lazyLoading();
+        };
+
+        function lazyLoading() {
+            var liNodes = document.querySelectorAll('#wrap .contentWrap .content .imgList li');
+            for (var i = 0; i < liNodes.length; i++) {
+                var liHeight = liNodes[i].getBoundingClientRect().top;
+                var docHeight = document.documentElement.clientHeight;
+                var headerHeight = document.querySelector('#wrap .header').offsetHeight;
+                if(liNodes[i].isLoad && liHeight>headerHeight && liHeight<docHeight){
+                    imgLoading(liNodes[i]);
+                };
+            };
+        };
+
+        function imgLoading(li) {
+            var imgNodes = new Image();
+            imgNodes.src = li.imgSrc;
+            li.appendChild(imgNodes);
+            li.isLoad = false;
+            imgNodes.onload = function () {
+                this.style.opacity = 1;
+            };
+        };
+
+        var callback = {
+            start:function () {
+                var contentWrap = document.querySelector('#wrap .contentWrap ');
+                var content = document.querySelector('#wrap .contentWrap .content');
+                var wrapHeight = contentWrap.offsetHeight;
+                var contentHeight = content.offsetHeight;
+                var load = document.querySelector('#wrap .contentWrap .content .imgList .load');
+                var lastY = transformCss(content,'translateY');
+                var targetHeight = wrapHeight - contentHeight;
+                if(lastY<=targetHeight){
+                    load.style.opacity = 1;
+                    isLoad = true;
+                }
+            },
+            move:function () {
+                var contentWrap = document.querySelector('#wrap .contentWrap ');
+                var content = document.querySelector('#wrap .contentWrap .content');
+                var wrapHeight = contentWrap.offsetHeight;
+                var contentHeight = content.offsetHeight;
+                var load = document.querySelector('#wrap .contentWrap .content .imgList .load');
+                var lastY = transformCss(content,'translateY');
+                var targetHeight = wrapHeight - contentHeight;
+                var H = Math.abs(lastY) - Math.abs(targetHeight);
+                var scale = H/load.offsetHeight;
+                scale = scale>1?1:scale;
+                load.style.transform='scale('+scale+')';
+                lazyLoading();
+            },
+            //当出现加载提示信息时
+            endTrue:function(timer){
+                var load = document.querySelector('#wrap .contentWrap .content .imgList .load');
+                if(isLoad){
+                    clearInterval(timer);
+                    creatLi();
+                    isLoad = false;
+                    load.style.opacity=0;
+                };
+            },
+            //正常抬起时
+            end:function () {
+                var contentWrap = document.querySelector('#wrap .contentWrap ');
+                var content = document.querySelector('#wrap .contentWrap .content');
+                var wrapHeight = contentWrap.offsetHeight;
+                var contentHeight = content.offsetHeight;
+                var liNodes = document.querySelectorAll('#wrap .contentWrap .content .imgList li');
+                var load = document.querySelector('#wrap .contentWrap .content .imgList .load');
+                var content = document.querySelector('#wrap .contentWrap .content');
+                var targetHeight = wrapHeight - contentHeight;
+                if(liNodes.length>=data.length){
+                    load.innerHTML='没有更多了！';
+                };
+            }
+        }
+            contentDrag(contentWrap,callback);
+        };
+
+    </script>
+</body>
+</html>

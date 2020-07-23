@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            background-color: #C7EDCC;
+        }
+        canvas{
+            border:2px solid red;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<canvas id="test" width="400" height="300"></canvas>
+<script type="text/javascript">
+
+    window.onload=function () {
+        var canvas=document.querySelector("#test");
+        if(!canvas.getContext)return;
+        var ctx=canvas.getContext("2d");
+        var gradient=ctx.createLinearGradient(0,0,400,300);
+        gradient.addColorStop(0,"red");
+        gradient.addColorStop(.5,"green");
+        gradient.addColorStop(1,"blue");
+        ctx.strokeStyle=gradient;
+        ctx.font="40px sans-serif";
+		
+        ctx.direction="ltr";//ltr左到右,默认inherit
+        ctx.strokeText("谢谢惠顾",200,100);
+
+        ctx.fillStyle="blue";
+        // ctx.fillText("谢谢惠顾",200,100);
+    };
+</script>
+</body>
+</html>

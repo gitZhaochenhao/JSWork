@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05_面试题</title>
+</head>
+<body>
+<script type="text/javascript">
+  /*
+   测试题1: 先预处理函数, 后预处理变量, 如果已经存在就会被忽略
+   */
+  /*
+   测试题2: 变量预处理, in操作符
+   */
+  /*
+   测试题3: 预处理, 顺序执行
+   */
+
+  //在js的预解析中，在var 变量与function变量名相同时，因为底层function的层级高于var所以默认这个变量是函数
+  console.log(typeof a) // function
+  function a() {}
+  var a;
+
+
+  //if并不像function一样有自己的作用域，它的作用域与决于他的位置（在谁里面）
+  // A in B 判断A 是否为B的属性
+  //var b    ----->  window.b
+  if (!(b in window)) {
+    //此时,if在全局作用域中，全局作用域的上下文对象是window,因此也是给window进行属性的添加，window.b
+    var b = 1;
+  }
+  console.log(b)// undefined
+
+  // c = function(){}
+  var c = 1 // c = 1;
+  function c(c) {
+    console.log(c)
+    var c = 3
+  };
+  //此时，var 变量名称与function的名称一样，所以在js预解析中  var c = function(){}
+  //接下来执行代码，a被赋值为1,函数体js引擎忽略，1(2) ----> 报错
+  c(2) //  报错
+</script>
+</body>
+</html>

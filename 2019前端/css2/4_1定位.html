@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 500px;
+				height: 500px;
+				margin: 0 auto;
+				border: 1px solid #000000;
+			}
+			.inner{
+				width: 200px;
+				height: 200px;
+				background-color: #00CCFF;
+				/* 默认定位属性状态 不定位 */
+				/* position: static; */
+				
+				/* 相对定位依据自身位置进行移动 */
+				/* position: relative; */
+				/* 绝对定位     依据包含块进行参照定位
+				包含块：距离该元素层级最近的定位属性不为static的祖先元素
+				当祖先元素中没有使用定位时参照初始包含块来进行参照定位
+				祖先包含块：是浏览器解析页面时代理用户生成的一个与视口（页面）尺寸相等的一个透明矩形，
+							当document滚动条移动时它的位置会改变
+				*/
+				left: 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="inner"></div>
+		</div>
+	</body>
+</html>

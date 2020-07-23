@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+    <style type="text/css">
+        #table th,td{
+            width: 100px;
+            text-align: center;
+            border: 2px solid black;
+            padding: 5px 0px;
+            margin-left: 200px;
+        }
+        #table{
+           margin:100px auto;
+        }
+    </style>
+</head>
+<body>
+<table border="" cellspacing="" cellpadding="" id="table">
+</table>
+
+<script type="text/javascript">
+    window.onload=function(){
+        var data = [
+            ['学号','姓名','HTML成绩','CSS成绩','JAVASCRIPT成绩','总分','平均分'],
+            [1,'Alice',94,92,88,274,91],
+            [2,'Bob',85,75,94,254,84],
+            [3,'Jack',90,80,92,262,87],
+        ];
+
+        var tableNode = document.getElementById('table');
+        for(var row of data){
+            var rowNode = document.createElement('tr');
+            for(var col of row){
+                var colNode = document.createElement('td');
+                colNode.innerText = col;
+                rowNode.appendChild(colNode);
+            }
+            tableNode.appendChild(rowNode);
+        }
+        document.documentElement.appendChild(tableNode);
+    };
+</script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>00_引入</title>
+</head>
+<body>
+
+<button>测试1</button>
+<button>测试2</button>
+<button>测试3</button>
+<!--
+ 需求: 点击某个按钮, 提示"点击的是第n个按钮"
+-->
+<script type="text/javascript">
+  var btns = document.getElementsByTagName('button');
+  var arr = [1,2,3,4]
+  console.log(btns); // 具备数组的一般特征，可以通过下标取值，还有length属性，但是没有数组的一般方法： foreach
+
+  console.log(arr);
+//  for (var i = 0; i < btns.length; i++) {
+//    var btn = btns[i];
+//    btn.index = i;
+//    btn.onclick = function () {
+//      alert(this.index);
+//    }
+//  }
+
+  // 闭包解决的
+  for (var i = 0; i < btns.length; i++) {
+    var btn = btns[i];
+    (function (i) {
+      console.log(i);
+      btn.onclick = function () {
+        alert(i);
+      }
+    })(i)
+
+  }
+
+  var a = 1;
+//  console.log(a++); // 1   a = 2
+//   console.log(++a); // 3 a = 3
+//  console.log(++a); // 4 a = 4
+//  console.log(a++); // 4 a = 5
+//  console.log(a); // 5
+
+</script>
+</body>
+
+</html>

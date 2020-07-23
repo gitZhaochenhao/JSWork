@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 100px;
+				height: 300px;
+				background-color: #0000FF;
+				margin-top: 1000px;
+			}
+			
+			/* 当自身锚点触发时的操作 */
+			div:target{
+				border: 4px solid #000000;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="#name">走你</a>
+		<div id="name"></div>
+	</body>
+</html>

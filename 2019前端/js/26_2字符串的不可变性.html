@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 字符串:可以看成是一个字符串数组,可以通过索引的方式对每个字符进行读取
+			 * 字符串的不可变性: 字符串数据当被赋值之后,就不能再改变了,只能重新再赋值,重新赋值不是在
+			 * 当前内存地址中修改,而是重新开辟了一个块内存,进行存储
+			 */
+			var str01 = '过完节上课好开心呀,么么哒!';
+			console.log(str01.length);
+			console.dir(str01);
+			for(var i = 0;i<str01.length;i++){
+				console.log(str01[i]);
+			}
+			
+//			console.log(str01[0]);
+			str01[5] = '不';
+			console.log(str01);
+			
+			str01= '过完节上课不开心呀,么么哒!';
+			console.log(str01);
+		</script>
+	</body>
+</html>

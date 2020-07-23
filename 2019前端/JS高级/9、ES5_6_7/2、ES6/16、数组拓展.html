@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+1. 二进制与八进制数值表示法: 二进制用0b, 八进制用0o
+2. Number.isFinite(i) : 判断是否是有限大的数
+3. Number.isNaN(i) : 判断是否是NaN
+4. Number.isInteger(i) : 判断是否是整数
+5. Number.parseInt(str) : 将字符串转换为对应的数值
+6. Math.trunc(i) : 直接去除小数部分
+1. Array.from(v) : 将伪数组对象或可遍历对象转换为真数组
+2. Array.of(v1, v2, v3) : 将一系列值转换成数组
+3. Array.prototype.find(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素
+4. findIndex(function(value, index, arr){return true}) : 找出第一个满足条件返回true的元素下标
+-->
+<script type="text/javascript">
+  var arr = [3,4,56,87,55,2,12];
+  var num = 55;
+  var strNum = 'abc44';
+  var strNum1 = '44abc';
+  var strNum2 = 12.33;
+  console.log(Number.isFinite(num));
+  console.log(Number.isNaN(num));
+  console.log(Number.isInteger(num));
+  console.log(Number.parseInt(strNum));//必须是数字开头，要不然直接不执行
+  console.log(Number.parseInt(strNum1));
+  console.log(Math.trunc(strNum2));
+  console.log(Array.of(strNum2,strNum,strNum1));
+  console.log(arr.find((value,index,arr)=>{
+      return value>50
+  }));
+  console.log(arr.findIndex((value,index,arr)=>{
+    return value>50
+  }));
+</script>
+</body>
+</html>

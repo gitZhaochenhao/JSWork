@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: #4e6ef2;
+    }
+    </style>
+</head>
+<body>
+<div class="box"></div>
+<!--浏览器会在每次重绘之前调用此方法，我们可以借助其完成元素的动画-->
+<script type="text/javascript">
+  let i = 0;
+  let id;
+  id = requestAnimationFrame(move);
+  function move() {
+      //该方法使用一个回调函数作为参数（即当前的move函数），在每次浏览器重绘之前调用，而这个回调函数也会被自动传入一个参数，代表每次requestAnimationFrame被调用的时间
+      // Arguments [9785.484, callee: ƒ, Symbol(Symbol.iterator): ƒ]
+      console.log(arguments)
+      i++;
+      document.querySelector('.box').style.transform = `translateX(${i}px)`;
+      id = requestAnimationFrame(move);
+  };
+  setTimeout(()=>{
+      //用来关闭停止requestAnimationFrame，与定时器的操作相仿，但用定时器写动画需要自己设置频率，而此方法频率是根据浏览器重绘频率而定的
+      cancelAnimationFrame(id);
+  },2000)
+</script>
+</body>
+</html>

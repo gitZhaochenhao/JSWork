@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			console.log(sum(fn))//undefined
+			
+			function sum(fn){
+				// fn()代表的是fn的返回值，返回到sum函数的层级，但是sum函数并没有返回值
+				// 因此返回undefined
+				fn();
+			}
+			
+			function fn(){
+				return '你好'
+			}
+			
+		</script>
+	</body>
+</html>

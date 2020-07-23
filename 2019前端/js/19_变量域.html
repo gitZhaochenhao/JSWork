@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			// 在js中consloe.是控制台对象
+			// window是js的最顶级对象
+			
+			// 当声明位置在操作位置以下时，会输出undefined并不会报错，因为，var有着升级的功能，当js读取代码时会先预读，并将所有
+			// 带有var的变量提升至代码最顶部,因此当我们对其进行操作时不会报错（因为预读将其放置最顶）,但变量的值并不会放置最顶
+			// 因此会undefined
+			console.log(a)
+			var a=88
+			
+			function fun(a){
+				// 参数a相当于 var a;
+				
+				// 提升 var b
+				
+				// 在预读函数时也会将函数内部的所有var变量提升至函数顶端
+				console.log(b)//undefined
+				
+				//相当于 b=66
+				var b=66
+				
+				// 在函数中对一个变量进行操作时，会先寻找函数内部带有var的变量，若没有则会去函数外部寻找,因此此处改写了外部的变量
+				a=10//会对参数进行修改
+			}
+			fun()
+			// 函数内部的局部变量外界不可访问
+			alert(a)//88
+			
+			
+			//提升 var sun;
+			sun=7 //赋值 sun=7
+			// 再赋值sun=function.......
+			var sun=function (){
+				alert("哈哈")
+			}
+			sun()
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

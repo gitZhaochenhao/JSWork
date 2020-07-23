@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--viewport:虚拟的窗口,device-width:正常的显示宽-->
+    <!--    width=device-width ：表示宽度是设备屏幕的宽度-->
+    <!--    initial-scale=1.0：表示初始的缩放比例-->
+    <!--    minimum-scale=0.5：表示最小的缩放比例-->
+    <!--    maximum-scale=2.0：表示最大的缩放比例-->
+    <!--    user-scalable=yes：表示用户是否可以调整缩放比例-->
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no"></meta>
+
+    <title></title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        canvas {
+            position: absolute;
+            left: 0;
+            right: 0;
+            /*background-color: pink;*/
+        }
+
+        /*设置wrap和ul 和li 的高*/
+        #wrap, ul, ul > li {
+            height: 100%;
+        }
+
+        /*设置li的背景图片和位置*/
+        ul > li {
+            background: url("img/b.png");
+            background-size: 100% 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrap">
+    <canvas id="test"></canvas>
+    <ul>
+        <li></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+
+    //touchstart事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发。
+    //touchmove事件：当手指在屏幕上滑动的时候连续地触发。在这个事件发生期间，调用preventDefault()事件可以阻止滚动。
+    //touchend事件：当手指从屏幕上离开的时候触发。
+    //touchcancel事件：当系统停止跟踪触摸的时候触发。关于这个事件的确切出发时间，文档中并没有具体说明，咱们只能去猜测了。
+    //changedTouches-----是多个触点的数组,通过事件参数对象获取
+    //页面加载
+    window.onload = function () {
+
+        //把图片绘制到画布上
+        var canvas = document.querySelector("#test");
+        //设置画布全屏
+        canvas.width = document.documentElement.clientWidth;
+        canvas.height = document.documentElement.clientHeight;
+        if (!canvas.getContext) return;
+        var ctx = canvas.getContext("2d");
+        //创建图片对象
+        var image = new Image();
+        //设置路径
+        image.src = "img/a.png";
+        image.onload = function () {
+            ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+            //鼠标按下事件----不是真的鼠标按下,是触碰的事件
+            canvas.addEventListener("touchstart", function (e) {
+                e = e || window.event;
+                //获取某个触点
+                var touchC = e.changedTouches[0];
+                //获取触点的可视区域的横坐标和纵坐标
+                var x = touchC.clientX;
+                var y = touchC.clientY;
+                //设置绘制的样式
+                ctx.lineWidth = 50;
+                ctx.lineJoin = "round";
+                ctx.lineCap = "round";
+				
+				// 只保留新、舊圖形非重疊的舊圖形區域，其餘皆變為透明。我们进行路径的绘制也算是图形，此时我们绘制的路径便是新图，我们绘制的页面图
+				// 便是老图，因此我们路径画过的地方才会变透明（新图老图都变透明露出我们的刮刮乐底图）
+                ctx.globalCompositeOperation = "destination-out";
+                //开始绘制
+                ctx.moveTo(x, y);
+                ctx.lineTo(x + 1, y + 1);
+                ctx.stroke();
+            });
+            //移动
+            canvas.addEventListener("touchmove", function (e) {
+                e = e || window.event;
+                //重新获取一个触碰点
+                var touchC = e.changedTouches[0];
+                var x = touchC.clientX;
+                var y = touchC.clientY;
+                ctx.lineTo(x, y);
+                ctx.stroke();
+
+
+            });
+
+            //鼠标抬起---手指头抬起来
+            canvas.addEventListener("touchend", function () {
+                //获取整个画布的像素数据
+                var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+                //定义一个变量用来记录透明的像素点有多少个
+                var flag = 0;
+                //获取所有的像素点
+                var allPx = imageData.width * imageData.height;
+
+                for(var i=0;i<allPx;i++){
+                    //判断这个小点是不是透明的
+                    if(imageData.data[4*i+3]===0){
+                        flag++;
+                    }
+                }
+                if(flag>allPx/2){
+                    //画布全部透明
+                    canvas.style.opacity=0;
+                    canvas.style.transition="1s";
+                }
+            });
+
+
+            //当画布的过渡的效果结束后,自己把自己删掉
+            canvas.addEventListener("transitionend",function () {
+                this.remove();
+            });
+
+
+
+        };
+
+    };
+</script>
+</body>
+
+</html>

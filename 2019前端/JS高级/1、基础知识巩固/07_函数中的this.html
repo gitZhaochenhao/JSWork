@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>07_函数中的this</title>
+</head>
+<body>
+<!--
+1. this是什么?
+  * 一个关键字, 一个内置的引用变量
+  * 在函数中都可以直接使用this
+  * this代表调用函数的当前对象
+  * 在定义函数时, this还没有确定, 只有在执行时才动态确定(绑定)的
+2. 如何确定this的值?
+  * test()
+  * obj.test()
+  * new test()
+  * test.call(obj)  test.apply(obj)
+前置知识:
+  * 本质上任何函数在执行时都是通过某个对象调用的
+-->
+<script type="text/javascript">
+  /*
+  * this理解：
+  *   1. 关键字，定义变量的时候不能定义this
+  *   2. this本身是一个内置的变量该变量用于指向一个对象
+  *   3. this有两种： 全局this ---> window, 局部(函数)this ---> 调用其的对象， 构造函数this ---> 当前构造函数的实例对象
+  *   4. 特殊this： call，apply强制修改this
+  * 
+  * 
+  * */
+  // var this = 'msg'
+  console.log(this);
+
+  function fun() {
+    console.log(this);
+    this.name = 'kobe';
+    this.age = 40;
+  }
+  var obj = {
+    fun: function () {
+      console.log(this);
+    }
+  }
+//
+//  obj.fun(); // obj
+  // 1. 自调用
+  window.fun(); //this ---> window
+  new fun();  // this ----> 实例对象
+  fun.call(obj); // this ---> obj
+
+  /*
+  * new 操作符   语法：new function();
+  *   1. 创建一个空对象
+  *   2. 执行函数
+  *   3. 确认this的指向： this ---> 创建空对象
+  *   4. 返回执行的结果
+  *
+  * */
+  function Person(name, age) {
+    // 1. 创建空对象 {}
+    this.name = name;
+    this.age = age;
+
+  }
+  var person1 = new Person('KOBE', 41)  // {name:'xxx', age: xxx}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		
+	</head>
+
+	<body>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<!--锚点方式-->
+		<!--<a href="#sheet1">点我</a>-->
+		<div id="sheet1" class="mui-popover mui-popover-bottom mui-popover-action ">
+		    <!-- 可选择菜单 -->
+		    <ul class="mui-table-view">
+		      <li class="mui-table-view-cell">
+		        <a href="#">菜单1</a>
+		      </li>
+		      <li class="mui-table-view-cell">
+		        <a href="#">菜单2</a>
+		      </li>
+		    </ul>
+		    <!-- 取消菜单 -->
+		    <ul class="mui-table-view">
+		      <li class="mui-table-view-cell">
+		        <a href="#sheet1"><b>取消</b></a>
+		      </li>
+		    </ul>
+		</div>
+		<button type="button" id="btn" class="mui-btn mui-btn-blue mui-btn-block">按钮</button>
+		
+	</body>
+	<script type="text/javascript">
+		//mui添加事件两种方式：
+//			1 原生js
+//		var btn = document.getElementById('btn');
+//		btn.addEventListener('tap',function(){
+//			mui('#sheet1').popover('toggle');
+//		});
+		
+		
+		//mui中绑定事件的方法（不能找响应元素，要找父级元素）,找到父级元素后通过父级元素找到内部响应元素添加事件；
+		//这个添加事件的方法可以做隐式迭代
+		//tap事件是mui官方封装好的点击事件
+		mui('body').on('tap','#btn',function(){
+			mui('#sheet1').popover('toggle');
+		})
+		
+	</script>
+
+</html>

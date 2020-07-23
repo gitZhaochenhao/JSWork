@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				text-decoration: none;
+			}
+			#box{
+				width: 300px;
+				height: 170px;
+				margin: 100px auto;
+			}
+			.table th,td{
+				width: 100px;
+				text-align: center;
+				border: 1px solid aliceblue;
+				padding: 5px 0px;
+				
+			}
+			table{
+				border: 1px solid antiquewhite;
+				border-spacing: 0px;
+				/* 一像素边框 */
+				border-collapse: collapse ;
+			}
+			.cover{
+				position: absolute;
+				right: 0px;
+				top: 0px;
+				left: 0px;
+				bottom: 0px;
+				background-color: rgba(0,0,0,0.5);
+				display: none;
+			}
+			.popr{
+				width: 430px;
+				height: 250px;
+				position: absolute;
+				left: 50%;
+				margin-left: -215px;
+				top: 50%;
+				margin-top: -125px;
+				background-color: #fff;
+				display: none;
+				
+			}
+			.x{
+				float: right;
+				background-color:rgba(0,0,0,0);
+				border: 0px;
+				font-size: 20px;
+			}
+			.heard{
+				height: 40px;
+				background-color:#ccc;
+				line-height: 40px;
+				font-weight: bold;
+				text-align: center;
+			}
+			label{
+				margin-left: 15px;
+			}
+			#name,#person{
+				width: 320px;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+			}
+			#ok{
+				/* position: relative;
+				left: 50%;
+				margin-left: -40px; */
+				width: 80px;
+				display: block;
+				margin: 10px auto;
+			}
+			span{
+				display: block;
+				position: absolute;
+				right: 0px;
+				top: 0px;
+				line-height: 20px;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<button id="add">添加影片</button>
+			<table   class="table">
+				<tr bgcolor="#FAEBD7">
+					<th>影片名称</th>
+					<th>主演</th>
+					<th>已看完</th>
+				</tr>
+				<tbody id="tbody">
+					<tr>
+						<td>飞驰人生</td>
+						<td>沈腾</td>
+						<td><a href="#">删除</a></td>
+					</tr>
+					<tr>
+						<td>煎饼侠</td>
+						<td>大鹏</td>
+						<td><a href="#">删除</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+			<div class="cover" id="cover"></div>
+			<div class="popr" id="popr">
+				<div class="heard">
+					添加数据<span>X</span>
+				</div>
+				<br />
+				<label for="name">影片名称</label>
+				<input type="text" id="name" autofocus="autofocus" placeholder="请输入影片名称" autocomplete="off"/>
+				<br />
+				<br />
+				<label for="person">领衔主演</label>
+				<input type="text" id="person"  autocomplete="off"/>
+				<br />
+				<br />
+				<button id="ok">完成</button>
+			</div>
+			
+			
+		<script type="text/javascript">
+			// 添加影片按钮
+			var addbtn=document.getElementById('add');
+			// 遮挡背景
+			var cover=document.getElementById('cover');
+			// 弹框
+			var porp=document.getElementById('popr');
+			// 完成按钮
+			var ok=document.getElementById('ok');
+			// tbody
+			var tbody=document.getElementById('tbody');
+			
+			// 弹框出现
+			addbtn.onclick=function(){
+				cover.style.display='block';
+				porp.style.display='block';
+			};
+			
+			// 完成按钮事件
+			ok.onclick=function(){
+				var nameval=document.getElementById('name').value;
+				var personval=document.getElementById('person').value;
+				if(nameval && personval){
+					// 创建节点
+					var tr=document.createElement('tr');
+					for (var i = 0; i < 3; i++) {
+						var td=document.createElement('td');
+						if(i==0){
+							td.innerText=nameval;
+						}else if(i==1){
+							td.innerText=personval;
+						}else{
+							td.innerHTML='<a href="#">删除</a>';
+						}
+						tr.appendChild(td);
+					};
+					tbody.appendChild(tr);
+					cover.style.display='none';
+					porp.style.display='none';
+				}else{
+					alert('请输入')
+				};
+			};
+			
+			// 事件委托
+			tbody.onclick=function(e){
+				if(e.target.nodeName=='A'){
+					tbody.removeChild(e.target.parentElement.parentElement)
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

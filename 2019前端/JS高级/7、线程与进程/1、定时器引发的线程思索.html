@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+      //定时器都是异步的，当程序检测到定时器时会将其托管给一个定时器模块进行运行，并不在主线程上进行运行
+      var time = Date.now();
+        setTimeout(function () {
+            var times = Date.now();
+            console.log(times-time);
+        },2000);
+      //  当我们在定时器的后方设置一个计算量非常大的代码块时，定时器的回调函数执行条件会失效，因为，这个代码块是主进程上的，只有当主进程上的程序全部执行完后才会执行子线程          托管的程序
+      for (var i = 0; i < 100000; i++) {
+          console.log(i)
+      }
+    </script>
+</body>
+</html>

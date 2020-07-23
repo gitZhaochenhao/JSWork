@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+      //当我们要多次定义实例对象并且有方法或属性时固定的情况时我们可以将这个属性或方法定义在原型当中，以节省内存空间
+        function Person(name,age) {
+            this.anme = name;
+            this.age = age;
+        };
+        Person.prototype.play = function () {
+            console.log('这里是原型');
+        };
+        var person1 = new Person('小明',45);
+        var person2 = new Person('小花',33);
+        console.log(person1);
+        person1.play();
+      // 1.内存地址一样，证明并非重复创建而是共用；
+      // 2. 每一个实例对象身上都有一个属性__proto__，该属性指向当前实例对象的原型对象(隐式原型对象)
+      // 3. 构造函数的显示原型对象 === 当前构造函数实例对象的隐式原型对象
+      console.log(Person.prototype.play === person1.__proto__.play);
+    </script>
+</body>
+</html>

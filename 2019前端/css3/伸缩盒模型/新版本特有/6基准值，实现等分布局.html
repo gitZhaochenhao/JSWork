@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #wrap{
+            height: 200px;
+            border-bottom: 5px solid green;
+            /*display: -webkit-box;*/
+            display: flex;
+           
+        }
+		/* 
+		 实现等分布局的方法：
+		 flex-grow: ;与flex-basis: 0;结合
+		 flex-grow: ;与width: 0;结合
+		 flex: 1;
+		 */
+        .box{
+			/* flex-grow:的工作原理是：将富裕空间分为若干份并进行分配给相应的项目 */
+			/* 此时，我们将富裕空间分为了等额的三份，分给三个项目，但由于项目1的自身宽度本来就宽所以其宽度在富裕空间分配之后更加宽 */
+           /* flex-grow: 1; */
+		   /* 基准值 为0时表示抹除项目自身宽度，每个项目的宽度按照富裕空间分配的设置 */
+		   /* flex-basis: 0; */
+		   /* 将每个项目的宽设置为0  与flex-basis: 0;原理相同 */
+		   /* width: 0px; */
+		   
+		   /*flex是一个简写属性
+		       flex-basis: auto;
+		       flex-shrink: 1;
+		       flex-grow: 0;
+		   */
+		   flex: 1;
+		   /*
+		       flex-basis: 0;
+		       flex-shrink: 1;
+		       flex-grow: 1;
+		   */
+			
+        }
+        .box1{
+            background: deeppink;
+           
+        }
+        .box2{
+            background: yellowgreen;
+           
+        }
+        .box3{
+            background: greenyellow;
+           
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="wrap">
+    <div class="box box1">1222222222222222222</div>
+    <div class="box box2">2</div>
+    <div class="box box3">3</div>
+
+</div>
+
+</body>
+<script type="text/javascript">
+    window.onload = function () {
+        var box = document.getElementById('box');
+
+
+    }
+</script>
+</html>

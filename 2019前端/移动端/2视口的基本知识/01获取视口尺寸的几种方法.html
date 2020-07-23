@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			window.onload=function(){
+				//最干净的视口尺寸，不包括菜单栏与滚动条尺寸,             是最常用的
+				console.log(document.documentElement.clientWidth);
+				//包括滚动条尺寸
+				console.log(window.innerWidth);
+				//包括滚动条尺寸与窗口边框				
+				console.log(window.outerWidth);
+				//始终都是屏幕的大小
+				console.log(screen.width);
+			};
+		</script>
+	</body>
+</html>

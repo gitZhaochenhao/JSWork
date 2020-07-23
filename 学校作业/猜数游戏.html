@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				outline: none;
+			}
+			
+			.box{
+				width: 500px;
+				height: 300px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				margin: auto;
+				box-shadow: 0px 0px 30px -6px #ccc inset;
+				border-radius: 20px;
+			}
+			
+			input{
+				position: absolute;
+				left: 50%;
+				top: 100px;
+				transform: translateX(-50%);
+				width: 300px;
+				height: 30px;
+				border-radius: 5px;
+				border: 1px solid #CCCCCC;
+			}
+			#btn1{
+				position: absolute;
+				left: 80px;
+				bottom: 100px;
+				width: 100px;
+				height: 30px;
+				background-color: cadetblue;
+				border: 1px solid #5F9EA0;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			#btn2{
+				position: absolute;
+				right: 80px;
+				bottom: 100px;
+				width: 100px;
+				height: 30px;
+				background-color: #A52A2A;
+				border: 1px solid #5F9EA0;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" placeholder="请输入你要猜测的数字,0-100之间"  id="inp"/>
+			<button id='btn1'>生成随机数</button>
+			<button id='btn2'>确定</button>
+		</div>
+		
+		<script>
+			var inp=document.getElementById('inp');
+			var btn1=document.getElementById('btn1');
+			var btn2=document.getElementById('btn2');
+			var num=0;
+			var isNum=false;
+			var value=0;
+			
+			btn1.addEventListener('click',function(){
+				// 生成一个随机数
+				num=Math.ceil(Math.random()*100);
+				console.log(num);
+				isNum=true;
+			});
+			
+			btn2.addEventListener('click',function(){
+				if(isNum){
+					// console.log(inp.value);
+					value++;
+					if(inp.value){
+						if(inp.value!=num){
+							out=inp.value>num?'猜大了，尝试小一点的数吧':'猜小了，尝试大一点的数吧';
+							alert(out);
+							inp.value='';
+						}else if(inp.value==num){
+							alert('恭喜，猜对了,共猜了'+value+'次');
+							num=Math.ceil(Math.random()*100);
+							isNum=false;
+							inp.value='';
+						}
+						}else{
+							alert('请输入值')
+						};
+					}else{
+						alert('请先生成随机数，并输入值')
+					}
+				});
+			
+			
+		</script>
+	</body>
+</html>

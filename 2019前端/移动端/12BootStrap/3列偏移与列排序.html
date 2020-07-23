@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" >
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+	<style type="text/css">
+		.row{
+			background-color: red;
+			/* width: 200px; */
+			height: 20px;
+		}
+		.color1{
+			background-color: #0000ED;
+		}
+		.color2{
+			background-color: #007788;
+		}
+		.color3{
+			background-color: #00A4E4;
+		}
+	</style>
+  </head>
+  <body>
+	  <!-- container是自己设定尺寸的响应式盒子 
+			container-fixed流体响应式盒子，width:100%
+	  -->
+	  <div class="container">
+		  <div class="row">
+			  <!-- col-lg-offset-2 列偏移，相当于做了一个外边距的移动 -->
+				<div class="col-lg-3 color1 col-lg-offset-2">col-lg-4 color1 col-lg-offset-2</div>
+				<div class="col-lg-3 color2 col-lg-offset-2">col-lg-3 color2 col-lg-offset-2 </div>
+		  </div>
+		  <br />
+		  <br />
+		  <br />
+			<div class="row">
+						  <!-- col-lg-pull-9 列排序，相当于做了一个外边距的移动 
+						  push为左外边距
+						  pull为右外边距
+						  -->
+				<div class="col-lg-8 color1 col-lg-push-2">col-lg-4 color1 col-lg-offset-2</div>
+<!--				<div class="col-lg-3 color2 col-lg-pull-9">col-lg-3 color2 col-lg-offset-2 </div>-->
+			</div>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+  </body>
+</html>

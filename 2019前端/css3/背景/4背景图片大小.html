@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 500px;
+            height: 400px;
+            background-color: rgba(255, 0, 0, 0.3);
+
+            background-image: url(../../js/bitbug_favicon.ico);
+			background-repeat: no-repeat;
+            /*
+                 background-size:宽度  高度;
+                 background-size:宽度;    auto  自动去适配背景图片的宽高比
+            */
+            /* background-size: 100px; */
+            /*元素自身的宽高*/
+            /* background-size: 50% 50%; */
+            /* background-size: 250px 250px; */
+			
+			/* 按最远变距离进行缩放 */
+			/* background-size: cover; */
+			/* 按最近变距离进行缩放 */
+			background-size: contain;
+        }
+        /*
+            参照自身百分比
+            transform:translate(-50%,-50%);
+            border-radius:50%;
+            background-size
+        */
+    </style>
+</head>
+<body>
+<div id="box"></div>
+</body>
+
+</html>

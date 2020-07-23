@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			.a{
+				width: 200px;
+				height: 200px;
+				/* 背景图片默认存在于border-box,padding-box,content-box中 */
+				border: 50px solid rgba(0,0,0,0.3);
+				padding: 50px;
+				background-image: url(../../js/bitbug_favicon.ico);
+				background-repeat: no-repeat;
+				/* 默认在border-box左上角 */
+				background-origin: border-box;
+				/* 设置在padding-box左上角 */
+				background-origin: padding-box;
+				/* 设置在content-box左上角 */
+				background-origin: content-box;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="a">box</div>
+	</body>
+</html>

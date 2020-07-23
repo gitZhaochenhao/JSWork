@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				
+				/* 不给盒子设置宽或高，这样这个盒子即在页面中显现不出
+					因为我们只不过是需要阴影，阴影不占位置，我们可以通过调整盒子的位置来移动阴影
+					一般用定位，因为此时的盒子有宽或高也会影响位置
+				 */
+				position: absolute;
+				left: 100px;
+				top: 400px;
+				box-shadow: 0px 0px 20px 20px #0066CC;
+			}
+		</style>
+	</head>
+	<body>
+		<div ></div>
+	</body>
+</html>

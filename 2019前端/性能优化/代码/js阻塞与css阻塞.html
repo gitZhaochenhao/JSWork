@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            background-color: #555555;
+        }
+    </style>
+    <!--defer的作用就是，让js文件在页面解析完后立即执行-->
+    <script defer type="text/javascript">console.log(document.querySelector('.box'))</script>
+</head>
+<body>
+<img src="img/about1.jpg">
+<!--可以发现，当我们打开页面时，
+DOM阻塞：上方的加载图标一直在加载，并且，html中的图片并没有加载出来，证明了js阻塞中的DOM阻塞存在，当js解析完后，在进行了html的加载
+1.阻塞DOM解析:页面解析 => js什么时候执行完，页面什么时候进行解析
+    	原因：浏览器不知道后续脚本的内容，如果先去解析了下面的DOM，而随后的js删除了后面所有的DOM，
+          那么浏览器就做了无用功，浏览器无法预估脚本里面具体做了什么操作，例如像document.write
+          这种操作，索性全部停住，等脚本执行完了，浏览器再继续向下解析DOM。
+2.阻塞页面渲染: => js什么时候执行完，页面什么时候进行渲染，可视化
+    	原因：js中也可以给DOM设置样式，浏览器同样等该脚本执行完毕，再继续干活，避免做无用功。
+3.阻塞后续js的执行:
+    原因：维护依赖关系，例如：必须先引入jQuery再引入bootstrap
+    前面的js必须完全执行完，才能执行后面的js
+-->
+
+<!--
+link引入的css阻塞页面的渲染，但不阻塞页面的解析
+-->
+<script type="text/javascript">
+  var arr= [];
+  for (let i = 0; i < 100000000 ; i++) {
+      arr.push(i)
+  }
+</script>
+
+<div class="box"></div>
+
+</body>
+</html>
